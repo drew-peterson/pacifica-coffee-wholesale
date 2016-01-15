@@ -1,0 +1,25 @@
+{
+  "name": "fashionista",
+  "authors": [
+    "weeznog <drew.m.peterson@gmail.com>"
+  ],
+  "description": "informational web page",
+  "main": "server.js",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "components-font-awesome": "~4.5.0",
+    "angular": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "angular-animate": "~1.4.8",
+    "jquery": "~2.2.0"
+  }
+}

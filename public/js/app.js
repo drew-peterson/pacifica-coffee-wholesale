@@ -1,0 +1,1 @@
+angular.module('fasionistaApp', ['ui.router', 'ngAnimate', 'MainCtrl'])
