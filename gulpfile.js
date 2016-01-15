@@ -10,27 +10,27 @@ var gulp   = require('gulp'),
     livereload = require('gulp-livereload'), // auto reload web site
     autoprefixer = require('gulp-autoprefixer'); // auto prefixer
 
-gulp.task("concatScripts",function(){
-  // grab all src methods
-  return gulp.src([ // important add to first line of all
-    'public/**/*.js'
-    ]) // these are the files i want to concat in order, because stick relies on jquery
-  .pipe(maps.init()) // create a map file for javascript
-  .pipe(concat("app.js")) // pipe in the information into contact which does the magic and give it a file name
-  .pipe(maps.write('./'))
-  .pipe(gulp.dest('js')) // gulp will save save in the specified folder
-  .pipe(livereload());
-});
+// gulp.task("concatScripts",function(){
+//   // grab all src methods
+//   return gulp.src([ // important add to first line of all
+//     'public/**/*.js'
+//     ]) // these are the files i want to concat in order, because stick relies on jquery
+//   .pipe(maps.init()) // create a map file for javascript
+//   .pipe(concat("app.js")) // pipe in the information into contact which does the magic and give it a file name
+//   .pipe(maps.write('./'))
+//   .pipe(gulp.dest('js')) // gulp will save save in the specified folder
+//   .pipe(livereload());
+// });
 
-gulp.task('minifyScripts', ['concatScripts'],function(){ // adding [] says run this after what ever is in []] the return is important, because its a promise so it know to run after its complete
-  return gulp.src('js/app.js') // use the app.js which was concated, we will run these in order later...
-  .pipe(uglify()) // minify the information
-  .pipe(rename('app.min.js')) // use rename module to rename the app so you have 2 files 1 min 1 standard
-  .pipe(gulp.dest('js')) // write back to js file
-})
+// gulp.task('minifyScripts', ['concatScripts'],function(){ // adding [] says run this after what ever is in []] the return is important, because its a promise so it know to run after its complete
+//   return gulp.src('js/app.js') // use the app.js which was concated, we will run these in order later...
+//   .pipe(uglify()) // minify the information
+//   .pipe(rename('app.min.js')) // use rename module to rename the app so you have 2 files 1 min 1 standard
+//   .pipe(gulp.dest('js')) // write back to js file
+// })
 
 gulp.task('compileSass',function(){
-  return gulp.src('scss/application.scss') // only 1 file because that file is imported the import file from each scss folder
+  return gulp.src('public/scss/application.scss') // only 1 file because that file is imported the import file from each scss folder
   .pipe(maps.init()) //create the map
   .pipe(sass()) // compile in css
   .pipe(autoprefixer({
@@ -38,7 +38,7 @@ gulp.task('compileSass',function(){
       cascade: false
     }))
   .pipe(maps.write('./')) // puts the map file at the same level ./ as teh dest('css')
-  .pipe(gulp.dest('css')) // because the scss file is called application it will become aplication.css if the 'css' folder doesnt exist it will create it
+  .pipe(gulp.dest('public/css')) // because the scss file is called application it will become aplication.css if the 'css' folder doesnt exist it will create it
   .pipe(livereload()); // then send over to live reload
 })
 

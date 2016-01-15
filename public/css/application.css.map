@@ -1,0 +1,1 @@
+{"version":3,"sources":["layout/_home.scss"],"names":[],"mappings":"AAEA;EACE,WAHc,EAIf","file":"application.css","sourcesContent":["$main-color: red;\n\nh1 {\n  color: $main-color;\n}"],"sourceRoot":"/source/"}
