@@ -48,8 +48,8 @@ gulp.task('compileSass',function(){
 gulp.task('watchFiles', function(){
   livereload.listen();
   // globing, look in scss folder any additional folder/file **, and then anything ending in a .scss (*.scss)
-  gulp.watch('scss/**/*.scss', ['compileSass']); // run the following tasks when these change
-  gulp.watch('main.js', ['concatScripts']) // want to watch the files we will actually change, and then run X tasks. dont really need to concatScripts but it has the maping so that makes debugging easier so we will add as dependecie.
+  gulp.watch('public/scss/**/*.scss', ['compileSass']); // run the following tasks when these change
+  // gulp.watch('main.js', ['concatScripts']) // want to watch the files we will actually change, and then run X tasks. dont really need to concatScripts but it has the maping so that makes debugging easier so we will add as dependecie.
   // watch will continully listen after is is ran
 })
 
@@ -58,8 +58,10 @@ gulp.task('clean', function(){
 });
 
 // we do not need to include tasks that are injected
-gulp.task('build', ['minifyScripts', 'compileSass'],function(){
-  return gulp.src(['css/application.css','js/app.min.js', 'index.html', 'img/**', 'fonts/**'], { base: './'} ) // based tells gulp to preserve the directory structure in the current ('./') directory
+// 'minifyscripts removed for now from []'
+// remove ,'js/app.min.js' , 'img/**', 'fonts/**'
+gulp.task('build', ['compileSass'],function(){
+  return gulp.src(['public/css/application.css', 'public/index.html'], { base: './'} ) // based tells gulp to preserve the directory structure in the current ('./') directory
     // take select all your main folders and the condeseded css add js file
     .pipe(gulp.dest('dist'));
 })
@@ -72,3 +74,7 @@ gulp.task('serve', ['watchFiles'])
 gulp.task('default', ['clean'], function(){
   gulp.start('build'); //wait for clean task to run then start up the build
 }) // when you run gulp, run the build task
+
+// run server w/ http-server -p 3000
+
+// run gulp serve to start the auto and watch
