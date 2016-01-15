@@ -1,1 +1,1 @@
-angular.module('fasionistaApp', ['ui.router', 'ngAnimate', 'MainCtrl'])
+angular.module('fasionistaApp', ['MainCtrl', 'ui.router'])
