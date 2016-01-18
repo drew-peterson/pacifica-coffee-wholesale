@@ -1,0 +1,19 @@
+// ***********************
+// Media Query mixin
+// ***********************
+
+
+$tablet-width: 769px;
+$desktop-width: 1025px;
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width})  {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}

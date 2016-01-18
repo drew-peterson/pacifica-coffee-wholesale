@@ -1,0 +1,30 @@
+#desktopNav {
+  display: flex;
+  align-items: center;
+  height: 10vh;
+
+  // transparent nav ===================
+  position: absolute;
+  background: rgba(0,0,0,0.4);
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: $mlg;
+  }
+
+  li {
+    color: white;
+    padding: $sm;
+    font-size: 1.3rem;
+  }
+
+  li + li {
+    margin-left: $mlg;
+  }
+}

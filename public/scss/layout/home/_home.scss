@@ -1,0 +1,143 @@
+// @import 'test';
+
+#home {
+
+  .hero {
+    height: 750px; // fallback;
+    height: 100vh; // make each section take up 100% of view port
+    background: $prim-color;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    overflow: auto; // account for empty section collapse
+
+  }
+
+  .hero-container {
+    text-align: center;
+    color: $white;
+    width: 100%;
+  }
+
+  .row1 {
+    background-image: url('../img/clothes.jpeg');
+    @include full-opacity(0.3);
+
+    .hero-container {
+      position: relative; // important for z-index + absolute;
+      z-index: 10;
+      margin-top: 20vh; // clear the nav + extra
+    }
+
+    h1 {
+      @include tablet {
+        font-size: 5rem;
+      }
+    }
+
+    h2 {
+      margin-top: $sm;
+      line-height: 1;
+      font-style: italic;
+      @include tablet {
+        margin-top: $med;
+      }
+    }
+    a {
+      @include main-btn;
+      margin-top: $lg;
+
+      @include tablet {
+        width: 20%;
+      }
+
+    }
+
+  } // end of row1
+
+  .row2 {
+    @include inner-shadow;
+    @include flex-center;
+    height: 60vh;
+
+    .hero-container {
+      padding: 0 $med;
+
+      @include tablet {
+        height: 30vh;
+        width: 70%;
+        // text-align: left;
+      }
+    }
+    h3 {
+      font-size: $mlg;
+      font-style: italic;
+
+      @include tablet {
+        font-size: $lg;
+      }
+    }
+
+  }
+  .row3 {
+
+    .background {
+      height: 50vh;
+      background-image: url('../img/clothes2.jpeg');
+      background-size: cover;
+      background-position: 0% 50%;
+
+      @include tablet {
+      }
+    }
+
+    .content {
+      @include inner-shadow;
+      @include flex-center;
+
+      height: 50vh;
+      background-color: $prim-color__dark;
+      color: $white;
+
+      padding: 0 $med;
+    }
+    h3 {
+      margin-top: $mlg;
+      font-style: italic;
+      text-align: left;
+      @include tablet {
+        width: 50%;
+        text-align: center;
+      }
+    }
+
+    span {
+      margin-top: $lg;
+    }
+    a {
+      @include main-btn;
+    }
+
+  }
+
+} // end of home
+
+
+// FOOTER ============================
+
+#footer {
+  background-color: $prim-color;
+  color: $white;
+  text-align: center;
+  padding: $sm 0;
+  @include box-shadow;
+
+  p {
+    margin: 0;
+  }
+  a {
+    color: $white;
+    font-style: italic;
+    text-decoration: underline;
+  }
+}
