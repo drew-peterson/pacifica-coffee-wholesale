@@ -25,27 +25,21 @@
     }
 
     h1, h2, a {
-      color: white;
+      color: $white;
       display: inline-block;
       text-align: center;
     }
 
     h1 {
-      color: white;
-      font-size: 3rem;
+      color: $white;
+      font-size: $xl;
       margin-top: 40%;
     }
 
     a {
-      color: $text__white;
-      padding: 1rem;
+      @include main-btn;
+      color: $white;
       border: 2px solid white;
-
-      &:hover {
-        background: black;
-        border: 2px solid black;
-        transition: all 0.3s ease;
-      }
     }
 
   } // end of row1

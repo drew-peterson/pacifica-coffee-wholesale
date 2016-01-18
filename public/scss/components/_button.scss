@@ -1,0 +1,9 @@
+@mixin main-btn(){
+  padding: 0.5rem 2rem;
+
+ &:hover {
+      background: $white;
+      color: $black;
+      transition: all 0.3s ease;
+    }
+}

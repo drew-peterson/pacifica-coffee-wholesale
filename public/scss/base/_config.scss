@@ -1,16 +1,29 @@
 
 
 // Color ===============================================
+$prim-color__dark: #C2185B;   // dark pink
+$prim-color: #E91E63;         // pink
+$prim-color__light: #F8BBD0;  // lightest gray -- background
+$black: #212121;              // black -- text
+$white: #FFFFFF;              // off white -- text
+$gray: #727272;                // gray -- 2nd text
+$light-gray: #B6B6B6;         // lighter gray -- divider
+$green: #4CAF50;              // green
 
-$prim-color__dark: #C2185B;
-$prim-color: #E91E63;
-$prim-color__light: #F8BBD0;
-$text: #212121;
-$text__white: #FFFFFF;
-$text__light: #727272;
-$gray: #B6B6B6;
-$accent: #4CAF50;
-
+//https://www.materialpalette.com/pink/green
 
 // ======================================================
 
+// Spacing / Text ===================================
+
+$sp: 1rem;
+
+$xs:  $sp / 4 ;
+$sm:  $sp / 3 ;
+$msm: $sp / 2;
+$med: $sp ;
+$lg:  $sp * 2 ;
+$xl:  $sp * 3 ;
+$xxl: $sp * 4 ;
+
+// ================================================
