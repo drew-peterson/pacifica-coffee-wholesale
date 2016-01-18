@@ -1,0 +1,1 @@
+{"version":3,"sources":["MainCtrl.js"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA","file":"application.js","sourcesContent":["angular.module('MainCtrl', [])\n\n.controller('MainCtrl',function($scope){\n  $scope.test = \"hello this is a test\"\n});"],"sourceRoot":"/source/"}
