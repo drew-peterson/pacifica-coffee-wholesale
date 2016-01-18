@@ -10,6 +10,7 @@ $gray: #727272;                // gray -- 2nd text
 $light-gray: #B6B6B6;         // lighter gray -- divider
 $green: #4CAF50;              // green
 
+$google-gray: #F9F9F9;
 //https://www.materialpalette.com/pink/green
 
 // ======================================================
@@ -22,8 +23,30 @@ $xs:  $sp / 4 ;
 $sm:  $sp / 3 ;
 $msm: $sp / 2;
 $med: $sp ;
+$mlg: $sp * 1.5;
 $lg:  $sp * 2 ;
 $xl:  $sp * 3 ;
 $xxl: $sp * 4 ;
 
 // ================================================
+
+// drop shadow goes around object...
+//filter: drop-shadow(<length>{2,3} <color>?)
+
+// Transition =================
+$transition: all 0.3 ease;
+// =============================
+
+// $box-shadow =================
+
+  @mixin box-shadow(){
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.2s ease-in-out;
+  }
+
+  @mixin hover-shadow(){
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+
+// =============================
+

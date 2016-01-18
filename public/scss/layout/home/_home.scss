@@ -4,10 +4,14 @@
 
   .hero {
     height: 100vh; // make each section take up 100% of view port
-    background: pink;
+    background: $prim-color;
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
+    overflow: auto; // account for empty section collapse
+
+    display: flex;
+    flex-direction: column;
   }
 
   .hero-container {
@@ -17,11 +21,12 @@
   }
 
   .row1 {
-    overflow: auto; // account for empty section collapse
     background-image: url('../img/hero-tree.jpeg');
+
     .hero-container {
       width: 100%;
       margin-top: 10vh; // clear the nav
+
     }
 
     h1, h2, a {
@@ -33,22 +38,46 @@
     h1 {
       color: $white;
       font-size: $xl;
-      margin-top: 40%;
+      margin-top: $xxl;
     }
 
     a {
       @include main-btn;
-      color: $white;
-      border: 2px solid white;
+      margin-top: $lg;
+
     }
 
   } // end of row1
 
   .row2 {
-    height: 70vh;
+    height: 60vh;
+    text-align: center;
+    color: $white;
+    justify-content: center;
+
+    .hero-container {
+      padding: 0 $med;
+    }
+    p {
+      font-size: $mlg;
+    }
+    a {
+      @include main-btn;
+    }
   }
   .row3 {
-    background-image: url('../img/green.jpeg');
+
+    .background {
+      height: 50vh;
+      background-image: url('../img/green.jpeg');
+    }
+
+    .content {
+      height: 50vh;
+      background-color: $prim-color__dark;
+      color: $white;
+    }
+
   }
 
 } // end of home
