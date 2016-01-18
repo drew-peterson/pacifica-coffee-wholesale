@@ -6,5 +6,3 @@ module.exports = function(app){
     res.sendfile('./public/index.html'); // load our public/index.html file
   });
 }
-
-console.log('hello from routes.js')

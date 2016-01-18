@@ -65,6 +65,7 @@ gulp.task('watchFiles', function(){
 
 gulp.task('clean', function(){
   del(['dist', 'public/css/application.css*', 'public/js/app*.js*']);
+  gulp.start(['concatScripts', 'compileSass']);
 });
 
 // we do not need to include tasks that are injected
