@@ -20,8 +20,11 @@
 
   .row1 {
     background-image: url('../img/hero-tree.jpeg');
+    @include full-opacity(0.3);
 
     .hero-container {
+      position: relative; // important for z-index + absolute;
+      z-index: 10;
       margin-top: 20vh; // clear the nav + extra
     }
 
