@@ -1,4 +1,4 @@
-// @import '../../base/config';
+// @import 'test';
 
 #home {
 
@@ -37,12 +37,11 @@
     }
 
     a {
-      color: $text;
+      color: $text__white;
       padding: 1rem;
       border: 2px solid white;
 
       &:hover {
-        margin-top:
         background: black;
         border: 2px solid black;
         transition: all 0.3s ease;
