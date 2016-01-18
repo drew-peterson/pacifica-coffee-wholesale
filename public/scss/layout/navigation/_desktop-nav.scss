@@ -5,7 +5,7 @@
 
   // transparent nav ===================
   position: absolute;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.4);
   width: 100%;
   top: 0;
   left: 0;
@@ -14,16 +14,17 @@
   div {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
+    padding-right: $mlg;
   }
 
   li {
     color: white;
-    padding: 5px;
-    font-size: 1.2rem;
+    padding: $sm;
+    font-size: 1.3rem;
   }
 
   li + li {
-    margin-left: 5px;
+    margin-left: $mlg;
   }
 }

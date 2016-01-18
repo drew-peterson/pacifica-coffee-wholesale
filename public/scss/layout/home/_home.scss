@@ -3,6 +3,7 @@
 #home {
 
   .hero {
+    height: 750px; // fallback;
     height: 100vh; // make each section take up 100% of view port
     background: $prim-color;
     background-size: cover;
@@ -19,7 +20,7 @@
   }
 
   .row1 {
-    background-image: url('../img/hero-tree.jpeg');
+    background-image: url('../img/clothes.jpeg');
     @include full-opacity(0.3);
 
     .hero-container {
@@ -28,14 +29,27 @@
       margin-top: 20vh; // clear the nav + extra
     }
 
+    h1 {
+      @include tablet {
+        font-size: 5rem;
+      }
+    }
+
     h2 {
       margin-top: $sm;
       line-height: 1;
       font-style: italic;
+      @include tablet {
+        margin-top: $med;
+      }
     }
     a {
       @include main-btn;
       margin-top: $lg;
+
+      @include tablet {
+        width: 20%;
+      }
 
     }
 
@@ -48,10 +62,20 @@
 
     .hero-container {
       padding: 0 $med;
+
+      @include tablet {
+        height: 30vh;
+        width: 70%;
+        // text-align: left;
+      }
     }
     h3 {
       font-size: $mlg;
       font-style: italic;
+
+      @include tablet {
+        font-size: $lg;
+      }
     }
 
   }
@@ -59,31 +83,35 @@
 
     .background {
       height: 50vh;
-      background-image: url('../img/clothes.jpeg');
+      background-image: url('../img/clothes2.jpeg');
       background-size: cover;
+      background-position: 0% 50%;
+
+      @include tablet {
+      }
     }
 
     .content {
       @include inner-shadow;
       @include flex-center;
-      align-items: flex-start;
 
       height: 50vh;
       background-color: $prim-color__dark;
       color: $white;
 
       padding: 0 $med;
-      text-align: left;
     }
     h3 {
+      margin-top: $mlg;
       font-style: italic;
+      text-align: left;
+      @include tablet {
+        width: 50%;
+        text-align: center;
+      }
     }
 
-    h3 + h3 {
-      margin-top: $sm;
-    }
     span {
-      margin: 0 auto;
       margin-top: $lg;
     }
     a {
@@ -93,3 +121,23 @@
   }
 
 } // end of home
+
+
+// FOOTER ============================
+
+#footer {
+  background-color: $prim-color;
+  color: $white;
+  text-align: center;
+  padding: $sm 0;
+  @include box-shadow;
+
+  p {
+    margin: 0;
+  }
+  a {
+    color: $white;
+    font-style: italic;
+    text-decoration: underline;
+  }
+}
