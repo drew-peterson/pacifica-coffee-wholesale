@@ -1,0 +1,28 @@
+#home {
+
+  .hero {
+    height: 95vh; // make each section take up 100% of view port
+    background: pink;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+
+  .row1 {
+    overflow: auto; // account for empty section collapse
+    background-image: url('./../img/hero-tree.jpeg');
+    span {
+      display: block;
+      width: 100%;
+      margin-top: 10vh; // clear the nav
+    }
+
+    h1 {
+      color: white;
+      font-size: 10vw;
+      text-align: center;
+      margin-top: 30%;
+    }
+
+  }
+
+} // end of home
