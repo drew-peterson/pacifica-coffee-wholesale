@@ -10,37 +10,26 @@
     background-repeat: no-repeat;
     overflow: auto; // account for empty section collapse
 
-    display: flex;
-    flex-direction: column;
   }
 
   .hero-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
+    color: $white;
+    width: 100%;
   }
 
   .row1 {
     background-image: url('../img/hero-tree.jpeg');
 
     .hero-container {
-      width: 100%;
-      margin-top: 10vh; // clear the nav
-
+      margin-top: 20vh; // clear the nav + extra
     }
 
-    h1, h2, a {
-      color: $white;
-      display: inline-block;
-      text-align: center;
+    h2 {
+      margin-top: $sm;
+      line-height: 1;
+      font-style: italic;
     }
-
-    h1 {
-      color: $white;
-      font-size: $xl;
-      margin-top: $xxl;
-    }
-
     a {
       @include main-btn;
       margin-top: $lg;
@@ -50,32 +39,52 @@
   } // end of row1
 
   .row2 {
+    @include inner-shadow;
+    @include flex-center;
     height: 60vh;
-    text-align: center;
-    color: $white;
-    justify-content: center;
 
     .hero-container {
       padding: 0 $med;
     }
-    p {
+    h3 {
       font-size: $mlg;
+      font-style: italic;
     }
-    a {
-      @include main-btn;
-    }
+
   }
   .row3 {
 
     .background {
       height: 50vh;
-      background-image: url('../img/green.jpeg');
+      background-image: url('../img/clothes.jpeg');
+      background-size: cover;
     }
 
     .content {
+      @include inner-shadow;
+      @include flex-center;
+      align-items: flex-start;
+
       height: 50vh;
       background-color: $prim-color__dark;
       color: $white;
+
+      padding: 0 $med;
+      text-align: left;
+    }
+    h3 {
+      font-style: italic;
+    }
+
+    h3 + h3 {
+      margin-top: $sm;
+    }
+    span {
+      margin: 0 auto;
+      margin-top: $lg;
+    }
+    a {
+      @include main-btn;
     }
 
   }

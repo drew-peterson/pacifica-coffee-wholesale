@@ -11,6 +11,8 @@ $light-gray: #B6B6B6;         // lighter gray -- divider
 $green: #4CAF50;              // green
 
 $google-gray: #F9F9F9;
+
+$fade__dark: rgba(0,0,0,0.3);
 //https://www.materialpalette.com/pink/green
 
 // ======================================================
@@ -44,9 +46,32 @@ $transition: all 0.3 ease;
     transition: all 0.2s ease-in-out;
   }
 
+    @mixin inner-shadow(){
+    box-shadow: inset 0 10px 20px rgba(0,0,0,0.19), inset 0 6px 6px rgba(0,0,0,0.23);
+    transition: all 0.2s ease-in-out;
+  }
+
   @mixin hover-shadow(){
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   }
 
-// =============================
+// ===================================
 
+// DEBUG =============================
+
+  @mixin debug($color: red){
+    border: 1px solid $color;
+  }
+// ===================================
+
+
+// Flex ==============================
+
+@mixin flex-center(){
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // center vertically
+  text-align: center;
+  align-items: center;
+}
+// ===================================

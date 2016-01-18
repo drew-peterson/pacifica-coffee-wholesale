@@ -1,3 +1,6 @@
+// Font ===========
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,400italic,500);
+
 * {
   box-sizing: border-box;
 }
@@ -10,7 +13,8 @@ body, html {
 }
 
 body {
-  font: 100%/1.5 Arial, sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+  line-height: 1.5;
 }
 
 ul, h1, h2, h3, h4, p {
@@ -26,15 +30,15 @@ a { text-decoration: none;}
 
 // Font-sizes ======================================
 
-h1 { font-size: 2em;    }
-h2 { font-size: 1.5em;  }
-h3 { font-size: 1.17em; }
-h4 { font-size: 1em;    }
-h5 { font-size: 0.83em; }
-h6 { font-size: 0.75em; }
+h1 { font-size: 3rem;    }
+h2 { font-size: 2rem; font-weight: normal;  }
+h3 { font-size: 1.5rem; font-weight: normal; }
+h4 { font-size: 1rem;    }
+h5 { font-size: 0.83rem; }
+h6 { font-size: 0.75rem; }
 
 p  { line-height: 1.5;
-    margin: 0 0 1em;
+    margin: 0 0 1rem;
   }
 
 // ===============================================
