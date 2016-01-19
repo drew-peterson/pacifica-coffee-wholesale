@@ -11,21 +11,62 @@
   left: 0;
   z-index: 10;
 
-  div {
+  .nav-container {
     width: 100%;
-    display: flex;
-    justify-content: flex-end;
     padding-right: $mlg;
-  }
+  } // end of nav-container
 
   li {
     color: white;
-    padding: $sm;
+    padding: $med $mlg / 2;
     font-size: 1.3rem;
     cursor: pointer;
   }
 
-  li + li {
-    margin-left: $mlg;
+
+  .bar-wrap {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
   }
-}
+  // hover bar ================================
+
+  .bar {
+    display: block;
+    background: $white;
+    height: 4px;
+    width: 122.54px;
+    position: absolute;
+    bottom: $xs;
+    right: 0;
+
+    transition: all 0.5s ease;
+  }
+
+  li:nth-child(1){
+    &:hover {
+      & ~ span {
+        margin-right: 16.8rem;
+        width: 84.625px;
+      }
+    }
+  }
+   li:nth-child(2){
+    &:hover {
+      & ~ span {
+        margin-right: 7.7rem;
+        width: 151px;
+      }
+    }
+  }
+   li:nth-child(3){
+    &:hover {
+      & ~ span {
+        margin-right: 0;
+        width: 122.54px;
+      }
+    }
+  }
+
+  // ================================
+} // end of desktop nav
