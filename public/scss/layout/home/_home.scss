@@ -104,6 +104,9 @@
       background-size: cover;
       background-position: 0% 50%;
 
+      @include desktop {
+        // background-size: 720px 1024px;
+      }
     }
 
     .content {

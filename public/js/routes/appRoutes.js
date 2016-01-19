@@ -10,10 +10,10 @@ angular.module('appRoutes', [])
       controller: 'MainCtrl',
       templateUrl: '../views/home/index.html'
     })
-    .state('state2', {
-      url: '/test',
+    .state('about', {
+      url: '/about',
       controller: 'MainCtrl',
-      template: "<h1>hello from state 2 </h1>"
+      templateUrl: "../views/about/index.html"
     })
 
   })
