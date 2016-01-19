@@ -1,12 +1,19 @@
-<ul id="desktopNav">
+<ul id="desktopNav" ng-style="{'background-color': navC}">
 
-  <div><li ui-sref='index'>Home</li></div>
+  <div><li ui-sref='index' ng-click="tabIndex='tab0'; loc = 'x';">Home</li></div>
   <div class="nav-container">
     <div class="bar-wrap">
-      <li ui-sref='about'>About</li>
-      <li>Consignment</li>
-      <li>Directions</li>
-      <span class= "bar"></span>
+
+      <li ui-sref="about" ng-click="tabIndex= 'tab1'; navC = '#C2185B';">About</li>
+      <li ui-sref="#" ng-click="tabIndex='tab2'">Consignment</li>
+      <li ui-sref="#" ng-click="tabIndex='tab3'">Directions</li>
+
+      <span id='tabIndex' class= "bar"
+      ng-class="tabIndex">
+    </span>
+
     </div>
   </div>
 </ul>
+
+

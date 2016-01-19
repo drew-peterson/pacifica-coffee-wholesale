@@ -21,6 +21,11 @@
     padding: $med $mlg / 2;
     font-size: 1.3rem;
     cursor: pointer;
+    transition: color 0.8s ease;
+
+    &:hover {
+      color: $green;
+    }
   }
 
 
@@ -32,10 +37,9 @@
   // hover bar ================================
 
   .bar {
-    display: block;
-    background: $white;
-    height: 4px;
-    width: 122.54px;
+    background: $green;
+    height: 3px;
+    border-radius: 2px;
     position: absolute;
     bottom: $xs;
     right: 0;
@@ -46,27 +50,56 @@
   li:nth-child(1){
     &:hover {
       & ~ span {
-        margin-right: 16.8rem;
-        width: 84.625px;
+        display: block;
+        margin-right: 16.8rem !important;
+        width: 84.625px !important;
       }
     }
   }
    li:nth-child(2){
     &:hover {
       & ~ span {
-        margin-right: 7.7rem;
-        width: 151px;
+        display: block;
+        margin-right: 7.3rem !important;
+        width: 151px !important;
       }
     }
   }
    li:nth-child(3){
     &:hover {
       & ~ span {
-        margin-right: 0;
-        width: 122.54px;
+        display: block;
+        margin-right: 0 !important;
+        width: 122.54px !important;
       }
     }
   }
 
   // ================================
 } // end of desktop nav
+
+
+
+// TabIndex ========================
+#tabIndex.tab0 {
+  display: none;
+}
+#tabIndex.tab1 {
+  display: block;
+  margin-right: 16.8rem;
+  width: 84.625px ;
+}
+
+#tabIndex.tab2 {
+  display: block;
+  margin-right: 7.3rem ;
+  width: 151px ;
+}
+
+#tabIndex.tab3 {
+  display: block;
+  margin-right: 0 ;
+  width: 122.54px ;
+}
+
+

@@ -8,12 +8,18 @@ angular.module('appRoutes', [])
     .state('index', {
       url: '/',
       controller: 'MainCtrl',
-      templateUrl: '../views/home/index.html'
+      templateUrl: '../views/home/index.html',
+      data: {
+        tabIndex: 'tab0'
+      }
     })
     .state('about', {
       url: '/about',
       controller: 'MainCtrl',
-      templateUrl: "../views/about/index.html"
+      templateUrl: "../views/about/index.html",
+      data: {
+        tabIndex: 'tab1'
+      }
     })
 
   })
