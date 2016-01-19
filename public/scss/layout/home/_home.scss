@@ -27,11 +27,16 @@
       position: relative; // important for z-index + absolute;
       z-index: 10;
       margin-top: 20vh; // clear the nav + extra
+
+      @include tablet {
+        padding: 0 $med;
+      }
+
     }
 
     h1 {
       @include tablet {
-        font-size: 5rem;
+        font-size: 6rem;
       }
     }
 
@@ -41,6 +46,11 @@
       font-style: italic;
       @include tablet {
         margin-top: $med;
+        font-size: $xxl;
+      }
+      @include desktop {
+        width: 60%;
+        margin: 0 auto;
       }
     }
     a {
@@ -48,7 +58,8 @@
       margin-top: $lg;
 
       @include tablet {
-        width: 20%;
+        // width: 20%;
+        font-size: $mlg;
       }
 
     }
@@ -61,24 +72,30 @@
     height: 60vh;
 
     .hero-container {
-      padding: 0 $med;
+      padding: 0 $msm;
 
       @include tablet {
-        height: 30vh;
-        width: 70%;
-        // text-align: left;
+        width: 80%;
+      }
+
+    }
+
+    h3 {
+      font-size: $lg;
+      @include tablet {
+        font-size: $xl;
       }
     }
-    h3 {
-      font-size: $mlg;
+    h4 {
       font-style: italic;
-
+      margin-top: $sm;
       @include tablet {
         font-size: $lg;
       }
     }
 
   }
+
   .row3 {
 
     .background {
@@ -87,8 +104,6 @@
       background-size: cover;
       background-position: 0% 50%;
 
-      @include tablet {
-      }
     }
 
     .content {
@@ -98,16 +113,29 @@
       height: 50vh;
       background-color: $prim-color__dark;
       color: $white;
-
       padding: 0 $med;
     }
+
     h3 {
-      margin-top: $mlg;
+      @include tablet  {
+        font-size: $xl;
+      }
+    }
+
+    p {
+      margin-top: $med;
       font-style: italic;
       text-align: left;
+
       @include tablet {
-        width: 50%;
+        // width: 70%;
         text-align: center;
+        font-size: $lg;
+      }
+
+      @include desktop {
+        width: 70%;
+        margin: 0 auto;
       }
     }
 
@@ -116,6 +144,9 @@
     }
     a {
       @include main-btn;
+      @include tablet {
+        font-size: $mlg;
+      }
     }
 
   }
