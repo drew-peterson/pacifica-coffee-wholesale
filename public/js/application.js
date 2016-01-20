@@ -24,17 +24,23 @@ angular.module('appRoutes', [])
       url: '/',
       controller: 'MainCtrl',
       templateUrl: '../views/home/index.html',
-      data: {
-        tabIndex: 'tab0'
-      }
+
     })
     .state('about', {
       url: '/about',
       controller: 'MainCtrl',
       templateUrl: "../views/about/index.html",
-      data: {
-        tabIndex: 'tab1'
-      }
+
+    })
+    .state('consignment', {
+      url: '/consignment',
+      controller: 'MainCtrl',
+      templateUrl: "../views/consignment/index.html",
+    })
+    .state('directions', {
+      url: '/directions',
+      controller: 'MainCtrl',
+      templateUrl: "../views/directions/index.html",
     })
 
   })
