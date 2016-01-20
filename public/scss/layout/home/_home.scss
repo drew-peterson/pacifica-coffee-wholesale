@@ -70,15 +70,50 @@
   .row2 {
     @include inner-shadow;
     @include flex-center;
-    height: 100vh;
+    height: 90vh;
 
     .hero-container {
       padding: 0 $msm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @include desktop {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+      }
+    }
+    .image {
+      background-image: url('../img/store.jpeg');
+      background-size: cover;
+      background-position: 50% 50%;
+      height: 200px; // height of the div
+      width: 200px; // with of the div
+      border-radius: 50%;
+      font-size: 0;
 
       @include tablet {
-        width: 80%;
+        border-radius: 0;
+        height: 350px;
+        width: 90%;
       }
 
+      @include desktop {
+        height: 350px;
+        width: 350px;
+        border-radius: 50%;
+      }
+    }
+    .content {
+      width: 90%;
+      @include tablet {
+        margin-top: $med;
+        width: 80%;
+      }
+      @include desktop {
+        width: 50%;
+      }
     }
 
     h3 {
@@ -104,10 +139,6 @@
       background-image: url('../img/clothes2.jpeg');
       background-size: cover;
       background-position: 0% 50%;
-
-      @include desktop {
-        // background-size: 720px 1024px;
-      }
     }
 
     .content {
