@@ -9,6 +9,7 @@
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
+    position: relative;
     overflow: auto; // account for empty section collapse
 
   }
@@ -69,7 +70,7 @@
   .row2 {
     @include inner-shadow;
     @include flex-center;
-    height: 60vh;
+    height: 100vh;
 
     .hero-container {
       padding: 0 $msm;
@@ -97,7 +98,7 @@
   }
 
   .row3 {
-
+    height: 110vh;
     .background {
       height: 50vh;
       background-image: url('../img/clothes2.jpeg');
@@ -113,7 +114,7 @@
       @include inner-shadow;
       @include flex-center;
 
-      height: 50vh;
+      height: 60vh;
       background-color: $prim-color__dark;
       color: $white;
       padding: 0 $med;
@@ -160,11 +161,15 @@
 // FOOTER ============================
 
 #footer {
+  @include box-shadow;
   background-color: $prim-color;
   color: $white;
   text-align: center;
-  padding: $sm 0;
-  @include box-shadow;
+  // margin-top: auto;
+
+  div {
+    padding: 30px 0; // height on footer doesnt work...
+  }
 
   p {
     margin: 0;
