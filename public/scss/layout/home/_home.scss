@@ -146,8 +146,8 @@
       @include flex-center;
 
       height: 60vh;
-      background-color: $prim-color__dark;
-      color: $white;
+      background-color: $prim-color__light;
+      color: $prim-color__dark;
       padding: 0 $med;
     }
 
@@ -179,6 +179,8 @@
     }
     a {
       @include main-btn;
+      color: $prim-color__dark;
+      border: 2px solid $prim-color__dark;
       @include tablet {
         font-size: $mlg;
       }
@@ -196,7 +198,7 @@
   background-color: $prim-color;
   color: $white;
   text-align: center;
-  // margin-top: auto;
+  margin-top: auto;
 
   div {
     padding: 30px 0; // height on footer doesnt work...
