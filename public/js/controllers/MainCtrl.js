@@ -4,7 +4,7 @@ angular.module('MainCtrl', [])
 
   $scope.navC = '';
   if($location.$$path == '/about'){
-    $scope.navC = "#C2185B";
+    $scope.navC = "#E91E63";
   }
 
 // if statements only work with $scope.watch() and the varible has to be changed in html

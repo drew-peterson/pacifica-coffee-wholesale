@@ -1,13 +1,10 @@
-// @import 'test';
-body {
-  background: $green;
-}
+
 #home {
   height: 100%;
   width: 100%;
   position: relative;
   .hero {
-    height: 750px; // fallback;
+    min-height: 750px;
     background: $prim-color;
     background-size: cover;
     background-position: 50% 50%;
@@ -22,7 +19,7 @@ body {
   }
 
   .row1 {
-    height: 100vh;
+    min-height: 100vh;
     @include full-opacity(0.3); // creates faded div before this one
     background-image: url('../img/clothes.jpeg');
     padding-top: 20vh; // dunno why margin does not work when applied to child
@@ -70,7 +67,7 @@ body {
   .row2 {
     @include inner-shadow;
     @include flex-center;
-    height: 100vh;
+    min-height: 100vh;
 
     .hero-container {
       padding: 0 $msm;
@@ -134,7 +131,7 @@ body {
   }
 
   .row3 {
-    height: 110vh;
+    min-height: 100vh;
     .background {
       height: 50vh;
       background-image: url('../img/clothes2.jpeg');

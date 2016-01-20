@@ -4,13 +4,22 @@ angular.module('MainCtrl', [])
 
   $scope.navC = '';
   if($location.$$path == '/about'){
-    $scope.navC = "#C2185B";
+    $scope.navC = "#E91E63";
   }
 
 // if statements only work with $scope.watch() and the varible has to be changed in html
 //$scope.watch('varName',function(newVal, OldVal){if(x){$scope.varName = 'test'}})
 
 });
+angular.module('NavCtrl', [])
+.controller('NavCtrl', function($scope){
+
+})
+.directive('Nav', function(){
+  return {
+
+  }
+})
 angular.module('fasionistaApp', ['MainCtrl', 'ui.router', 'appRoutes'])
 
 angular.module('appRoutes', [])
