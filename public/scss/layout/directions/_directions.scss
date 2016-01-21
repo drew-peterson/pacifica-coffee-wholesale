@@ -1,16 +1,49 @@
 
 #directions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include tablet {
+    flex-direction: row;
+  }
+
+  section {
+    width: 95%;
+    margin: $med 0;
+  }
 
   h1 {
-    color: $green;
     font-size: $lg;
   }
 
+  .information {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col {
+    background-color: $google-gray;
+    padding: $med;
+    margin: $sm 0 ;
+    @include box-shadow;
+  }
+
+  .col.col3 {
+    padding: $med;
+    margin: 0px;
+    margin-bottom: $med;
+
+  }
+
+// google maps ================
   .google-maps {
     position: relative;
-    padding-bottom: 75%; // This is the aspect ratio
-    height: 0;
+    // padding-bottom: 75%; // This is the aspect ratio
+    min-height: 250px;
     overflow: hidden;
+    width: 100%;
+
   }
 
   .google-maps iframe {
@@ -20,7 +53,7 @@
     width: 100% !important;
     height: 100% !important;
   }
-
+// ================================
 
 
 } // end of directions

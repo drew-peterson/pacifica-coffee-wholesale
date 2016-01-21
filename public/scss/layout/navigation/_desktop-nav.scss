@@ -13,12 +13,17 @@
     justify-content: space-between;
     background: rgba(0,0,0,0.4);
     position: relative; // needed for z-index
+    height: 100%;
   }
 
   .home {
     display: inline-block;
 
-    li { font-size: $mlg; }
+    li {
+      font-size: $mlg;
+      padding: 0;
+      padding-left: $mlg / 2;
+    }
   }
 
   // contains all links inlucding hamburger
