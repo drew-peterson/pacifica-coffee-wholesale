@@ -17,6 +17,8 @@
 
   .home {
     display: inline-block;
+
+    li { font-size: $mlg; }
   }
 
   // contains all links inlucding hamburger

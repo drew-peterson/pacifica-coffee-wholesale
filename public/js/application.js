@@ -46,6 +46,11 @@ angular.module('NavCtrl', [])
       $scope.navActive = !$scope.navActive;
     }
   } // end of mobile nav
+
+
+  $scope.changeBackground = function($event){
+    $scope.navC = '#E91E63';
+  }
 })
 
 // custom directive ======================
@@ -68,7 +73,7 @@ angular.module('NavCtrl', [])
     link: openNav
   };
 });
-angular.module('fasionistaApp', ['NavCtrl','MainCtrl', 'ui.router', 'appRoutes'])
+angular.module('fasionistaApp', ['ngAnimate','NavCtrl','MainCtrl', 'ui.router', 'appRoutes'])
 
 
 // Capitialize =========================

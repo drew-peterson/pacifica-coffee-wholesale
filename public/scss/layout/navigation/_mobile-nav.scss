@@ -16,10 +16,10 @@
 // dropdown menu;
 #mobileNav {
   z-index: 3;
-  background-color: rgba(0,0,0,0.4);
+  background-color: $prim-color;
   width: 100%;
   min-height: 200px;
-  transform: translateY(calc(-150px - 20vh));
+  transform: translateY(calc(-200px - 20vh));
 
   transition: all 0.4s ease-out;
 
@@ -28,4 +28,46 @@
     transform: translateY(0px);
   }
 
+
+  // inner dropdown info
+
+  .mobile__inner{
+    // Animation ======================
+    &.ng-enter{
+      transition: 0.4s linear transform, 0.5s linear opacity;
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+
+    &.ng-enter-stagger {
+      transition-delay: 0.2s;
+      transition-duration: 0s;
+    }
+
+    &.ng-enter.ng-enter-active{
+      transform: translateY(0%);
+      opacity: 1;
+    }
+
+    a {
+      padding: $med;
+      display: block;
+      height: 100%;
+      color: $white;
+      font-size: $mlg;
+
+      &:hover {
+        color: $black;
+      }
+    }
+  }
 }
+
+// last child cannot get a better way...
+#mobileNav > div:nth-child(3) > a {
+  padding-bottom: $lg; // twice the above padding
+}
+
+
+
+

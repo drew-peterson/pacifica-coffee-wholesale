@@ -33,6 +33,11 @@ angular.module('NavCtrl', [])
       $scope.navActive = !$scope.navActive;
     }
   } // end of mobile nav
+
+
+  $scope.changeBackground = function($event){
+    $scope.navC = '#E91E63';
+  }
 })
 
 // custom directive ======================

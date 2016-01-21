@@ -27,7 +27,7 @@
     <!-- Hamburger Btn -->
     <div class="nav-open">
       <button id="hamBtn"
-      ng-click="mobileNav($event);"
+      ng-click="mobileNav($event); changeBackground($event)"
       ng-class="{'active': navActive};">
         <span>close</span>
       </button>
@@ -42,14 +42,14 @@
 
 <div id="mobileNav" ng-class="{'openNav': navActive}">
 
-  <div ng-repeat="link in navLinks">
-    <a ui-sref="{{link.state}}"
-    ng-click="mobileNav($event);
-    navC='{{link.navC}}';"
+  <div class="mobile__inner" ng-repeat="link in navLinks"
+  ng-if="navActive">
 
-    >{{link.state | capitalize }}
-  </a>
-  {{"'" + link.navC + "'"}}
+    <a ui-sref="{{link.state}}"
+      ng-click="mobileNav($event);">
+      {{link.state | capitalize }}
+    </a>
+
   </div>
 
 </div>
