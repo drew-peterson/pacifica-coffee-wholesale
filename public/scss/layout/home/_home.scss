@@ -85,6 +85,7 @@
       }
     }
     .image {
+      @include flex-center;
       background-image: url('../img/store.jpeg');
       background-size: cover;
       background-position: 50% 50%;
@@ -92,7 +93,6 @@
       width: 200px; // with of the div
       border-radius: 50%;
 
-      @include flex-center;
 
       @include tablet {
         border-radius: 0;
@@ -123,6 +123,8 @@
 
     h3 {
       font-size: $lg;
+      color: white;
+      text-shadow: 1px 1px $prim-color__dark;
       @include tablet {
         font-size: $xxl;
       }
@@ -153,7 +155,7 @@
 
       height: 60vh;
       background-color: $prim-color__light;
-      color: $prim-color__dark;
+      color: $black;
       padding: 0 $med;
     }
 
@@ -185,8 +187,8 @@
     }
     a {
       @include main-btn;
-      color: $prim-color__dark;
-      border: 2px solid $prim-color__dark;
+      color: $black;
+      border: 2px solid $black;
       @include tablet {
         font-size: $mlg;
       }

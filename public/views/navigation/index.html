@@ -27,7 +27,7 @@
     <!-- Hamburger Btn -->
     <div class="nav-open">
       <button id="hamBtn"
-      ng-click="mobileNav($event); changeBackground($event)"
+      ng-click="mobileNav($event); changeBackground()"
       ng-class="{'active': navActive};">
         <span>close</span>
       </button>
@@ -46,10 +46,10 @@
   ng-if="navActive">
 
     <a ui-sref="{{link.state}}"
-      ng-click="mobileNav($event);">
+      ng-click="mobileNav($event); changeBackground(link.navC)">
       {{link.state | capitalize }}
     </a>
-
+    {{link.navC}}
   </div>
 
 </div>

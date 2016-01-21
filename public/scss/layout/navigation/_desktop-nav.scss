@@ -39,10 +39,6 @@
     font-size: 1.3rem;
     cursor: pointer;
     transition: color 0.8s ease;
-
-    &:hover {
-      color: $green;
-    }
   }
   // Just the desktop nav
   .desktop-nav {
@@ -57,7 +53,7 @@
   // hover bar ================================
 
   .bar {
-    background: $green;
+    background: $white;
     height: 3px;
     border-radius: 2px;
     position: absolute;

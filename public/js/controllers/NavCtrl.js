@@ -35,8 +35,11 @@ angular.module('NavCtrl', [])
   } // end of mobile nav
 
 
-  $scope.changeBackground = function($event){
-    $scope.navC = '#E91E63';
+  $scope.changeBackground = function(color){
+    var primColor = '#E91E63';
+    $scope.navC = color || primColor;
+
+    console.log(color)
   }
 })
 
