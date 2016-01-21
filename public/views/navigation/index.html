@@ -3,7 +3,13 @@
 
 <ul class="dNav" ng-style="{'background-color': navC}">
 
-  <div class = 'home'><li ui-sref='index' ng-click="tabIndex='tab0'; navC= 'rgba(0,0,0,0.4'">Home</li>
+  <div class = 'home'><li ui-sref='index'
+    ng-click="
+      tabIndex='tab0';
+      navC= 'rgba(0,0,0,0.4';
+      mobileNav($event);
+      "
+      >Home</li>
   </div>
 
   <div class="nav-container">
@@ -21,7 +27,7 @@
     <!-- Hamburger Btn -->
     <div class="nav-open">
       <button id="hamBtn"
-      ng-click="mobileNav();"
+      ng-click="mobileNav($event);"
       ng-class="{'active': navActive};">
         <span>close</span>
       </button>
@@ -37,7 +43,13 @@
 <div id="mobileNav" ng-class="{'openNav': navActive}">
 
   <div ng-repeat="link in navLinks">
-    <a ui-sref="{{link}}" ng-click="mobileNav()">{{link | capitalize }}</a>
+    <a ui-sref="{{link.state}}"
+    ng-click="mobileNav($event);
+    navC='{{link.navC}}';"
+
+    >{{link.state | capitalize }}
+  </a>
+  {{"'" + link.navC + "'"}}
   </div>
 
 </div>

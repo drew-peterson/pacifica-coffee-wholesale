@@ -14,13 +14,38 @@ angular.module('MainCtrl', [])
 angular.module('NavCtrl', [])
 
 .controller('NavCtrl', function($scope, scrollService){
-  $scope.navLinks = ['about', 'consignment', 'directions'];
+  $scope.navLinks = [
+    {
+      state:'about',
+      navC: '#E91E63'
+    },
+    {
+      state: 'consignment',
+      navC: '#4CAF50'
+    },
+    {
+      state: 'directions',
+      navC: '#F8BBD0'
+    }
+  ];
 
   // toggle class
-  $scope.mobileNav = function(){
+  $scope.mobileNav = function(event){
+    // master toggle...
     $scope.navActive = !$scope.navActive;
-  }
+    // get btn class
+    var btn = event.srcElement.parentElement.className
 
+    // disable enable scrolling
+    if(!$scope.navActive || btn === 'home'){
+      // scrollService.enableScroll(); // need to get better
+    }else{
+      // scrollService.disableScroll(); // ned to get better
+    }
+    if(btn === 'home' && $scope.navActive){
+      $scope.navActive = !$scope.navActive;
+    }
+  } // end of mobile nav
 })
 
 // custom directive ======================
@@ -33,16 +58,7 @@ angular.module('NavCtrl', [])
     var btn = $('.nav-open');
     var dh = $('.dNav');
 
-    btn.on('click', function(){
-      var mh = $('#mobileNav');
-
-      if(mh.hasClass('openNav')){
-        scrollService.disableScroll();
-      }else{
-        mh.css('background-color', '');
-        scrollService.enableScroll();
-      }
-    }) // click
+    // you could do btn clicks and stuch here....
 
   }; // end of link
 
