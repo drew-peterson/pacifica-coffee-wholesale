@@ -1,0 +1,74 @@
+//====================
+// Variables
+
+$btn-width: 30px;
+$btn-height: 30px;
+$bar-thickness: ($btn-height / 6); // some ratio that works..
+$bar-color: $white;
+
+#hamBtn {
+  cursor: pointer;
+  height: $btn-height;
+  width: $btn-width;
+  position: relative;
+  background: none;
+  border: none;
+  color: none;
+  font-size: 0;
+
+  transition: transform .5s ease;
+}
+
+#hamBtn:focus {
+  outline: none;
+}
+
+//==============================
+// default style for each line
+
+#hamBtn span,
+#hamBtn span::before,
+#hamBtn span::after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: $bar-thickness;
+  width: 100%;
+  background: $bar-color;
+  left: 0;
+
+  // start X during spin
+  transition: all .2s ease;
+  transition-delay: .2s;
+}
+
+/* center middle span */
+#hamBtn span {
+top: ($btn-height / 2) - ($bar-thickness / 2); // center middle span
+}
+
+/* top bottom line spacing */
+#hamBtn span::before {
+  top: -($bar-thickness * 2);
+}
+
+#hamBtn span::after {
+  top: ($bar-thickness * 2);
+}
+
+/* animation */
+#hamBtn.active {
+  transform: rotateY(180deg);
+}
+
+#hamBtn.active span {
+  background: none; // remove middle bar
+}
+#hamBtn.active span::after {
+  top: 0;
+  transform: rotate(45deg);
+}
+#hamBtn.active span::before {
+  top: 0;
+  transform: rotate(-45deg);
+}

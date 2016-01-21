@@ -20,7 +20,11 @@
 
     <!-- Hamburger Btn -->
     <div class="nav-open">
-      <a ng-click="mobileNav();">Open</a>
+      <button id="hamBtn"
+      ng-click="mobileNav();"
+      ng-class="{'active': navActive};">
+        <span>close</span>
+      </button>
     </div>
 
   </div>
