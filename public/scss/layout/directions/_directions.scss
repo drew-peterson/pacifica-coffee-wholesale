@@ -3,36 +3,58 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+  width: 100%;
+  margin-top: 10vh;
 
   @include tablet {
     flex-direction: row;
+    align-items: center;
+    min-height: 430px;
+    padding: $mlg;
   }
 
   section {
     width: 95%;
     margin: $med 0;
-  }
 
-  h1 {
-    font-size: $lg;
+    @include tablet {
+      margin-top: $med;
+      flex: 1;
+    }
   }
 
   .information {
     display: flex;
     flex-direction: column;
+
+    @include tablet {
+      min-height: 320px;
+      margin-top: -10px; // account for weird spacing;
+      justify-content: center;
+    }
   }
 
   .col {
     background-color: $google-gray;
     padding: $med;
-    margin: $sm 0 ;
     @include box-shadow;
+
+    & + .col{
+      margin-top: $med ;
+    }
   }
+
 
   .col.col3 {
     padding: $med;
     margin: 0px;
     margin-bottom: $med;
+
+    @include tablet {
+      flex: 2;
+      margin-left: $lg;
+    }
 
   }
 
