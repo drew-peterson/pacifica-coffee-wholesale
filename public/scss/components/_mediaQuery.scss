@@ -7,13 +7,22 @@ $tablet-width: 768px;
 $desktop-width: 1024px;
 
 @mixin tablet {
-  @media (min-width: #{$tablet-width})  {
+  @media (min-width: $tablet-width)  {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (min-width: #{$desktop-width}) {
+  @media (min-width: $desktop-width) {
     @content;
+  }
+}
+
+@mixin tablet__landscape {
+  @media (min-device-width: $tablet-width)
+  and (max-device-width: $desktop-width)
+  and (orientation: landscape) {
+    @content;
+
   }
 }

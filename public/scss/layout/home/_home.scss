@@ -36,6 +36,9 @@
       @include tablet {
         font-size: 6rem;
       }
+      @include tablet__landscape {
+        font-size: 5rem;
+      }
     }
 
     h2 {
@@ -88,7 +91,8 @@
       height: 200px; // height of the div
       width: 200px; // with of the div
       border-radius: 50%;
-      font-size: 0;
+
+      @include flex-center;
 
       @include tablet {
         border-radius: 0;
@@ -100,6 +104,10 @@
         height: 350px;
         width: 350px;
         border-radius: 50%;
+      }
+
+      @include tablet__landscape {
+        height: 250px;
       }
     }
     .content {
@@ -116,7 +124,7 @@
     h3 {
       font-size: $lg;
       @include tablet {
-        font-size: $xl;
+        font-size: $xxl;
       }
     }
     h4 {
