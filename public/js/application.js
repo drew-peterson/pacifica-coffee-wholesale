@@ -13,18 +13,20 @@ angular.module('MainCtrl', [])
 });
 angular.module('NavCtrl', [])
 
-.controller('NavCtrl', function($scope){
+.controller('NavCtrl', function($scope, scrollService){
   $scope.navLinks = ['about', 'consignment', 'directions'];
 
   // toggle class
   $scope.mobileNav = function(){
     $scope.navActive = !$scope.navActive;
   }
+
 })
 
 // custom directive ======================
-.directive('mainNav', function(){
 
+// directive is not really needed but i wanted practice
+.directive('mainNav', function(scrollService){
   // this functions like jquery you do not call this it just runs
   var openNav = function(scope, element, attrs){
     // jquery only works inside
@@ -35,42 +37,12 @@ angular.module('NavCtrl', [])
       var mh = $('#mobileNav');
 
       if(mh.hasClass('openNav')){
-        whiteDiv();
-        disableScroll();
+        scrollService.disableScroll();
       }else{
         mh.css('background-color', '');
-        whiteDiv();
-        enableScroll();
+        scrollService.enableScroll();
       }
     }) // click
-
-
-    var whiteDiv = function(){
-      var mn = $('#mobileNav');
-      var overlay = $('.header-overlay')
-
-      if(overlay.hasClass('is-active')){
-        overlay.removeClass('is-active');
-
-      }else{
-        overlay.addClass('is-active');
-      }
-    } // whitediv
-
-    var disableScroll = function(){
-      $('html, body').css(
-        {
-        'overflow': 'hidden',
-        'height': '100%'
-      });
-    }
-    var enableScroll = function(){
-      $('html, body').css(
-        {
-       'overflow': 'auto',
-       'height': 'auto'
-       });
-    }
 
   }; // end of link
 
@@ -125,4 +97,24 @@ angular.module('appRoutes', [])
 
   })
 
+angular.module('fasionistaApp')
+
+.factory('scrollService', function(){
+  return {
+     disableScroll: function(){
+      $('html, body').css(
+        {
+        'overflow': 'hidden',
+        'height': '100%'
+      });
+    },
+    enableScroll: function(){
+      $('html, body').css(
+        {
+       'overflow': 'auto',
+       'height': 'auto'
+       });
+    }
+  }
+})
 //# sourceMappingURL=application.js.map

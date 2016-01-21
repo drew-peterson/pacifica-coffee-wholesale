@@ -20,7 +20,7 @@
 
     <!-- Hamburger Btn -->
     <div class="nav-open">
-      <a href="#" ng-click="mobileNav();">Open</a>
+      <a ng-click="mobileNav();">Open</a>
     </div>
 
   </div>
@@ -33,7 +33,7 @@
 <div id="mobileNav" ng-class="{'openNav': navActive}">
 
   <div ng-repeat="link in navLinks">
-    <a ui-sref="{{link}}" ng-click="expression">{{link | capitalize }}</a>
+    <a ui-sref="{{link}}" ng-click="mobileNav()">{{link | capitalize }}</a>
   </div>
 
 </div>

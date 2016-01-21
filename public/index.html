@@ -26,10 +26,14 @@
   <!-- header -->
   <header ng-controller="NavCtrl">
     <main-Nav id='mainNav'></main-Nav>
+
+    <!-- main overlay -->
+    <div class="header-overlay"
+    ng-class="{'is-active': navActive }">
+    </div>
+
   </header>
 
-  <!-- main overlay -->
-  <div class="header-overlay"></div>
 
   <!-- main content -->
   <div ui-view></div>
