@@ -26,7 +26,7 @@
 
     .hero-container {
       position: relative; // important for z-index + absolute;
-      z-index: 10; // with relative shows text above opacity div ln-29
+      z-index: 2; // with relative shows text above opacity div ln-29
 
       @include tablet {
         padding: 0 $med;

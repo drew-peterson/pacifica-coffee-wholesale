@@ -1,0 +1,31 @@
+#mainNav {
+
+  // button
+  .nav-open {
+    @include tablet { display: none; }
+    padding-right: 20px;
+    a {
+      color: white;
+    }
+  }
+
+
+
+}
+
+// dropdown menu;
+#mobileNav {
+  z-index: 3;
+  background-color: rgba(0,0,0,0.4);
+  width: 100%;
+  min-height: 200px;
+  transform: translateY(calc(-150px - 20vh));
+
+  transition: all 0.4s ease;
+
+
+  &.openNav {
+    transform: translateY(0px);
+  }
+
+}

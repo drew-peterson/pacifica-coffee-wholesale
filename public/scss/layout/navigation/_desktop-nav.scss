@@ -1,19 +1,28 @@
-#desktopNav {
-  display: flex;
-  align-items: center;
-  height: 10vh;
 
-  // transparent nav ===================
-  position: absolute;
-  background: rgba(0,0,0,0.4);
+#mainNav {
+  height: 10vh;
+  position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 10;
 
+  .dNav {
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    background: rgba(0,0,0,0.4);
+    position: relative; // needed for z-index
+  }
+
+  .home {
+    display: inline-block;
+  }
+
+  // contains all links inlucding hamburger
   .nav-container {
-    width: 100%;
-    padding-right: $mlg;
+    display: flex;
+    align-items: center;
   } // end of nav-container
 
   li {
@@ -27,12 +36,15 @@
       color: $green;
     }
   }
-
-
-  .bar-wrap {
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
+  // Just the desktop nav
+  .desktop-nav {
+    // hide in mobile view
+    display: none;
+    @include tablet {
+      display: flex;
+      position: relative;
+      padding-right: $sm;
+    }
   }
   // hover bar ================================
 

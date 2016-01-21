@@ -1,19 +1,43 @@
-<ul id="desktopNav" ng-style="{'background-color': navC}">
 
-  <div><li ui-sref='index' ng-click="tabIndex='tab0'; navC= 'rgba(0,0,0,0.4'">Home</li></div>
+<!-- desktop nav -->
+
+<ul class="dNav" ng-style="{'background-color': navC}">
+
+  <div class = 'home'><li ui-sref='index' ng-click="tabIndex='tab0'; navC= 'rgba(0,0,0,0.4'">Home</li>
+  </div>
+
   <div class="nav-container">
-    <div class="bar-wrap">
 
+    <div class="desktop-nav">
       <li ui-sref="about" ng-click="tabIndex= 'tab1'; navC = '#E91E63';">About</li>
       <li ui-sref="consignment" ng-click="tabIndex='tab2';navC = '#4CAF50';">Consignment</li>
       <li ui-sref="directions" ng-click="tabIndex='tab3';navC = '#F8BBD0';">Directions</li>
 
       <span id='tabIndex' class= "bar"
       ng-class="tabIndex">
-    </span>
+      </span>
+    </div>
+
+    <!-- Hamburger Btn -->
+    <div class="nav-open">
+      <a href="#" ng-click="mobileNav();">Open</a>
+    </div>
 
   </div>
-  </div>
 </ul>
+
+
+<!--================
+ mobile drop down menu -->
+
+<div id="mobileNav" ng-class="{'openNav': navActive}">
+
+  <div ng-repeat="link in navLinks">
+    <a ui-sref="{{link}}" ng-click="expression">{{link | capitalize }}</a>
+  </div>
+
+</div>
+<!--=======================================  -->
+
 
 
