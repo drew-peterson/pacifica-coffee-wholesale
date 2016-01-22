@@ -6,7 +6,7 @@
   <div class = 'home'><li ui-sref='index'
     ng-click="
       tabIndex='tab0';
-      navC= 'rgba(0,0,0,0.4';
+      navC= '';
       mobileNav($event);
       "
       >Home</li>
@@ -33,6 +33,10 @@
       </button>
     </div>
 
+    <span style="color: white;">
+
+    </span>
+
   </div>
 </ul>
 
@@ -40,7 +44,7 @@
 <!--================
  mobile drop down menu -->
 
-<div id="mobileNav" ng-class="{'openNav': navActive}">
+<div id="mobileNav" ng-class="{'openNav': navActive}" ng-style="{'background-color': navC}">
 
   <div class="mobile__inner" ng-repeat="link in navLinks"
   ng-if="navActive">
@@ -49,7 +53,7 @@
       ng-click="mobileNav($event); changeBackground(link.navC)">
       {{link.state | capitalize }}
     </a>
-    {{link.navC}}
+
   </div>
 
 </div>

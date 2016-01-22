@@ -1,6 +1,9 @@
 angular.module('NavCtrl', [])
 
 .controller('NavCtrl', function($scope, scrollService){
+
+  $scope.navC = '';
+
   $scope.navLinks = [
     {
       state:'about',
@@ -36,10 +39,12 @@ angular.module('NavCtrl', [])
 
 
   $scope.changeBackground = function(color){
-    var primColor = '#E91E63';
-    $scope.navC = color || primColor;
 
-    console.log(color)
+    if(!$scope.navC){
+      $scope.navC = '#E91E63' // clicked from home page or any page
+    }else{
+      $scope.navC = color || $scope.navC
+    }
   }
 })
 
