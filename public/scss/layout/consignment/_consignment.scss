@@ -1,4 +1,4 @@
-#about {
+#consignment {
   @include flex-center;
   margin-top: 10vh;
   text-align: left;
@@ -11,7 +11,7 @@
     width: 90%;
     font-family: 'Lobster Two', cursive;
     letter-spacing: 3.5px;
-    color: $prim-color;
+    color: $green;
   }
 
   h3 {
@@ -27,7 +27,7 @@
   }
 
   .col {
-    background-color: $prim-color;
+    background-color: $green;
     @include box-shadow;
     padding: $med;
     width: 90%;
@@ -35,4 +35,11 @@
     color: $white;
   }
 
-} // end of about
+  // consignment agreement download
+  a {
+    @include main-btn(black);
+    margin: $med 0;
+    padding: $msm;
+  }
+
+} // end of consignment
