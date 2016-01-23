@@ -4,6 +4,9 @@
   border: 2px solid $color;
   display: inline-block;
   cursor: pointer;
+  text-align-last: center;
+
+  @content;
 
  &:hover {
       background: $white;

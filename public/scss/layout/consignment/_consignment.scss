@@ -12,6 +12,10 @@
     font-family: 'Lobster Two', cursive;
     letter-spacing: 3.5px;
     color: $green;
+
+    @include tablet {
+      font-size: $xl;
+    }
   }
 
   h3 {
@@ -24,22 +28,143 @@
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     font-size: 1.2rem;
+
+    @include tablet {
+      font-size: $lg;
+      padding: $xl 0;
+      margin: $lg 0;
+    }
+  }
+
+  .container {
+    width: 90%;
+    margin: $med 0;
+
+    @include tablet {
+      display: flex;
+      justify-content: space-around;
+      margin: $lg 0;
+    }
+
+    .image {
+      // hide by default;
+      display: none;
+
+      @include tablet {
+        display: block;
+        width: 50%;
+        height: 300px;
+      }
+    }
   }
 
   .col {
     background-color: $green;
     @include box-shadow;
     padding: $med;
-    width: 90%;
-    margin: $med 0;
     color: $white;
+
+    @include tablet {
+      width: 50%;
+      font-size: $mlg;
+      padding: $mlg;
+
+      // test
+      padding-top: 0;
+      text-align: left;
+      background: $white;
+      box-shadow: none;
+      color: $green;
+      font-size: 1.8rem;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
   }
 
   // consignment agreement download
   a {
-    @include main-btn(black);
+    @include main-btn();
     margin: $med 0;
     padding: $msm;
+    background-color: $green;
+    width: 90%;
+
+    @include tablet {
+      font-size: $mlg;
+      padding: $mlg 0;
+      width: 60%;
+    }
   }
+
+  // Images + margin ================================
+
+  .image-1{
+    margin-right: 10%;
+    @include background-image('../img/white-shirt.jpeg'){
+    }
+  }
+
+  .image-2{
+    margin-left: 10%;
+    @include background-image('../img/white-shirt.jpeg'){
+    }
+  }
+
+
+  .image-4{
+    margin-left: 10%;
+    @include background-image('../img/white-shirt.jpeg'){
+    }
+  }
+
+// Column Adjustments =====================
+
+.col-2 {
+  background: none;
+  color: $gray;
+
+  li {
+    margin: $msm 0;
+
+    //different colors======================
+    $colors: $green #fc913a #CC5543 #44465d;
+    $l: length($colors) + 1;
+
+    @for $i from 1 to $l{
+      $color: nth($colors, $i);
+
+      &:nth-of-type(#{$l}n+#{$i}){
+        border: 1px solid $color;
+
+        span {
+          color: $white;
+          height: 100%;
+          display: inline-block;
+          background-color: $color;
+          width: 50%;
+          padding: $sm $msm;
+          margin-right: $msm;
+        }
+      }
+    } // end of loop
+  } // end of li
+
+  h4 {
+    font-size: $mlg;
+  }
+} // end of col-2
+
+.col-3{
+  margin-top: -$lg;
+  width: 100%;
+  background: $google-gray;
+  color: $gray;
+}
+
+
+
+
 
 } // end of consignment
