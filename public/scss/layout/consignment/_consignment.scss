@@ -161,9 +161,16 @@
 
 .col-3{
   margin-top: -$lg;
+  padding: 0;
   width: 100%;
   background: $google-gray;
   color: $gray;
+
+  @include tablet {
+    p {
+      padding: $med $mlg;
+    }
+  }
 }
 
 
