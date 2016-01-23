@@ -52,7 +52,7 @@
 
       @include tablet {
         display: block;
-        width: 50%;
+        width: 40%;
         height: 300px;
       }
     }
@@ -65,7 +65,7 @@
     color: $white;
 
     @include tablet {
-      width: 50%;
+      width: 60%;
       font-size: $mlg;
       padding: $mlg;
 
@@ -153,6 +153,9 @@
 
   h4 {
     font-size: $mlg;
+    @include tablet {
+      font-size: $lg;
+    }
   }
 } // end of col-2
 
