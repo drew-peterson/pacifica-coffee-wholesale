@@ -1,6 +1,6 @@
 angular.module('NavCtrl', [])
 
-.controller('NavCtrl', function($scope, scrollService){
+.controller('NavCtrl', function($scope, scrollService, $location){
 
   $scope.navC = '';
 
@@ -46,7 +46,31 @@ angular.module('NavCtrl', [])
       $scope.navC = color || $scope.navC
     }
   }
-})
+
+
+  // check background @url and set color
+
+  var currentUrl = $location.$$path;
+
+  if(currentUrl === '/about'){
+    $scope.navC = '#E91E63';
+
+  }else if(currentUrl === '/consignment'){
+    $scope.navC = '#4CAF50';
+
+  }else if(currentUrl === '/directions'){
+    $scope.navC = '#F8BBD0'
+
+  }else{
+    console.log('else')
+  }
+
+
+
+
+}) // end of ctrl ===================
+
+
 
 // custom directive ======================
 
