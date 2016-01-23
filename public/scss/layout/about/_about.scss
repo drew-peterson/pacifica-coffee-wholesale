@@ -1,38 +1,39 @@
+
 #about {
-  @include flex-center;
-  margin-top: 10vh;
-  text-align: left;
+
+  // take on #about on the end of #consignment
+  @extend #consignment;
+
+  //I think because consignment is nested is ihave to override with !important because its very specific.
 
   h1 {
-    font-size: $lg;
-    margin-top: $med;
-    display: block;
-    text-align: left;
-    width: 90%;
-    font-family: 'Lobster Two', cursive;
-    letter-spacing: 3.5px;
-    color: $prim-color;
-  }
-
-  h3 {
-    width: 90%;
-    text-align: center;
-    line-height: 1.2;
-    font-style: italic;
-    color: $gray;
-    padding: $med 0;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
-    font-size: 1.2rem;
+    color: $prim-color !important;
   }
 
   .col {
-    background-color: $prim-color;
-    @include box-shadow;
-    padding: $med;
-    width: 90%;
-    margin: $med 0;
+    background-color: $prim-color !important;
+
+    @include tablet {
+      background-color: $white !important;
+    }
+  }
+
+  p {
     color: $white;
+    @include tablet {
+      color: $prim-color !important;
+    }
+  }
+
+// Images =================================
+  .image-1{
+    @include background-image('../img/white-shirt.jpeg');
+  }
+
+// column adjustments =======================
+
+  .col-2 {
+    width: 100% !important;
   }
 
 } // end of about
