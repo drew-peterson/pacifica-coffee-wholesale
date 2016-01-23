@@ -1,4 +1,16 @@
 
+// tab index variable for sliding bar ======================
+
+$about-margin: 16.8rem;
+$about-width: 84.625px;
+
+$consignment-margin: 7.5rem;
+$consignment-width: 149px;
+
+$directions-margin: 5px;
+$directions-width: 110px;
+
+// ========================================================
 #mainNav {
   min-height: 65px;
   height: 10vh;
@@ -24,7 +36,7 @@
     li {
       font-size: $mlg;
       padding: 0;
-      padding-left: $mlg / 2;
+      margin-left: $mlg / 2;
     }
   }
 
@@ -48,7 +60,6 @@
     @include tablet {
       display: flex;
       position: relative;
-      padding-right: $sm;
     }
   }
   // hover bar ================================
@@ -64,12 +75,16 @@
     transition: all 0.5s ease;
   }
 
+  // Hover Animation ========================
+
+
+
   li:nth-child(1){
     &:hover {
       & ~ span {
         display: block;
-        margin-right: 16.8rem !important;
-        width: 84.625px !important;
+        margin-right: $about-margin ;
+        width: $about-width ;
       }
     }
   }
@@ -77,8 +92,8 @@
     &:hover {
       & ~ span {
         display: block;
-        margin-right: 7.3rem !important;
-        width: 151px !important;
+        margin-right: $consignment-margin ;
+        width: $consignment-width ;
       }
     }
   }
@@ -86,8 +101,8 @@
     &:hover {
       & ~ span {
         display: block;
-        margin-right: 0 !important;
-        width: 122.54px !important;
+        margin-right: $directions-margin ;
+        width: $directions-width ;
       }
     }
   }
@@ -98,25 +113,27 @@
 
 
 // TabIndex ========================
+
 #tabIndex.tab0 {
   display: none;
 }
+
 #tabIndex.tab1 {
   display: block;
-  margin-right: 16.8rem;
-  width: 84.625px ;
+  margin-right: $about-margin;
+  width: $about-width ;
 }
 
 #tabIndex.tab2 {
   display: block;
-  margin-right: 7.3rem ;
-  width: 151px ;
+  margin-right: $consignment-margin ;
+  width: $consignment-width ;
 }
 
 #tabIndex.tab3 {
   display: block;
-  margin-right: 0 ;
-  width: 122.54px ;
+  margin-right: $directions-margin;
+  width: $directions-width ;
 }
 
 
