@@ -96,6 +96,7 @@
 
       @include tablet {
         border-radius: 0;
+        width: 300px;
         height: 300px;
         width: 90%;
       }
@@ -104,10 +105,6 @@
         height: 350px;
         width: 350px;
         border-radius: 50%;
-      }
-
-      @include tablet__landscape {
-        height: 250px;
       }
     }
     .content {

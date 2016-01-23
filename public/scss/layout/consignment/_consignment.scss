@@ -91,6 +91,7 @@
     padding: $msm;
     background-color: $green;
     width: 90%;
+    text-align: center;
 
     @include tablet {
       font-size: $mlg;
