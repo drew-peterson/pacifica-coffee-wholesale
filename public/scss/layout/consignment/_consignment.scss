@@ -1,6 +1,6 @@
 #consignment {
   @include flex-center;
-  margin-top: 10vh;
+  margin-top: 65px;
   text-align: left;
 
   h1 {
@@ -49,6 +49,7 @@
     .image {
       // hide by default;
       display: none;
+      font-size: 0px;
 
       @include tablet {
         display: block;
