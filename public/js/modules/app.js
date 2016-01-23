@@ -1,4 +1,11 @@
-angular.module('fasionistaApp', ['ngAnimate','NavCtrl','MainCtrl', 'ui.router', 'appRoutes'])
+angular.module('fasionistaApp',
+  [
+  'ngAnimate',
+  'NavCtrl',
+  'MainCtrl',
+  'ui.router',
+  'appRoutes'
+  ])
 
 
 // Capitialize =========================
