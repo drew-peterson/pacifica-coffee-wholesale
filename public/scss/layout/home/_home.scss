@@ -1,15 +1,13 @@
 
 #home {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
-  position: relative;
   .hero {
     min-height: 750px;
     background: $prim-color;
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    position: relative;
   }
 
   .hero-container {
@@ -198,18 +196,38 @@
 
 // FOOTER ============================
 
+// https://css-tricks.com/snippets/css/sticky-footer/
+
+#mainContent {
+  min-height: 100%;
+  margin-bottom: -75px;
+}
+
+#mainContent:after{
+  content: '';
+  display: block;
+}
+
+#footer,
+#mainContent:after {
+  height: 75px;
+}
+
 #footer {
-  @include box-shadow;
   background-color: $prim-color;
-  color: $white;
   text-align: center;
-  margin-top: auto;
+  position: relative;
 
   div {
-    padding: 30px 0; // height on footer doesnt work...
+    width: 100%;
+    // center div in footer
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   p {
+    color: $white;
     margin: 0;
   }
   a {
