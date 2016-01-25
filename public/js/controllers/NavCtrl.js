@@ -18,6 +18,10 @@ angular.module('NavCtrl', [])
     {
       state: 'directions',
       navC: '#F8BBD0'
+    },
+    {
+      state: 'items',
+      navC: '#727272'
     }
   ];
 

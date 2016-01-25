@@ -4,7 +4,8 @@ angular.module('Pinterest', [])
 
 .controller('PinterestCtrl',function($http, $scope, pinterestService, $window){
 
-  $scope.pins;
+
+  $scope.pins = [];
 
   var getPins = function(){
     pinterestService.getBoard()
@@ -17,10 +18,7 @@ angular.module('Pinterest', [])
   // call function when page loads, angular way...
   $scope.$on('$viewContentLoaded', function(){
 
-    // only hit api once unless page refresh...
-    if( !$scope.pins){
-      getPins();
-    }
+    getPins();
 
   });
 

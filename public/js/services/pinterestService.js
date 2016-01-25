@@ -15,7 +15,7 @@ return {
         var promise = $http.get(boardUrl)
         .then(function(response){
            pins = pins.concat(response.data.data);
-
+           console.log('hit then')
           return pins;
         }); // then
       return promise;

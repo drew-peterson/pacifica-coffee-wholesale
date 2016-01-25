@@ -28,6 +28,10 @@ angular.module('NavCtrl', [])
     {
       state: 'directions',
       navC: '#F8BBD0'
+    },
+    {
+      state: 'items',
+      navC: '#727272'
     }
   ];
 
@@ -103,7 +107,8 @@ angular.module('Pinterest', [])
 
 .controller('PinterestCtrl',function($http, $scope, pinterestService, $window){
 
-  $scope.pins;
+
+  $scope.pins = [];
 
   var getPins = function(){
     pinterestService.getBoard()
@@ -116,10 +121,7 @@ angular.module('Pinterest', [])
   // call function when page loads, angular way...
   $scope.$on('$viewContentLoaded', function(){
 
-    // only hit api once unless page refresh...
-    if( !$scope.pins){
-      getPins();
-    }
+    getPins();
 
   });
 
@@ -207,7 +209,7 @@ return {
         var promise = $http.get(boardUrl)
         .then(function(response){
            pins = pins.concat(response.data.data);
-
+           console.log('hit then')
           return pins;
         }); // then
       return promise;

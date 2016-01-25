@@ -60,8 +60,9 @@
   }
 }
 
+// padding bottom so it looks even =====================
 // last child cannot get a better way...
-#mobileNav > div:nth-child(3) > a {
+#mobileNav > div:nth-child(4) > a {
   padding-bottom: $lg; // twice the above padding
 }
 
