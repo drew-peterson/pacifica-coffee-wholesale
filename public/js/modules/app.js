@@ -4,7 +4,8 @@ angular.module('fasionistaApp',
   'NavCtrl',
   'MainCtrl',
   'ui.router',
-  'appRoutes'
+  'appRoutes',
+  'pinterestCtrl'
   ])
 
 

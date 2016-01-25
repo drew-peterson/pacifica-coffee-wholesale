@@ -102,13 +102,23 @@ angular.module('NavCtrl', [])
     link: openNav
   };
 });
+angular.module('Pinterest', [])
+
+.controllor('PinterestCtrl',
+  function(pinterestService, $scope){
+
+
+
+})
+
 angular.module('fasionistaApp',
   [
   'ngAnimate',
   'NavCtrl',
   'MainCtrl',
   'ui.router',
-  'appRoutes'
+  'appRoutes',
+  'pinterestCtrl'
   ])
 
 
@@ -153,6 +163,28 @@ angular.module('appRoutes', [])
     })
 
   })
+
+angular.module('Pinterest')
+
+.factory('pinterestService', function($http){
+  return {
+
+    // Get Fashionista Board ======================== - A
+    getBoard: function(){
+      return $http.get({
+        method: 'GET',
+        url: '/'
+      })
+      .then(
+        function successCallback(response){
+          console.log('Success: ' + response)
+      },
+      function errorCallback(response){
+        console.log('Error: ' + response);
+      })
+    } // ========================================= - A
+
+}) // end of factory =========================
 
 angular.module('fasionistaApp')
 
