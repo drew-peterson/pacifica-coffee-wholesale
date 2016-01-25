@@ -8,6 +8,8 @@ angular.module('MainCtrl', [])
 //$scope.watch('varName',function(newVal, OldVal){if(x){$scope.varName = 'test'}})
 
 });
+'use strict';
+
 angular.module('NavCtrl', [])
 
 .controller('NavCtrl', function($scope, scrollService, $location){
@@ -102,14 +104,17 @@ angular.module('NavCtrl', [])
     link: openNav
   };
 });
-angular.module('Pinterest', [])
+'use strict';
 
-.controllor('PinterestCtrl',
-  function(pinterestService, $scope){
+angular.module('PinterestCtrl', [])
+
+.controller('PinterestCtrl',function(){
 
 
 
 })
+
+'use strict';
 
 angular.module('fasionistaApp',
   [
@@ -118,7 +123,7 @@ angular.module('fasionistaApp',
   'MainCtrl',
   'ui.router',
   'appRoutes',
-  'pinterestCtrl'
+  'PinterestCtrl'
   ])
 
 
@@ -161,12 +166,19 @@ angular.module('appRoutes', [])
       controller: 'MainCtrl',
       templateUrl: "../views/directions/index.html",
     })
+    .state('items', {
+      url: '/items',
+      controller: 'PinterestCtrl',
+      template: '<h1>Hello from Items</h1>'
+    })
 
   })
 
-angular.module('Pinterest')
+'use strict';
 
-.factory('pinterestService', function($http){
+angular.module('fasionistaApp')
+
+.factory('pinterestService', function(){
   return {
 
     // Get Fashionista Board ======================== - A
@@ -182,13 +194,15 @@ angular.module('Pinterest')
       function errorCallback(response){
         console.log('Error: ' + response);
       })
-    } // ========================================= - A
-
+    }  // ========================================= - A
+  }  // end of return
 }) // end of factory =========================
+
+'use strict';
 
 angular.module('fasionistaApp')
 
-.factory('scrollService', function(){
+.factory('scrollService',function(){
   return {
      disableScroll: function(){
       $('html, body').css(

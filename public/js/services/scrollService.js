@@ -1,6 +1,8 @@
+'use strict';
+
 angular.module('fasionistaApp')
 
-.factory('scrollService', function(){
+.factory('scrollService',function(){
   return {
      disableScroll: function(){
       $('html, body').css(

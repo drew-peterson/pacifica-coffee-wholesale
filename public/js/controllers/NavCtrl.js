@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('NavCtrl', [])
 
 .controller('NavCtrl', function($scope, scrollService, $location){

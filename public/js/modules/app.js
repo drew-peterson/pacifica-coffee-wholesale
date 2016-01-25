@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('fasionistaApp',
   [
   'ngAnimate',
@@ -5,7 +7,7 @@ angular.module('fasionistaApp',
   'MainCtrl',
   'ui.router',
   'appRoutes',
-  'pinterestCtrl'
+  'PinterestCtrl'
   ])
 
 

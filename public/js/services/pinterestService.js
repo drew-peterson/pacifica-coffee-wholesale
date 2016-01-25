@@ -1,6 +1,8 @@
-angular.module('Pinterest')
+'use strict';
 
-.factory('pinterestService', function($http){
+angular.module('fasionistaApp')
+
+.factory('pinterestService', function(){
   return {
 
     // Get Fashionista Board ======================== - A
@@ -16,6 +18,6 @@ angular.module('Pinterest')
       function errorCallback(response){
         console.log('Error: ' + response);
       })
-    } // ========================================= - A
-
+    }  // ========================================= - A
+  }  // end of return
 }) // end of factory =========================

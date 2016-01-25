@@ -1,7 +1,8 @@
-angular.module('Pinterest', [])
+'use strict';
 
-.controllor('PinterestCtrl',
-  function(pinterestService, $scope){
+angular.module('PinterestCtrl', [])
+
+.controller('PinterestCtrl',function(){
 
 
 

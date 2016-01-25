@@ -27,5 +27,10 @@ angular.module('appRoutes', [])
       controller: 'MainCtrl',
       templateUrl: "../views/directions/index.html",
     })
+    .state('items', {
+      url: '/items',
+      controller: 'PinterestCtrl',
+      template: '<h1>Hello from Items</h1>'
+    })
 
   })
