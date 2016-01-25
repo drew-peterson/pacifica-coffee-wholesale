@@ -1,9 +1,16 @@
 'use strict';
 
-angular.module('PinterestCtrl', [])
+angular.module('Pinterest', [])
 
-.controller('PinterestCtrl',function(){
+.controller('PinterestCtrl',function($http, $scope, pinterestService){
 
+  $scope.pins = [];
 
-
+  $scope.getBoard = function(){
+    pinterestService.async()
+    .then(function(data){
+      console.log(data);
+      $scope.pins = data;
+    });
+  };
 })
