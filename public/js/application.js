@@ -107,7 +107,6 @@ angular.module('Pinterest', [])
 
 .controller('PinterestCtrl',function($http, $scope, pinterestService, $window){
 
-
   // get all pins only once
   pinterestService.getBoard(function(pins){
     $scope.pins = pins;
@@ -192,17 +191,16 @@ angular.module('Pinterest')
 
 return {
     getBoard: function(callback){
+      // callback is the anonymouse function from ctrl
       var cb = callback || angular.noop;
 
       if(pins.length !== 0){
-        cb(pins);
-        console.log('api not hit')
+        cb(pins); // service does not reset so pins contain api data
       }else{
-        console.log('api hit')
         $http.get(boardUrl)
         .success(function(response){
            pins = pins.concat(response.data);
-          cb(pins);
+          cb(pins); // calling the cb function and passing in data
         })
         .error(function(){
           cb();

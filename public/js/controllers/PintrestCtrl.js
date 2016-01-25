@@ -4,7 +4,6 @@ angular.module('Pinterest', [])
 
 .controller('PinterestCtrl',function($http, $scope, pinterestService, $window){
 
-
   // get all pins only once
   pinterestService.getBoard(function(pins){
     $scope.pins = pins;
