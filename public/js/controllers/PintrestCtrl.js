@@ -5,22 +5,10 @@ angular.module('Pinterest', [])
 .controller('PinterestCtrl',function($http, $scope, pinterestService, $window){
 
 
-  $scope.pins = [];
-
-  var getPins = function(){
-    pinterestService.getBoard()
-    .then(function(data){
-      $scope.pins = data;
-      console.log(data)
-    });
-  };
-
-  // call function when page loads, angular way...
-  $scope.$on('$viewContentLoaded', function(){
-
-    getPins();
-
-  });
+  // get all pins only once
+  pinterestService.getBoard(function(pins){
+    $scope.pins = pins;
+  })
 
   // use pinterest url to redirect to pinterest page
   $scope.gotoPins = function(location){
