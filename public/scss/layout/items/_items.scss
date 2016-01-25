@@ -1,6 +1,18 @@
 
 #items {
     background-color: $google-gray;
+
+    h1 {
+      font-family: 'Lobster Two', cursive;
+      margin-left: 5%;
+      margin-bottom: $msm;
+      letter-spacing: 3.5px;
+      font-size: $lg;
+
+      @include tablet {
+        font-size: $xl;
+      }
+    }
   .container {
     width: 90%;
     margin: 0 auto;

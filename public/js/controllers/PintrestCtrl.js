@@ -2,10 +2,9 @@
 
 angular.module('Pinterest', [])
 
-.controller('PinterestCtrl',function($http, $scope, pinterestService){
+.controller('PinterestCtrl',function($http, $scope, pinterestService, $window){
 
   $scope.pins;
-
 
   var getPins = function(){
     pinterestService.getBoard()
@@ -24,5 +23,10 @@ angular.module('Pinterest', [])
     }
 
   });
+
+  // use pinterest url to redirect to pinterest page
+  $scope.gotoPins = function(location){
+    $window.open(location)
+  }
 
 })
