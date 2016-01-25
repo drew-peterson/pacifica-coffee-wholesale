@@ -6,11 +6,18 @@ angular.module('Pinterest', [])
 
   $scope.pins = [];
 
-  $scope.getBoard = function(){
-    pinterestService.async()
+
+  var getPins = function(){
+    pinterestService.getBoard()
     .then(function(data){
-      console.log(data);
       $scope.pins = data;
+      console.log('pins got')
     });
   };
+
+  // call function when page loads, angular way...
+  $scope.$on('$viewContentLoaded', function(){
+    getPins();
+  });
+
 })

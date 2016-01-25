@@ -62,14 +62,7 @@ angular.module('NavCtrl', [])
 
   }else if(currentUrl === '/directions'){
     $scope.navC = '#F8BBD0'
-
-  }else{
-    console.log('else')
   }
-
-
-
-
 }) // end of ctrl ===================
 
 
