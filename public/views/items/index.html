@@ -1,7 +1,25 @@
 
 <main id="items" style="margin-top: 64px;" ng-init="getPins()">
 
-<h1>{{test}}</h1>
+  <h1>Items</h1>
+
+  <section class="container">
+
+    <!-- CARD -->
+    <div class="card" ng-repeat="pin in pins">
+
+      <!-- background image -->
+      <div class="image"
+        style="background-image: url({{pin.image.original.url}})">
+      </div>
+
+      <div class='content'>
+        <h3> {{ pin.note }} </h3>
+      </div>
+    </div>
+
+
+  </section>
 
 </main>
 
