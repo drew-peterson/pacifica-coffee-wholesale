@@ -1,9 +1,10 @@
 
 #directions {
+  margin-top: 65px;
 
   h1 {
     margin-top: $med;
-    width: 95%;
+    margin-left: $med;
     font-size: $lg;
     font-family: 'Lobster Two', cursive;
     letter-spacing: 3.5px;
@@ -14,20 +15,19 @@
       font-size: $xl;
     }
   }
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  margin-top: 65px;
-
-  @include tablet {
-    flex-direction: row;
+  .content {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    min-height: 430px;
-    padding: $mlg;
+
+    @include tablet {
+      flex-direction: row;
+      align-items: center;
+      min-height: 430px;
+      padding: 0 $mlg;
+    }
   }
+
 
   section {
     width: 95%;
@@ -38,6 +38,9 @@
       flex: 1;
     }
   }
+
+
+// ==================
 
   .information {
     display: flex;
@@ -51,9 +54,10 @@
   }
 
   .col {
-    background-color: $google-gray;
+    background-color: $prim-color__light;
     padding: $med;
     @include box-shadow;
+    color: $gray;
 
     & + .col{
       margin-top: $med ;
@@ -69,6 +73,10 @@
     @include tablet {
       flex: 2;
       margin-left: $lg;
+    }
+
+    h3 {
+      margin-bottom: $med;
     }
 
   }
