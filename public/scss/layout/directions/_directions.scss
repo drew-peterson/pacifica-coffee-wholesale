@@ -1,5 +1,20 @@
 
 #directions {
+
+  h1 {
+    margin-top: $med;
+    width: 95%;
+    font-size: $lg;
+    font-family: 'Lobster Two', cursive;
+    letter-spacing: 3.5px;
+    color: $prim-color__light;
+    text-align: left;
+
+    @include tablet {
+      font-size: $xl;
+    }
+  }
+
   display: flex;
   flex-direction: column;
   align-items: center;

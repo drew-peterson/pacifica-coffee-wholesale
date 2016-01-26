@@ -5,10 +5,10 @@
     h1 {
       font-family: 'Lobster Two', cursive;
       margin-left: 5%;
-      margin-bottom: $msm;
       letter-spacing: 3.5px;
       font-size: $lg;
       color: $gray;
+      padding: $med 0;
 
       @include tablet {
         font-size: $xl;

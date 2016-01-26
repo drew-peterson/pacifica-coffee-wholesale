@@ -21,6 +21,10 @@ angular.module('NavCtrl', [])
       state:'about',
       navC: '#E91E63'
     },
+      {
+      state: 'items',
+      navC: '#727272'
+    },
     {
       state: 'consignment',
       navC: '#4CAF50'
@@ -28,10 +32,6 @@ angular.module('NavCtrl', [])
     {
       state: 'directions',
       navC: '#F8BBD0'
-    },
-    {
-      state: 'items',
-      navC: '#727272'
     }
   ];
 
