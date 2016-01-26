@@ -1,14 +1,19 @@
 
 // tab index variable for sliding bar ======================
 
-$about-margin: 16.8rem;
-$about-width: 84.625px;
+$directions-margin: 12px;
+$directions-width: 97px;
 
-$consignment-margin: 7.5rem;
-$consignment-width: 149px;
+$consignment-margin: 132.5px;
+$consignment-width: 126px;
 
-$directions-margin: 5px;
-$directions-width: 110px;
+$item-margin: 282px;
+$item-width: 53px;
+
+$about-margin: 358.7px;
+$about-width: 57px;
+
+
 
 // ========================================================
 #mainNav {
@@ -91,12 +96,21 @@ $directions-width: 110px;
     &:hover {
       & ~ span {
         display: block;
+        margin-right: $item-margin ;
+        width: $item-width ;
+      }
+    }
+  }
+    li:nth-child(3){
+    &:hover {
+      & ~ span {
+        display: block;
         margin-right: $consignment-margin ;
         width: $consignment-width ;
       }
     }
   }
-   li:nth-child(3){
+   li:nth-child(4){
     &:hover {
       & ~ span {
         display: block;
@@ -125,11 +139,17 @@ $directions-width: 110px;
 
 #tabIndex.tab2 {
   display: block;
+  margin-right: $item-margin ;
+  width: $item-width ;
+}
+
+#tabIndex.tab3 {
+  display: block;
   margin-right: $consignment-margin ;
   width: $consignment-width ;
 }
 
-#tabIndex.tab3 {
+#tabIndex.tab4 {
   display: block;
   margin-right: $directions-margin;
   width: $directions-width ;
