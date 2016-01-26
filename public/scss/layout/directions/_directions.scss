@@ -1,15 +1,14 @@
-
 #directions {
   margin-top: 65px;
 
   h1 {
-    margin-top: $med;
-    margin-left: $med;
+    margin-left: 5%;
     font-size: $lg;
     font-family: 'Lobster Two', cursive;
     letter-spacing: 3.5px;
     color: $prim-color__light;
     text-align: left;
+    padding: $med 0 ;
 
     @include tablet {
       font-size: $xl;
@@ -19,37 +18,29 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 90%;
+    margin: 0 auto;
 
     @include tablet {
       flex-direction: row;
-      align-items: center;
+      align-items: flex-start;
       min-height: 430px;
-      padding: 0 $mlg;
     }
   }
 
-
-  section {
-    width: 95%;
-    margin: $med 0;
-
-    @include tablet {
-      margin-top: $med;
-      flex: 1;
-    }
-  }
-
-
-// ==================
+//  Cards ==================
 
   .information {
     display: flex;
     flex-direction: column;
+    width: 90%;
+    margin: $med 0;
 
     @include tablet {
       min-height: 320px;
-      margin-top: -10px; // account for weird spacing;
-      justify-content: center;
+      justify-content: flex-start;
+      margin: 0;
+      flex: 1;
     }
   }
 
@@ -69,6 +60,7 @@
     padding: $med;
     margin: 0px;
     margin-bottom: $med;
+    width: 90%;
 
     @include tablet {
       flex: 2;
