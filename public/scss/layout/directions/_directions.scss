@@ -33,8 +33,7 @@
   .information {
     display: flex;
     flex-direction: column;
-    width: 90%;
-    margin: $med 0;
+    width: 100%;
 
     @include tablet {
       min-height: 320px;
@@ -60,7 +59,7 @@
     padding: $med;
     margin: 0px;
     margin-bottom: $med;
-    width: 90%;
+    width: 100%;
 
     @include tablet {
       flex: 2;
