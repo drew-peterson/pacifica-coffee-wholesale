@@ -7,7 +7,7 @@ angular.module('MainCtrl', [])
   ){
 
 
-
+// direction images
   $scope.directionImages = [
     {img: '/../img/sign1.jpeg',
     desc: 'Find the Sign'},
@@ -21,7 +21,6 @@ angular.module('MainCtrl', [])
 
   // Scroll Event =============================
 
-
    $scope.sEvent = {
     home: {},
     about: {},
@@ -29,9 +28,13 @@ angular.module('MainCtrl', [])
       col2: scrollEvent.getEl('#consignment .col-2'),
       col4: scrollEvent.getEl('#consignment .col-4')
     },
-    directions: {}
+    directions: {
+      imgs: scrollEvent.getEl('#directions .cardContainer')
+    }
 
-  }
+  } //sEvent
+
+  console.log($scope.sEvent.directions.imgs)
 
   // console.log('col-2: ' + $scope.sEvent.consignment.col2);
 
@@ -41,7 +44,7 @@ angular.module('MainCtrl', [])
     $scope.curPos = document.body.scrollTop
                     || document.documentElement.scrollTop
                     || 0;
-    // console.log("pos: " + $scope.curPos);
+    console.log("pos: " + $scope.curPos);
     $scope.$digest();
 
   };

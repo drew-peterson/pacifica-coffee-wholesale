@@ -6,7 +6,6 @@ angular.module('fasionistaApp')
 
   return {
     getEl: function(className){
-      console.log('get element scroll')
       var el = $(className);
 
       if (el.length >= 1) {

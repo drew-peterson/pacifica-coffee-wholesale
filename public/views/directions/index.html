@@ -40,8 +40,10 @@
 <!-- IMAGES -->
     <h1 style="padding-top: 0;">My Shop</h1>
 
-    <section class="cardContainer">
+    <section class="cardContainer scrollEvent"
+    ng-class="{trigger: curPos >= sEvent.directions.imgs}">
       <div card-inner ng-repeat="card in directionImages"></div>
     </section>
 
 </main>
+
