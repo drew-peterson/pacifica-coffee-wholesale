@@ -57,8 +57,8 @@
 
   .col.col3 {
     padding: $med;
-    margin: 0px;
-    margin-bottom: $med;
+    margin: $med 0;
+    // margin-bottom: $med;
     width: 100%;
 
     @include tablet {

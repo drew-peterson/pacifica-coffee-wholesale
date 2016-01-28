@@ -128,7 +128,8 @@ angular.module('fasionistaApp',
   'MainCtrl',
   'ui.router',
   'appRoutes',
-  'Pinterest' // pinerest ctrl, inject module not ctrl
+  'Pinterest', // pinerest ctrl, inject module not ctrl,
+
   ])
 
 
@@ -141,6 +142,22 @@ angular.module('fasionistaApp',
   });
 
 // ========================================
+
+'use strict';
+
+angular.module('fasionistaApp')
+
+  // card
+  .directive('cardInner',function(){
+    return{
+      controllerAs: 'cardCtrl',
+      controller: function(){
+        this.fullName = 'Drew Peterson';
+      },
+      // restrict: 'E',
+      templateUrl: '/views/partials/_card.html'
+    }
+  })
 
 angular.module('appRoutes', [])
 
@@ -175,6 +192,11 @@ angular.module('appRoutes', [])
       url: '/items',
       controller: 'PinterestCtrl',
       templateUrl: '../views/items/index.html'
+    })
+    .state('test', {
+      url: '/test',
+      controller: 'MainCtrl',
+      templateUrl: '../views/test/index.html'
     })
 
   })

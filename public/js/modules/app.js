@@ -7,7 +7,8 @@ angular.module('fasionistaApp',
   'MainCtrl',
   'ui.router',
   'appRoutes',
-  'Pinterest' // pinerest ctrl, inject module not ctrl
+  'Pinterest', // pinerest ctrl, inject module not ctrl,
+
   ])
 
 
