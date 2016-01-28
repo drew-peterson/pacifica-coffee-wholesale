@@ -1,17 +1,15 @@
 
-#cardContainer {
-  @include debug;
-     width: 90%;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
+.cardContainer {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 
 // Card directive styles ===============
 [card-inner] {
   width: 50%;
-  @include debug(blue);
 
   @include tablet {
     width: 33.33%;
