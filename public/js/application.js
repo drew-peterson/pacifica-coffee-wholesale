@@ -1,6 +1,11 @@
 angular.module('MainCtrl', [])
 
-.controller('MainCtrl',function($scope, $location){
+.controller('MainCtrl',function(
+  $scope,
+  scrollEvent,
+  $window
+  ){
+
 
 
   $scope.directionImages = [
@@ -14,7 +19,36 @@ angular.module('MainCtrl', [])
     desc: 'Plently of open space'}
   ]
 
-// if statements only work with $scope.watch() and the varible has to be changed in html
+  // Scroll Event =============================
+
+
+   $scope.sEvent = {
+    home: {},
+    about: {},
+    consignment: {
+      col2: scrollEvent.getEl('#consignment .col-2'),
+      col4: scrollEvent.getEl('#consignment .col-4')
+    },
+    directions: {}
+
+  }
+
+  // console.log('col-2: ' + $scope.sEvent.consignment.col2);
+
+  $scope.curPos = 0;
+
+  $window.onscroll = function(){
+    $scope.curPos = document.body.scrollTop
+                    || document.documentElement.scrollTop
+                    || 0;
+    // console.log("pos: " + $scope.curPos);
+    $scope.$digest();
+
+  };
+  // =============================================
+
+
+// if statements can also work with $scope.watch() and the varible has to be changed in html
 //$scope.watch('varName',function(newVal, OldVal){if(x){$scope.varName = 'test'}})
 
 });
@@ -22,7 +56,11 @@ angular.module('MainCtrl', [])
 
 angular.module('NavCtrl', [])
 
-.controller('NavCtrl', function($scope, scrollService, $location){
+.controller('NavCtrl', function(
+  $scope,
+  scrollService,
+  $location
+  ){
 
   $scope.navC = '';
 
@@ -254,6 +292,24 @@ return {
 // updated verion... prevent multiple api calls
 // http://stackoverflow.com/questions/31556184/calling-http-only-once-in-a-controller
 
+'use strict';
+
+angular.module('fasionistaApp')
+
+.factory('scrollEvent', function(){
+
+  return {
+    getEl: function(className){
+      console.log('get element scroll')
+      var el = $(className);
+
+      if (el.length >= 1) {
+        return el.offset().top -= 300;
+      }
+    }
+
+  } // end of return
+})
 'use strict';
 
 angular.module('fasionistaApp')
