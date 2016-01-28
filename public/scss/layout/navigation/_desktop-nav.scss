@@ -61,7 +61,7 @@ $about-width: 57px;
   .desktop-nav {
     // hide in mobile view
     display: none;
-    @include tablet {
+    @include desktop {
       display: flex;
       position: relative;
     }

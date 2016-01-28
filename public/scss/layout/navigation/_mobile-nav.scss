@@ -2,7 +2,7 @@
 
   // button
   .nav-open {
-    @include tablet { display: none; }
+    @include desktop { display: none; }
     padding-right: 20px;
     a {
       color: white;
