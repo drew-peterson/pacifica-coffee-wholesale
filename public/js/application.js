@@ -3,6 +3,16 @@ angular.module('MainCtrl', [])
 .controller('MainCtrl',function($scope, $location){
 
 
+  $scope.directionImages = [
+    {img: '/../img/sign1.jpeg',
+    desc: 'Find the Sign'},
+    {img: '/../img/sign2.jpeg',
+    desc: 'Welcome'},
+   {img:'/../img/parking1.jpeg',
+    desc: 'Great Parking!'},
+   {img:'/../img/parking2.jpeg',
+    desc: 'Plently of open space'}
+  ]
 
 // if statements only work with $scope.watch() and the varible has to be changed in html
 //$scope.watch('varName',function(newVal, OldVal){if(x){$scope.varName = 'test'}})
@@ -151,13 +161,18 @@ angular.module('fasionistaApp')
   .directive('cardInner',function(){
     return{
       controllerAs: 'cardCtrl',
+      templateUrl: '/views/partials/_card.html',
+
       controller: function(){
-        this.fullName = 'Drew Peterson';
-      },
-      // restrict: 'E',
-      templateUrl: '/views/partials/_card.html'
-    }
-  })
+        this.fullName = "Drew Peterson";
+
+
+
+        this.test = [1,2,3]
+
+    } // end of controller
+  } // end of return
+}) // end of directive
 
 angular.module('appRoutes', [])
 

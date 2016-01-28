@@ -6,10 +6,15 @@ angular.module('fasionistaApp')
   .directive('cardInner',function(){
     return{
       controllerAs: 'cardCtrl',
+      templateUrl: '/views/partials/_card.html',
+
       controller: function(){
-        this.fullName = 'Drew Peterson';
-      },
-      // restrict: 'E',
-      templateUrl: '/views/partials/_card.html'
-    }
-  })
+        this.fullName = "Drew Peterson";
+
+
+
+        this.test = [1,2,3]
+
+    } // end of controller
+  } // end of return
+}) // end of directive

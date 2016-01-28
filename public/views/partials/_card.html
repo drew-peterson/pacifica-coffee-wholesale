@@ -2,16 +2,16 @@
 <!--=================
  CARD
  =================== -->
-<div class="card" ng-click="gotoPins(pin.url)">
+<div class="card">
 
   <!-- background image -->
-  <div class="image"
-    style="background-image: url({{pin.image.original.url}})">
+  <div class="card__image"
+    style="background-image: url('{{card.img}}')">
   </div>
 
-  <div class='content'>
+  <div class='card__content'>
     <!-- <h3> {{ pin.note }} </h3> -->
-    <h3> {{cardCtrl.fullName}}</h3>
+    <h3 > {{card.desc}}</h3>
   </div>
 </div>
 
