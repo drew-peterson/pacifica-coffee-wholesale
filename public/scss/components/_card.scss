@@ -10,54 +10,30 @@
 
 // Card directive styles ===============
 [card-inner] {
-  @include debug(blue);
   width: 50%;
+  @include debug(blue);
+
+  @include tablet {
+    width: 33.33%;
+  }
 
   .card {
-
     @include box-shadow;
     background-color: $white;
     min-height: 250px;
-    // min-width: 130px;
-    width: 100%;
-
-    margin-bottom: 5%;
+    min-width: 130px;
     cursor: pointer;
+
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 5%;
+
+    @include tablet {
+      min-height: 350px;
+    }
 
     &:hover {
       @include hover-shadow()
-    }
-
-    &:nth-of-type(2n + 1){
-      margin-right: 5%;
-
-      @include tablet__landscape {
-        margin-right: 0;
-      }
-
-    //   @include desktop {
-    //     margin-right: 0;
-    //   }
-    // }
-
-    // @include tablet__landscape{
-    //   width: 32%;
-    //   margin-left: 2%;
-    //   margin-bottom: 2%;
-
-    //   &:nth-of-type(3n + 1){
-    //     margin-left: 0;
-    //   }
-    // }
-
-    // @include desktop {
-    //   width: 32%;
-    //   margin-left: 2%;
-    //   margin-bottom: 2%;
-
-    //   &:nth-of-type(3n + 1){
-    //     margin-left: 0;
-    //   }
     }
   } // end of card
 
@@ -69,6 +45,10 @@
     // background-image
     background-size: cover;
     background-position: 50% 50%;
+
+    @include tablet {
+      height: 300px;
+    }
   }
 
   .content {
