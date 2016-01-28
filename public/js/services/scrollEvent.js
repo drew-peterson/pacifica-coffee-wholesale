@@ -6,8 +6,12 @@ angular.module('fasionistaApp')
 
   return {
     getEl: function(className){
-      var el =  dcoment.getElementByClassName(className).offset().top
-      return el;
+
+      var el = $(className);
+
+      if (el.length >= 1) {
+        return el.offset().top -= 400;
+      }
     }
 
   } // end of return

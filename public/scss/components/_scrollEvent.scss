@@ -1,0 +1,22 @@
+
+// ng-class = "{trigger: curPos}"
+
+.scrollEvent {
+  transition: 2s ease all;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-70px);
+}
+
+
+.scrollEvent.trigger {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scrollEvent.trigger-remove {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-20px);
+}

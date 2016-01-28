@@ -9,13 +9,18 @@ angular.module('MainCtrl', [])
 
   // Scroll Event =============================
 
-  var elements = {
+   $scope.sEvent = {
     home: {},
     about: {},
-    consignment: {},
+    consignment: {
+      col2: scrollEvent.getEl('#consignment .col-2'),
+      col4: scrollEvent.getEl('#consignment .col-4')
+    },
     directions: {}
 
   }
+
+  // console.log('col-2: ' + $scope.sEvent.consignment.col2);
 
   $scope.curPos = 0;
 
@@ -23,8 +28,8 @@ angular.module('MainCtrl', [])
     $scope.curPos = document.body.scrollTop
                     || document.documentElement.scrollTop
                     || 0;
-    console.log("pos: " + $scope.curPos);
-    $scope.$digest(); //
+    // console.log("pos: " + $scope.curPos);
+    $scope.$digest();
 
   };
   // =============================================
