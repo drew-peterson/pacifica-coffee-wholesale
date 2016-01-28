@@ -2,7 +2,11 @@
 
 angular.module('NavCtrl', [])
 
-.controller('NavCtrl', function($scope, scrollService, $location){
+.controller('NavCtrl', function(
+  $scope,
+  scrollService,
+  $location
+  ){
 
   $scope.navC = '';
 
