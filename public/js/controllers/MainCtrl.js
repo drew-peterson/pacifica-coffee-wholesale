@@ -34,17 +34,14 @@ angular.module('MainCtrl', [])
 
   } //sEvent
 
-  console.log($scope.sEvent.directions.imgs)
-
-  // console.log('col-2: ' + $scope.sEvent.consignment.col2);
-
+  // Get scroll =================================
   $scope.curPos = 0;
 
   $window.onscroll = function(){
     $scope.curPos = document.body.scrollTop
                     || document.documentElement.scrollTop
                     || 0;
-    console.log("pos: " + $scope.curPos);
+    // console.log("pos: " + $scope.curPos);
     $scope.$digest();
 
   };

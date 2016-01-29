@@ -4,7 +4,7 @@
   width: 100%;
   .hero {
     min-height: 750px;
-    background: $prim-color;
+    background-color: $white;
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -128,6 +128,7 @@
       font-size: $mlg;
       font-style: italic;
       margin-top: $sm;
+      color: $black;
       @include tablet {
         font-size: $lg;
       }
@@ -149,7 +150,7 @@
       @include flex-center;
 
       height: 60vh;
-      background-color: $prim-color__light;
+      background-color: $white;
       color: $black;
       padding: 0 $med;
     }
