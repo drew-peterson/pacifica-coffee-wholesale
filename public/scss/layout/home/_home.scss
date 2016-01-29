@@ -3,7 +3,7 @@
   min-height: 100%;
   width: 100%;
   .hero {
-    min-height: 750px;
+    min-height: 500px;
     background-color: $white;
     background-size: cover;
     background-position: 50% 50%;
@@ -60,66 +60,30 @@
         // width: 20%;
         font-size: $mlg;
       }
-
     }
-
   } // end of row1
 
+// Vip Shopping ========================
   .row2 {
     @include inner-shadow;
     @include flex-center;
-    min-height: 100vh;
-
+    min-height: 300px;
+    height: 60vh;
+    @include debug;
     .hero-container {
       padding: 0 $msm;
       display: flex;
       flex-direction: column;
       align-items: center;
 
-      @include desktop {
-        flex-direction: row;
-        justify-content: space-around;
-        width: 100%;
-      }
-    }
-    .image {
-      @include flex-center;
-      background-image: url('../img/store.jpeg');
-      background-size: cover;
-      background-position: 50% 50%;
-      height: 200px; // height of the div
-      width: 200px; // with of the div
-      border-radius: 50%;
-
-
       @include tablet {
-        border-radius: 0;
-        width: 300px;
-        height: 300px;
-        width: 90%;
-      }
-
-      @include desktop {
-        height: 350px;
-        width: 350px;
-        border-radius: 50%;
-      }
-    }
-    .content {
-      width: 90%;
-      @include tablet {
-        margin-top: $med;
-        width: 80%;
-      }
-      @include desktop {
-        width: 50%;
+        width: 70%;
       }
     }
 
     h3 {
       font-size: $lg;
-      color: white;
-      text-shadow: 1px 1px $prim-color__dark;
+      color: $black;
       @include tablet {
         font-size: $xxl;
       }
@@ -128,14 +92,15 @@
       font-size: $mlg;
       font-style: italic;
       margin-top: $sm;
-      color: $black;
+      color: $gray;
       @include tablet {
         font-size: $lg;
       }
     }
-
   }
+// ==============================
 
+// 4 Boxes =======================
   .row3 {
     min-height: 100vh;
     .background {
