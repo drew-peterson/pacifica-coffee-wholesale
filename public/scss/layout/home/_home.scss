@@ -98,6 +98,10 @@
     min-height: 50vh;
     padding: $med 0;
 
+    @include tablet {
+      min-height: 60vh;
+    }
+
     .content {
       width: 90%;
       margin: 0 auto;
@@ -107,15 +111,16 @@
       color: $black;
       @include tablet  {
         font-size: $xl;
+        margin-bottom: $med;
       }
     }
 
     p {
       margin-top: $med;
       font-style: italic;
-      text-align: left;
       color: $gray;
       text-align: center;
+      margin: 0 auto;
 
       @include tablet {
         width: 80%;
@@ -123,7 +128,8 @@
       }
     }
     span {
-      margin-top: $med;
+      display: block;
+      margin-top: $mlg;
     }
     a {
       @include main-btn{
@@ -135,6 +141,7 @@
       }
       @include tablet {
         font-size: $mlg;
+        width: 30%;
 
       }
     }
