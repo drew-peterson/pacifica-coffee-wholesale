@@ -60,33 +60,22 @@
     @include inner-shadow;
     @include flex-center;
     min-height: 300px;
-    height: 60vh;
-
-    .hero-container {
-      padding: 0 $msm;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      @include tablet {
-        width: 70%;
-      }
-    }
 
     h3 {
-      font-size: $lg;
-      color: $black;
-      @include tablet {
-        font-size: $xxl;
-      }
-    }
-    h4 {
-      font-size: $med;
+      width: 90%;
+      text-align: center;
+      line-height: 1.2;
       font-style: italic;
-      margin-top: $sm;
       color: $gray;
+      padding: $med 0;
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;
+      font-size: 1.2rem;
+      margin: 0 auto;
       @include tablet {
         font-size: $lg;
+        padding: $xl 0;
+        margin: $lg auto;
       }
     }
   }
@@ -174,6 +163,9 @@
 
     @include tablet {
       padding: $med;
+      width: 49%;
+      margin-right: 2%;
+      margin-bottom: 2%;
     }
 
     &:nth-of-type(2n + 2){
