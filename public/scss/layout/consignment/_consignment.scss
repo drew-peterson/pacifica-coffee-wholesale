@@ -104,22 +104,35 @@
 
   .image-1{
     margin-right: 10%;
-    @include background-image('../img/white-shirt.jpeg'){
+    @include background-image('../img/dropbox/1276207.jpg'){
     }
   }
 
   .image-2{
     margin-left: 10%;
-    @include background-image('../img/white-shirt.jpeg'){
+    @include background-image('../img/dropbox/1276216.jpg'){
     }
   }
 
 
   .image-4{
     margin-left: 10%;
-    @include background-image('../img/white-shirt.jpeg'){
+    @include background-image('../img/dropbox/1276189.jpg'){
     }
   }
+
+  // Mobile ============
+  .mContainer {
+    @include tablet { display: none;}
+  .mImage-1{
+    @include background-image('../img/dropbox/1276204.jpg')
+    height: 200px;
+    width: auto;
+    @include tablet {
+      display: none;
+    }
+  }
+}
 
 // Column Adjustments =====================
 

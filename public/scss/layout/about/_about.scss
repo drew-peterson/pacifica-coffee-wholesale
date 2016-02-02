@@ -37,3 +37,17 @@
   }
 
 } // end of about
+
+
+// Mobile ============
+  .mContainer {
+    @include tablet { display: none;}
+  .mImage-2{
+    @include background-image('../img/dropbox/1267060.jpg')
+    height: 200px;
+    width: auto;
+    @include tablet {
+      display: none;
+    }
+  }
+}
