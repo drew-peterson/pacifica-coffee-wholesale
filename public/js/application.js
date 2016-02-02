@@ -303,7 +303,7 @@ angular.module('fasionistaApp')
       var el = $(className);
 
       if (el.length >= 1) {
-        return el.offset().top -= 300;
+        return el.offset().top -= 500;
       }
     }
 

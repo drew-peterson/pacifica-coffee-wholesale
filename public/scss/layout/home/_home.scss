@@ -41,11 +41,11 @@
     }
 
     h2 {
-      margin-top: $sm;
+      margin-top: $mlg;
       line-height: 1;
       font-style: italic;
       @include tablet {
-        margin-top: $med;
+        margin-top: $lg;
         font-size: $xxl;
       }
       @include desktop {
