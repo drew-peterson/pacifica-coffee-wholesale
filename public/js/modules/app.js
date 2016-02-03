@@ -11,6 +11,19 @@ angular.module('fasionistaApp',
 
   ])
 
+// RUN METHOD called after .config =============
+
+.run(function($rootScope){
+  // auto scroll will keep page position, this will scroll to top of page on state change...
+  $rootScope.$on('$stateChangeSuccess', function() {
+   document.body.scrollTop = document.documentElement.scrollTop = 0;
+});
+
+})
+
+
+//========================================
+
 
 // Capitialize =========================
 .filter('capitalize', function() {
