@@ -97,4 +97,22 @@
 
   }
 
+// STAGGER ANIMATION =================
+     .card.ng-enter{
+      transition: 0.2s linear transform, 0.3s linear opacity;
+      transform: translateY(100%);
+      opacity: 0;
+    }
+
+    .card.ng-enter-stagger {
+      transition-delay: 0.1s;
+      transition-duration: 0s;
+    }
+
+    .card.ng-enter.ng-enter-active{
+      transform: translateY(0%);
+      opacity: 1;
+    }
+//====================================
+
 } // #items
