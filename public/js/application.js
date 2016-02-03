@@ -168,6 +168,8 @@ angular.module('Pinterest', [])
 // on state change && document has finnished loading
 // normal jquery ready doesnt work...
 angular.element(document).ready(function(){
+  // ng-if is important to trigger ng-enter when page is finnished loading
+  // hard refresh works without ng-if...
   $scope.loaded = true;
 });
 
