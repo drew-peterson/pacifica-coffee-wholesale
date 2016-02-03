@@ -165,7 +165,15 @@ angular.module('Pinterest', [])
     $window.open(location)
   }
 
+// on state change && document has finnished loading
+// normal jquery ready doesnt work...
+angular.element(document).ready(function(){
+  $scope.loaded = true;
+});
+
 })
+
+
 
 'use strict';
 

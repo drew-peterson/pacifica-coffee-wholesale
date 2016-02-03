@@ -99,7 +99,7 @@
 
 // STAGGER ANIMATION =================
      .card.ng-enter{
-      transition: 0.2s linear transform, 0.3s linear opacity;
+      transition: 0.3s linear transform, 0.3s linear opacity;
       transform: translateY(100%);
       opacity: 0;
     }

@@ -6,7 +6,7 @@
   <section class="container">
 
     <!-- CARD -->
-    <div class="card" ng-repeat="pin in pins" ng-click="gotoPins(pin.url)">
+    <div class="card" ng-repeat="pin in pins" ng-click="gotoPins(pin.url)" ng-if='loaded'>
 
       <!-- background image -->
       <div class="image"
@@ -20,6 +20,6 @@
 
 
   </section>
-
 </main>
+
 
