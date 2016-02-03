@@ -25,6 +25,14 @@
     }
   }
 
+  .col-1 {
+    a {
+      width: 100%;
+      background-color: $prim-color;
+      color: $white;
+    }
+  }
+
 // Images =================================
   .image-1{
     @include background-image('../img/white-shirt.jpeg');
