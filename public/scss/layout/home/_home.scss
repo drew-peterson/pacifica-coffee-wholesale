@@ -20,7 +20,11 @@
     min-height: 100vh;
     @include full-opacity(0.3); // creates faded div before this one
     background-image: url('../img/clothes.jpeg');
-    padding-top: 20vh; // dunno why margin does not work when applied to child
+    padding-top: 100px;
+
+    @include tablet {
+      padding-top: 150px;
+    }
 
     .hero-container {
       position: relative; // important for z-index + absolute;
@@ -45,11 +49,12 @@
       line-height: 1;
       font-style: italic;
       @include tablet {
-        margin-top: $lg;
-        font-size: $xxl;
+        padding-top: $mlg;
+        font-size: $xl;
       }
       @include desktop {
         width: 60%;
+        font-size: $xxl;
         margin: 0 auto;
       }
     }
@@ -59,7 +64,7 @@
   .row2 {
     @include inner-shadow;
     @include flex-center;
-    min-height: 300px;
+    min-height: 150px;
 
     h3 {
       width: 90%;
@@ -84,7 +89,7 @@
 
   .row3 {
     @include flex-center;
-    min-height: 50vh;
+    min-height: 40vh;
     padding: $med 0;
 
     @include tablet {
@@ -92,12 +97,13 @@
     }
 
     .content {
-      width: 90%;
+      width: 80%;
       margin: 0 auto;
     }
 
     h3 {
       color: $black;
+      margin-bottom: $med;
       @include tablet  {
         font-size: $xl;
         margin-bottom: $med;
@@ -110,6 +116,7 @@
       color: $gray;
       text-align: center;
       margin: 0 auto;
+      font-size: $med;
 
       @include tablet {
         width: 80%;
@@ -150,6 +157,7 @@
   }
 
   .half {
+    @include flex-center;
     @include box-shadow;
     height:45vh;
     width: 48%;
@@ -160,6 +168,7 @@
     background-color: $prim-color;
     color: $white;
     padding: $msm;
+
 
     @include tablet {
       padding: $med;
@@ -188,6 +197,8 @@
   p {
     margin: 0;
     line-height: 1.3;
+    font-size: $mlg;
+
     @include tablet {
       font-size: $lg;
     }
