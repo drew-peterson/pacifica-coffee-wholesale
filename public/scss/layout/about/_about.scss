@@ -34,6 +34,10 @@
 
   .col-2 {
     width: 100% !important;
+
+    @include tablet {
+      width: 50% !important;
+    }
   }
 
 } // end of about
@@ -42,12 +46,34 @@
 // Mobile ============
   .mContainer {
     @include tablet { display: none;}
-  .mImage-2{
-    @include background-image('../img/dropbox/1267060.jpg')
+  .mImage-2A{
+    @include background-image('../img/dropbox/1267060.jpg');
     height: 200px;
     width: auto;
     @include tablet {
       display: none;
     }
   }
+}
+
+
+// Bottom picture
+.col-3A {
+  @include tablet {
+    display: flex;
+    justify-content: space-between !important;
+  }
+  .col {
+    @include tablet {
+      width: 50% !important;
+    }
+  }
+  .image-5 {
+    @include background-image('../img/dropbox/1276168.jpg')
+  }
+}
+
+// IMAGE OVERWRITES ====================
+.image-2A {
+  @include background-image('../img/dropbox/1267060.jpg');
 }
