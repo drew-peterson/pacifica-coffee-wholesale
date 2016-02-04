@@ -7,7 +7,9 @@ angular.module('Pinterest', [])
   // get all pins only once
   pinterestService.getBoard(function(pins){
     $scope.pins = pins;
+    console.log($scope.pins)
   })
+
 
   // use pinterest url to redirect to pinterest page
   $scope.gotoPins = function(location){

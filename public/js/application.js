@@ -158,7 +158,9 @@ angular.module('Pinterest', [])
   // get all pins only once
   pinterestService.getBoard(function(pins){
     $scope.pins = pins;
+    console.log($scope.pins)
   })
+
 
   // use pinterest url to redirect to pinterest page
   $scope.gotoPins = function(location){
@@ -275,7 +277,7 @@ angular.module('Pinterest')
 .factory('pinterestService', function($http){
 
 // 543176473746760468 //- old board
-  var boardUrl = 'https://api.pinterest.com/v1/boards/419538590226392216/pins/?access_token=ATqC1gzDTvxL0zf-1wfyp-SdFCe3FCx7yHOmO5hC0EfPzMArmQAAAAA&fields=id%2Clink%2Cnote%2Curl%2Cimage';
+  var boardUrl = 'https://api.pinterest.com/v1/boards/419538590226392216/pins/?access_token=Ab0MbkYBo-jCHN19exz6LsyGvRFaFC_OyS9S6gRC0EfPzMArmQAAAAA&fields=created_at%2Cimage%2Clink%2Cnote';
 
   var pins = [];
 
