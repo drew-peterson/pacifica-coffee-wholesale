@@ -153,19 +153,20 @@ angular.module('NavCtrl', [])
 
 angular.module('Pinterest', [])
 
-.controller('PinterestCtrl',function($scope, pinterestService, $window){
+.controller('PinterestCtrl',function($scope, pinterestService, $window, dateService){
 
   // get all pins only once
+  $scope.pins; // needed to access pins outside function...
   pinterestService.getBoard(function(pins){
     $scope.pins = pins;
-    console.log($scope.pins)
   })
-
 
   // use pinterest url to redirect to pinterest page
   $scope.gotoPins = function(location){
     $window.open(location)
   }
+
+
 }) // module
 
 
@@ -270,6 +271,23 @@ angular.module('appRoutes', [])
 
   })
 
+'use strict';
+
+angular.module('Pinterest')
+
+.factory('dateService', function(){
+
+  return {
+    getDate: function(){
+      return
+    },
+
+    compareDate: function(){
+
+    }
+  }
+
+}
 'use strict';
 
 angular.module('Pinterest')
