@@ -155,8 +155,10 @@ angular.module('Pinterest', [])
 
 .controller('PinterestCtrl',function($scope, pinterestService, $window, dateService){
 
+  var pinDate = dateService
+
   // get all pins only once
-  $scope.pins; // needed to access pins outside function...
+  // $scope.pins; // needed to access pins outside function...
   pinterestService.getBoard(function(pins){
     $scope.pins = pins;
   })
@@ -166,6 +168,11 @@ angular.module('Pinterest', [])
     $window.open(location)
   }
 
+// NEW ITEM TAG 1 WEEK
+$scope.newItem = function(createdAt){
+  var newItem = dateService.compareDate(createdAt);
+  return newItem
+}
 
 }) // module
 
@@ -278,16 +285,19 @@ angular.module('Pinterest')
 .factory('dateService', function(){
 
   return {
-    getDate: function(){
-      return
-    },
 
-    compareDate: function(){
+    compareDate: function(created_at){
+      var oneWeek = 604800000; // 1 week in milisec 604800000
+      var now = Date.now();
+      var createdAt = Date.parse(created_at);
 
+      var newItemCutOff = oneWeek + createdAt;
+
+      return now < newItemCutOff; // if true show new items
     }
   }
 
-}
+});
 'use strict';
 
 angular.module('Pinterest')
