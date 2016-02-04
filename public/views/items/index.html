@@ -1,13 +1,12 @@
 
-<main id="items" style="margin-top: 64px;" ng-init="getPins()">
+<main id="items" style="margin-top: 64px;">
 
   <h1>Items</h1>
 
   <section class="container">
 
     <!-- CARD -->
-    <div class="card" ng-repeat="pin in pins" ng-click="gotoPins(pin.url)" ng-if='loaded'>
-
+    <div class="card" ng-repeat="pin in pins" ng-click="gotoPins(pin.url)">
       <!-- background image -->
       <div class="image"
         style="background-image: url({{pin.image.original.url}})">

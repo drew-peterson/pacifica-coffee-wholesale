@@ -153,7 +153,7 @@ angular.module('NavCtrl', [])
 
 angular.module('Pinterest', [])
 
-.controller('PinterestCtrl',function($http, $scope, pinterestService, $window){
+.controller('PinterestCtrl',function($scope, pinterestService, $window){
 
   // get all pins only once
   pinterestService.getBoard(function(pins){
@@ -164,16 +164,7 @@ angular.module('Pinterest', [])
   $scope.gotoPins = function(location){
     $window.open(location)
   }
-
-// on state change && document has finnished loading
-// normal jquery ready doesnt work...
-angular.element(document).ready(function(){
-  // ng-if is important to trigger ng-enter when page is finnished loading
-  // hard refresh works without ng-if...
-  $scope.loaded = true;
-});
-
-})
+}) // module
 
 
 
