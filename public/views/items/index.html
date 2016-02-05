@@ -7,6 +7,12 @@
 
     <!-- CARD -->
     <div class="card" ng-repeat="pin in pins" ng-click="gotoPins(pin.url)">
+      <!-- NEW ITEM -->
+      <div id='newItem' ng-if="newItem(pin.created_at)">
+        <h4> NEW </h4>
+      </div>
+      <!-- ====================== -->
+
       <!-- background image -->
       <div class="image"
         style="background-image: url({{pin.image.original.url}})">
@@ -14,8 +20,8 @@
 
       <div class='content'>
         <h3> {{ pin.note }} </h3>
-        <h3 ng-if="newItem(pin.created_at)"> NEW ITEM! </h3>
       </div>
+
     </div>
 
 

@@ -28,6 +28,7 @@
     width: 47.5%;
     margin-bottom: 5%;
     cursor: pointer;
+    position: relative;
 
     &:hover {
       @include hover-shadow()
@@ -116,3 +117,19 @@
 //====================================
 
 } // #items
+
+
+// NEW ITEM BANNER ======================
+
+#newItem {
+  background-color: $prim-color;
+  color: $white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: $xs;
+}
+
+// ======================================
