@@ -1,6 +1,7 @@
 
 #items {
     background-color: $google-gray;
+    height: 100vh;
 
     h1 {
       font-family: 'Lobster Two', cursive;
@@ -67,11 +68,11 @@
       }
 
     @include desktop__large {
-      width: 23.5%;
+      width: 18.4%;
       margin-left: 2%;
       margin-bottom: 2%;
 
-      &:nth-of-type(4n + 1){
+      &:nth-of-type(5n + 1){
         margin-left: 0;
       }
 
