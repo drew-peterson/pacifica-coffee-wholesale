@@ -56,25 +56,44 @@
       }
     }
 
-    @include desktop {
-      width: 32%;
+      @include desktop{
+        width: 32%;
+        margin-left: 2%;
+        margin-bottom: 2%;
+
+        &:nth-of-type(3n + 1){
+          margin-left: 0;
+        }
+      }
+
+    @include desktop__large {
+      width: 23.5%;
       margin-left: 2%;
       margin-bottom: 2%;
 
-      &:nth-of-type(3n + 1){
+      &:nth-of-type(4n + 1){
         margin-left: 0;
+      }
+
+      &:nth-of-type(3n){
+        margin-right: 2%;
       }
     }
   } // card end
 
   .image {
     width: 100%;
-    background-color: $green;
+    background-color: $white;
     height: 200px;
 
     // background-image
     background-size: cover;
     background-position: 50% 50%;
+
+    @include tablet {
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
   }
 
   .content {
