@@ -1,20 +1,22 @@
 
 #items {
-    background-color: $google-gray;
-    height: 100vh;
+  background-color: $google-gray;
+  @include desktop__large {
+    min-height: 820px; // does not go down to footer w/out
+  }
 
-    h1 {
-      font-family: 'Lobster Two', cursive;
-      margin-left: 5%;
-      letter-spacing: 3.5px;
-      font-size: $lg;
-      color: $gray;
-      padding: $med 0;
+  h1 {
+    font-family: 'Lobster Two', cursive;
+    margin-left: 5%;
+    letter-spacing: 3.5px;
+    font-size: $lg;
+    color: $gray;
+    padding: $med 0;
 
-      @include tablet {
-        font-size: $xl;
-      }
+    @include tablet {
+      font-size: $xl;
     }
+  }
   .container {
     width: 90%;
     margin: 0 auto;
