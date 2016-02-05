@@ -2,8 +2,14 @@
 
   // button
   .nav-open {
-    @include desktop { display: none; }
     padding-right: 20px;
+
+    @include desktop {
+      display: none;
+    }
+    @include tablet__landscape {
+      display: block;
+    }
     a {
       color: white;
     }

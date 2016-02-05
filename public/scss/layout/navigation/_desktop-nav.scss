@@ -59,11 +59,15 @@ $about-width: 57px;
   }
   // Just the desktop nav
   .desktop-nav {
-    // hide in mobile view
-    display: none;
+
+    display: none; // hide in mobile view
+
     @include desktop {
       display: flex;
       position: relative;
+    }
+    @include tablet__landscape{
+      display: none;
     }
   }
   // hover bar ================================
