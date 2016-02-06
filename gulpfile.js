@@ -10,6 +10,13 @@ var gulp   = require('gulp'),
     livereload = require('gulp-livereload'), // auto reload web site
     autoprefixer = require('gulp-autoprefixer'); // auto prefixer
 
+    // minify images
+    const imagemin = require('gulp-imagemin');
+    const pngquant = require('imagemin-pngquant');
+
+
+
+
 gulp.task("concatScripts",function(){
   // grab all src methods
   return gulp.src([ // important add to first line of all
@@ -68,11 +75,42 @@ gulp.task('clean', function(){
   gulp.start(['concatScripts', 'compileSass']);
 });
 
-// we do not need to include tasks that are injected
 
+// PRODUCTION =======================================
+
+var paths = {
+  scripts: 'public/js/application.min.js',
+  libs: 'public/libs/**',
+  styles: 'public/css/application.css',
+  html: 'public/index.html',
+  images: 'public/images/**',
+  extra: 'public/favicon.ico'
+}
+
+gulp.task('imageMin', function(){
+  return gulp.src('public/img/**/*')
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [{removeViewBox: false}],
+      use: [pngquant()]
+    }))
+    .pipe(gulp.dest('dist/public/images'));
+})
+
+// we do not need to include tasks that are injected
 // remove ,'js/app.min.js' , 'img/**', 'fonts/**'
-gulp.task('build', ['compileSass', 'minifyScripts'],function(){
-  return gulp.src(['public/css/application.css', 'public/js/application.min.js', 'public/index.html'], { base: './'} ) // based tells gulp to preserve the directory structure in the current ('./') directory
+gulp.task('build', ['compileSass', 'minifyScripts', 'imageMin'],function(){
+
+  return gulp.src(
+    [
+    paths.scripts,
+    paths.libs,
+    paths.styles,
+    paths.html,
+    paths.extra
+    ],{base: './'})
+
+  // return gulp.src(['public/css/application.css', 'public/js/application.min.js', 'public/index.html'], { base: './'} ) // based tells gulp to preserve the directory structure in the current ('./') directory
     // take select all your main folders and the condeseded css add js file
     .pipe(gulp.dest('dist'));
 })
