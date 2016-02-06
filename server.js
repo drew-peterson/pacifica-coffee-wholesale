@@ -6,7 +6,7 @@ var methodOverride = require('method-override');
 
 var port = process.env.PORT || 3000;
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/dist/public'));
 
 // routes ==================================================
 require('./app/routes')(app); // configure our routes

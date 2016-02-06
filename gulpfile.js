@@ -20,9 +20,6 @@ var gulp   = require('gulp'),
 gulp.task("concatScripts",function(){
   // grab all src methods
   return gulp.src([ // important add to first line of all
-    // "public/libs/angular/angular.min.js",
-    // "public/libs/angular-ui-router/release/angular-ui-router.min.js",
-    // "public/libs/angular-animate/angular-animate.min.js",
     "public/js/controllers/*.js",
     "public/js/modules/*.js",
     "public/js/routes/*.js",
@@ -79,10 +76,10 @@ gulp.task('clean', function(){
 // PRODUCTION =======================================
 
 var paths = {
-  scripts: 'public/js/application.min.js',
+  scripts: 'public/js/application.js',
   libs: 'public/libs/**',
   styles: 'public/css/application.css',
-  html: 'public/index.html',
+  html: ['public/index.html', 'public/views/**'],
   images: 'public/images/**',
   extra: 'public/favicon.ico'
 }
@@ -106,7 +103,8 @@ gulp.task('build', ['compileSass', 'minifyScripts', 'imageMin'],function(){
     paths.scripts,
     paths.libs,
     paths.styles,
-    paths.html,
+    paths.html[0],
+    paths.html[1],
     paths.extra
     ],{base: './'})
 
