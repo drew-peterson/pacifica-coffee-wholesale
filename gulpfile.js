@@ -80,7 +80,7 @@ var paths = {
   libs: 'public/libs/**',
   styles: 'public/css/application.css',
   html: ['public/index.html', 'public/views/**'],
-  images: 'public/images/**',
+  images: 'public/img/**',
   extra: 'public/favicon.ico'
 }
 
@@ -91,7 +91,7 @@ gulp.task('imageMin', function(){
       svgoPlugins: [{removeViewBox: false}],
       use: [pngquant()]
     }))
-    .pipe(gulp.dest('dist/public/images'));
+    .pipe(gulp.dest('dist/public/img'));
 })
 
 // we do not need to include tasks that are injected
