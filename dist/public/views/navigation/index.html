@@ -1,6 +1,0 @@
-<!-- desktop nav --><ul class="dNav" ng-style="{'background-color': navC}"><div class="home"><li ui-sref="index" ng-click="
-      tabIndex='tab0';
-      navC= '';
-      mobileNav($event);
-      ">Fashionista</li></div><div class="nav-container"><div class="desktop-nav"><li ui-sref="about" ng-click="tabIndex= 'tab1'; navC = '#E91E63';">About</li><li ui-sref="items" ng-click="tabIndex='tab2';navC = '#727272';">Items</li><li ui-sref="consignment" ng-click="tabIndex='tab3';navC = '#4CAF50';">Consignment</li><li ui-sref="directions" ng-click="tabIndex='tab4';navC = '#F8BBD0';">Directions</li><span id="tabIndex" class="bar" ng-class="tabIndex"></span></div><!-- Hamburger Btn --><div class="nav-open"><button id="hamBtn" ng-click="mobileNav($event); changeBackground()" ng-class="{'active': navActive};"><span>close</span></button></div><span style="color: white"></span></div></ul><!--================
- mobile drop down menu --><div id="mobileNav" ng-class="{'openNav': navActive}" ng-style="{'background-color': navC}"><div class="mobile__inner" ng-repeat="link in navLinks" ng-if="navActive"><a ui-sref="{{link.state}}" ng-click="mobileNav($event); changeBackground(link.navC)">{{link.state | capitalize }}</a></div></div><!--=======================================  -->
