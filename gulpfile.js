@@ -8,7 +8,8 @@ var gulp   = require('gulp'),
     maps   = require('gulp-sourcemaps'), // because our css is in 1 file when compiled when we inspect elements it tells us the application.css line number not ???.scss where its actually written this will fix that
     del    = require('del'), // something to do with removing old files from previous gulp builds
     livereload = require('gulp-livereload'), // auto reload web site
-    autoprefixer = require('gulp-autoprefixer'); // auto prefixer
+    autoprefixer = require('gulp-autoprefixer'), // auto prefixer
+    htmlmin = require('gulp-htmlmin');
 
     // minify images
     const imagemin = require('gulp-imagemin');
@@ -16,6 +17,13 @@ var gulp   = require('gulp'),
 
 
 
+// minify HTML ==================================
+gulp.task('minifyHtml', function() {
+  return gulp.src('public/views/**')
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('dist/public/views'))
+});
+// ==============================================
 
 gulp.task("concatScripts",function(){
   // grab all src methods
@@ -79,7 +87,7 @@ var paths = {
   scripts: 'public/js/application.js',
   libs: 'public/libs/**',
   styles: 'public/css/application.css',
-  html: ['public/index.html', 'public/views/**'],
+  html: 'public/index.html',
   images: 'public/img/**',
   extra: 'public/favicon.ico'
 }
@@ -96,15 +104,14 @@ gulp.task('imageMin', function(){
 
 // we do not need to include tasks that are injected
 // remove ,'js/app.min.js' , 'img/**', 'fonts/**'
-gulp.task('build', ['compileSass', 'minifyScripts', 'imageMin'],function(){
+gulp.task('build', ['compileSass', 'minifyScripts', 'imageMin', 'minifyHtml'],function(){
 
   return gulp.src(
     [
     paths.scripts,
     paths.libs,
     paths.styles,
-    paths.html[0],
-    paths.html[1],
+    paths.html,
     paths.extra
     ],{base: './'})
 
