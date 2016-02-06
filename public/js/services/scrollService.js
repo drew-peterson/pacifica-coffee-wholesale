@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('fasionistaApp')
 
 .factory('scrollService',function(){
@@ -18,5 +16,5 @@ angular.module('fasionistaApp')
        'height': 'auto'
        });
     }
-  }
-})
+  };
+});

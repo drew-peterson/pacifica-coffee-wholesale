@@ -36,6 +36,6 @@ angular.module('appRoutes', [])
       url: '/test',
       controller: 'MainCtrl',
       templateUrl: '../views/test/index.html'
-    })
+    });
 
-  })
+  });

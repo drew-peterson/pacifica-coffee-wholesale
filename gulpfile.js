@@ -44,8 +44,8 @@ gulp.task('minifyScripts', ['concatScripts'],function(){ // adding [] says run t
   return gulp.src('public/js/application.js') // use the app.js which was concated, we will run these in order later...
   .pipe(uglify()) // minify the information
   .pipe(rename('application.min.js')) // use rename module to rename the app so you have 2 files 1 min 1 standard
-  .pipe(gulp.dest('public/js')) // write back to js file
-})
+  .pipe(gulp.dest('public/js')); // write back to js file
+});
 
 gulp.task('compileSass',function(){
   return gulp.src('public/scss/application.scss') // only 1 file because that file is imported the import file from each scss folder
@@ -58,7 +58,7 @@ gulp.task('compileSass',function(){
   .pipe(maps.write('./')) // puts the map file at the same level ./ as teh dest('css')
   .pipe(gulp.dest('public/css')) // because the scss file is called application it will become aplication.css if the 'css' folder doesnt exist it will create it
   .pipe(livereload()); // then send over to live reload
-})
+});
 
 
 //
@@ -71,9 +71,9 @@ gulp.task('watchFiles', function(){
     "public/js/controllers/*.js",
     "public/js/modules/*.js",
     "public/js/routes/*.js",
-    "public/js/services/*.js"], ['concatScripts']) // want to watch the files we will actually change, and then run X tasks. dont really need to concatScripts but it has the maping so that makes debugging easier so we will add as dependecie.
+    "public/js/services/*.js"], ['concatScripts']); // want to watch the files we will actually change, and then run X tasks. dont really need to concatScripts but it has the maping so that makes debugging easier so we will add as dependecie.
   // watch will continully listen after is is ran
-})
+});
 
 gulp.task('clean', function(){
   del(['dist', 'public/css/application.css*', 'public/js/app*.js*']);
@@ -90,7 +90,7 @@ var paths = {
   html: 'public/index.html',
   images: 'public/img/**',
   extra: 'public/favicon.ico'
-}
+};
 
 gulp.task('imageMin', function(){
   return gulp.src('public/img/**/*')
@@ -100,7 +100,7 @@ gulp.task('imageMin', function(){
       use: [pngquant()]
     }))
     .pipe(gulp.dest('dist/public/img'));
-})
+});
 
 // we do not need to include tasks that are injected
 // remove ,'js/app.min.js' , 'img/**', 'fonts/**'
@@ -121,15 +121,15 @@ gulp.task('build', ['compileSass', 'minifyScripts', 'imageMin', 'minifyHtml'],fu
   // return gulp.src(['public/css/application.css', 'public/js/application.min.js', 'public/index.html'], { base: './'} ) // based tells gulp to preserve the directory structure in the current ('./') directory
     // take select all your main folders and the condeseded css add js file
     .pipe(gulp.dest('dist'));
-})
+});
 
 // run gulp serve to run both watch files
-gulp.task('serve', ['watchFiles'])
+gulp.task('serve', ['watchFiles']);
 
 
 gulp.task('default', ['clean'], function(){
   gulp.start('build'); //wait for clean task to run then start up the build
-}) // when you run gulp, run the build task
+}); // when you run gulp, run the build task
 
 // run server w/ http-server -p 3000
 

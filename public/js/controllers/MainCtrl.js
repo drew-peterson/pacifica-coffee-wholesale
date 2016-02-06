@@ -17,7 +17,7 @@ angular.module('MainCtrl', [])
     desc: 'Great Parking!'},
    {img:'/../img/parking2.jpeg',
     desc: 'Plently of open space'}
-  ]
+  ];
 
   // Scroll Event =============================
 
@@ -32,15 +32,13 @@ angular.module('MainCtrl', [])
       imgs: scrollEvent.getEl('#directions .cardContainer')
     }
 
-  } //sEvent
+  }; //sEvent
 
   // Get scroll =================================
   $scope.curPos = 0;
 
   $window.onscroll = function(){
-    $scope.curPos = document.body.scrollTop
-                    || document.documentElement.scrollTop
-                    || 0;
+    $scope.curPos = document.body.scrollTop || document.documentElement.scrollTop || 0;
     // console.log("pos: " + $scope.curPos);
     $scope.$digest();
 

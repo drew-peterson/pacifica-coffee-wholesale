@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('fasionistaApp')
 
 .factory('scrollEvent', function(){
@@ -13,5 +11,5 @@ angular.module('fasionistaApp')
       }
     }
 
-  } // end of return
-})
+  }; // end of return
+});

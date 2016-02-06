@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('NavCtrl', [])
 
 .controller('NavCtrl', function(
@@ -34,7 +32,7 @@ angular.module('NavCtrl', [])
     // master toggle...
     $scope.navActive = !$scope.navActive;
     // get btn class
-    var btn = event.srcElement.parentElement.className
+    var btn = event.srcElement.parentElement.className;
 
     // disable enable scrolling
     if(!$scope.navActive || btn === 'home'){
@@ -45,17 +43,17 @@ angular.module('NavCtrl', [])
     if(btn === 'home' && $scope.navActive){
       $scope.navActive = !$scope.navActive;
     }
-  } // end of mobile nav
+  }; // end of mobile nav
 
 
   $scope.changeBackground = function(color){
 
     if(!$scope.navC){
-      $scope.navC = '#E91E63' // clicked from home page or any page
+      $scope.navC = '#E91E63'; // clicked from home page or any page
     }else{
-      $scope.navC = color || $scope.navC
+      $scope.navC = color || $scope.navC;
     }
-  }
+  };
 
 
   // check background @url and set color
@@ -69,7 +67,7 @@ angular.module('NavCtrl', [])
     $scope.navC = '#4CAF50';
 
   }else if(currentUrl === '/directions'){
-    $scope.navC = '#F8BBD0'
+    $scope.navC = '#F8BBD0';
   }
 }) // end of ctrl ===================
 

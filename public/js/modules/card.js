@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('fasionistaApp')
 
   // card
@@ -13,8 +11,8 @@ angular.module('fasionistaApp')
 
 
 
-        this.test = [1,2,3]
+        this.test = [1,2,3];
 
     } // end of controller
-  } // end of return
-}) // end of directive
+  }; // end of return
+}); // end of directive

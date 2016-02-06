@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('Pinterest')
 
 .factory('pinterestService', function($http){
@@ -24,11 +22,11 @@ return {
         })
         .error(function(){
           cb();
-        })
+        });
       }
     }
-  }
-}) // end of factory =========================
+  };
+}); // end of factory =========================
 
 
 // how to return promise from promise;

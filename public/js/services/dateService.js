@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('Pinterest')
 
 .factory('dateService', function(){
@@ -15,6 +13,6 @@ angular.module('Pinterest')
 
       return now < newItemCutOff; // if true show new items
     }
-  }
+  };
 
 });

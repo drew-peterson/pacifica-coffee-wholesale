@@ -1,4 +1,4 @@
-'use strict';
+(function(){'use strict';})();
 
 angular.module('fasionistaApp',
   [
@@ -30,12 +30,10 @@ angular.module('fasionistaApp',
     return function(input, all) {
       var reg = (all) ? /([^\W_]+[^\s-]*) */g : /([^\W_]+[^\s-]*)/;
       return (!!input) ? input.replace(reg, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) : '';
-    }
+    };
   });
 
 // ========================================
-
-'use strict';
 
 angular.module('fasionistaApp')
 
@@ -50,11 +48,11 @@ angular.module('fasionistaApp')
 
 
 
-        this.test = [1,2,3]
+        this.test = [1,2,3];
 
     } // end of controller
-  } // end of return
-}) // end of directive
+  }; // end of return
+}); // end of directive
 
 angular.module('MainCtrl', [])
 
@@ -75,7 +73,7 @@ angular.module('MainCtrl', [])
     desc: 'Great Parking!'},
    {img:'/../img/parking2.jpeg',
     desc: 'Plently of open space'}
-  ]
+  ];
 
   // Scroll Event =============================
 
@@ -90,15 +88,13 @@ angular.module('MainCtrl', [])
       imgs: scrollEvent.getEl('#directions .cardContainer')
     }
 
-  } //sEvent
+  }; //sEvent
 
   // Get scroll =================================
   $scope.curPos = 0;
 
   $window.onscroll = function(){
-    $scope.curPos = document.body.scrollTop
-                    || document.documentElement.scrollTop
-                    || 0;
+    $scope.curPos = document.body.scrollTop || document.documentElement.scrollTop || 0;
     // console.log("pos: " + $scope.curPos);
     $scope.$digest();
 
@@ -110,8 +106,6 @@ angular.module('MainCtrl', [])
 //$scope.watch('varName',function(newVal, OldVal){if(x){$scope.varName = 'test'}})
 
 });
-'use strict';
-
 angular.module('NavCtrl', [])
 
 .controller('NavCtrl', function(
@@ -146,7 +140,7 @@ angular.module('NavCtrl', [])
     // master toggle...
     $scope.navActive = !$scope.navActive;
     // get btn class
-    var btn = event.srcElement.parentElement.className
+    var btn = event.srcElement.parentElement.className;
 
     // disable enable scrolling
     if(!$scope.navActive || btn === 'home'){
@@ -157,17 +151,17 @@ angular.module('NavCtrl', [])
     if(btn === 'home' && $scope.navActive){
       $scope.navActive = !$scope.navActive;
     }
-  } // end of mobile nav
+  }; // end of mobile nav
 
 
   $scope.changeBackground = function(color){
 
     if(!$scope.navC){
-      $scope.navC = '#E91E63' // clicked from home page or any page
+      $scope.navC = '#E91E63'; // clicked from home page or any page
     }else{
-      $scope.navC = color || $scope.navC
+      $scope.navC = color || $scope.navC;
     }
-  }
+  };
 
 
   // check background @url and set color
@@ -181,7 +175,7 @@ angular.module('NavCtrl', [])
     $scope.navC = '#4CAF50';
 
   }else if(currentUrl === '/directions'){
-    $scope.navC = '#F8BBD0'
+    $scope.navC = '#F8BBD0';
   }
 }) // end of ctrl ===================
 
@@ -207,32 +201,30 @@ angular.module('NavCtrl', [])
     link: openNav
   };
 });
-'use strict';
-
 angular.module('Pinterest', [])
 
 .controller('PinterestCtrl',function($scope, pinterestService, $window, dateService){
 
-  var pinDate = dateService
+  var pinDate = dateService;
 
   // get all pins only once
   // $scope.pins; // needed to access pins outside function...
   pinterestService.getBoard(function(pins){
     $scope.pins = pins;
-  })
+  });
 
   // use pinterest url to redirect to pinterest page
   $scope.gotoPins = function(location){
-    $window.open(location)
-  }
+    $window.open(location);
+  };
 
 // NEW ITEM TAG 1 WEEK
 $scope.newItem = function(createdAt){
   var newItem = dateService.compareDate(createdAt);
-  return newItem
-}
+  return newItem;
+};
 
-}) // module
+}); // module
 
 
 
@@ -274,11 +266,9 @@ angular.module('appRoutes', [])
       url: '/test',
       controller: 'MainCtrl',
       templateUrl: '../views/test/index.html'
-    })
+    });
 
-  })
-
-'use strict';
+  });
 
 angular.module('Pinterest')
 
@@ -295,11 +285,9 @@ angular.module('Pinterest')
 
       return now < newItemCutOff; // if true show new items
     }
-  }
+  };
 
 });
-'use strict';
-
 angular.module('Pinterest')
 
 .factory('pinterestService', function($http){
@@ -324,11 +312,11 @@ return {
         })
         .error(function(){
           cb();
-        })
+        });
       }
     }
-  }
-}) // end of factory =========================
+  };
+}); // end of factory =========================
 
 
 // how to return promise from promise;
@@ -336,8 +324,6 @@ return {
 
 // updated verion... prevent multiple api calls
 // http://stackoverflow.com/questions/31556184/calling-http-only-once-in-a-controller
-
-'use strict';
 
 angular.module('fasionistaApp')
 
@@ -352,10 +338,8 @@ angular.module('fasionistaApp')
       }
     }
 
-  } // end of return
-})
-'use strict';
-
+  }; // end of return
+});
 angular.module('fasionistaApp')
 
 .factory('scrollService',function(){
@@ -374,6 +358,6 @@ angular.module('fasionistaApp')
        'height': 'auto'
        });
     }
-  }
-})
+  };
+});
 //# sourceMappingURL=application.js.map
