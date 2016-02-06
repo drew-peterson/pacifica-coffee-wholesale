@@ -6,13 +6,13 @@ var methodOverride = require('method-override');
 
 var port = process.env.PORT || 3000;
 
-app.use(express.static(__dirname + '/dist/public'));
+app.use(express.static(__dirname + '/public')); // add /dist/ for production
 
 // routes ==================================================
 require('./app/routes')(app); // configure our routes
 
 app.listen(port);
-console.log("drew -- listening on node server port 3000")
+console.log("drew -- listening on node server port 3000");
 
 // expose app
 exports = module.exports = app;
