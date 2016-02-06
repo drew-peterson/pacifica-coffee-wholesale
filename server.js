@@ -3,9 +3,11 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var methodOverride = require('method-override');
+var compression = require('compression');
 
 var port = process.env.PORT || 3000;
 
+app.use(compression()); //gzip compression
 app.use(express.static(__dirname + '/public')); // add /dist/ for production
 
 // routes ==================================================
