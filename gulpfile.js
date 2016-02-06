@@ -28,8 +28,8 @@ gulp.task('minifyHtml', function() {
 gulp.task("concatScripts",function(){
   // grab all src methods
   return gulp.src([ // important add to first line of all
-    "public/js/controllers/*.js",
     "public/js/modules/*.js",
+    "public/js/controllers/*.js",
     "public/js/routes/*.js",
     "public/js/services/*.js",
     ]) // these are the files i want to concat in order, because stick relies on jquery
@@ -85,7 +85,7 @@ gulp.task('clean', function(){
 
 var paths = {
   scripts: 'public/js/application.js',
-  libs: 'public/libs/**',
+  libs: ['public/libs/angular/angular.min.js','public/libs/angular-ui-router/release/angular-ui-router.min.js','public/libs/angular-animate/angular-animate.min.js','public/libs/jquery/dist/jquery.min.js'],
   styles: 'public/css/application.css',
   html: 'public/index.html',
   images: 'public/img/**',
@@ -109,7 +109,10 @@ gulp.task('build', ['compileSass', 'minifyScripts', 'imageMin', 'minifyHtml'],fu
   return gulp.src(
     [
     paths.scripts,
-    paths.libs,
+    paths.libs[0],
+    paths.libs[1],
+    paths.libs[2],
+    paths.libs[3],
     paths.styles,
     paths.html,
     paths.extra
