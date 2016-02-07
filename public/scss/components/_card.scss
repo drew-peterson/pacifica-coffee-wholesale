@@ -17,7 +17,7 @@
 
   .card {
     @include box-shadow;
-    background-color: blue;
+    background-color: $google-gray;
     min-height: 250px;
     min-width: 130px;
     cursor: pointer;
