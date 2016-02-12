@@ -89,7 +89,7 @@ var paths = {
   styles: 'public/css/application.css',
   html: 'public/index.html',
   images: 'public/img/**',
-  extra: ['public/favicon.ico', 'public/404.html']
+  extra: 'public/favicon.ico'
 };
 
 gulp.task('imageMin', function(){
@@ -115,8 +115,7 @@ gulp.task('build', ['compileSass', 'minifyScripts', 'imageMin', 'minifyHtml'],fu
     paths.libs[3],
     paths.styles,
     paths.html,
-    paths.extra[0],
-    paths.extra[1]
+    paths.extra
     ],{base: './'})
 
   // return gulp.src(['public/css/application.css', 'public/js/application.min.js', 'public/index.html'], { base: './'} ) // based tells gulp to preserve the directory structure in the current ('./') directory
