@@ -22,12 +22,14 @@
   background-color: $prim-color;
   width: 100%;
   min-height: 200px;
+  visibility: hidden;
   transform: translateY(calc(-200px - 20vh));
 
   transition: all 0.4s ease-out;
 
 
   &.openNav {
+    visibility: visible;
     transform: translateY(0px);
   }
 
