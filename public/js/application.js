@@ -230,7 +230,7 @@ $scope.newItem = function(createdAt){
 
 angular.module('appRoutes', [])
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
   $urlRouterProvider.otherwise('/');
 
@@ -267,6 +267,9 @@ angular.module('appRoutes', [])
       controller: 'MainCtrl',
       templateUrl: '../views/test/index.html'
     });
+
+    // use the HTML5 History API
+    $locationProvider.html5Mode(true);
 
   });
 
