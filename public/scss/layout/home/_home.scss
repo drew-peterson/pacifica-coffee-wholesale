@@ -230,6 +230,7 @@
   background-color: $prim-color;
   text-align: center;
   position: relative;
+  min-height: 100px;
 
   div {
     width: 100%;
@@ -241,7 +242,7 @@
 
   p {
     color: $white;
-    margin: 0;
+    margin: $med 0;
   }
   a {
     color: $white;
