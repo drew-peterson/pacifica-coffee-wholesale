@@ -18,17 +18,12 @@
   .card {
     @include box-shadow;
     background-color: $google-gray;
-    min-height: 250px;
     min-width: 130px;
     cursor: pointer;
 
     width: 95%;
     margin: 0 auto;
     margin-bottom: 5%;
-
-    @include tablet {
-      min-height: 350px;
-    }
 
     &:hover {
       @include hover-shadow()
@@ -38,20 +33,17 @@
   .card__image {
     width: 100%;
     background-color: $green;
-    height: 200px;
-
-    // background-image
-    background-size: cover;
-    background-position: 50% 50%;
-
-    @include tablet {
-      height: 300px;
-    }
+    height: 100%;
+    height: auto;
   }
 
   .card__content {
     @include flex-center;
-    min-height: 70px;
+    min-height: 50px;
+
+    @include tablet {
+      min-height: 70px;
+    }
 
     h3 {
       line-height: 1;
@@ -65,6 +57,6 @@
         padding: $sm;
         font-size: $mlg;
       }
-    }
+    } // h3
   }
 } // end of directive
