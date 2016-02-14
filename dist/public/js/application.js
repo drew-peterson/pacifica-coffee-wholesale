@@ -259,8 +259,9 @@ angular.module('appRoutes', [])
       templateUrl: '../views/test/index.html'
     });
 
-    // use the HTML5 History API
+    // GoogleBot SEO
     $locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix('!');
 
   });
 
