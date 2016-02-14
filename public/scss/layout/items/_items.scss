@@ -39,7 +39,7 @@
   .card {
     @include box-shadow;
     // column layout =======
-    display: inline-block;
+    display: inline-block; // column layout
     width: 100%; // important for column layout
     margin: 0 0 1rem; // column layout
 
