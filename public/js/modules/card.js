@@ -9,8 +9,6 @@ angular.module('fasionistaApp')
       controller: function(){
         this.fullName = "Drew Peterson";
 
-
-
         this.test = [1,2,3];
 
     } // end of controller
