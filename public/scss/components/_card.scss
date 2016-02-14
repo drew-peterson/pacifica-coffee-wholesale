@@ -18,17 +18,12 @@
   .card {
     @include box-shadow;
     background-color: $google-gray;
-    // min-height: 250px;
     min-width: 130px;
     cursor: pointer;
 
     width: 95%;
     margin: 0 auto;
     margin-bottom: 5%;
-
-    @include tablet {
-      // min-height: 350px;
-    }
 
     &:hover {
       @include hover-shadow()
@@ -40,11 +35,6 @@
     background-color: $green;
     height: 100%;
     height: auto;
-
-
-    @include tablet {
-      // height: 300px;
-    }
   }
 
   .card__content {

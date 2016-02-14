@@ -4,13 +4,6 @@ angular.module('fasionistaApp')
   .directive('cardInner',function(){
     return{
       controllerAs: 'cardCtrl',
-      templateUrl: '/views/partials/_card.html',
-
-      controller: function(){
-        this.fullName = "Drew Peterson";
-
-        this.test = [1,2,3];
-
-    } // end of controller
+      templateUrl: '/views/partials/_card.html'
   }; // end of return
 }); // end of directive
