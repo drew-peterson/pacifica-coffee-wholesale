@@ -43,6 +43,13 @@ angular.module('MainCtrl', [])
     $scope.$digest();
 
   };
+
+  // if chrome on ios
+  if(navigator.userAgent.match('CriOS')){
+    // show the elements...
+    $('.scrollEvent').addClass('trigger');
+  }
+
   // =============================================
 
 
