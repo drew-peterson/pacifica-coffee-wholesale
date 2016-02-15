@@ -65,6 +65,7 @@
     @include inner-shadow;
     @include flex-center;
     min-height: 150px;
+    height: 100%;
 
     h3 {
       width: 90%;
@@ -91,6 +92,7 @@
     @include flex-center;
     min-height: 40vh;
     padding: $med 0;
+    margin: 5% 0;
 
     @include tablet {
       min-height: 60vh;
@@ -147,18 +149,20 @@
 
 // 4 Grid ============================
 #home .row4 {
-  min-height: 90vh;
+  height: 90vh;
   background-color: $white;
   .container {
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
     width: 90%;
     margin: 0 auto;
   }
 
   .half {
-    @include flex-center;
     @include box-shadow;
+    display: inline-block; // add for IE bug...
+
     height:45vh;
     width: 48%;
 
@@ -169,7 +173,6 @@
     color: $white;
     padding: $msm;
 
-
     @include tablet {
       padding: $med;
       width: 49%;
@@ -179,6 +182,15 @@
 
     &:nth-of-type(2n + 2){
       margin-right: 0;
+    }
+
+    p {
+      @include center-v;
+      font-size: $med;
+
+      @include tablet {
+        font-size: $lg;
+      }
     }
   }
 
