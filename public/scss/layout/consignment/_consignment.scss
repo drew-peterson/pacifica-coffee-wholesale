@@ -143,6 +143,12 @@
   li {
     margin: $msm 0;
 
+    @include tablet {
+      font-size: 1.3rem;
+    }
+    @include desktop {
+      font-size: $mlg;
+    }
     //different colors======================
     $colors: $green #fc913a #CC5543 #44465d;
     $l: length($colors) + 1;
