@@ -45,7 +45,10 @@
   }
 
   .mobile__inner.ng-enter-stagger {
+    -webkit-transition-delay: 0.2s;
     transition-delay: 0.2s;
+
+    -webkit-transition-duration: 0s;
     transition-duration: 0s;
   }
 
