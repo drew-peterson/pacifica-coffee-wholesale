@@ -1,6 +1,11 @@
 
 #items {
+  display: flex;
+  flex-direction: column;
+  margin-top: 65px;
+
   background-color: $google-gray;
+
   @include desktop__large {
     min-height: 820px; // does not go down to footer w/out
   }

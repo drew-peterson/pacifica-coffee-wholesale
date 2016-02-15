@@ -73,6 +73,8 @@ $transition: all 0.3 ease;
   justify-content: center; // center vertically
   text-align: center;
   align-items: center;
+
+  @content;
 }
 // ===================================
 
@@ -92,4 +94,12 @@ $transition: all 0.3 ease;
 
     @content;
   }
+}
+
+// vertically Center without flexbox =========
+
+@mixin center-v(){
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
