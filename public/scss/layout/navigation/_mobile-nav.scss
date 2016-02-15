@@ -34,26 +34,27 @@
   }
 
 
-  // inner dropdown info
 
-  .mobile__inner{
-    // Animation ======================
-    &.ng-enter{
-      transition: 0.4s linear transform, 0.5s linear opacity;
-      transform: translateY(-100%);
-      opacity: 0;
-    }
+  // Animation ======================
 
-    &.ng-enter-stagger {
-      transition-delay: 0.2s;
-      transition-duration: 0s;
-    }
+  .mobile__inner.ng-enter{
+    transition: 0.4s linear all; // fallback
+    transition: 0.4s linear transform, 0.5s linear opacity;
+    transform: translateY(-100%);
+    opacity: 0;
+  }
 
-    &.ng-enter.ng-enter-active{
-      transform: translateY(0%);
-      opacity: 1;
-    }
+  .mobile__inner.ng-enter-stagger {
+    transition-delay: 0.2s;
+    transition-duration: 0s;
+  }
 
+  .mobile__inner.ng-enter.ng-enter-active{
+    transform: translateY(0%);
+    opacity: 1;
+  }
+
+  .mobile__inner {
     a {
       padding: $med;
       display: block;
