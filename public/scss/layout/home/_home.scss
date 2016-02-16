@@ -199,7 +199,7 @@
     background-repeat: no-repeat;
   }
   .image1 {
-    @include background-image('https://upload.wikimedia.org/wikipedia/commons/6/6b/Hermes_Ostrich_Birkin_Bag.jpg');
+    @include background-image('../img/dropbox/hermes-bag.jpg');
   }
   .image2 {
     @include background-image('../img/dropbox/shoes.jpg')
