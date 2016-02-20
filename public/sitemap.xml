@@ -14,5 +14,41 @@
   <url>
     <loc>https://www.lafayettefashionista.com/consignment?_escaped_fragment_=</loc>
   </url>
+
+  <!-- none escaped -->
+
+  <url>
+    <loc>https://www.lafayettefashionista.com/</loc>
+  </url>
+  <url>
+    <loc>https://www.lafayettefashionista.com/items</loc>
+  </url>
+  <url>
+    <loc>https://www.lafayettefashionista.com/directions</loc>
+  </url>
+  <url>
+    <loc>https://www.lafayettefashionista.com/about</loc>
+  </url>
+  <url>
+    <loc>https://www.lafayettefashionista.com/consignment</loc>
+  </url>
+
+  <!-- hash Bang -->
+    <url>
+    <loc>https://www.lafayettefashionista.com#!</loc>
+  </url>
+  <url>
+    <loc>https://www.lafayettefashionista.com/items#!</loc>
+  </url>
+  <url>
+    <loc>https://www.lafayettefashionista.com/directions#!</loc>
+  </url>
+  <url>
+    <loc>https://www.lafayettefashionista.com/about#!</loc>
+  </url>
+  <url>
+    <loc>https://www.lafayettefashionista.com/consignment#!</loc>
+  </url>
+
 </urlset>
 
