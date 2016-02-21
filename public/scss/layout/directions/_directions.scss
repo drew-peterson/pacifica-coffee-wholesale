@@ -3,6 +3,12 @@
   flex-direction: column;
   margin-top: 65px;
 
+  @include desktop__large {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 65px;
+  }
+
   h1 {
     margin-left: 5%;
     font-size: $lg;

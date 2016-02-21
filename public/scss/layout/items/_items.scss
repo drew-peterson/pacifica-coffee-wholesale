@@ -4,10 +4,13 @@
   flex-direction: column;
   margin-top: 65px;
 
-  background-color: $google-gray;
+  // background-color: $google-gray;
 
   @include desktop__large {
     min-height: 820px; // does not go down to footer w/out
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 65px;
   }
 
   h1 {

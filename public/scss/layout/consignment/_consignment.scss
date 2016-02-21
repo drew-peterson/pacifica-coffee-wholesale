@@ -3,6 +3,12 @@
   margin-top: 65px;
   text-align: left;
 
+  @include desktop__large {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 65px;
+    }
+
   h1 {
     font-size: $lg;
     margin-top: $med;
@@ -193,9 +199,5 @@
     }
   }
 }
-
-
-
-
 
 } // end of consignment

@@ -2,6 +2,7 @@
 #home {
   min-height: 100%;
   width: 100%;
+
   .hero {
     min-height: 500px;
     background-color: $white;
@@ -9,6 +10,13 @@
     background-position: 50% 50%;
     background-repeat: no-repeat;
   }
+
+    .row2, .row4, .row2 {
+      @include desktop__large {
+      width: 80%;
+      margin: 0 auto;
+      }
+    }
 
   .hero-container {
     text-align: center;
@@ -26,6 +34,10 @@
       padding-top: 150px;
     }
 
+    @include desktop__large {
+      padding-top: 200px;
+    }
+
     .hero-container {
       position: relative; // important for z-index + absolute;
       z-index: 2; // with relative shows text above opacity div ln-29
@@ -41,6 +53,10 @@
       }
       @include tablet__landscape {
         font-size: 5rem;
+      }
+      @include desktop__large {
+        font-size: 7rem;
+        padding-bottom: 3rem
       }
     }
 
@@ -62,15 +78,24 @@
 
 // Vip Shopping ========================
   .row2 {
-    @include inner-shadow;
     @include flex-center;
     min-height: 150px;
     height: 100%;
+    margin: $med auto;
+
+    @include tablet {
+      padding: 20px;
+    }
+
+    @include desktop__large {
+      padding: 50px 0;
+      box-shadow: none;
+    }
 
     h3 {
       width: 90%;
       text-align: center;
-      line-height: 1.2;
+      line-height: 1.5;
       font-style: italic;
       color: $gray;
       padding: $med 0;
@@ -82,6 +107,9 @@
         font-size: $lg;
         padding: $xl 0;
         margin: $lg auto;
+      }
+      @include desktop__large{
+        padding: $xl 8rem;
       }
     }
   }
@@ -99,8 +127,12 @@
     }
 
     .content {
-      width: 80%;
+      width: 90%;
       margin: 0 auto;
+
+      @include desktop__large {
+        width: 80%;
+      }
     }
 
     h3 {
@@ -109,6 +141,9 @@
       @include tablet  {
         font-size: $xl;
         margin-bottom: $med;
+      }
+      @include desktop {
+        margin-bottom: $lg;
       }
     }
 
@@ -133,13 +168,15 @@
       @include main-btn{
       color: $gray;
       border: 2px solid $gray;
+      min-width: 90%;
         &:hover {
           border: 2px solid $black;
          }
       }
       @include tablet {
         font-size: $mlg;
-        width: 30%;
+        min-width: 40%;
+        margin-top: $med;
 
       }
     }
@@ -218,6 +255,42 @@
 }
 // =============================
 
+.trendy {
+  @extend .row3;
+  min-height: 30vh !important;
+  background-color: $prim-color !important;
+  width: 100%;
+  margin: 0 auto !important;
+  margin-top: $lg !important;
+
+  @include tablet {
+    margin-top: 5% !important;
+  }
+
+  @include desktop__large {
+    width: 72%;
+  }
+
+  h3 {
+    color: white !important;
+    font-size: $mlg;
+    padding: 0 $sm;
+  }
+
+  a {
+    color: $prim-color !important;
+    background-color: white;
+    border: 2px solid white !important;
+    margin-top: $sm;
+    min-width: 40% !important;
+
+    &:hover {
+      color: black !important;
+    }
+  }
+}
+
+
 
 // FOOTER ============================
 
@@ -264,3 +337,5 @@
     text-decoration: underline;
   }
 }
+
+
