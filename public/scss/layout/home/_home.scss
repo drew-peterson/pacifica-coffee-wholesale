@@ -259,7 +259,7 @@
   @extend .row3;
   min-height: 30vh !important;
   background-color: $prim-color !important;
-  width: 90%;
+  width: 100%;
   margin: 0 auto !important;
   margin-top: $lg !important;
 
@@ -267,6 +267,9 @@
     margin-top: 5% !important;
   }
 
+  @include desktop__large {
+    width: 72%;
+  }
 
   h3 {
     color: white !important;
