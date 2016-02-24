@@ -11,7 +11,7 @@ var port = process.env.PORT || 3000;
 app.use(require('prerender-node').set('prerenderToken', 'EDCiXmecUrcmqYK7hZ5M'));
 
 app.use(compression()); //gzip compression
-app.use(express.static(__dirname + '/dist/public')); // add /dist/ for production
+app.use(express.static(__dirname + '/public')); // add /dist/ for production
 
 // routes ==================================================
 require('./app/routes')(app); // configure our routes
