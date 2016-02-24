@@ -38,23 +38,20 @@
 </head>
 <body ng-app="pacificaApp">
 
-  <!-- header -->
-  <header>
-   <ul><li>nav here...</li></ul>
-  </header>
+  <!-- navigation -->
+  <header ui-view="nav" id="nav"></header>
 
-  <!-- main content -->
-  <div id="mainContent" ui-view></div>
+<!-- main content -->
+  <div ui-view="container"></div>
 
-  <!-- footer -->
-  <footer id="footer">
-    <div>
-      <p>&copy; 2016 Lafayette Fashionista Inc.</p>
-      <p>Created by: Drew Peterson | <a href="https://www.linkedin.com/in/drewmpeterson">linkedIn</a> | <a href="https://github.com/weeznog">GitHub</a></p>
-    </div>
-  </footer>
+<!-- footer -->
+  <footer ui-view="footer"></footer>
 
-    <!-- prerender.io -->
+
+
+
+
+  <!-- prerender.io -->
   <script> window.prerenderReady = false; </script>
     <!-- JS -->
   <script src="libs/angular/angular.min.js" defer></script>
