@@ -9,7 +9,6 @@ angular.module('appRoutes', [])
       url: '/',
       controller: 'MainCtrl',
       templateUrl: '../views/home.html',
-
     })
 
     // GoogleBot SEO
