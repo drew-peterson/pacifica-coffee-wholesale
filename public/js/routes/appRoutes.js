@@ -8,7 +8,7 @@ angular.module('appRoutes', [])
     .state('index', {
       url: '/',
       controller: 'MainCtrl',
-      templateUrl: '../views/home/index.html',
+      templateUrl: '../views/home.html',
 
     })
 

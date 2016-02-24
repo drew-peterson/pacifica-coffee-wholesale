@@ -1,4 +1,4 @@
-angular.module('pacfiicaApp',
+angular.module('pacificaApp',
   [
   'ngAnimate',
   'MainCtrl',

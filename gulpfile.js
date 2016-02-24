@@ -32,7 +32,7 @@ gulp.task("concatScripts",function(){
     "public/js/controllers/*.js",
     "public/js/routes/*.js",
     "public/js/services/*.js",
-    ]) // these are the files i want to concat in order, because stick relies on jquery
+    ]) 
   .pipe(maps.init()) // create a map file for javascript
   .pipe(concat("application.js")) // pipe in the information into contact which does the magic and give it a file name
   .pipe(maps.write('./'))
