@@ -5,6 +5,9 @@
 	width: 100%;
 	height: 60px;
 	border-bottom: 1px solid gray;
+	position: fixed;
+	top: 0;
+	left: 0;
 }
 
 #nav .wrapper {
@@ -13,7 +16,7 @@
 	height: 100%;
 	display: flex;
 
-	li {
+	.nav-li {
 		display: flex;
 		align-items: center;
 		border-right: 1px solid gray;
@@ -37,6 +40,11 @@
 
 #nav .nav-open {
 	justify-content: center;
+	cursor: pointer;
 	height: 60px;
 	width: 60px;
+
+	&:hover {
+		background: red;
+	}
 }

@@ -8,16 +8,85 @@
 
 #sideNav {
 	position: fixed;
-	background-color: red;
-	top: 100px;
-	right: 0; 
-	transform: translateX(100%);
+	background-color: white;
+	top: 60px;
+	left: 0;
+	// mobile
+    width: 200px;
+}
+// li Styles ====================
 
-	width: 20%;
+.sNav-container ul {
+	line-height: 60px;
+}
 
+.sNav-container .link {
+	display: block;
+    height: 60px;
+    font-size: 13px;
+    color: #5f6f81;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: 1px solid gray;
+    border-right: 1px solid gray;
+}
+
+.sNav-container a {
+	text-decoration: none;
+	display: block;
+	height: 100%;
+	padding: 0 30px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+
+}
+
+// Triggers + Animation ====================
+#sideNav {
+	transform: translateX(-100%);
 	transition: 0.3s all ease;
+
+	li {
+		// transition: 1s transform ease, 1s height ease;
+		a {
+			visibility: hidden;
+		}
+	}
+}
+
+// on hover show just icons...
+#sideNav.hover {
+	font-size: 0;
+	width: 60px;
+	transform: translateX(0);
+
+	li {
+		transform: translateY(0);
+		font-size: 0;
+	}
 }
 
 #sideNav.active {
 	transform: translateX(0);
+	width: 200px;
+
+	li {
+		font-size: 13px;
+		transform: translateY(0);
+
+		a {
+			visibility: visible;
+		} 
+	}
 }
+
+
+
+
+
+
+
+
+
+
+

@@ -1,23 +1,35 @@
 <header id="nav" ng-controller="NavCtrl">
 	<ul class="wrapper">
 	    <!-- Hamburger Btn -->
-	    <li class="nav-open">
-	      <button id="hamBtn"
-	      ng-click="active = !active"
-	      ng-class="{'active': navActive};">
+	    <li class="nav-li nav-open"
+	    	ng-mouseenter=" hover = !hover;" 
+	    	ng-mouseleave=""
+
+	    	ng-click="checkNav($event)">
+
+	      <button id="hamBtn" ng-class="{'active': navActive};">
 	        <span>close</span>
 	      </button>
 	    </li>	
 
-	    <li class="title">
-	    	<h3>Pacifica Coffee</h3>
+		<!-- ===============================  -->
+		<!-- ng-hide="!active"  -->
+		<!-- side Navigation -->
+		<nav 
+			id="sideNav" 
+			ng-class="{'active': active, 'hover': hover}"
+			ng-focus="checkNav($event)"  
+			ng-include src="'views/nav/sideNav.html'">
+		</nav>
+		<!-- ===============================  -->
+
+	    <li class="nav-li title">
+	    	<h4>Pacifica Coffee</h4>
 	    </li>
 
-	    <li class="nav-callNow">
-	    	<button>Call Now</button>
+	    <li class="nav-li nav-callNow">
+	    	<p>phone icon</p>
 	    </li>
-		<!-- side Navigation -->
-		<li ng-include src="'views/nav/sideNav.html'"></li>
 	</ul>
 
 </header>
