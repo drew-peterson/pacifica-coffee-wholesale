@@ -44,7 +44,11 @@
 // Triggers + Animation ====================
 #sideNav {
 	transform: translateX(-100%);
-	transition: 0.3s all ease;
+	transition: 1s all ease;
+
+	@include desktop {
+		transition: 0.5s all ease;
+	}
 
 	li {
 		// transition: 1s transform ease, 1s height ease;
@@ -53,6 +57,8 @@
 		}
 	}
 }
+
+
 
 // on hover show just icons...
 #sideNav.hover {
@@ -70,7 +76,7 @@
 	transform: translateX(0);
 	width: 200px;
 
-	li {
+	li { 
 		font-size: 13px;
 		transform: translateY(0);
 
