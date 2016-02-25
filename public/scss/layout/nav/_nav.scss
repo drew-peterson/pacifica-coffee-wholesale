@@ -1,18 +1,42 @@
 	
 #nav { 
-	@include debug;
 	position: relative;
-	background: gray;
+	background: white;
 	width: 100%;
-
+	height: 60px;
+	border-bottom: 1px solid gray;
 }
 
 #nav .wrapper {
-	width: 95%;
+	width: 100%;
 	margin: 0 auto;
+	height: 100%;
 	display: flex;
+
+	li {
+		display: flex;
+		align-items: center;
+		border-right: 1px solid gray;
+	}
+}
+
+#nav .title {
+	padding: 0 3%;
+}
+
+#nav .nav-callNow {
+	padding: 0 3%;
+	margin-left: auto;
+	border-right: none !important;
+	border-left: 1px solid gray;
+
+	button {
+		// btn styles here
+	}
 }
 
 #nav .nav-open {
-	margin-left: auto;
+	justify-content: center;
+	height: 60px;
+	width: 60px;
 }

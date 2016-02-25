@@ -1,15 +1,23 @@
 <header id="nav" ng-controller="NavCtrl">
-	<div class="wrapper">
+	<ul class="wrapper">
 	    <!-- Hamburger Btn -->
-	    <div class="nav-open">
+	    <li class="nav-open">
 	      <button id="hamBtn"
 	      ng-click="active = !active"
 	      ng-class="{'active': navActive};">
 	        <span>close</span>
 	      </button>
-	    </div>		
-	</div>
+	    </li>	
 
-	<!-- side Navigation -->
-	<div ng-include src="'views/nav/sideNav.html'"></div>
+	    <li class="title">
+	    	<h3>Pacifica Coffee</h3>
+	    </li>
+
+	    <li class="nav-callNow">
+	    	<button>Call Now</button>
+	    </li>
+		<!-- side Navigation -->
+		<li ng-include src="'views/nav/sideNav.html'"></li>
+	</ul>
+
 </header>
