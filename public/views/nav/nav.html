@@ -1,16 +1,16 @@
+<header id="nav">
+	<ul>
+		<li class="link">
+			<a ui-sref="home" alt="home">home</a>
+		</li>
+		<li class="link">
+		 	<a ui-sref="coffee" alt="coffee">coffee</a>
+		 </li>
+		<li class="link">
+		 	<a ui-sref="bag" alt="bag">bag</a>
+		</li>
+	</ul>
 
-<ul>
-
-	<li class="className">
-		<a ui-sref="root.home">Pacifica</a> 
-	</li>
-
-	<li class="className">
-		<a ui-sref="bag">bag</a> 
-	</li>
-
-	<li class="className">
-		<a ui-sref="root.about">about</a> 
-	</li>
-
-</ul>
+	<!-- side Navigation -->
+	<div ng-include src="'views/nav/sideNav.html'"></div>
+</header>

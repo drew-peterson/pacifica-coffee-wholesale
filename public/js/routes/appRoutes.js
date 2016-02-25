@@ -5,34 +5,17 @@ angular.module('appRoutes', [])
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
-    .state('root',{
-      url: '',
-      abstract: true,
-      views: {
-        'nav': {
-          templateUrl: '../views/nav/nav.html'
-        },
-        'footer': {
-          templateUrl: '../views/footer/footer.html'
-        }
-      }
-    })
-    .state('root.home', {
+    .state('home',{
       url: '/',
-      views: {
-        'container@': {
-          templateUrl: '../views/home.html'
-        }
-      }
+      templateUrl: '../views/home/home.html' 
     })
-
-    .state('root.about',{
-      url: '/about',
-      views: {
-        'container@': {
-          templateUrl: '../views/about/about.html'
-        }
-      }
+   .state('coffee',{
+      url: '/coffee',
+      templateUrl: '../views/coffee/coffee.html'  
+    })
+    .state('bag',{
+      url: '/bag',
+      templateUrl: '../views/bag/bag.html' 
     })
    
 
