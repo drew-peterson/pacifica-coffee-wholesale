@@ -1,0 +1,11 @@
+
+// apple style navigation... in mobile view
+#sideNav {
+	position: absolute;
+	background-color: red;
+	top: 0;
+	right: -100%; // hide off the screen;
+
+	width: 100%;
+	height: 100vh;
+}

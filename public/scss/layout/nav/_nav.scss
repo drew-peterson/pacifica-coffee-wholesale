@@ -1,7 +1,12 @@
-#nav ul {
+	
+#nav { 
 	@include debug;
+	position: relative;
+} 
+
+#nav ul {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-around; 
 }
 
 #nav a {

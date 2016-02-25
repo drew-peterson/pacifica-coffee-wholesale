@@ -3,8 +3,8 @@
 // ***********************
 
 
-$tablet-width: 768px;
-$desktop-width: 1024px;
+$tablet-width: 767px;
+$desktop-width: 1023px;
 
 @mixin tablet {
   @media (min-width: $tablet-width)  {
@@ -27,9 +27,9 @@ $desktop-width: 1024px;
   }
 }
 
-  @mixin desktop__large {
-    @media (min-width: 1600px){
-      @content;
-    }
+@mixin desktop__large {
+  @media (min-width: 1600px){
+    @content;
   }
+}
 

@@ -1,3 +1,11 @@
 h1 {
 	color: blue;
+
+	@include tablet {
+		color: yellow;
+	}
+
+	@include desktop {
+		color: green;
+	}
 }
