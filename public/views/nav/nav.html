@@ -1,15 +1,14 @@
-<header id="nav">
-	<ul>
-		<li class="link">
-			<a ui-sref="home" alt="home">home</a>
-		</li>
-		<li class="link">
-		 	<a ui-sref="coffee" alt="coffee">coffee</a>
-		 </li>
-		<li class="link">
-		 	<a ui-sref="bag" alt="bag">bag</a>
-		</li>
-	</ul>
+<header id="nav" ng-controller="NavCtrl">
+	<div class="wrapper">
+	    <!-- Hamburger Btn -->
+	    <div class="nav-open">
+	      <button id="hamBtn"
+	      ng-click="active = !active"
+	      ng-class="{'active': navActive};">
+	        <span>close</span>
+	      </button>
+	    </div>		
+	</div>
 
 	<!-- side Navigation -->
 	<div ng-include src="'views/nav/sideNav.html'"></div>

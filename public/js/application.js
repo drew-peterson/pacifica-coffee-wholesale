@@ -4,6 +4,7 @@ angular.module('pacificaApp',
   'MainCtrl',
   'ui.router',
   'appRoutes',
+  'NavCtrl'
 
   ])
 
@@ -27,6 +28,16 @@ angular.module('MainCtrl', [])
 
 
 });
+angular.module('NavCtrl',[])
+
+.controller('NavCtrl', function($scope){
+
+
+	$scope.openNav = function(){
+		console.log('click')
+		$scope.active = true;
+	}
+})
 angular.module('appRoutes', [])
 
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {

@@ -2,19 +2,17 @@
 #nav { 
 	@include debug;
 	position: relative;
-} 
+	background: gray;
+	width: 100%;
 
-#nav ul {
-	display: flex;
-	justify-content: space-around; 
 }
 
-#nav a {
-	@include debug;
-	display: block;
-	padding: $sm;
+#nav .wrapper {
+	width: 95%;
+	margin: 0 auto;
+	display: flex;
+}
 
-	&:hover {
-		color: red;
-	}
+#nav .nav-open {
+	margin-left: auto;
 }
