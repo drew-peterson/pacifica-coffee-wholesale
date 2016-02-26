@@ -6,7 +6,6 @@
 	height: calc(100vh - 60px);
 }
 
-
 #home video {
 	display: none;
 
@@ -57,21 +56,27 @@
 	z-index: -10;
 	margin-top: 15%;
 	padding: 0 5%;
-	// margin: 0 auto;
-	// background-color: rgba(255,255,255,0.2);
-	// display:inline-block;
-	// padding: 2%;
 
-	// @include position-h(15%); 
+	@include tablet {
+		margin-top: 8%;
+	}
+
+	@include desktop {
+		margin-top: 5%;
+	}
 
 	h2, h1, a {
 		color: $white;
 		text-align: left;
 		letter-spacing: 1.5;
+
 	}
 	h1 {
 		font-size: 3.5rem;
 		line-height: 1;
+		@include tablet {
+			font-size: 5rem;
+		}
 		span {
 			color: $green;
 		}
@@ -80,16 +85,32 @@
 		margin-top: $med;
 		font-size: $mlg;
 		text-shadow: 2px 2px 2px $black;
+
+		@include tablet {
+			font-size: $lg;
+			width: 70%;
+		}
+		@include desktop {
+			width: 50%;
+		}
 	}
 
 	a {
-		z-index: -100;
-		@include center-h;
 		margin-top: $lg; 
 		display:inline-block;
 		padding: $msm $med;
-		background-color: $primary-color;
+		background-color: $gray;
+		cursor: pointer; 
 		
+		@include tablet {
+			font-size: $mlg;
+			padding: $med $mlg;
+		}
+
+		&:hover {
+			background-color: $white;
+			color: $black;
+		}	
 	}
 }
 
