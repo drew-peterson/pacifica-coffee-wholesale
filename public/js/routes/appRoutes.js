@@ -7,7 +7,8 @@ angular.module('appRoutes', [])
   $stateProvider
     .state('home',{
       url: '/',
-      templateUrl: '../views/home/home.html' 
+      templateUrl: '../views/home/home.html', 
+      controller: 'HomeCtrl'
     })
    .state('coffee',{
       url: '/coffee',

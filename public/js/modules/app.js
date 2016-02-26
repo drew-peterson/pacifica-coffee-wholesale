@@ -5,7 +5,8 @@ angular.module('pacificaApp',
   'ui.router',
   'appRoutes',
   'NavCtrl',
-  'ngTouch'
+  'ngTouch', 
+  'HomeCtrl'
 
   ])
 

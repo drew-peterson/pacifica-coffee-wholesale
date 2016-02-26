@@ -9,3 +9,53 @@ h1 {
 		color: green;
 	}
 }
+
+#home .youtube-wrap {
+	width: 100%;
+	height: calc(100vh - 60px);
+}
+
+
+// video ========
+#home video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+  	background-size: cover;
+  	transition: 1s opacity;
+
+
+  // other
+	// position: absolute;
+	// top: 0;
+	// left: 0;
+	// width: 100%;
+	// height: auto;
+	// z-index: -10;
+	// transform: scale(1.2);
+	// overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

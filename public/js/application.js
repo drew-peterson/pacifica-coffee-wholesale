@@ -5,7 +5,8 @@ angular.module('pacificaApp',
   'ui.router',
   'appRoutes',
   'NavCtrl',
-  'ngTouch'
+  'ngTouch', 
+  'HomeCtrl'
 
   ])
 
@@ -20,6 +21,24 @@ angular.module('pacificaApp',
 
 // ========================================
 
+angular.module('HomeCtrl', [])
+
+.controller('HomeCtrl', function($scope){
+	$scope.test = "drew peterson"
+})
+
+.directive('videoHero', function(){
+	return {
+		restrict: 'A',
+		replace: true,
+		scope: {},
+		link: function(scope, elem, attr){
+			// var editor = elem.find('#idHere')
+			// editor.bind('keyup keydown, function({}))
+		},
+		templateUrl: "../../views/home/youtube.html"
+	}
+})
 angular.module('MainCtrl', [])
 
 .controller('MainCtrl',function(
@@ -72,7 +91,8 @@ angular.module('appRoutes', [])
   $stateProvider
     .state('home',{
       url: '/',
-      templateUrl: '../views/home/home.html' 
+      templateUrl: '../views/home/home.html', 
+      controller: 'HomeCtrl'
     })
    .state('coffee',{
       url: '/coffee',
