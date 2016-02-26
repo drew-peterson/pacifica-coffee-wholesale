@@ -4,7 +4,7 @@
 
 #sideNav {
 	position: fixed;
-	background-color: white;
+	background-color: $white;
 	top: 60px;
 	left: 0;
 	// mobile
@@ -23,8 +23,8 @@
     color: #5f6f81;
     text-decoration: none;
     cursor: pointer;
-    border-bottom: 1px solid gray;
-    border-right: 1px solid gray;
+    border-bottom: 1px solid $divider-color;
+    border-right: 1px solid $divider-color;
 }
 
 .sNav-container a {
@@ -39,8 +39,8 @@
 
 // Triggers + Animation ====================
 #sideNav {
-	// transform: translateX(-100%);
-	transition: 1s all ease;
+	transform: translateX(-100%);
+	transition: 0.5s all ease;
 
 	@include desktop {
 		transition: 0.5s all ease; 
@@ -53,16 +53,43 @@
 			position: absolute;
 			height: 100%;
 			width: 60px;
+			font-size: 16px;
 			-webkit-font-smoothing: antialiased;
-	
-			background-color: red;
-			mask-image: url('../../img/SVG/checkmark.svg');
+			background-color: $black;
 			mask-repeat: no-repeat;
 			mask-position: 50% 50%;
+
 		}
 		a {
 			margin-left: 40px;
 			visibility: hidden;
+			opacity: 0; 
+			color: $black;
+			font-size: 17px;
+			transform: translateX(40%);
+			transition: 0.4s all ease;
+			transition-delay: 0.3s;
+			overflow: hidden;
+		}
+		&:hover {
+			color: $white;
+			background-color: $primary-color-dark;
+			a {
+				color: white;
+			}
+			&:before{
+				background-color: $white;
+			}
+		}
+	}
+	li.icon-coffee {
+		&:before {
+			mask-image: url('../../img/SVG/coffee.svg');
+		}
+	}
+	li.icon-checkmark {
+		&:before {
+			mask-image: url('../../img/SVG/checkmark.svg');
 		}
 	}
 }
@@ -77,9 +104,6 @@
 
 	li {
 		transform: translateY(0);
-		// font-size: 0;
-
-	
 	}
 }
 
@@ -92,7 +116,9 @@
 		transform: translateY(0);
 
 		a {
+			transform: translateX(0);
 			visibility: visible;
+			opacity: 1;
 		} 
 	}
 }

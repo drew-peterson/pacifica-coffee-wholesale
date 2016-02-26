@@ -1,15 +1,23 @@
 
 
 // Color ===============================================
-$prim-color__dark: #C2185B;   // dark pink
-$prim-color: #E91E63;         // pink
-$prim-color__light: #F8BBD0;  // lightest pink -- background
+$primary-color-dark:   #5D4037;
+$primary-color:        #795548;
+$primary-color-light:  #D7CCC8;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #009688;
+$primary-text-color:   #212121;
+$secondary-text-color: #727272;
+$divider-color:        #B6B6B6;
+
 $black: #212121;              // black -- text
 $white: #FFFFFF;              // off white -- text
 $gray: #727272;                // gray -- 2nd text
 $light-gray: #B6B6B6;         // lighter gray -- divider
-$green: #4CAF50;              // green
 
+$text: #FFFFFF;
+
+$green: #4CAF50;              // green
 $google-gray: #F9F9F9;
 
 $fade__dark: rgba(0,0,0,0.3);
@@ -36,7 +44,7 @@ $xxl: $sp * 4 ;
 //filter: drop-shadow(<length>{2,3} <color>?)
 
 // Transition =================
-$transition: all 0.3 ease;
+$transition: all 0.35 ease;
 // =============================
 
 // $box-shadow =================
