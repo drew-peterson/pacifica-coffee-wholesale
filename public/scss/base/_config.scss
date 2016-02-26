@@ -111,3 +111,9 @@ $transition: all 0.35 ease;
   top: 50%;
   transform: translateY(-50%);
 }
+
+@mixin center-h(){ 
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
