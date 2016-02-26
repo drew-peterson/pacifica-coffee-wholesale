@@ -2,10 +2,6 @@
 // deign: http://tympanus.net/Tutorials/GoogleNexusWebsiteMenu/
 // apple style navigation... in mobile view
 
-@font-face {
-	// there is some stuff here dunno...
-}
-
 #sideNav {
 	position: fixed;
 	background-color: white;
@@ -23,7 +19,7 @@
 .sNav-container .link {
 	display: block;
     height: 60px;
-    font-size: 13px;
+    font-size: 16px;
     color: #5f6f81;
     text-decoration: none;
     cursor: pointer;
@@ -43,16 +39,29 @@
 
 // Triggers + Animation ====================
 #sideNav {
-	transform: translateX(-100%);
+	// transform: translateX(-100%);
 	transition: 1s all ease;
 
 	@include desktop {
-		transition: 0.5s all ease;
-	}
+		transition: 0.5s all ease; 
+	} 
 
-	li {
-		// transition: 1s transform ease, 1s height ease;
+	li { 
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			height: 100%;
+			width: 60px;
+			-webkit-font-smoothing: antialiased;
+	
+			background-color: red;
+			mask-image: url('../../img/SVG/checkmark.svg');
+			mask-repeat: no-repeat;
+			mask-position: 50% 50%;
+		}
 		a {
+			margin-left: 40px;
 			visibility: hidden;
 		}
 	}
@@ -68,7 +77,9 @@
 
 	li {
 		transform: translateY(0);
-		font-size: 0;
+		// font-size: 0;
+
+	
 	}
 }
 
