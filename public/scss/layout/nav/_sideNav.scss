@@ -2,6 +2,8 @@
 // deign: http://tympanus.net/Tutorials/GoogleNexusWebsiteMenu/
 // apple style navigation... in mobile view
 
+// Initial Styles ====================
+
 #sideNav {
 	position: fixed;
 	background-color: $white;
@@ -10,118 +12,116 @@
 	// mobile
     width: 200px;
 }
-// li Styles ====================
 
-.sNav-container ul {
-	line-height: 60px;
-}
-
-.sNav-container .link {
+#sideNav .link {
 	display: block;
+	line-height: 60px;
     height: 60px;
+    width: 100%;
     font-size: 16px;
     color: #5f6f81;
-    text-decoration: none;
-    cursor: pointer;
     border-bottom: 1px solid $divider-color;
     border-right: 1px solid $divider-color;
 }
 
-.sNav-container a {
-	text-decoration: none;
+#sideNav a {
 	display: block;
+	width: 100%;
 	height: 100%;
-	padding: 0 30px;
+	cursor: pointer;
+
 	text-transform: uppercase;
 	letter-spacing: 1px;
-
+	font-size: 17px;
 }
 
 // Triggers + Animation ====================
+
 #sideNav {
 	transform: translateX(-100%);
 	transition: 0.5s all ease;
 
-	@include desktop {
-		transition: 0.5s all ease; 
-	} 
-
-	li { 
+	a {
 		position: relative;
-		&:before {
-			content: '';
-			position: absolute;
-			height: 100%;
-			width: 60px;
-			font-size: 16px;
-			-webkit-font-smoothing: antialiased;
-			background-color: $black;
-			mask-repeat: no-repeat;
-			mask-position: 50% 50%;
-
-		}
-		a {
-			margin-left: 40px;
-			visibility: hidden;
-			opacity: 0; 
-			color: $black;
-			font-size: 17px;
-			transform: translateX(40%);
-			transition: 0.4s all ease;
-			transition-delay: 0.3s;
-			overflow: hidden;
-		}
+		display: flex;
 		&:hover {
-			color: $white;
 			background-color: $primary-color-dark;
-			a {
-				color: white;
+			.icon-text {
+				color: $white;
 			}
-			&:before{
+			.icon:before{
 				background-color: $white;
 			}
 		}
-	}
-	li.icon-coffee {
-		&:before {
-			mask-image: url('../../img/SVG/coffee.svg');
+
+		.icon {
+			width: 60px;
+			height: 60px;
 		}
-	}
-	li.icon-checkmark {
-		&:before {
-			mask-image: url('../../img/SVG/checkmark.svg');
+		.icon-text {
+			visibility: hidden;
+			opacity: 0; 
+			transform: translateX(40%);
+			padding-left: 20px;
+			width: 100%;
+			transition: 0.3s transform ease, 0.4s opacity ease;
+			transition-delay: 0.2s;
+			color: $black;
 		}
 	}
 }
-
-
 
 // on hover show just icons...
 #sideNav.hover {
 	font-size: 0;
 	width: 60px;
 	transform: translateX(0);
-
-	li {
-		transform: translateY(0);
-	}
 }
 
 #sideNav.active {
 	transform: translateX(0);
-	width: 200px;
+	min-width: 200px;
 
-	li { 
-		font-size: 13px;
-		transform: translateY(0);
+	.icon-text {
+		transform: translateX(0);
+		visibility: visible;
+		opacity: 1;
+	} 
+	
+}
 
-		a {
-			transform: translateX(0);
-			visibility: visible;
-			opacity: 1;
-		} 
+// Icons ============================= 
+
+.icon-coffee,
+.icon-checkmark {
+	&:before {
+		content: '';
+		position: absolute;
+		height: 100%;
+		width: 60px;
+		top: 0;
+		left: 0;
+		-webkit-font-smoothing: antialiased;
+		background-color: $black;
+		mask-repeat: no-repeat;
+		mask-position: 50% 50%;
+
 	}
 }
+
+.icon-coffee {
+	&:before {
+		mask-image: url('../../img/SVG/coffee.svg');
+	}
+}
+.icon-checkmark {
+	&:before {
+		mask-image: url('../../img/SVG/bag.svg');
+	}
+} 
+
+
+
 
 
 
