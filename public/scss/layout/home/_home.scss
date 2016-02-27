@@ -100,7 +100,8 @@
 		display:inline-block;
 		padding: $msm $med;
 		background-color: $gray;
-		cursor: pointer; 
+		cursor: pointer;
+		transition: 0.35s all ease; 
 		
 		@include tablet {
 			font-size: $mlg;
