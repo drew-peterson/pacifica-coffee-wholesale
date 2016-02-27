@@ -1,6 +1,6 @@
-angular.module('HomeCtrl', [])
+angular.module('HomeCtrl', []) 
 
-.controller('HomeCtrl', function($scope){
+.controller('HomeCtrl', function($scope){ 
 // Card vars ==============
 	$scope.title;
 	$scope.content;
@@ -8,10 +8,21 @@ angular.module('HomeCtrl', [])
 	$scope.color;
 	$scope.image;
 	$scope.textColor;
+	$scope.url;
 // =======================
+
+// dynamic ui-sref =================
+
+// doesnt work...
+$scope.gotoState = function(url){
+	console.log('goto State: ' + url)
+	$state.go(url); 
+}
+
+
 })
 
-.directive('videoHero', function(){
+.directive('videoHero', function(){ 
 	return {
 		restrict: 'A',
 		replace: true,
@@ -20,12 +31,12 @@ angular.module('HomeCtrl', [])
 			// var editor = elem.find('#idHere')
 			// editor.bind('keyup keydown, function({}))
 		},
-		templateUrl: "../../views/home/youtube.html"
+		templateUrl: "../../views/home/youtube.html" 
 	}
 }) 
 
 .directive('homeCard', function(){
-	return {
+	return { 
 		restrict: 'A',
 		scope: {
 			'title': '@',
@@ -34,6 +45,7 @@ angular.module('HomeCtrl', [])
 			'content': '@',
 			'image': '@',
 			'textColor': '@', 
+			'url': '@', 
 		},
 		replace: true,
 		link: function(scope, elem, attr){
