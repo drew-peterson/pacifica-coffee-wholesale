@@ -18,6 +18,12 @@ angular.module('appRoutes', [])
       url: '/bag',
       templateUrl: '../views/bag/bag.html' 
     })
+    .state('admin',{
+      url: '/admin',
+      templateUrl: '../views/admin/admin.html',
+      controller: 'AdminCtrl',
+      controllerAs: 'admin'
+    })
    
 
     // GoogleBot SEO

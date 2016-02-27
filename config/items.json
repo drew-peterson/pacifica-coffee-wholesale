@@ -1,0 +1,14 @@
+[
+	{
+		"name": "French Roast",
+		"price": "12",
+		"description": "tastes good"
+	},
+	{
+		"name": "Ethopia",
+		"price": "15",
+		"description": "from africa and tastes good"
+	}
+
+
+]

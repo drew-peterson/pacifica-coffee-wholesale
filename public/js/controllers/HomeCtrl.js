@@ -11,7 +11,7 @@ angular.module('HomeCtrl', [])
 	$scope.url;
 // =======================
 
-// dynamic ui-sref =================
+// dynamic ui-sref ================= 
 
 // doesnt work...
 $scope.gotoState = function(url){

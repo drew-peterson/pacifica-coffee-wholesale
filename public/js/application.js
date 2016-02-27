@@ -6,7 +6,8 @@ angular.module('pacificaApp',
   'appRoutes',
   'NavCtrl',
   'ngTouch', 
-  'HomeCtrl'
+  'HomeCtrl',
+  'AdminCtrl'
 
   ])
 
@@ -21,6 +22,44 @@ angular.module('pacificaApp',
 
 // ========================================
 
+angular.module('AdminCtrl',[])
+
+.service('itemsService', function($http){
+	return {
+		get: function(){
+			console.log('inside get')
+			return $http.get('api/items'); 
+		}
+	}
+})
+.controller('AdminCtrl', function(itemsService, $scope){ 
+	
+	$scope.items;
+	$scope.test = "drew peterson"
+
+
+	itemsService.get().success(function(data){
+		$scope.items = data; 
+	})
+	.error(function(data){
+		console.log('error' + data)
+	})
+})
+
+.directive('itemCard', function(){
+	return {
+		restrict: 'A', 
+		replace: true, 
+		scope: {
+			'itemsData': '=itemsData'
+		},
+		controller: function($scope){
+			$scope.itemsData
+		},
+		template: "<div>items: {{itemsData.name}} || {{itemsData.price}} </div>"
+
+	}
+})
 angular.module('HomeCtrl', []) 
 
 .controller('HomeCtrl', function($scope){ 
@@ -34,7 +73,7 @@ angular.module('HomeCtrl', [])
 	$scope.url;
 // =======================
 
-// dynamic ui-sref =================
+// dynamic ui-sref ================= 
 
 // doesnt work...
 $scope.gotoState = function(url){
@@ -141,6 +180,12 @@ angular.module('appRoutes', [])
     .state('bag',{
       url: '/bag',
       templateUrl: '../views/bag/bag.html' 
+    })
+    .state('admin',{
+      url: '/admin',
+      templateUrl: '../views/admin/admin.html',
+      controller: 'AdminCtrl',
+      controllerAs: 'admin'
     })
    
 
