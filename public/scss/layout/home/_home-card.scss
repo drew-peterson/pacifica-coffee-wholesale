@@ -1,3 +1,11 @@
+
+#home .card-center {
+	@include tablet {
+		width: 90%;
+		margin: 0 auto;
+	}
+}
+
 .home-container {
 	display: flex;
 	flex-direction: column;
