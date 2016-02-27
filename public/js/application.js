@@ -30,6 +30,7 @@ angular.module('HomeCtrl', [])
 	$scope.button;
 	$scope.color;
 	$scope.image;
+	$scope.textColor;
 // =======================
 })
 
@@ -38,7 +39,7 @@ angular.module('HomeCtrl', [])
 		restrict: 'A',
 		replace: true,
 		scope: {},
-		link: function(scope, elem, attr){
+		link: function(scope, elem, attr){ 
 			// var editor = elem.find('#idHere')
 			// editor.bind('keyup keydown, function({}))
 		},
@@ -55,6 +56,7 @@ angular.module('HomeCtrl', [])
 			'button': '@', 
 			'content': '@',
 			'image': '@',
+			'textColor': '@', 
 		},
 		replace: true,
 		link: function(scope, elem, attr){

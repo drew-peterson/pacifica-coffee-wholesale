@@ -1,9 +1,16 @@
 
+#home {
+	height: 100%;
+}
+.card-container {
+	background-color: $white;
+	height: 100%; 
+}
 // video ===============================
 
 #home .youtube-wrap {
 	width: 100%;
-	height: calc(100vh - 60px);
+	height: calc(100vh - 120px); // account for 60 padding twice??
 }
 
 #home video {
@@ -41,7 +48,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	height: 95%;
+	height: 100%;
 	width: 100%;
 	z-index: -100;
 
