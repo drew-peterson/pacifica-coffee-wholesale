@@ -29,6 +29,7 @@ angular.module('HomeCtrl', [])
 	$scope.content;
 	$scope.button;
 	$scope.color;
+	$scope.image;
 // =======================
 })
 
@@ -43,7 +44,7 @@ angular.module('HomeCtrl', [])
 		},
 		templateUrl: "../../views/home/youtube.html"
 	}
-})
+}) 
 
 .directive('homeCard', function(){
 	return {
@@ -51,8 +52,9 @@ angular.module('HomeCtrl', [])
 		scope: {
 			'title': '@',
 			'color': '@',
-			'button': '@',
+			'button': '@', 
 			'content': '@',
+			'image': '@',
 		},
 		replace: true,
 		link: function(scope, elem, attr){

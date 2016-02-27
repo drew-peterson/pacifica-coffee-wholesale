@@ -1,18 +1,22 @@
-#home .home-container {
+.home-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
+	margin-bottom: 20px;
 }
 
 .home-container .home-item {
-	@include debug;
 	width: 90%;
 }
 
 
 .home-container .picture {
 	height: 300px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%; 
+	// background-image: url('http://www.goodmorningcoffee.com/images/CoffeeCup.png');
 }
 
 .home-container .content-wrapper {
