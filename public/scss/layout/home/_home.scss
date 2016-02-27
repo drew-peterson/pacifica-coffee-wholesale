@@ -5,6 +5,10 @@
 .card-container {
 	background-color: $white;
 	height: 100%; 
+
+	&:last-child{
+		padding-bottom: 40px;
+	}
 }
 // video ===============================
 
