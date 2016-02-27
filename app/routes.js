@@ -5,24 +5,20 @@ var fs = require('fs');
 module.exports = function(app){
 
   app.get('/api/items', function(req, res){
-  	console.log('get hit')
-  	res.sendFile('items.json', {root: 'config'})
+  	res.sendFile('items.json', {root: 'config'}) 
   });
 
   app.post('/api/items', function(req,res){
-  	console.log('post hit')
-  	var data = req.body                                             
-  	
-  	
- 	fs.writeFile('config/test.json', data, function(err){
+  	var data = req.body;                                             
+ 	fs.writeFile('config/test.json', JSON.stringify(data, null, 4), function(err){
  		if (err){
  			console.error(err); 
  		}
+ 		res.json(data);
  	})
   });
 
   app.get('*', function(req, res) {
-  	console.log('all hit')
     res.sendFile('index.html', {root: 'public'}); // load our public/index.html file
     // 'dist/public' -- for productions
   });

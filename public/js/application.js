@@ -30,10 +30,11 @@ angular.module('AdminCtrl',[])
 			console.log('inside get')
 			return $http.get('api/items'); 
 		},
-		post: function(data){
+		post: function(data){ 
 			var data = {
 				name: 'drew peterson',
-				price: '100'
+				price: '100',
+				description: 'drew drew'
 			}
 			console.log('data')
 			return $http.post('api/items' , JSON.stringify(data));
@@ -57,7 +58,7 @@ angular.module('AdminCtrl',[])
 	var saveItems = function(){
 		itemsService.post("drew peterson").success(function(response){
 			console.log('success')
-			console.log(respose);
+			console.log(response);
 		})
 		.error(function(data){
 			console.log('error')
