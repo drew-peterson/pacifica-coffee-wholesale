@@ -27,16 +27,9 @@ angular.module('AdminCtrl',[])
 .service('itemsService', function($http){
 	return {
 		get: function(){
-			console.log('inside get')
 			return $http.get('api/items'); 
 		},
 		post: function(data){ 
-			var data = {
-				name: 'drew peterson',
-				price: '100',
-				description: 'drew drew'
-			}
-			console.log('data')
 			return $http.post('api/items' , JSON.stringify(data));
 		}
 	}
@@ -44,26 +37,31 @@ angular.module('AdminCtrl',[])
 .controller('AdminCtrl', function(itemsService, $scope){ 
 	
 	$scope.items;
-	$scope.test = "drew peterson" 
+	$scope.test = [{name: 'drew'}]
+
+	 // create watch function to load up new files when they change...
 
 	// get all items in json file
-	itemsService.get().success(function(data){
-		$scope.items = data; 
-	})
-	.error(function(data){
-		console.log('error')
-	})
+	$scope.getItems = function(){
+		itemsService.get().success(function(data){
+			console.log("get success");
+			$scope.items = data; 
+		})
+		.error(function(data){
+			console.log(' get error');  
+		})
+	}();
 
 	// write to json file
-	var saveItems = function(){
-		itemsService.post("drew peterson").success(function(response){
-			console.log('success')
+	$scope.saveItems = function(){
+		itemsService.post($scope.items).success(function(response){
+			console.log('Post success');
 			console.log(response);
 		})
 		.error(function(data){
-			console.log('error')
+			console.log(' post error');
 		})
-	}()
+	}
 
 })
 
@@ -72,10 +70,14 @@ angular.module('AdminCtrl',[])
 		restrict: 'A', 
 		replace: true, 
 		scope: {
-			'itemsData': '=itemsData'
+			'itemData': '=itemData',
+			'updateItems': '=updateItems',
+			'allItems': '=allItems' 
 		},
 		controller: function($scope){
-			$scope.itemsData
+			$scope.itemData;
+			$scope.allItems;
+			$scope.updateItems;
 		},
 		templateUrl: "../../views/admin/adminCard.html"
 

@@ -5,7 +5,7 @@ var fs = require('fs');
 module.exports = function(app){
 
   app.get('/api/items', function(req, res){
-  	res.sendFile('items.json', {root: 'config'}) 
+  	res.sendFile('test.json', {root: 'config'}) 
   });
 
   app.post('/api/items', function(req,res){

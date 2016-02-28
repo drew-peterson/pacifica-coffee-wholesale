@@ -1,12 +1,15 @@
 <main id="admin">
 	
-	<div>items: {{itemsData.name}} || {{itemsData.price}} </div>
+	<div>items: {{itemData.name}} || {{itemData.price}} </div>
 
 
-	<input type="text" ng-model="itemsData.name">
-	<input type="text" ng-model="itemsData.price">
+	<input type="text" ng-model="itemData.name">
+	<input type="text" ng-model="itemData.price">
 
-	<button></button>
+	<button ng-click="updateItems()">Click me</button>
+
+	<!-- <h2>All items</h2> -->
+	<!-- <p> {{allItems}}</p> -->
 
 	
 </main>

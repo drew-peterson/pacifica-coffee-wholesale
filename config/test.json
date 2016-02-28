@@ -1,5 +1,20 @@
-{
-    "name": "drew peterson",
-    "price": "100",
-    "description": "drew drew"
-}
+[
+    {
+        "name": "Italian blend",
+        "price": "300",
+        "description": "tastes good",
+        "$$hashKey": "object:18"
+    },
+    {
+        "name": "french X",
+        "price": "12",
+        "description": "from africa and tastes good",
+        "$$hashKey": "object:19"
+    },
+    {
+        "name": "moraga mud",
+        "price": "100",
+        "description": "looks terrible",
+        "$$hashKey": "object:20"
+    }
+]

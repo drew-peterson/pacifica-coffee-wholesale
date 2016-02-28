@@ -1,9 +1,18 @@
 <main id="admin">
 	<h2>Hello from Admin</h2>
-	{{test}}
 
-	<div item-card 
-		items-data="item" 
-		ng-repeat="item in items">
+	<h2>Scope</h2>
+	<ul ng-repeat="item in items">
+		<li>{{item.name}} || {{item.price}}</li>
+	</ul>
+
+	<button ng-click="saveItems()">click me</button>
+
+	<hr>
+	<h2>Directive</h2>
+	<div item-card ng-repeat="item in items"
+		item-data="item"
+		all-items="items"
+		update-items="saveItems"> 
 	</div> 
 </main>
