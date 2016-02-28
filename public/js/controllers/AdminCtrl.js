@@ -1,24 +1,11 @@
 angular.module('AdminCtrl',[])
 
-.service('itemsService', function($http){
-	return {
-		get: function(){
-			return $http.get('api/items'); 
-		},
-		post: function(data){ 
-			return $http.post('api/items' , JSON.stringify(data));
-		}
-	}
-})
 .controller('AdminCtrl', function(itemsService, $scope){ 
 	
-	$scope.items;
-	$scope.test = [{name: 'drew'}]
-
-	 // create watch function to load up new files when they change...
+	$scope.items; // holds all the items...
 
 	// get all items in json file
-	$scope.getItems = function(){
+	var getItems = function(){
 		itemsService.get().success(function(data){
 			console.log("get success");
 			$scope.items = data; 
@@ -33,6 +20,8 @@ angular.module('AdminCtrl',[])
 		itemsService.post($scope.items).success(function(response){
 			console.log('Post success');
 			console.log(response);
+
+			$scope.items = response;
 		})
 		.error(function(data){
 			console.log(' post error');

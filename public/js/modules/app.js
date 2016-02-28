@@ -8,8 +8,20 @@ angular.module('pacificaApp',
   'ngTouch', 
   'HomeCtrl',
   'AdminCtrl'
-
   ])
+
+// get and save items ==========================
+.service('itemsService', function($http){
+  return {
+    get: function(){
+      return $http.get('api/items'); 
+    },
+    post: function(data){ 
+      return $http.post('api/items' , JSON.stringify(data));
+    }
+  }
+})
+// ===============================================
 
 
 // Capitialize =========================
