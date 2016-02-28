@@ -20,6 +20,10 @@
 		flex-direction: row-reverse; 
 		height: 400px; 
 	}
+
+	@include desktop__large {
+		height: 560px;
+	}
 }
 
 // width of each container
@@ -66,15 +70,20 @@
 	height: 100%;
 	p {
 		padding: $med 0;
-		line-height: 1.7;
+		line-height: 1.7; 
 	}
 
 	a {
 		text-transform: uppercase;
 		color: inherit;
+		border: 2px solid $white;
+		padding: 10px 15px;
+
+		transition: 0.3s all ease;
 
 		&:hover {
 			color: black;
+			background-color: $white;
 		}
 	}
 }
