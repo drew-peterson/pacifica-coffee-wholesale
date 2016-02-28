@@ -13,11 +13,8 @@
 // video ===============================
 
 #home .youtube-wrap {
-	@include debug;
 	width: 100%;
-	height: 100vh -60px;
-	min-height: 500px;
-	// min-height: calc(100vh - 120px); // account for 60 padding twice??
+	min-height: calc(100vh - 60px);
 }
 
 .youtube-wrap video {
@@ -53,9 +50,10 @@
 	@include background-image('../../img/coffeeBG.jpeg');
 	background-position: 0 50%;
 	position: absolute;
-	top: 0;
+	top: 60px;
 	left: 0;
-	height: 100%;
+	height: auto;
+	min-height: calc(100vh);
 	width: 100%;
 	z-index: -100;
 
@@ -72,6 +70,9 @@
 	padding: 0 5%;
 
 	@include tablet {
+		margin-top: 8%;
+	}
+	@include tablet__landscape {
 		margin-top: 8%;
 	}
 
@@ -110,10 +111,10 @@
 	}
 
 	a {
-		margin-top: $lg; 
+		margin: $mlg 0; 
 		display:inline-block;
 		padding: $msm $med;
-		background-color: $gray;
+		border: 2px solid $white;
 		cursor: pointer;
 		transition: 0.35s all ease; 
 		
