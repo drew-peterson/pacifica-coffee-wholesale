@@ -84,18 +84,35 @@ angular.module('AdminCtrl',[])
 
 	}
 })
+angular.module('CoffeeCtrl', [])
+
+.controller('CoffeeCtrl', function($scope, itemsService){
+	$scope.test = 'drew peterson' 
+
+	// Get all Items
+	itemsService.get().success(function(response){
+		$scope.items = response;
+	});
+}) // end of ctrl
+
+
+// coffee card ========================== 
+.directive('coffeeCard', function(){
+	return {
+		replace: true,
+		restrict: 'A',
+		scope: {
+			test: '@'
+		},
+		controller: function($scope){
+			// $scope.test = "reed peterson"
+		},
+		templateUrl: '../../views/coffee/coffee-card.html'
+	}
+})
 angular.module('HomeCtrl', []) 
 
 .controller('HomeCtrl', function($scope){ 
-// Card vars ==============
-	$scope.title;
-	$scope.content;
-	$scope.button;
-	$scope.color;
-	$scope.image;
-	$scope.textColor;
-	$scope.url;
-// =======================
 
 // dynamic ui-sref ================= 
 
@@ -137,6 +154,10 @@ $scope.gotoState = function(url){
 		link: function(scope, elem, attr){
 			// var editor = elem.find('#idHere')
 			// editor.bind('keyup keydown, function({}))
+
+		},
+		controller: function($scope){
+
 		},
 		templateUrl: "../../views/home/homeCard.html"
 	}

@@ -1,15 +1,6 @@
 angular.module('HomeCtrl', []) 
 
 .controller('HomeCtrl', function($scope){ 
-// Card vars ==============
-	$scope.title;
-	$scope.content;
-	$scope.button;
-	$scope.color;
-	$scope.image;
-	$scope.textColor;
-	$scope.url;
-// =======================
 
 // dynamic ui-sref ================= 
 
@@ -51,6 +42,10 @@ $scope.gotoState = function(url){
 		link: function(scope, elem, attr){
 			// var editor = elem.find('#idHere')
 			// editor.bind('keyup keydown, function({}))
+
+		},
+		controller: function($scope){
+
 		},
 		templateUrl: "../../views/home/homeCard.html"
 	}
