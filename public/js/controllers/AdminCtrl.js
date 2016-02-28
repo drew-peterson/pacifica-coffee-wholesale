@@ -16,10 +16,10 @@ angular.module('AdminCtrl',[])
 	}();
 
 	// write to json file
-	$scope.saveItems = function(){
+	$scope.saveItems = function(){ 
 		itemsService.post($scope.items).success(function(response){
 			console.log('Post success');
-			console.log(response);
+			console.log(response); 
 
 			$scope.items = response;
 		})
@@ -40,9 +40,9 @@ angular.module('AdminCtrl',[])
 			'allItems': '=allItems' 
 		},
 		controller: function($scope){
-			$scope.itemData;
-			$scope.allItems;
-			$scope.updateItems;
+			$scope.itemData; // all items
+			$scope.allItems; // not really needed
+			$scope.updateItems; // function to save items
 		},
 		templateUrl: "../../views/admin/adminCard.html"
 
