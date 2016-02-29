@@ -8,7 +8,7 @@ angular.module('pacificaApp',
   'ngTouch', 
   'HomeCtrl',
   'AdminCtrl'
-  ])
+  ]) 
 
 // get and save items ==========================
 .service('itemsService', function($http){
@@ -22,6 +22,55 @@ angular.module('pacificaApp',
   }
 })
 // ===============================================
+
+
+
+// Lazy Load======================================
+  .directive('lazyLoad', function($document, $window){
+    return {
+      restrict: 'AE', 
+      scope: {},
+      controller: function($scope){
+        $scope.fullName = "Drew peterson";
+      },
+      link: function(scope, elem, attrs){
+        var barPos;
+        var position;
+        var elPos = $(elem).offset().top; // position of element
+        var windowHeight = $($window).height();
+
+        // scroll event
+        $document.bind('scroll', function(){
+          var barPos = $($document).scrollTop(); // scrollbar pos
+          var position = elPos - barPos;
+      
+          if( ((position + 100) <= windowHeight) ){
+            loadImage();
+            if(position <= 0){ hideImage();}
+          }  
+        });
+
+        // load Images =================
+        var loadImage = function(){
+          console.log('loading image');
+          // $(elem).css('background-color', 'red');
+        }
+        // hide Images =================
+        var hideImages = function(){
+          console.log('image hidden')
+          // $(elem).css('background-color', 'red');
+        }
+      } // end of link
+    } // end of return
+}) // end of directive
+
+
+
+
+// ===============================================
+
+
+
 
 
 // Capitialize =========================
@@ -176,7 +225,7 @@ angular.module('NavCtrl',[])
 
 .controller('NavCtrl', function($scope){
 	$scope.actve;
-	$scope.hover;
+	$scope.hover; 
 })
 
 .directive('toggleClass', function(){
