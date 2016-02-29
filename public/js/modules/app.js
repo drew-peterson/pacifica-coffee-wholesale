@@ -26,13 +26,12 @@ angular.module('pacificaApp',
 
 
 // Lazy Load ======================================
+
+// lazy-load attr on image or background, must have parent...
+
   .directive('lazyLoad', function($document, $window){
     return {
       restrict: 'AE', 
-      scope: {},
-      controller: function($scope){
-        $scope.fullName = "Drew peterson";
-      },
       link: function(scope, elem, attrs){
         var parent = $(elem).parent(); // image is hiden so we need container
         var elPos = $(parent).offset().top; // position of parent
@@ -49,7 +48,7 @@ angular.module('pacificaApp',
         // scroll event
         $document.bind('scroll', function(){
           var barPos = $($document).scrollTop(); // scrollbar pos
-          var position = elPos - barPos;
+          var position = elPos - barPos; // elment pos from bottom of window
           
           if( ((position + offset) <= windowHeight) ){
             if(!loaded){
