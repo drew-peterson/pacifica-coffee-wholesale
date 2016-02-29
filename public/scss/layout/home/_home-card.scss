@@ -61,9 +61,9 @@
 	padding: 5%;
 	background-color: $white;
 	height: 100%;
-	min-width: 260px;
 
 	@include tablet {
+		min-width: 260px; // so btn does not collapse
 		width: 40%;
 	}
 }
