@@ -10,7 +10,7 @@ angular.module('pacificaApp',
   'AdminCtrl'
   ]) 
 
-// get and save items ==========================
+// Get and Save items ==========================
 .service('itemsService', function($http){
   return {
     get: function(){
@@ -25,7 +25,7 @@ angular.module('pacificaApp',
 
 
 
-// Lazy Load======================================
+// Lazy Load ======================================
   .directive('lazyLoad', function($document, $window){
     return {
       restrict: 'AE', 
@@ -34,43 +34,40 @@ angular.module('pacificaApp',
         $scope.fullName = "Drew peterson";
       },
       link: function(scope, elem, attrs){
+        var parent = $(elem).parent(); // image is hiden so we need container
+        var elPos = $(parent).offset().top; // position of parent
+        var windowHeight = $($window).height();
+
         var barPos;
         var position;
-        var elPos = $(elem).offset().top; // position of element
-        var windowHeight = $($window).height();
+
+        var loaded; // load image only once
+      
+        var offset = 100; // so the element is visible on page by 100px
+
 
         // scroll event
         $document.bind('scroll', function(){
           var barPos = $($document).scrollTop(); // scrollbar pos
           var position = elPos - barPos;
-      
-          if( ((position + 100) <= windowHeight) ){
-            loadImage();
-            if(position <= 0){ hideImage();}
-          }  
+          
+          if( ((position + offset) <= windowHeight) ){
+            if(!loaded){
+              loadImage();
+            }
+          }
         });
-
         // load Images =================
         var loadImage = function(){
-          console.log('loading image');
-          // $(elem).css('background-color', 'red');
+            $(elem).fadeIn();
+            console.log('loading image');
+            loaded = true;
         }
-        // hide Images =================
-        var hideImages = function(){
-          console.log('image hidden')
-          // $(elem).css('background-color', 'red');
-        }
+
       } // end of link
     } // end of return
 }) // end of directive
-
-
-
-
 // ===============================================
-
-
-
 
 
 // Capitialize =========================
