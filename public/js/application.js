@@ -123,7 +123,7 @@ angular.module('AdminCtrl',[])
 		},
 		link: function(scope, elem, attrs){
 			var btn = elem.find('button');
-			var el = $('#admin .slider-wraper') 
+			var el = $('#admin .admin-card-wrapper') 
 
 			btn.on('click', function(){
 				el.toggleClass('showMenuActive');

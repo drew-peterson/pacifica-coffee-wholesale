@@ -7,5 +7,16 @@
 
 	<button id="adminShowMenu" ng-click="showMenu = !showMenu">Show menu</button>
 	<p>show menu: {{showMenu}}</p>
+
+
+	<!-- Side push menu -->
+
+	<aside class="admin-push-menu" ng-class="{'showMenu': showMenu }">
+		<div admin-side-menu
+			item-data="itemData"
+		></div>
+	
+	</aside>
+
 	
 </section>

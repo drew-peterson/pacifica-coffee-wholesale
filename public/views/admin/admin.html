@@ -6,22 +6,13 @@
 
 	<section class="admin-card-wrapper">
 	
-		<div class="slider-wraper" ng-repeat="item in items">
+		<!-- <div class="slider-wraper" > -->
 			<!-- Rows of cards inside wrapper -->
-			<div item-card 
+			<div item-card
+				ng-repeat="item in items" 
 				item-data="item"
 				show-menu="showMenu">
 			</div> 
-
-			<!-- Side push menu -->
-			<aside class="admin-push-menu" ng-class="{'showMenu': showMenu }">
-				<div admin-side-menu
-					item-data="item"
-				></div>
-			
-			</aside>
-			
-		</div> 
 
 	</section>
 
