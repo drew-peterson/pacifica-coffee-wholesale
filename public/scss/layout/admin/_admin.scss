@@ -1,3 +1,25 @@
+
+$slider-width: 240px;
+
 #admin {
 	
+}
+
+.admin-card-wrapper {
+	@include debug;
+	width: 100%;
+}
+
+.slider-wraper {
+	background-color: gray;
+	position: relative;
+	// left: -$slider-width; // applied when menu active
+	
+}
+.admin-push-menu { 
+	position: absolute; 
+	background-color: yellow;
+	width: $slider-width;
+	right: -$slider-width * 2; // hide off screen
+	top: 0; 
 }

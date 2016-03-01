@@ -1,14 +1,36 @@
 <main id="admin">
 	<h2>Hello from Admin</h2>
-
-	<div item-card ng-repeat="item in items"
-		item-data="item"
-		all-items="items"
-		update-items="saveItems"> 
-	</div> 
-
 	<!-- update all items... -->
-	<hr>
 	<button ng-click="saveItems()">Update Items</button>
+	<hr>
+
+	
+	<section class="admin-card-wrapper">
+
+		<div class="slider-wraper" ng-repeat="item in items">
+			<!-- Rows of cards inside wrapper -->
+			<div item-card 
+				item-data="item"
+				all-items="items"
+				update-items="saveItems"> 
+			</div> 
+
+			<button>Show menu</button>
+			<!-- Side push menu -->
+			<aside class="admin-push-menu">
+				<ul>
+					<div>BackgroundPic</div>
+					<li class="admin-push-content"><input type="text" placeholder="title"></li>
+					<li class="admin-push-content"><input type="text" placeholder="description"></li>
+					<li class="admin-push-content"><input type="text" placeholder="price"></li>
+					<li class="admin-push-content"><input type="text" placeholder="placeholder"></li>
+					<li class="admin-push-content"><input type="text" placeholder="placeholder"></li>
+				</ul>
+			</aside>
+			
+		</div> 
+
+	</section>
+
 </main>
 
