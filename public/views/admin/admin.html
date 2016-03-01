@@ -5,21 +5,16 @@
 	<hr>
 
 	<section class="admin-card-wrapper">
-
-
-		<div class="slider-wraper" ng-repeat="item in items" ng-class="{'showMenuActive': showMenu}">
+	
+		<div class="slider-wraper" ng-repeat="item in items">
 			<!-- Rows of cards inside wrapper -->
 			<div item-card 
 				item-data="item"
-				all-items="items"
-				update-items="saveItems"> 
+				show-menu="showMenu">
 			</div> 
 
-	
-			
 			<!-- Side push menu -->
 			<aside class="admin-push-menu" ng-class="{'showMenu': showMenu }">
-
 				<div admin-side-menu
 					item-data="item"
 				></div>

@@ -6,10 +6,8 @@ angular.module('AdminCtrl')
 		scope: { 
 			itemData: '='	
 		},
-		templateUrl: "../../views/admin/adminSideMenu.js",
-		controller: function($scope){
-			$scope.showMenu;
-		},
+		templateUrl: "../../views/admin/adminSideMenu.html", 
+		controller: function($scope){},
 		link: function(scope, elem, attrs){},
 
 	} // end of return

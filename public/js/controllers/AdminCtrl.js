@@ -3,9 +3,9 @@ angular.module('AdminCtrl',[])
 .controller('AdminCtrl', function(itemsService, $scope){ 
 	
 	$scope.items; // holds all the items...
-
+	$scope.showMenu = false;
 	// get all items in json file
-	var getItems = function(){
+	var getItems = function(){ 
 		itemsService.get().success(function(data){
 			console.log("get success");
 			$scope.items = data; 
@@ -36,8 +36,18 @@ angular.module('AdminCtrl',[])
 		replace: true, 
 		scope: {
 			'itemData': '=',
+			'showMenu': '='
 		},
 		controller: function($scope){
+		},
+		link: function(scope, elem, attrs){
+			var btn = elem.find('button');
+			var el = $('#admin .slider-wraper') 
+
+			btn.on('click', function(){
+				el.toggleClass('showMenuActive');
+			})
+
 		},
 		templateUrl: "../../views/admin/adminCard.html"
 

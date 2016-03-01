@@ -1,18 +1,19 @@
 
-$slider-width: 240px;
+$slider-width: 400px;
 
 #admin {
 	.showMenu {
-		right: -$slider-width;
+		// right: -$slider-width;
+		// transform: translateX(0);
+		display: block;
+		background-color: red;
 	}
 
 	.showMenuActive {
 		// left: -$slider-width;
+		background-color: blue;
 		transform: translateX(-$slider-width);
 	}
-
-	button{
-	} 
 }
 
 .admin-card-wrapper {
@@ -21,17 +22,20 @@ $slider-width: 240px;
 } 
 
 .slider-wraper {
-	background-color: gray;
+	@include debug;
 	position: relative;
 	transition: 0.5s all linear;
 }
 .admin-push-menu { 
-	position: absolute;
-	z-index: 100; 
+	position: fixed; 
+	display: none;
+	z-index: 200;
+	min-height: 600px;
+	width: $slider-width; 
 	background-color: yellow;
-	width: $slider-width;
-	right: -$slider-width * 2; // hide off screen
-	// right: 0;
+	right: 0;
+	// right: -$slider-width; // hide off screen
+	transform: translateX($slider-width);
 	top: 0; 
 	transition: 0.5s all linear;
 }

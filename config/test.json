@@ -1,7 +1,7 @@
 [
     {
-        "name": "Italian blend",
-        "price": "300",
+        "name": "french press",
+        "price": "500",
         "description": "tastes good",
         "$$hashKey": "object:18"
     },
