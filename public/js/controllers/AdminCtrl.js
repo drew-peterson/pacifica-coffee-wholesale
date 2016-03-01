@@ -35,16 +35,15 @@ angular.module('AdminCtrl',[])
 		restrict: 'A', 
 		replace: true, 
 		scope: {
-			'itemData': '=itemData',
-			'updateItems': '=updateItems',
-			'allItems': '=allItems' 
+			'itemData': '=',
 		},
 		controller: function($scope){
-			$scope.itemData; // all items
-			$scope.allItems; // not really needed
-			$scope.updateItems; // function to save items
 		},
 		templateUrl: "../../views/admin/adminCard.html"
 
 	}
 })
+
+
+
+

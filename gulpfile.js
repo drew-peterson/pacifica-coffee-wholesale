@@ -32,6 +32,7 @@ gulp.task("concatScripts",function(){
     "public/js/controllers/*.js",
     "public/js/routes/*.js",
     "public/js/services/*.js",
+    "public/js/components/*.js",
     ]) 
   .pipe(maps.init()) // create a map file for javascript
   .pipe(concat("application.js")) // pipe in the information into contact which does the magic and give it a file name
@@ -71,6 +72,7 @@ gulp.task('watchFiles', function(){
     "public/js/controllers/*.js",
     "public/js/modules/*.js",
     "public/js/routes/*.js",
+    "public/js/components/*.js",
     "public/js/services/*.js"], ['concatScripts']); // want to watch the files we will actually change, and then run X tasks. dont really need to concatScripts but it has the maping so that makes debugging easier so we will add as dependecie.
   // watch will continully listen after is is ran
 });

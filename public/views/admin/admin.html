@@ -4,10 +4,10 @@
 	<button ng-click="saveItems()">Update Items</button>
 	<hr>
 
-	
 	<section class="admin-card-wrapper">
 
-		<div class="slider-wraper" ng-repeat="item in items">
+
+		<div class="slider-wraper" ng-repeat="item in items" ng-class="{'showMenuActive': showMenu}">
 			<!-- Rows of cards inside wrapper -->
 			<div item-card 
 				item-data="item"
@@ -15,17 +15,15 @@
 				update-items="saveItems"> 
 			</div> 
 
-			<button>Show menu</button>
+	
+			
 			<!-- Side push menu -->
-			<aside class="admin-push-menu">
-				<ul>
-					<div>BackgroundPic</div>
-					<li class="admin-push-content"><input type="text" placeholder="title"></li>
-					<li class="admin-push-content"><input type="text" placeholder="description"></li>
-					<li class="admin-push-content"><input type="text" placeholder="price"></li>
-					<li class="admin-push-content"><input type="text" placeholder="placeholder"></li>
-					<li class="admin-push-content"><input type="text" placeholder="placeholder"></li>
-				</ul>
+			<aside class="admin-push-menu" ng-class="{'showMenu': showMenu }">
+
+				<div admin-side-menu
+					item-data="item"
+				></div>
+			
 			</aside>
 			
 		</div> 

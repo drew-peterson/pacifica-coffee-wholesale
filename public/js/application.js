@@ -116,19 +116,19 @@ angular.module('AdminCtrl',[])
 		restrict: 'A', 
 		replace: true, 
 		scope: {
-			'itemData': '=itemData',
-			'updateItems': '=updateItems',
-			'allItems': '=allItems' 
+			'itemData': '=',
 		},
 		controller: function($scope){
-			$scope.itemData; // all items
-			$scope.allItems; // not really needed
-			$scope.updateItems; // function to save items
 		},
 		templateUrl: "../../views/admin/adminCard.html"
 
 	}
 })
+
+
+
+
+
 angular.module('CoffeeCtrl', [])
 
 .controller('CoffeeCtrl', function($scope, itemsService){
@@ -285,4 +285,20 @@ angular.module('appRoutes', [])
 
 });
 
+angular.module('AdminCtrl')
+.directive('adminSideMenu', function(){
+	return {
+		replace: 'true',
+		restrict: 'AE',
+		scope: { 
+			itemData: '='	
+		},
+		templateUrl: "../../views/admin/adminSideMenu.js",
+		controller: function($scope){
+			$scope.showMenu;
+		},
+		link: function(scope, elem, attrs){},
+
+	} // end of return
+})
 //# sourceMappingURL=application.js.map
