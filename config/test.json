@@ -18,8 +18,9 @@
         "$$hashKey": "object:19"
     },
     {
-        "name": "Name",
-        "price": "Price",
-        "description": "description"
+        "name": "Moraga Mud",
+        "price": "20",
+        "description": "tastes like dirt",
+        "$$hashKey": "object:29"
     }
 ]
