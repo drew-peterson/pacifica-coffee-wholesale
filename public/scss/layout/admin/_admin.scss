@@ -1,37 +1,32 @@
 
-$slider-width: 400px;
+$slider-width: 320px;
 
 #admin {
 	.showMenu {
-		// right: -$slider-width;
-		// transform: translateX(0);
 		display: block;
-		background-color: red;
 	}
 
 	.showMenuActive { 
-		// left: -$slider-width;
-		background-color: blue;
 		transform: translateX(-$slider-width);
 	}
+
 }
 
 .admin-card-wrapper {
-	width: 100%;
-	transition: 0.5s all linear;
+	width: 100%; 
+	transition: 0.35s all linear; 
 } 
 
 .admin-push-menu { 
 	position: fixed; 
-	display: none;
-	z-index: 200;
+	background-color: $google-gray;
 	min-height: 600px;
-	width: $slider-width; 
-	background-color: yellow;
 	right: 0;
-	// right: -$slider-width; // hide off screen
-	transform: translateX($slider-width);
 	top: 0; 
-	transition: 0.5s all linear;
+	width: $slider-width; 
+	
+	display: none;
+	transform: translateX($slider-width);
+	transition: 0.35s all linear;
 }
 

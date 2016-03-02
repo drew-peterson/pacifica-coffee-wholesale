@@ -36,7 +36,8 @@ angular.module('AdminCtrl',[])
 		replace: true, 
 		scope: {
 			'itemData': '=',
-			'showMenu': '='
+			'showMenu': '=',
+			'saveItems': '='
 		},
 		controller: function($scope){
 		},
