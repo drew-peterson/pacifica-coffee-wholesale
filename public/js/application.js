@@ -87,8 +87,8 @@ angular.module('AdminCtrl',[])
 
 	// triggers for hidding and showing
 	$scope.triggers = {
-		showMenu: false, 
-		overlay: false
+		showAdd: false, 
+		showMenu: false
 	}
 
 	// get all items in json file
@@ -139,6 +139,15 @@ angular.module('AdminCtrl',[])
 			})
 		},
 		templateUrl: "../../views/admin/adminCard.html"
+	}
+})
+
+.directive('addItem', function(){
+	return {
+		restrict: 'AE',
+		replace: true,
+		scope: {triggers: '='},
+		templateUrl: '../../views/admin/addItem.html'
 	}
 })
 

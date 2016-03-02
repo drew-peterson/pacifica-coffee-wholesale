@@ -1,0 +1,24 @@
+<ul class="admin-side-menu">
+ 
+	<!-- close icon -->
+	<span class="close" ng-click="triggers.overlay = false; triggers.showMenu=false;"><i class="material-icons">close</i></span> 
+
+	<!-- background-image -->
+	<div class="background">background-pic</div>
+
+	<li class="admin-push-content">
+		<input type="text" ng-model="itemData.name">
+	</li>
+	<li class="admin-push-content">
+		<input type="text" ng-model="itemData.price">
+	</li>
+	<li class="admin-push-content">
+		<input type="text" ng-model="itemData.description">
+	</li>
+
+	<li class="admin-push-content">
+		<a href="#" 
+		ng-click="saveItems(); 
+		showMenu = !showMenu;">Save</a>
+	</li>
+</ul>

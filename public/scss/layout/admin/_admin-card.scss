@@ -7,7 +7,8 @@
 
 
 // side Options Menu
- .admin-push-menu {
+ .admin-push-menu,
+ .addItem {
  	z-index: 300; 
 	position: fixed; 
 	background-color: $google-gray;

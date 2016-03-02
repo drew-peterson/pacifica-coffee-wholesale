@@ -1,8 +1,9 @@
 <main id="admin">
-	<h2>Hello from Admin</h2>
-	<!-- update all items... -->
-	<button ng-click="saveItems()">Update Items</button>
-	<hr> 
+	
+	<div>
+		<h2>Admin</h2>
+		<button ng-click="triggers.showMenu = true; triggers.overlay =true">New Item</button>
+	</div>
 
 	<section class="admin-card-wrapper">
 	
@@ -13,7 +14,11 @@
 				item-data="item"
 				triggers="triggers"
 				save-items='saveItems'>
+			</div>
 
+			<!-- add New items -->
+			<div class="addItem" ng-class="{showMenu: triggers.showMenu}">
+				<div add-item triggers="triggers" ></div>
 			</div>
 
 
@@ -22,7 +27,7 @@
 	<!-- mask overlay -->
 	<div class="mask" 
 	ng-class="{'mask-overlay': triggers.overlay}" 
-	ng-click="triggers.overlay = false;"></div> 
+	ng-click="triggers.overlay = false; triggers.showMenu=false"></div> 
 
 </main>
 
