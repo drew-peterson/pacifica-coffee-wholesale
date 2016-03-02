@@ -160,7 +160,7 @@ angular.module('AdminCtrl',[])
 				description: 'description'
 			};
 
-			$scope.addItem = function(){
+			$scope.addItem = function(){	
 				$scope.allData.push($scope.newItem)
 				$scope.saveItems();
 			}
@@ -342,6 +342,17 @@ angular.module('AdminCtrl')
 		templateUrl: "../../views/admin/adminSideMenu.html", 
 		controller: function($scope){
 			var item = $scope.itemData;
+			$scope.changed;
+
+			//update Item =============================
+			$scope.updateItem = function(){	
+				if($scope.changed){
+					$scope.saveItems();
+				}
+			}
+
+
+			// Delete Item ============================
 			$scope.deleteItem = function(){
 				var id = $scope.allData.indexOf(item);
 				$scope.allData.splice(id, 1);

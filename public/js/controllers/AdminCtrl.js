@@ -79,7 +79,7 @@ angular.module('AdminCtrl',[])
 				description: 'description'
 			};
 
-			$scope.addItem = function(){
+			$scope.addItem = function(){	
 				$scope.allData.push($scope.newItem)
 				$scope.saveItems();
 			}

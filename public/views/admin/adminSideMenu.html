@@ -7,18 +7,18 @@
 	<div class="background">background-pic</div>
 
 	<li class="admin-push-content">
-		<input type="text" ng-model="itemData.name">
+		<input type="text" ng-model="itemData.name" ng-change="changed=true">
 	</li>
 	<li class="admin-push-content">
-		<input type="text" ng-model="itemData.price">
+		<input type="text" ng-model="itemData.price" ng-change="changed=true">
 	</li>
 	<li class="admin-push-content">
-		<input type="text" ng-model="itemData.description">
+		<input type="text" ng-model="itemData.description" ng-change="changed=true">
 	</li>
 
 	<li class="admin-push-content">
 		<a href="#" 
-		ng-click="saveItems();">Save</a>
+		ng-click="updateItem();">Save</a>
 	</li>
 	<li class="admin-push-content">
 		<a class="delete" href="#" 
