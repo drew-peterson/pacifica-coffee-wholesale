@@ -10,16 +10,14 @@
 	height: 45px;
 	display: flex;
 	align-items: center;
+	cursor: pointer;
 
-	&:hover {
-		background-color: $primary-color; 
-	}
 	// icon
 	.material-icons {
 		font-size: 45px;
 
 		&:hover {
-			color: $white;
+			color: $primary-color;
 		}
 	}
 }
@@ -46,6 +44,15 @@
 		width: 100%;
 		font-size: $med;
 		font-size: $gray;
+		border: 2px solid $google-gray;
+		transition: 0.35s all ease;
+		padding-left: $med;
+		color: $light-gray;
+	
+		&:focus {
+			border: 2px solid $light-gray; 
+			color: $black;
+		}
 	}
 }
 
