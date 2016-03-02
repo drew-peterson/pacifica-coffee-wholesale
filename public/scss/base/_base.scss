@@ -51,7 +51,8 @@ p  { line-height: 1.5;
 
 .mask-overlay { 
   position: fixed;
-  z-index: 250;
+  cursor: pointer;
+  z-index: 250; // side nav @ 300
   top: 0;
   left: 0;
   width: 100%;
