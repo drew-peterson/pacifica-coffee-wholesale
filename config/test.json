@@ -6,15 +6,15 @@
         "$$hashKey": "object:18"
     },
     {
+        "name": "black mountain cloud",
+        "price": "30",
+        "description": "fluffy",
+        "$$hashKey": "object:20"
+    },
+    {
         "name": "sumatra",
         "price": "20",
         "description": "from africa and tastes good",
         "$$hashKey": "object:19"
-    },
-    {
-        "name": "moraga mud",
-        "price": "20",
-        "description": "Looks like poo....",
-        "$$hashKey": "object:20"
     }
 ]

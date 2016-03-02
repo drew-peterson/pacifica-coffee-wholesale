@@ -6,17 +6,18 @@
 		<span>{{itemData.name}}</span>
 		<span>{{itemData.price | currency}}</span>
 		
-		<i class="material-icons"
+		<i class="material-icons" 
 			id="adminShowMenu" 
-			ng-click="triggers.overlay = true; 
-				triggers.showMenu = !triggers.showMenu;">
+			ng-click="triggers.overlay = true;">
 			settings
 		</i>	
 	</div>
 
 	<!-- Side push menu -->
 
-	<div class="admin-push-menu" ng-class="{'showMenu': triggers.showMenu }">
+	<!-- target that slides -->
+	<div class="admin-push-menu">
+
 		<div admin-side-menu
 			item-data="itemData",
 			save-items="saveItems"

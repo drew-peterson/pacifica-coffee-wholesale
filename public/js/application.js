@@ -87,7 +87,7 @@ angular.module('AdminCtrl',[])
 
 	// triggers for hidding and showing
 	$scope.triggers = {
-		showMenu: false,
+		showMenu: false, 
 		overlay: false
 	}
 
@@ -117,7 +117,7 @@ angular.module('AdminCtrl',[])
 
 })
 
-.directive('itemCard', function(){
+.directive('itemCard', function($animate){
 	return {
 		restrict: 'AE', 
 		replace: true, 
@@ -126,11 +126,19 @@ angular.module('AdminCtrl',[])
 			'triggers': '=', 
 			'saveItems': '=',
 		},
-		controller: function($scope){
-		},
-		link: function(scope, elem, attrs){},
-		templateUrl: "../../views/admin/adminCard.html"
+		controller: function($scope){},
+		link: function(scope, elem, attrs){
+			var openBtn = elem.find('#adminShowMenu');
+			var menu = elem.find('.admin-push-menu');
 
+			// open menu -- close menu is in adminsideMenu.js
+			openBtn.on('click', function(){
+				scope.$apply(function(){
+					$animate.addClass(menu, 'showMenu');
+				})
+			})
+		},
+		templateUrl: "../../views/admin/adminCard.html"
 	}
 })
 
@@ -295,23 +303,30 @@ angular.module('appRoutes', [])
 });
 
 angular.module('AdminCtrl')
-.directive('adminSideMenu', function(){
+.directive('adminSideMenu', function($animate){ 
 	return {
 		restrict: 'AE',
 		scope: { 
 			itemData: '=',
 			saveItems: '=',
-			triggers: '='
+			triggers: '=',
 		},
 		templateUrl: "../../views/admin/adminSideMenu.html", 
 		controller: function($scope){},
 		link: function(scope, elem, attrs){
 			var close = elem.find('.close');
-			var outerEl = $('#admin .admin-card-wrapper')
+			var menu = elem.parent();
+			var overlay = $('.mask');
 
-			close.on('click', function(){
-				outerEl.removeClass('showMenuActive');
-			})
+			// hide menu on close and overlay
+			close.on('click', function(){ hideMenu(); })
+			overlay.on('click', function(){ hideMenu() })
+
+			function hideMenu(){
+				scope.$apply(function(){
+					$animate.removeClass(menu, 'showMenu');
+				})
+			}
 		},
 
 	} // end of return
