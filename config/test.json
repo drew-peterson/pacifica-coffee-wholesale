@@ -16,5 +16,10 @@
         "price": "20",
         "description": "from africa and tastes good",
         "$$hashKey": "object:19"
+    },
+    {
+        "name": "Name",
+        "price": "Price",
+        "description": "description"
     }
 ]

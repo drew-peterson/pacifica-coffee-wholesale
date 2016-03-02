@@ -142,11 +142,28 @@ angular.module('AdminCtrl',[])
 	}
 })
 
+// add new item
 .directive('addItem', function(){
 	return {
 		restrict: 'AE',
 		replace: true,
-		scope: {triggers: '='},
+		scope: {
+			triggers: '=',
+			allData: '=',
+			saveItems:'='
+		},
+		controller: function($scope){
+			$scope.newItem = {
+				name: 'Name',
+				price: "Price",
+				description: 'description'
+			};
+
+			$scope.addItem = function(){
+				$scope.allData.push($scope.newItem)
+				$scope.saveItems();
+			}
+		},
 		templateUrl: '../../views/admin/addItem.html'
 	}
 })
