@@ -58,14 +58,30 @@
 
 // ====================================
 
-.admin-side-menu a {
+.admin-push-content a {
 	display: block;
 	text-align: center;
 	padding: 10px 15px;
 	width: 100%;
-	background-color: $accent-color;
+	background-color: lighten($accent-color, 5%);
 	color: $white;
+
+	&:hover {
+		background-color: $accent-color;
+	}
+
+	&.delete {
+		background-color: lighten(red, 20%);
+		cursor: pointer;
+
+		&:hover {
+			background-color: red;
+		}
+	}
 }
+
+
+
 
 
 
