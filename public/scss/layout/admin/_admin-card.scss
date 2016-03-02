@@ -1,13 +1,14 @@
  
 // #admin-card
-#admin-card {
+#admin-card { 
 }
 
 
 
 
 // side Options Menu
- .admin-push-menu { 
+ .admin-push-menu {
+ 	z-index: 300; 
 	position: fixed; 
 	background-color: $google-gray;
 	height: 100%;

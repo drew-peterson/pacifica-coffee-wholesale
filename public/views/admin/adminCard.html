@@ -2,25 +2,25 @@
 <section id="admin-card">
 
 	<!-- item rows -->
-	<div class="admin-item-wrap">
+	<div class="admin-item-wrap"> 
 		<span>{{itemData.name}}</span>
 		<span>{{itemData.price | currency}}</span>
 		
 		<i class="material-icons"
-		id="adminShowMenu" 
-		ng-click="showMenu = !showMenu">
+			id="adminShowMenu" 
+			ng-click="triggers.overlay = true; 
+				triggers.showMenu = !triggers.showMenu;">
 			settings
 		</i>	
-		
 	</div>
 
 	<!-- Side push menu -->
 
-	<div class="admin-push-menu" ng-class="{'showMenu': showMenu }">
+	<div class="admin-push-menu" ng-class="{'showMenu': triggers.showMenu }">
 		<div admin-side-menu
 			item-data="itemData",
 			save-items="saveItems"
-			show-menu="showMenu"
+			triggers="triggers"
 		></div>
 	
 	</div>

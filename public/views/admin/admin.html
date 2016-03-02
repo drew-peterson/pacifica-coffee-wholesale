@@ -2,7 +2,7 @@
 	<h2>Hello from Admin</h2>
 	<!-- update all items... -->
 	<button ng-click="saveItems()">Update Items</button>
-	<hr>
+	<hr> 
 
 	<section class="admin-card-wrapper">
 	
@@ -11,12 +11,21 @@
 			<div item-card
 				ng-repeat="item in items" 
 				item-data="item"
-				show-menu="showMenu"
+				triggers="triggers"
 				save-items='saveItems'>
 
-			</div> 
+			</div>
+
 
 	</section>
 
+	<!-- mask overlay -->
+	<div class="mask" 
+	ng-class="{'mask-overlay': triggers.overlay}" 
+	ng-click="triggers.overlay = false; 
+		triggers.showMenu = false;"></div> 
+
 </main>
+
+
 

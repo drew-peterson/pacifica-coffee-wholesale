@@ -5,7 +5,7 @@ angular.module('AdminCtrl')
 		scope: { 
 			itemData: '=',
 			saveItems: '=',
-			showMenu: '='	
+			triggers: '='
 		},
 		templateUrl: "../../views/admin/adminSideMenu.html", 
 		controller: function($scope){},

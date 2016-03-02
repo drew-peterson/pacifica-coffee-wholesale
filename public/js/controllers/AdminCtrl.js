@@ -3,7 +3,13 @@ angular.module('AdminCtrl',[])
 .controller('AdminCtrl', function(itemsService, $scope){ 
 	
 	$scope.items; // holds all the items...
-	$scope.showMenu = false;
+
+	// triggers for hidding and showing
+	$scope.triggers = {
+		showMenu: false,
+		overlay: false
+	}
+
 	// get all items in json file
 	var getItems = function(){ 
 		itemsService.get().success(function(data){
@@ -25,19 +31,19 @@ angular.module('AdminCtrl',[])
 		})
 		.error(function(data){
 			console.log(' post error');
-		})
+		}) 
 	}
 
 })
 
 .directive('itemCard', function(){
 	return {
-		restrict: 'A', 
+		restrict: 'AE', 
 		replace: true, 
 		scope: {
 			'itemData': '=',
-			'showMenu': '=',
-			'saveItems': '='
+			'triggers': '=', 
+			'saveItems': '=',
 		},
 		controller: function($scope){
 		},
