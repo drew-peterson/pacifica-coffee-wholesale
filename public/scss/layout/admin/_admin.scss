@@ -1,32 +1,16 @@
 
 $slider-width: 320px;
 
+
 #admin {
+	// show the side menu
 	.showMenu {
+		top: 0;
+		right: 0;
 		display: block;
 	}
-
-	.showMenuActive { 
-		transform: translateX(-$slider-width);
-	}
-
 }
 
-.admin-card-wrapper {
-	width: 100%; 
-	transition: 0.35s all linear; 
-} 
 
-.admin-push-menu { 
-	position: fixed; 
-	background-color: $google-gray;
-	min-height: 600px;
-	right: 0;
-	top: 0; 
-	width: $slider-width; 
-	
-	display: none;
-	transform: translateX($slider-width);
-	transition: 0.35s all linear;
-}
+
 

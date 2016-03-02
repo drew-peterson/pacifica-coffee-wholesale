@@ -1,24 +1,29 @@
 
 <section id="admin-card">
-	
-	<input type="text" ng-model="itemData.name">
-	<input type="text" ng-model="itemData.price">
-	<input type="text" ng-model="itemData.description">
 
-	<button id="adminShowMenu" ng-click="showMenu = !showMenu">Show menu</button>
-	<p>show menu: {{showMenu}}</p>
-
+	<!-- item rows -->
+	<div class="admin-item-wrap">
+		<span>{{itemData.name}}</span>
+		<span>{{itemData.price | currency}}</span>
+		
+		<i class="material-icons"
+		id="adminShowMenu" 
+		ng-click="showMenu = !showMenu">
+			settings
+		</i>	
+		
+	</div>
 
 	<!-- Side push menu -->
 
-	<aside class="admin-push-menu" ng-class="{'showMenu': showMenu }">
+	<div class="admin-push-menu" ng-class="{'showMenu': showMenu }">
 		<div admin-side-menu
 			item-data="itemData",
 			save-items="saveItems"
 			show-menu="showMenu"
 		></div>
 	
-	</aside>
+	</div>
 
 	
 </section>

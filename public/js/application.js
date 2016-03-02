@@ -122,15 +122,7 @@ angular.module('AdminCtrl',[])
 		},
 		controller: function($scope){
 		},
-		link: function(scope, elem, attrs){
-			var btn = elem.find('button');
-			var el = $('#admin .admin-card-wrapper') 
-
-			btn.on('click', function(){
-				el.toggleClass('showMenuActive');
-			})
-
-		},
+		link: function(scope, elem, attrs){},
 		templateUrl: "../../views/admin/adminCard.html"
 
 	}

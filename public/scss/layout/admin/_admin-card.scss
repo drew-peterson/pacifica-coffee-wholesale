@@ -1,1 +1,50 @@
  
+// #admin-card
+#admin-card {
+}
+
+
+
+
+// side Options Menu
+ .admin-push-menu { 
+	position: fixed; 
+	background-color: $google-gray;
+	height: 100%;
+	transition: 0.3s all ease;
+
+	// position off screen;
+	right: -$slider-width;
+	top: 0; 
+	width: $slider-width; 
+}
+
+#admin-card .admin-item-wrap {
+	height: 60px;
+	padding: 0 5%;
+	width: 90%;
+	margin: 0 auto;
+	margin-bottom: $med;
+	background-color: $google-gray;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;;
+
+	span {
+		@include debug;
+		line-height: 60px;
+		font-size: $mlg;
+		// height: 100%;
+	}
+	.material-icons {
+		font-size: $lg;
+		cursor: pointer;
+		color: gray;
+		transition: 0.5s all ease;
+
+		&:hover {
+			color: $black;
+			transform: rotate(180deg);
+		}
+	}
+}
