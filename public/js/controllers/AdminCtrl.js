@@ -44,6 +44,7 @@ angular.module('AdminCtrl',[])
 			'itemData': '=',
 			'triggers': '=', 
 			'saveItems': '=',
+			'allData': '='
 		},
 		controller: function($scope){},
 		link: function(scope, elem, attrs){
