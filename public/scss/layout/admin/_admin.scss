@@ -32,6 +32,27 @@ $slider-width: 320px;
 }
 
 // Layout ============================================
+.admin-card-wrapper {
+	@include tablet {
+		display: flex;
+		flex-wrap: wrap;
+		width: 90%;
+		margin: 0 auto;
+	}
+
+	#admin-card {
+		@include tablet {
+			width: 32%;
+			
+		&:nth-of-type(3n+2){
+			margin: 0 2%;
+		}
+		}
+	}
+}
+
+
+
 
 
 
