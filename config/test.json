@@ -4,146 +4,167 @@
         "price": "6",
         "description": "description here",
         "region": "Blends",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "$$hashKey": "object:36"
     },
     {
         "name": "French Roast",
         "price": "6",
         "description": "description here",
         "region": "Blends",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "$$hashKey": "object:37"
     },
     {
         "name": "Sicilian",
         "price": "6",
         "description": "description here",
         "region": "Blends",
-        "roast": "City Roast"
+        "roast": "City Roast",
+        "$$hashKey": "object:38"
     },
     {
         "name": "Black Rocks Mountain Clouds",
-        "price": "6",
+        "price": "7",
         "description": "description here",
         "region": "Blends",
-        "roast": "French Roast"
+        "roast": "French Roast",
+        "$$hashKey": "object:39"
     },
     {
         "name": "Espresso",
         "price": "6",
         "description": "description here",
         "region": "Blends",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "$$hashKey": "object:40"
     },
     {
         "name": "Labor of Love",
         "price": "6",
         "description": "description here",
         "region": "Blends",
-        "roast": "French"
+        "roast": "French",
+        "$$hashKey": "object:41"
     },
     {
         "name": "Sumatra",
         "price": "6",
         "description": "description here",
         "region": "Indonesia",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "$$hashKey": "object:42"
     },
     {
         "name": "Komodo",
         "price": "6",
         "description": "description here",
         "region": "Indonesia",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "$$hashKey": "object:43"
     },
     {
         "name": "Bali Blue Moon",
         "price": "6",
         "description": "description here",
         "region": "Indonesia",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "$$hashKey": "object:44"
     },
     {
         "name": "New Guinea",
         "price": "6",
         "description": "description here",
         "region": "Indonesia",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "$$hashKey": "object:45"
     },
     {
         "name": "Timor",
         "price": "6",
         "description": "description here",
         "region": "Indonesia",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "$$hashKey": "object:46"
     },
     {
         "name": "Bolivia",
         "price": "6",
         "description": "description here",
         "region": "Central/South America",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "$$hashKey": "object:47"
     },
-      {
+    {
         "name": "Guatemala",
         "price": "6",
         "description": "description here",
         "region": "Central/South America",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "$$hashKey": "object:48"
     },
-      {
+    {
         "name": "Colombia",
         "price": "6",
         "description": "description here",
         "region": "Central/South America",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "$$hashKey": "object:49"
     },
-      {
+    {
         "name": "Mexican",
         "price": "6",
         "description": "description here",
         "region": "Central/South America",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "$$hashKey": "object:50"
     },
-      {
+    {
         "name": "Costa Rica",
         "price": "6",
         "description": "description here",
         "region": "Central/South America",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "$$hashKey": "object:51"
     },
-      {
+    {
         "name": "Peru",
         "price": "6",
         "description": "description here",
         "region": "Central/South America",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "$$hashKey": "object:52"
     },
-      {
+    {
         "name": "Ethopia",
         "price": "6",
         "description": "description here",
         "region": "Africa",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "$$hashKey": "object:53"
     },
     {
         "name": "Uganda",
         "price": "6",
         "description": "description here",
         "region": "Africa",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "$$hashKey": "object:54"
     },
     {
         "name": "Tanzania",
         "price": "6",
         "description": "description here",
         "region": "Africa",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "$$hashKey": "object:55"
     },
     {
         "name": "Decaf Harmony",
         "price": "6",
         "description": "description here",
         "region": "Africa",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "$$hashKey": "object:56"
     }
 ]

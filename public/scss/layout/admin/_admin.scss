@@ -14,6 +14,26 @@ $slider-width: 320px;
 	div {
 		display: flex;
 		align-items: stretch;
+
+		input {
+			display: none;
+
+			@include tablet {
+				margin-right: $med;
+				width: 200px;
+				font-size: $med;
+				padding-left: 10px;
+				display: inline-block;
+				color: $light-gray;
+				border: none;
+				border-bottom: 1px solid $light-gray;
+
+				&:focus {
+					color: $black;
+					border-bottom: 1px solid $black;
+				}
+			}
+		}
 	}
 
 	button {
@@ -21,8 +41,8 @@ $slider-width: 320px;
 		background-color: $white;
 		padding: 0 $mlg;
 		cursor: pointer;
-		border: 1px solid $gray;
-		color: $gray;
+		border: 1px solid $light-gray;
+		color: $light-gray;
 
 		&:hover {
 			border: 1px solid $black;
