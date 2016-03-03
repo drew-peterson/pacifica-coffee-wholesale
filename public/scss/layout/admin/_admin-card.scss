@@ -74,6 +74,30 @@
 	}
 }
 
+#admin-card.ng-enter {
+	transition: 3s ease all;
+	opacity: 0;
+}
+#admin-card.ng-enter-stagger {
+	transition-delay: 0.1s;
+	transition-duration: 0s;
+}
+#admin-card.ng-enter-active {
+	opacity: 1;
+}
+
+#admin-card.ng-leave {
+	transition: 0.35s ease all;
+	opacity: 1;
+}
+// #admin-card.ng-leave-stagger {
+// 	transition-delay: 0.1s;
+// 	transition-duration: 0s;
+// }
+#admin-card.ng-leave-active {
+	opacity: 0;
+}
+
 // ===================================================
 
 
