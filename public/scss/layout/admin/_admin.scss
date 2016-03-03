@@ -1,6 +1,26 @@
 
 $slider-width: 320px;
 
+// admin card
+#admin .newItemBtn {
+	display: flex;
+	justify-content: space-between;
+	width: 90%;
+	margin: 0 auto;
+
+	button {
+		font-size: $med;
+		background-color: $white;
+		padding: 0 $med;
+
+		&:hover {
+			color: $primary-color;
+		}
+	}
+}
+
+
+
 // Animations for hiding and show menu
 #admin {
 	// show the side menu

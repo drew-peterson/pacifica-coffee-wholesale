@@ -1,9 +1,7 @@
  
 // #admin-card
-#admin-card { 
-}
 
-
+// new item button ============================
 
 
 // side Options Menu
@@ -23,7 +21,7 @@
 	width: $slider-width; 
 }
 
-#admin-card .admin-item-wrap {
+#admin-card .admin-item-wrap { 
 	height: 60px;
 	padding: 0 5%;
 	width: 90%;
@@ -35,14 +33,17 @@
 	justify-content: space-between;;
 
 	span {
-		@include debug;
 		line-height: 60px;
-		font-size: $mlg;
+		font-size: $med;
+
+		@include tablet {
+			font-size: $mlg;
+		}
 		// height: 100%;
 	}
 	.material-icons {
 		font-size: $lg;
-		cursor: pointer;
+		cursor: pointer; 
 		color: gray;
 		transition: 0.5s all ease;
 
