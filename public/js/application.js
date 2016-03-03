@@ -214,11 +214,8 @@ angular.module('HomeCtrl', [])
 			var video = document.getElementById('bgvid');
 			video.oncanplaythrough = function() {
 				console.log('video can play through')
- 				setTimeout(function(){
  					console.log('play video'); 
     				video.play(); 
- 					
- 				}, 2000);
 			};
 		},
 		templateUrl: "../../views/home/youtube.html" 
