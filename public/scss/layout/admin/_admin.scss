@@ -7,14 +7,21 @@ $slider-width: 320px;
 	justify-content: space-between;
 	width: 90%;
 	margin: 0 auto;
+	padding: $med 0;
 
 	button {
 		font-size: $med;
 		background-color: $white;
-		padding: 0 $med;
+		padding: 0 $mlg;
+		cursor: pointer;
+		border: 1px solid $gray;
+		color: $gray;
 
 		&:hover {
-			color: $primary-color;
+			border: 1px solid $black;
+			color: $black;
+
+
 		}
 	}
 }
