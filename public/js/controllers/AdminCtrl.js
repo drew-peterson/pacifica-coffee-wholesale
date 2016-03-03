@@ -76,7 +76,9 @@ angular.module('AdminCtrl',[])
 			$scope.newItem = {
 				name: 'Name',
 				price: "Price",
-				description: 'description'
+				description: 'description',
+				region: "region",
+				roast: "roast"
 			};
 
 			$scope.addItem = function(){	
