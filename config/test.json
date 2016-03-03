@@ -1,26 +1,149 @@
 [
     {
-        "name": "French Press",
-        "price": "30",
-        "description": "Tastes Like your in Paris",
-        "$$hashKey": "object:18"
+        "name": "River Mud",
+        "price": "6",
+        "description": "description here",
+        "region": "Blends",
+        "roast": "Full City Roast"
     },
     {
-        "name": "black mountain cloud",
-        "price": "20",
-        "description": "fluffy",
-        "$$hashKey": "object:20"
+        "name": "French Roast",
+        "price": "6",
+        "description": "description here",
+        "region": "Blends",
+        "roast": "Full City Roast"
     },
     {
-        "name": "sumatra",
-        "price": "20",
-        "description": "from africa and tastes good",
-        "$$hashKey": "object:19"
+        "name": "Sicilian",
+        "price": "6",
+        "description": "description here",
+        "region": "Blends",
+        "roast": "City Roast"
     },
     {
-        "name": "Moraga Mud",
-        "price": "20",
-        "description": "tastes like dirt",
-        "$$hashKey": "object:29"
+        "name": "Black Rocks Mountain Clouds",
+        "price": "6",
+        "description": "description here",
+        "region": "Blends",
+        "roast": "French Roast"
+    },
+    {
+        "name": "Espresso",
+        "price": "6",
+        "description": "description here",
+        "region": "Blends",
+        "roast": "Full City Roast"
+    },
+    {
+        "name": "Labor of Love",
+        "price": "6",
+        "description": "description here",
+        "region": "Blends",
+        "roast": "French"
+    },
+    {
+        "name": "Sumatra",
+        "price": "6",
+        "description": "description here",
+        "region": "Indonesia",
+        "roast": "Full City Roast"
+    },
+    {
+        "name": "Komodo",
+        "price": "6",
+        "description": "description here",
+        "region": "Indonesia",
+        "roast": "Full City Roast"
+    },
+    {
+        "name": "Bali Blue Moon",
+        "price": "6",
+        "description": "description here",
+        "region": "Indonesia",
+        "roast": "Full City Roast"
+    },
+    {
+        "name": "New Guinea",
+        "price": "6",
+        "description": "description here",
+        "region": "Indonesia",
+        "roast": "Full City Roast"
+    },
+    {
+        "name": "Timor",
+        "price": "6",
+        "description": "description here",
+        "region": "Indonesia",
+        "roast": "Full City Roast"
+    },
+    {
+        "name": "Bolivia",
+        "price": "6",
+        "description": "description here",
+        "region": "Central/South America",
+        "roast": "Full City Roast"
+    },
+      {
+        "name": "Guatemala",
+        "price": "6",
+        "description": "description here",
+        "region": "Central/South America",
+        "roast": "Full City Roast"
+    },
+      {
+        "name": "Colombia",
+        "price": "6",
+        "description": "description here",
+        "region": "Central/South America",
+        "roast": "Full City Roast"
+    },
+      {
+        "name": "Mexican",
+        "price": "6",
+        "description": "description here",
+        "region": "Central/South America",
+        "roast": "Full City Roast"
+    },
+      {
+        "name": "Costa Rica",
+        "price": "6",
+        "description": "description here",
+        "region": "Central/South America",
+        "roast": "Full City Roast"
+    },
+      {
+        "name": "Peru",
+        "price": "6",
+        "description": "description here",
+        "region": "Central/South America",
+        "roast": "Full City Roast"
+    },
+      {
+        "name": "Ethopia",
+        "price": "6",
+        "description": "description here",
+        "region": "Africa",
+        "roast": "Full City Roast"
+    },
+    {
+        "name": "Uganda",
+        "price": "6",
+        "description": "description here",
+        "region": "Africa",
+        "roast": "Full City Roast"
+    },
+    {
+        "name": "Tanzania",
+        "price": "6",
+        "description": "description here",
+        "region": "Africa",
+        "roast": "Full City Roast"
+    },
+    {
+        "name": "Decaf Harmony",
+        "price": "6",
+        "description": "description here",
+        "region": "Africa",
+        "roast": "Full City Roast"
     }
 ]

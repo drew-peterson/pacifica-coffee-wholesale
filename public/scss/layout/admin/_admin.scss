@@ -1,13 +1,20 @@
 
 $slider-width: 320px;
 
-// admin card
+// Add Item Button ==================================
+
 #admin .newItemBtn {
 	display: flex;
 	justify-content: space-between;
+	align-items: stretch;
 	width: 90%;
 	margin: 0 auto;
 	padding: $med 0;
+
+	div {
+		display: flex;
+		align-items: stretch;
+	}
 
 	button {
 		font-size: $med;
@@ -20,11 +27,13 @@ $slider-width: 320px;
 		&:hover {
 			border: 1px solid $black;
 			color: $black;
-
-
 		}
 	}
 }
+
+// Layout ============================================
+
+
 
 
 

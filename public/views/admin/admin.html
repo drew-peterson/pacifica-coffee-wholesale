@@ -2,7 +2,11 @@
 	
 	<div class="newItemBtn">
 		<h2>Admin</h2>
-		<button ng-click="triggers.showMenu = true; triggers.overlay =true">Add Item</button>
+
+		<div>
+			<input type="text" placeholder="Seach" ng-model="search"></input>
+			<button ng-click="triggers.showMenu = true; triggers.overlay =true">Add Item</button>
+		</div>
 	</div>
 
 	<section class="admin-card-wrapper">
@@ -10,7 +14,7 @@
 		<!-- <div class="slider-wraper" > -->
 			<!-- Rows of cards inside wrapper -->
 			<div item-card
-				ng-repeat="item in items" 
+				ng-repeat="item in items | filter:search" 
 				item-data="item"
 				triggers="triggers"
 				save-items='saveItems'

@@ -1,8 +1,17 @@
+// roasts:
+// full-city-roast: french, sicillian, sumatra, bali, river mud.
+//city: roast
+
+//price 6-8/per pound
+
+
 [
 	{
 		"name": "French Roast",
 		"price": "12",
-		"description": "tastes good"
+		"description": "tastes good",
+		"region": "",
+		"roast": "City Roast"
 	},
 	{
 		"name": "Ethopia",

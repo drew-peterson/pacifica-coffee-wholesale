@@ -1,10 +1,6 @@
  
-// #admin-card
+// Side Menu =====================================
 
-// new item button ============================
-
-
-// side Options Menu
  .admin-push-menu,
  .addItem {
  	z-index: 300; 
@@ -21,6 +17,12 @@
 	width: $slider-width; 
 }
 
+// ===================================================
+
+
+
+// Admin Card Inner ===================================
+
 #admin-card .admin-item-wrap { 
 	height: 60px;
 	padding: 0 5%;
@@ -32,9 +34,18 @@
 	align-items: center;
 	justify-content: space-between;;
 
+	// data wrapper
+	.content {
+		display: flex;
+		justify-content: space-between;
+		width: 70%;
+	}
+
+	// data
 	span {
 		line-height: 60px;
 		font-size: $med;
+		text-overflow: ellipsis;
 
 		@include tablet {
 			font-size: $mlg;
@@ -53,3 +64,11 @@
 		}
 	}
 }
+
+// ===================================================
+
+
+
+
+
+
