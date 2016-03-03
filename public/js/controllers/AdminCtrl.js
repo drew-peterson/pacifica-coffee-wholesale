@@ -21,7 +21,8 @@ angular.module('AdminCtrl',[])
 		})
 	}();
 
-	// write to json file
+	// write to json file ======================
+
 	$scope.saveItems = function(){ 
 		itemsService.post($scope.items).success(function(response){
 			console.log('Post success');
@@ -33,7 +34,6 @@ angular.module('AdminCtrl',[])
 			console.log(' post error');
 		}) 
 	}
-
 })
 
 .directive('itemCard', function($animate){

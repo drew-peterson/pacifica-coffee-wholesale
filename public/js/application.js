@@ -102,7 +102,8 @@ angular.module('AdminCtrl',[])
 		})
 	}();
 
-	// write to json file
+	// write to json file ======================
+
 	$scope.saveItems = function(){ 
 		itemsService.post($scope.items).success(function(response){
 			console.log('Post success');
@@ -114,7 +115,6 @@ angular.module('AdminCtrl',[])
 			console.log(' post error');
 		}) 
 	}
-
 })
 
 .directive('itemCard', function($animate){
@@ -201,18 +201,7 @@ angular.module('CoffeeCtrl', [])
 })
 angular.module('HomeCtrl', []) 
 
-.controller('HomeCtrl', function($scope){ 
-
-// dynamic ui-sref ================= 
-
-// doesnt work...
-$scope.gotoState = function(url){
-	console.log('goto State: ' + url)
-	$state.go(url); 
-}
-
-
-})
+.controller('HomeCtrl', function($scope){}) // end of controller
 
 .directive('videoHero', function(){ 
 	return {
@@ -220,8 +209,13 @@ $scope.gotoState = function(url){
 		replace: true,
 		scope: {},
 		link: function(scope, elem, attr){ 
-			// var editor = elem.find('#idHere')
-			// editor.bind('keyup keydown, function({}))
+
+			// play video when it buffers
+			var video = document.getElementById('bgvid');
+			video.oncanplaythrough = function() {
+				console.log('video playing');
+    			video.play();
+			};
 		},
 		templateUrl: "../../views/home/youtube.html" 
 	}
