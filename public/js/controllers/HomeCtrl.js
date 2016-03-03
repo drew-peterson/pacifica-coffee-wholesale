@@ -12,11 +12,12 @@ angular.module('HomeCtrl', [])
 			// play video when it buffers
 			var video = document.getElementById('bgvid');
 			video.oncanplaythrough = function() {
+				console.log('video can play through')
  				setTimeout(function(){
  					console.log('play video'); 
-    				video.play();
+    				video.play(); 
  					
- 				}, 3000);
+ 				}, 2000);
 			};
 		},
 		templateUrl: "../../views/home/youtube.html" 
