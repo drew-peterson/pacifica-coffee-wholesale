@@ -15,7 +15,7 @@ $slider-width: 320px;
 		display: flex;
 		align-items: stretch;
 
-		input {
+		input { 
 			display: none;
 
 			@include tablet {

@@ -1,6 +1,6 @@
 <main id="admin">
 	
-	<div class="newItemBtn">
+	<div class="newItemBtn"> 
 		<h2>Admin</h2>
 
 		<div>
@@ -14,7 +14,7 @@
 		<!-- <div class="slider-wraper" > -->
 			<!-- Rows of cards inside wrapper -->
 			<div item-card
-				ng-repeat="item in items | filter:search" 
+				ng-repeat="item in items | filter:search | orderBy:'name'" 
 				item-data="item"
 				triggers="triggers"
 				save-items='saveItems'
