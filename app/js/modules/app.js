@@ -18,6 +18,12 @@ angular.module('pacificaApp',
     },
     post: function(data){  
       return $http.post('api/coffees', data);
+    },
+    put: function(data, id){
+      return $http.put('api/coffees/' + id, data);
+    },
+    delete: function(data, id){  
+      return $http.delete('api/coffees/' + id, data);
     }
   }
 })

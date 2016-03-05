@@ -11,7 +11,7 @@ angular.module('AdminCtrl',[])
 	}
 
 	// GET ===========================================
-
+  
 	var getItems = function(){ 
 		itemsService.get().success(function(data){
 			console.log("get success");

@@ -31,21 +31,21 @@ module.exports = function(app){
     }, function(err,coffees){
       if(err){
         res.status(500).json({message: err.message});
-      }else {
+      }else { 
         res.json({coffees: coffees, message: "Coffee Added"});
       };
     });
   });
 
 // PUT =========================================================
-app.put('/api/coffees', function(req, res){
-    var id = req.body.id;
+app.put('/api/coffees/:id', function(req, res){
+    var id = req.params.id; 
     var coffee = req.body;
 
-    if(coffee && cofee._id !== id){
+    if(coffee && coffee.id !== id){
       res.status(500).json({err: "id does not match"})
     }
-    Coffee.findByAndUpdate(id,coffee, {new: true}, function(err,coffees){
+    Coffee.findByIdAndUpdate(id,coffee, {new: true}, function(err,coffees){
       if(err){
         res.status(500).json({message: err.message});
       }else {
@@ -54,8 +54,18 @@ app.put('/api/coffees', function(req, res){
     });
   });
 
-
 // DELETE =========================================================
+app.delete('/api/coffees/:id', function(req, res){
+    var id = req.params.id; 
+
+    Coffee.findByIdAndRemove(id, function(err,coffees){
+      if(err){
+        res.status(500).json({message: err.message});
+      }else {
+        res.json({message: "Coffee deleted"});
+      };
+    });
+  });
 
 // TEST =========================================================
   

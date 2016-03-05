@@ -1,32 +1,39 @@
 angular.module('AdminCtrl')
-.directive('adminSideMenu', function($animate){ 
+.directive('adminSideMenu', function($animate, itemsService){ 
 	return {
 		restrict: 'AE', 
 		scope: { 
-			itemData: '=',
+			itemData: '=', 
 			saveItems: '=',
 			triggers: '=',
 			allData: '=' 
-		},
+		}, 
 		templateUrl: "../../views/admin/adminSideMenu.html", 
 		controller: function($scope){
-			var item = $scope.itemData;
+			var item = JSON.stringify($scope.itemData);
+			var itemId = $scope.itemData._id;
 			$scope.changed;
 
 			//update Item =============================
 			$scope.updateItem = function(){	
 				if($scope.changed){
-					$scope.saveItems(item); // send to post
+					itemsService.post(item, itemId).success(function(response){
+						$scope.allData.push(response.coffees)
+					}).error(function(response){
+						console.log('update fail');
+					})
 				}
 			}
-
 
 			// Delete Item ============================
 			$scope.deleteItem = function(){
 				var id = $scope.allData.indexOf(item);
 				$scope.allData.splice(id, 1);
-				// save
-				$scope.saveItems();  
+				itemsService.delete(item, itemId).success(function(response){
+					console.log('delete successful')
+				}).error(function(response){
+					console.log('delete fail')
+				})
 			}
 		},
 		link: function(scope, elem, attrs){
