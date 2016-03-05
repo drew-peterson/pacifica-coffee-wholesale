@@ -14,7 +14,7 @@ angular.module('pacificaApp',
 .service('itemsService', function($http){
   return {
     get: function(){
-      return $http.get('api/items'); 
+      return $http.get('/api/coffees'); 
     },
     post: function(data){ 
       return $http.post('api/items' , JSON.stringify(data));

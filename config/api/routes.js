@@ -23,7 +23,7 @@ module.exports = function(app){
   });
 // TEST =========================================================
 
-app.get('/api/coffee', function(req, res){
+app.get('/api/coffees', function(req, res){
   Coffee.find({}, function(err,coffees){
     if(err){
       res.status(500).json({message: err.message});

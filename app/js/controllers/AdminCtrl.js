@@ -10,11 +10,12 @@ angular.module('AdminCtrl',[])
 		showMenu: false
 	}
 
-	// get all items in json file
+	// GET ===========================================
+
 	var getItems = function(){ 
 		itemsService.get().success(function(data){
 			console.log("get success");
-			$scope.items = data; 
+			$scope.items = data.coffees; 
 		})
 		.error(function(data){
 			console.log(' get error');  
