@@ -19,11 +19,11 @@ app.use(compression()); //gzip compression
 app.use(express.static(__dirname + '/public')); // add /dist/ for production
 
 // routes ==================================================
-require('./app/routes')(app); // configure our routes
+// require('./app/routes')(app); // configure our routes
 
 app.listen(port);
 console.log("drew -- listening on node server port 3000");
 
 // expose app
-exports = module.exports = app;
+module.exports = app;
 

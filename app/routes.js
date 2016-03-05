@@ -1,8 +1,9 @@
 'use strict';
 
 var fs = require('fs');
+var express = require('express');
+var app = express();
 
-module.exports = function(app){
 
   app.get('/api/items', function(req, res){
   	res.sendFile('test.json', {root: 'config'}) 
@@ -23,4 +24,5 @@ module.exports = function(app){
     // 'dist/public' -- for productions
   });
 
-}
+
+module.exports = app;
