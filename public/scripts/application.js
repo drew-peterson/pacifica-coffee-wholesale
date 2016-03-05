@@ -109,7 +109,7 @@ angular.module('AdminCtrl',[])
 		
 		var newItem = JSON.stringify(newItem);
 		itemsService.post(newItem).success(function(response){ 
-			$scope.items.unshift(response.coffees);
+			$scope.items.push(response.coffees); // add to bottom of list;
 		})
 		.error(function(data){
 			console.log(' post error');
@@ -351,7 +351,7 @@ angular.module('AdminCtrl')
 			//update Item =============================
 			$scope.updateItem = function(){	
 				if($scope.changed){
-					$scope.saveItems();
+					$scope.saveItems(item); // send to post
 				}
 			}
 

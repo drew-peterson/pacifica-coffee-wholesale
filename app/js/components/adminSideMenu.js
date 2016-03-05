@@ -16,7 +16,7 @@ angular.module('AdminCtrl')
 			//update Item =============================
 			$scope.updateItem = function(){	
 				if($scope.changed){
-					$scope.saveItems();
+					$scope.saveItems(item); // send to post
 				}
 			}
 

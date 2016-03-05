@@ -19,27 +19,9 @@ module.exports = function(app){
     })
   })
 
-// Post =========================================================
-  app.post('/api/items', function(req,res){ 
-    var data = req.body;                                             
-    fs.writeFile('config/test.json', JSON.stringify(data, null, 4), function(err){
-      if (err){
-        console.error(err); 
-      }
-      res.json(data);
-    })
-  });
-
-// PUT ===========================================================
-
-
-
-// DELETE =========================================================
-
-// TEST =========================================================
-  app.post('/api/coffees', function(req, res){
+// POST  =========================================================
+ app.post('/api/coffees', function(req, res){
     var coffee = req.body;
-    console.log("post: " + coffee)
     Coffee.create({
       name: coffee.name,
       price: coffee.price,
@@ -51,9 +33,32 @@ module.exports = function(app){
         res.status(500).json({message: err.message});
       }else {
         res.json({coffees: coffees, message: "Coffee Added"});
-      }
-    })
-  })
+      };
+    });
+  });
+
+// PUT =========================================================
+app.put('/api/coffees', function(req, res){
+    var id = req.body.id;
+    var coffee = req.body;
+
+    if(coffee && cofee._id !== id){
+      res.status(500).json({err: "id does not match"})
+    }
+    Coffee.findByAndUpdate(id,coffee, {new: true}, function(err,coffees){
+      if(err){
+        res.status(500).json({message: err.message});
+      }else {
+        res.json({coffees: coffees, message: "Coffee updated"});
+      };
+    });
+  });
+
+
+// DELETE =========================================================
+
+// TEST =========================================================
+  
 
 
 
