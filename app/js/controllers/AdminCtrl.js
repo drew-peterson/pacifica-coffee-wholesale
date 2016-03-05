@@ -10,7 +10,7 @@ angular.module('AdminCtrl',[])
 		showMenu: false
 	}
 
-	// GET ===========================================
+	// GET ALL ITEMS ===========================================
   
 	var getItems = function(){ 
 		itemsService.get().success(function(data){

@@ -42,14 +42,14 @@ app.put('/api/coffees/:id', function(req, res){
     var id = req.params.id; 
     var coffee = req.body;
 
-    if(coffee && coffee.id !== id){
+    if(coffee && coffee._id !== id){ 
       res.status(500).json({err: "id does not match"})
     }
-    Coffee.findByIdAndUpdate(id,coffee, {new: true}, function(err,coffees){
+    Coffee.findByIdAndUpdate(id, coffee, {new: true}, function(err,coffee){
       if(err){
         res.status(500).json({message: err.message});
       }else {
-        res.json({coffees: coffees, message: "Coffee updated"});
+        res.json({coffee: coffee, message: "Coffee updated"});
       };
     });
   });

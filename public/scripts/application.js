@@ -97,7 +97,7 @@ angular.module('AdminCtrl',[])
 		showMenu: false
 	}
 
-	// GET ===========================================
+	// GET ALL ITEMS ===========================================
   
 	var getItems = function(){ 
 		itemsService.get().success(function(data){
@@ -345,15 +345,16 @@ angular.module('AdminCtrl')
 		}, 
 		templateUrl: "../../views/admin/adminSideMenu.html", 
 		controller: function($scope){
-			var item = JSON.stringify($scope.itemData);
-			var itemId = $scope.itemData._id;
+			// var item = JSON.stringify($scope.itemData);
+			var item = $scope.itemData;
+			var itemId = $scope.itemData._id; 
 			$scope.changed;
 
 			//update Item =============================
 			$scope.updateItem = function(){	
-				if($scope.changed){
+				if($scope.changed){ 
 					itemsService.put(item, itemId).success(function(response){
-						$scope.allData.unshift(response.coffees)
+						// scope has already need changed to reflect new item
 					}).error(function(response){
 						console.log('update fail');
 					});
