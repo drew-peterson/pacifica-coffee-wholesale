@@ -16,8 +16,8 @@ angular.module('pacificaApp',
     get: function(){
       return $http.get('/api/coffees'); 
     },
-    post: function(data){ 
-      return $http.post('api/items' , JSON.stringify(data));
+    post: function(data){  
+      return $http.post('api/coffees', data);
     }
   }
 })
@@ -46,7 +46,7 @@ angular.module('pacificaApp',
 
 
         // scroll event
-        $document.bind('scroll', function(){
+        $document.bind('scroll', function(){ 
           var barPos = $($document).scrollTop(); // scrollbar pos
           var position = elPos - barPos; // elment pos from bottom of window
           
@@ -96,7 +96,7 @@ angular.module('AdminCtrl',[])
 	var getItems = function(){ 
 		itemsService.get().success(function(data){
 			console.log("get success");
-			$scope.items = data.coffees; 
+			$scope.items = data.coffees;  
 		})
 		.error(function(data){
 			console.log(' get error');  
@@ -105,12 +105,11 @@ angular.module('AdminCtrl',[])
 
 	// write to json file ======================
 
-	$scope.saveItems = function(){ 
-		itemsService.post($scope.items).success(function(response){
-			console.log('Post success');
-			console.log(response); 
-
-			$scope.items = response;
+	$scope.saveItems = function(newItem){
+		
+		var newItem = JSON.stringify(newItem);
+		itemsService.post(newItem).success(function(response){ 
+			$scope.items.unshift(response.coffees);
 		})
 		.error(function(data){
 			console.log(' post error');
@@ -164,8 +163,7 @@ angular.module('AdminCtrl',[])
 			};
 
 			$scope.addItem = function(){	
-				$scope.allData.push($scope.newItem)
-				$scope.saveItems();
+				$scope.saveItems($scope.newItem);
 			}
 		},
 		templateUrl: '../../views/admin/addItem.html'

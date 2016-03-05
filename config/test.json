@@ -1,0 +1,279 @@
+[
+    {
+        "_id": "56da4f0d7c1720cf4d463612",
+        "name": "River Mud",
+        "price": 6,
+        "description": "description here",
+        "region": "Blends",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:36"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d463614",
+        "name": "Sicilian",
+        "price": 6,
+        "description": "description here",
+        "region": "Blends",
+        "roast": "City Roast",
+        "__v": 0,
+        "$$hashKey": "object:37"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d463613",
+        "name": "French Roast",
+        "price": 6,
+        "description": "description here",
+        "region": "Blends",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:38"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d463615",
+        "name": "Black Rocks Mountain Clouds",
+        "price": 6,
+        "description": "description here",
+        "region": "Blends",
+        "roast": "French Roast",
+        "__v": 0,
+        "$$hashKey": "object:39"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d463616",
+        "name": "Espresso",
+        "price": 6,
+        "description": "description here",
+        "region": "Blends",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:40"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d463617",
+        "name": "Labor of Love",
+        "price": 6,
+        "description": "description here",
+        "region": "Blends",
+        "roast": "French",
+        "__v": 0,
+        "$$hashKey": "object:41"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d463618",
+        "name": "Sumatra",
+        "price": 6,
+        "description": "description here",
+        "region": "Indonesia",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:42"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d463619",
+        "name": "Komodo",
+        "price": 6,
+        "description": "description here",
+        "region": "Indonesia",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:43"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d46361a",
+        "name": "Bali Blue Moon",
+        "price": 6,
+        "description": "description here",
+        "region": "Indonesia",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:44"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d46361b",
+        "name": "New Guinea",
+        "price": 6,
+        "description": "description here",
+        "region": "Indonesia",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:45"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d46361c",
+        "name": "Timor",
+        "price": 6,
+        "description": "description here",
+        "region": "Indonesia",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:46"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d46361d",
+        "name": "Bolivia",
+        "price": 6,
+        "description": "description here",
+        "region": "Central/South America",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:47"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d46361e",
+        "name": "Guatemala",
+        "price": 6,
+        "description": "description here",
+        "region": "Central/South America",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:48"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d46361f",
+        "name": "Colombia",
+        "price": 6,
+        "description": "description here",
+        "region": "Central/South America",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:49"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d463620",
+        "name": "Mexican",
+        "price": 6,
+        "description": "description here",
+        "region": "Central/South America",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:50"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d463621",
+        "name": "Costa Rica",
+        "price": 6,
+        "description": "description here",
+        "region": "Central/South America",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:51"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d463622",
+        "name": "Peru",
+        "price": 6,
+        "description": "description here",
+        "region": "Central/South America",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:52"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d463623",
+        "name": "Ethopia",
+        "price": 6,
+        "description": "description here",
+        "region": "Africa",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:53"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d463624",
+        "name": "Uganda",
+        "price": 6,
+        "description": "description here",
+        "region": "Africa",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:54"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d463625",
+        "name": "Tanzania",
+        "price": 6,
+        "description": "description here",
+        "region": "Africa",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:55"
+    },
+    {
+        "_id": "56da4f0d7c1720cf4d463626",
+        "name": "Decaf Harmony",
+        "price": 6,
+        "description": "description here",
+        "region": "Africa",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:56"
+    },
+    {
+        "_id": "56da7232dd3981345456f206",
+        "__v": 0,
+        "$$hashKey": "object:57"
+    },
+    {
+        "_id": "56da726cf86a0f4b54bfb31d",
+        "__v": 0,
+        "$$hashKey": "object:58"
+    },
+    {
+        "_id": "56da728bdd28715954b190de",
+        "__v": 0,
+        "$$hashKey": "object:59"
+    },
+    {
+        "_id": "56da73995890dda954d85585",
+        "__v": 0,
+        "$$hashKey": "object:60"
+    },
+    {
+        "_id": "56da7411e242eed2546ee093",
+        "name": "test",
+        "price": 2,
+        "description": "test",
+        "region": "test",
+        "roast": "test",
+        "__v": 0,
+        "$$hashKey": "object:61"
+    },
+    {
+        "_id": "56da7429e242eed2546ee094",
+        "name": "test",
+        "price": 2,
+        "description": "test",
+        "region": "test",
+        "roast": "test",
+        "__v": 0,
+        "$$hashKey": "object:62"
+    },
+    {
+        "_id": "56da744daa6760e054a30ee1",
+        "name": "Drew Peterson",
+        "price": 6,
+        "description": "description here",
+        "region": "Blends",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:63"
+    },
+    {
+        "_id": "56da757d4a3a303855a34dea",
+        "name": "Drew Peterson",
+        "price": 6,
+        "description": "description here",
+        "region": "Blends",
+        "roast": "Full City Roast",
+        "__v": 0,
+        "$$hashKey": "object:64"
+    },
+    {
+        "name": "test",
+        "price": "test",
+        "description": "test",
+        "region": "3",
+        "roast": "roast34"
+    }
+]
