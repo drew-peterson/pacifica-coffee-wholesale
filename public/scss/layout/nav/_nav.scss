@@ -20,13 +20,16 @@
 		display: flex;
 		align-items: center;
 		text-align: center;
-		border-right: 1px solid $divider-color;
 		color: $black;
 	}
 }
 
+#nav .nav-open {
+	border-right: 1px solid $divider-color;
+}
+
 #nav .title {
-	width: 100%;
+	border: none;  
 	a {
 		display: block;
 		line-height: 60px;
@@ -51,7 +54,7 @@
 #nav .admin {
 	padding: 0 3%;
 	margin-left: auto;
-	border-right: none !important;
+	border-left: 1px solid $divider-color;
 	
 	a { color: $black;}
 	&:hover {
