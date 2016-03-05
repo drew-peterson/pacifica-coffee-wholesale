@@ -14,12 +14,12 @@ app.use(require('prerender-node').set('prerenderToken', 'EDCiXmecUrcmqYK7hZ5M'))
 var port = process.env.PORT || 3000; 
 
 // MongoDB ===============================
-require('./database.js');
-require('./mock/seed.js');
+require('./config/database.js');
+require('./config/mock/seed.js');
 // =======================================
 
 app.use('/', express.static('public')); // add /dist/ for production
-require('./api/routes')(app); // configure our routes
+require('./config/api/routes')(app); // configure our routes
 
 app.listen(port, function(){
 	console.log("drew -- listening on node server port 3000");

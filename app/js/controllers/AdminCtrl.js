@@ -1,6 +1,6 @@
 angular.module('AdminCtrl',[])
 
-.controller('AdminCtrl', function(itemsService, $scope){ 
+.controller('AdminCtrl', function(itemsService, $scope){  
 	
 	$scope.items; // holds all the items...
 
