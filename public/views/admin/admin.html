@@ -13,8 +13,9 @@
 	
 		<!-- <div class="slider-wraper" > -->
 			<!-- Rows of cards inside wrapper -->
+			<!-- addtion order | orderBy:'name' -->
 			<div item-card
-				ng-repeat="item in items | filter:search | orderBy:'name'" 
+				ng-repeat="item in items | filter:search" 
 				item-data="item"
 				triggers="triggers"
 				save-items='saveItems'

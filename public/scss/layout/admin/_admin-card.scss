@@ -17,28 +17,6 @@
 	width: $slider-width; 
 }
 
-// ===================================================
-// ADD and REMOVE TRANSITION;
-#admin .admin-card-wrapper {
-	transition: 0.5s all ease;
-}
-
-#admin-card.ng-enter {
-	transform: translateX(-100%);
-	transition: 0.5s all ease;
-}
-#admin-card.ng-enter-active {
-	transform: translateX(0);
-}
-#admin-card.ng-leave {
-	transform: translateX(0);
-	transition: 0.5s all ease;
-}
-#admin-card.ng-leave-active {
-	transform: translateX(100%);
-}
-
-
 // Admin Card Inner ===================================
 
 #admin-card .admin-item-wrap { 
@@ -92,30 +70,44 @@
 		}
 	}
 }
-
-#admin-card.ng-enter {
-	transition: 3s ease all;
-	opacity: 0;
+// ===================================================
+// ADD and REMOVE TRANSITION;
+#admin .admin-card-wrapper {
+	transition: 2s all ease;
 }
-#admin-card.ng-enter-stagger {
-	transition-delay: 0.1s;
-	transition-duration: 0s;
+// enter
+#admin-card.ng-enter {
+	transform: translateX(-100%);
+	transition: 1s all ease;
+	@include tablet {
+		transform: translateX(0);
+		opacity: 0;
+	}
 }
 #admin-card.ng-enter-active {
-	opacity: 1;
+	transform: translateX(0);
+	@include tablet {
+		opacity: 1;
+	}
+}
+// leave
+#admin-card.ng-leave {
+	transform: translateX(0);
+	transition: 1s all ease;
+	@include tablet {
+		opacity: 1;
+	}
+}
+#admin-card.ng-leave-active {
+	transform: translateX(100%);
+	@include tablet {
+		transform: translateX(0);
+		opacity: 0;
+	}
 }
 
-#admin-card.ng-leave {
-	transition: 0.35s ease all;
-	opacity: 1;
-}
-// #admin-card.ng-leave-stagger {
-// 	transition-delay: 0.1s;
-// 	transition-duration: 0s;
-// }
-#admin-card.ng-leave-active {
-	opacity: 0;
-}
+
+
 
 // ===================================================
 
