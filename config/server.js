@@ -18,7 +18,6 @@ require('./database.js');
 require('./mock/seed.js');
 // =======================================
 
-
 app.use('/', express.static('public')); // add /dist/ for production
 require('./api/routes')(app); // configure our routes
 
