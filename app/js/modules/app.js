@@ -5,7 +5,7 @@ angular.module('pacificaApp',
   'ui.router',
   'appRoutes',
   'NavCtrl',
-  'ngTouch', 
+  'ngTouch',  
   'HomeCtrl',
   'AdminCtrl'
   ]) 
@@ -22,8 +22,8 @@ angular.module('pacificaApp',
     put: function(data, id){
       return $http.put('api/coffees/' + id, data);
     },
-    delete: function(data, id){  
-      return $http.delete('api/coffees/' + id, data);
+    delete: function(id){  
+      return $http.delete('api/coffees/' + id);
     }
   }
 })

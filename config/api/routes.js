@@ -24,10 +24,10 @@ module.exports = function(app){
     var coffee = req.body;
     Coffee.create({
       name: coffee.name,
-      price: coffee.price,
+      price: coffee.price, 
       description: coffee.description,
       region: coffee.region,
-      roast: coffee.roast
+      roast: coffee.roast 
     }, function(err,coffees){
       if(err){
         res.status(500).json({message: err.message});

@@ -6,7 +6,7 @@ angular.module('AdminCtrl',[])
 
 	// triggers for hidding and showing
 	$scope.triggers = {
-		showAdd: false, 
+		showAdd: false,  
 		showMenu: false
 	}
 
@@ -21,19 +21,6 @@ angular.module('AdminCtrl',[])
 			console.log(' get error');  
 		})
 	}();
-
-	// write to json file ======================
-
-	$scope.saveItems = function(newItem){
-		
-		var newItem = JSON.stringify(newItem);
-		itemsService.post(newItem).success(function(response){ 
-			$scope.items.push(response.coffees); // add to bottom of list;
-		})
-		.error(function(data){
-			console.log(' post error');
-		}) 
-	}
 })
 
 .directive('itemCard', function($animate){
@@ -72,7 +59,7 @@ angular.module('AdminCtrl',[])
 			allData: '=',
 			saveItems:'='
 		},
-		controller: function($scope){
+		controller: function($scope, itemsService){
 			$scope.newItem = {
 				name: 'Name',
 				price: "Price",
@@ -82,7 +69,14 @@ angular.module('AdminCtrl',[])
 			};
 			// create new item
 			$scope.addItem = function(){	
-				$scope.saveItems($scope.newItem);
+				var newItem = JSON.stringify($scope.newItem);
+
+				itemsService.post(newItem).success(function(response){
+					$scope.allData.unshift(response.coffees); // add to top of list;
+				})
+				.error(function(data){
+					console.log(' post error');
+				}) 
 			}
 		},
 		templateUrl: '../../views/admin/addItem.html'

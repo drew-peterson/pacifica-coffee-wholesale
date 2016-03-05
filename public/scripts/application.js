@@ -5,7 +5,7 @@ angular.module('pacificaApp',
   'ui.router',
   'appRoutes',
   'NavCtrl',
-  'ngTouch', 
+  'ngTouch',  
   'HomeCtrl',
   'AdminCtrl'
   ]) 
@@ -22,8 +22,8 @@ angular.module('pacificaApp',
     put: function(data, id){
       return $http.put('api/coffees/' + id, data);
     },
-    delete: function(data, id){  
-      return $http.delete('api/coffees/' + id, data);
+    delete: function(id){  
+      return $http.delete('api/coffees/' + id);
     }
   }
 })
@@ -93,7 +93,7 @@ angular.module('AdminCtrl',[])
 
 	// triggers for hidding and showing
 	$scope.triggers = {
-		showAdd: false, 
+		showAdd: false,  
 		showMenu: false
 	}
 
@@ -108,19 +108,6 @@ angular.module('AdminCtrl',[])
 			console.log(' get error');  
 		})
 	}();
-
-	// write to json file ======================
-
-	$scope.saveItems = function(newItem){
-		
-		var newItem = JSON.stringify(newItem);
-		itemsService.post(newItem).success(function(response){ 
-			$scope.items.push(response.coffees); // add to bottom of list;
-		})
-		.error(function(data){
-			console.log(' post error');
-		}) 
-	}
 })
 
 .directive('itemCard', function($animate){
@@ -159,7 +146,7 @@ angular.module('AdminCtrl',[])
 			allData: '=',
 			saveItems:'='
 		},
-		controller: function($scope){
+		controller: function($scope, itemsService){
 			$scope.newItem = {
 				name: 'Name',
 				price: "Price",
@@ -169,7 +156,14 @@ angular.module('AdminCtrl',[])
 			};
 			// create new item
 			$scope.addItem = function(){	
-				$scope.saveItems($scope.newItem);
+				var newItem = JSON.stringify($scope.newItem);
+
+				itemsService.post(newItem).success(function(response){
+					$scope.allData.unshift(response.coffees); // add to top of list;
+				})
+				.error(function(data){
+					console.log(' post error');
+				}) 
 			}
 		},
 		templateUrl: '../../views/admin/addItem.html'
@@ -347,7 +341,7 @@ angular.module('AdminCtrl')
 			itemData: '=', 
 			saveItems: '=',
 			triggers: '=',
-			allData: '=' 
+			allData: '='   
 		}, 
 		templateUrl: "../../views/admin/adminSideMenu.html", 
 		controller: function($scope){
@@ -358,26 +352,26 @@ angular.module('AdminCtrl')
 			//update Item =============================
 			$scope.updateItem = function(){	
 				if($scope.changed){
-					itemsService.post(item, itemId).success(function(response){
-						$scope.allData.push(response.coffees)
+					itemsService.put(item, itemId).success(function(response){
+						$scope.allData.unshift(response.coffees)
 					}).error(function(response){
 						console.log('update fail');
-					})
-				}
-			}
+					});
+				};
+			};
 
 			// Delete Item ============================
 			$scope.deleteItem = function(){
 				var id = $scope.allData.indexOf(item);
+				// remove from arrary;
+				$scope.allData.splice(id, 1);
 
-					$scope.allData.splice(id, 1);
-
-				itemsService.delete(item, itemId).success(function(response){
+				itemsService.delete(itemId).success(function(response){
 					console.log('delete successful')
 				}).error(function(response){
 					console.log('delete fail')
-				})
-			}
+				});
+			};
 		},
 		link: function(scope, elem, attrs){
 			var close = elem.find('.close');

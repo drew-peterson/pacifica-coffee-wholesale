@@ -6,7 +6,7 @@ angular.module('AdminCtrl')
 			itemData: '=', 
 			saveItems: '=',
 			triggers: '=',
-			allData: '=' 
+			allData: '='   
 		}, 
 		templateUrl: "../../views/admin/adminSideMenu.html", 
 		controller: function($scope){
@@ -17,26 +17,26 @@ angular.module('AdminCtrl')
 			//update Item =============================
 			$scope.updateItem = function(){	
 				if($scope.changed){
-					itemsService.post(item, itemId).success(function(response){
-						$scope.allData.push(response.coffees)
+					itemsService.put(item, itemId).success(function(response){
+						$scope.allData.unshift(response.coffees)
 					}).error(function(response){
 						console.log('update fail');
-					})
-				}
-			}
+					});
+				};
+			};
 
 			// Delete Item ============================
 			$scope.deleteItem = function(){
 				var id = $scope.allData.indexOf(item);
+				// remove from arrary;
+				$scope.allData.splice(id, 1);
 
-					$scope.allData.splice(id, 1);
-
-				itemsService.delete(item, itemId).success(function(response){
+				itemsService.delete(itemId).success(function(response){
 					console.log('delete successful')
 				}).error(function(response){
 					console.log('delete fail')
-				})
-			}
+				});
+			};
 		},
 		link: function(scope, elem, attrs){
 			var close = elem.find('.close');
