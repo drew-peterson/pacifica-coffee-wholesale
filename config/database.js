@@ -1,7 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose');
-var URI = process.env.MONGOLABS_URI || 'mongodb://localhost/pacifica-coffee';
+var URI = process.env.MONGOLAB_URI || 'mongodb://localhost/pacifica-coffee';
 
 // set up mongo database run with mongod
 mongoose.connect(URI, function(err){
