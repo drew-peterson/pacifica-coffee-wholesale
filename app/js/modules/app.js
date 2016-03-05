@@ -5,7 +5,7 @@ angular.module('pacificaApp',
   'ui.router',
   'appRoutes',
   'NavCtrl',
-  'ngTouch', 
+  'ngTouch',  
   'HomeCtrl',
   'AdminCtrl'
   ]) 
@@ -14,10 +14,16 @@ angular.module('pacificaApp',
 .service('itemsService', function($http){
   return {
     get: function(){
-      return $http.get('api/items'); 
+      return $http.get('/api/coffees'); 
     },
-    post: function(data){ 
-      return $http.post('api/items' , JSON.stringify(data));
+    post: function(data){  
+      return $http.post('api/coffees', data);
+    },
+    put: function(data, id){
+      return $http.put('api/coffees/' + id, data);
+    },
+    delete: function(id){  
+      return $http.delete('api/coffees/' + id);
     }
   }
 })
@@ -46,7 +52,7 @@ angular.module('pacificaApp',
 
 
         // scroll event
-        $document.bind('scroll', function(){
+        $document.bind('scroll', function(){ 
           var barPos = $($document).scrollTop(); // scrollbar pos
           var position = elPos - barPos; // elment pos from bottom of window
           

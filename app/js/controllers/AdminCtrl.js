@@ -1,39 +1,26 @@
 angular.module('AdminCtrl',[])
 
-.controller('AdminCtrl', function(itemsService, $scope){ 
+.controller('AdminCtrl', function(itemsService, $scope){  
 	
 	$scope.items; // holds all the items...
 
 	// triggers for hidding and showing
 	$scope.triggers = {
-		showAdd: false, 
+		showAdd: false,  
 		showMenu: false
 	}
 
-	// get all items in json file
+	// GET ALL ITEMS ===========================================
+  
 	var getItems = function(){ 
 		itemsService.get().success(function(data){
 			console.log("get success");
-			$scope.items = data; 
+			$scope.items = data.coffees;  
 		})
 		.error(function(data){
 			console.log(' get error');  
 		})
 	}();
-
-	// write to json file ======================
-
-	$scope.saveItems = function(){ 
-		itemsService.post($scope.items).success(function(response){
-			console.log('Post success');
-			console.log(response); 
-
-			$scope.items = response;
-		})
-		.error(function(data){
-			console.log(' post error');
-		}) 
-	}
 })
 
 .directive('itemCard', function($animate){
@@ -72,7 +59,7 @@ angular.module('AdminCtrl',[])
 			allData: '=',
 			saveItems:'='
 		},
-		controller: function($scope){
+		controller: function($scope, itemsService){
 			$scope.newItem = {
 				name: 'Name',
 				price: "Price",
@@ -80,10 +67,16 @@ angular.module('AdminCtrl',[])
 				region: "region",
 				roast: "roast"
 			};
-
+			// create new item
 			$scope.addItem = function(){	
-				$scope.allData.push($scope.newItem)
-				$scope.saveItems();
+				var newItem = JSON.stringify($scope.newItem);
+
+				itemsService.post(newItem).success(function(response){
+					$scope.allData.unshift(response.coffees); // add to top of list;
+				})
+				.error(function(data){
+					console.log(' post error');
+				}) 
 			}
 		},
 		templateUrl: '../../views/admin/addItem.html'

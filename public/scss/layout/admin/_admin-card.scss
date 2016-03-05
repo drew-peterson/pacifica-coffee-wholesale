@@ -1,7 +1,7 @@
  
 // Side Menu =====================================
 
- .admin-push-menu,
+ .admin-push-menu, 
  .addItem {
  	z-index: 300; 
 	position: fixed; 
@@ -18,7 +18,25 @@
 }
 
 // ===================================================
+// ADD and REMOVE TRANSITION;
+#admin .admin-card-wrapper {
+	transition: 0.5s all ease;
+}
 
+#admin-card.ng-enter {
+	transform: translateX(-100%);
+	transition: 0.5s all ease;
+}
+#admin-card.ng-enter-active {
+	transform: translateX(0);
+}
+#admin-card.ng-leave {
+	transform: translateX(0);
+	transition: 0.5s all ease;
+}
+#admin-card.ng-leave-active {
+	transform: translateX(100%);
+}
 
 
 // Admin Card Inner ===================================
@@ -32,7 +50,8 @@
 	background-color: $google-gray;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;;
+	justify-content: space-between;
+	transition: 0.5s all ease;
 
 	@include tablet {
 		width: 100%;

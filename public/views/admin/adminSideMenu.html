@@ -13,7 +13,7 @@
 		<input type="text" ng-model="itemData.price" ng-change="changed=true">
 	</li>
 	<li class="admin-push-content">
-		<input type="text" ng-model="itemData.description" ng-change="changed=true">
+		<input type="text" ng-model="itemData.description" ng-change="changed=true"> 
 	</li>
 	<li class="admin-push-content">
 		<input type="text" ng-model="itemData.region" ng-change="changed=true">
@@ -24,8 +24,9 @@
 
 
 	<li class="admin-push-content">
-		<a href="#" 
-		ng-click="updateItem();">Save</a>
+		<a class="adminUpdate"href="#" 
+		ng-click="updateItem(); 
+		triggers.overlay = false;">Save</a>
 	</li>
 	<li class="admin-push-content">
 		<a class="delete" href="#" 

@@ -4,26 +4,27 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var methodOverride = require('method-override');
 var compression = require('compression');
-var fs = require('fs');
 
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
-
-var port = process.env.PORT || 3000;
-
-// prerender.io
-app.use(require('prerender-node').set('prerenderToken', 'EDCiXmecUrcmqYK7hZ5M'));
-
 app.use(compression()); //gzip compression
-app.use(express.static(__dirname + '/public')); // add /dist/ for production
+app.use(require('prerender-node').set('prerenderToken', 'EDCiXmecUrcmqYK7hZ5M')); // prerender.io
 
-// routes ==================================================
-require('./app/routes')(app); // configure our routes
+var port = process.env.PORT || 3000; 
 
-app.listen(port);
-console.log("drew -- listening on node server port 3000");
+// MongoDB ===============================
+require('./config/database.js');
+require('./config/mock/seed.js');
+// =======================================
+
+app.use('/', express.static('public')); // add /dist/ for production
+require('./config/api/routes')(app); // configure our routes
+
+app.listen(port, function(){
+	console.log("drew -- listening on node server port 3000");
+}); 
 
 // expose app
-exports = module.exports = app;
+module.exports = app;
 
