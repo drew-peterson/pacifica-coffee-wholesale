@@ -28,24 +28,24 @@ gulp.task('minifyHtml', function() {
 gulp.task("concatScripts",function(){
   // grab all src methods
   return gulp.src([ // important add to first line of all
-    "public/js/modules/*.js",
-    "public/js/controllers/*.js",
-    "public/js/routes/*.js",
-    "public/js/services/*.js",
-    "public/js/components/*.js",
+    "app/js/modules/*.js",
+    "app/js/controllers/*.js",
+    "app/js/routes/*.js",
+    "app/js/services/*.js",
+    "app/js/components/*.js",
     ]) 
   .pipe(maps.init()) // create a map file for javascript
   .pipe(concat("application.js")) // pipe in the information into contact which does the magic and give it a file name
   .pipe(maps.write('./'))
-  .pipe(gulp.dest('public/js')) // gulp will save save in the specified folder
+  .pipe(gulp.dest('public/scripts')) // gulp will save save in the specified folder
   .pipe(livereload());
 });
 
 gulp.task('minifyScripts', ['concatScripts'],function(){ // adding [] says run this after what ever is in []] the return is important, because its a promise so it know to run after its complete
-  return gulp.src('public/js/application.js') // use the app.js which was concated, we will run these in order later...
+  return gulp.src('public/scripts/application.js') // use the app.js which was concated, we will run these in order later...
   .pipe(uglify()) // minify the information
   .pipe(rename('application.min.js')) // use rename module to rename the app so you have 2 files 1 min 1 standard
-  .pipe(gulp.dest('public/js')); // write back to js file
+  .pipe(gulp.dest('public/scripts')); // write back to js file
 });
 
 gulp.task('compileSass',function(){
@@ -61,20 +61,10 @@ gulp.task('compileSass',function(){
   .pipe(livereload()); // then send over to live reload
 });
 
-
-//
-  // since nothing depends on it you dont need a return
 gulp.task('watchFiles', function(){
   livereload.listen();
-  // globing, look in scss folder any additional folder/file **, and then anything ending in a .scss (*.scss)
-  gulp.watch('public/scss/**/*.scss', ['compileSass']); // run the following tasks when these change
-  gulp.watch([
-    "public/js/controllers/*.js",
-    "public/js/modules/*.js",
-    "public/js/routes/*.js",
-    "public/js/components/*.js",
-    "public/js/services/*.js"], ['concatScripts']); // want to watch the files we will actually change, and then run X tasks. dont really need to concatScripts but it has the maping so that makes debugging easier so we will add as dependecie.
-  // watch will continully listen after is is ran
+  gulp.watch('public/scss/**/*.scss', ['compileSass']); 
+  gulp.watch('app/js/**/*.js', ['concatScripts']); 
 });
 
 gulp.task('clean', function(){
