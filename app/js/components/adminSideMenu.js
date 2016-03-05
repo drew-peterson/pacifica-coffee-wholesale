@@ -28,7 +28,9 @@ angular.module('AdminCtrl')
 			// Delete Item ============================
 			$scope.deleteItem = function(){
 				var id = $scope.allData.indexOf(item);
-				$scope.allData.splice(id, 1);
+
+					$scope.allData.splice(id, 1);
+
 				itemsService.delete(item, itemId).success(function(response){
 					console.log('delete successful')
 				}).error(function(response){
@@ -38,11 +40,13 @@ angular.module('AdminCtrl')
 		},
 		link: function(scope, elem, attrs){
 			var close = elem.find('.close');
+			var remove = elem.find('.delete');
 			var menu = elem.parent();
 			var overlay = $('.mask');
 
 			// hide menu on close and overlay
 			close.on('click', function(){ hideMenu(); })
+			remove.on('click', function(){ hideMenu(); })
 			overlay.on('click', function(){ hideMenu() })
 
 			function hideMenu(){

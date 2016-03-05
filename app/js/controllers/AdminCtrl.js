@@ -80,7 +80,7 @@ angular.module('AdminCtrl',[])
 				region: "region",
 				roast: "roast"
 			};
-
+			// create new item
 			$scope.addItem = function(){	
 				$scope.saveItems($scope.newItem);
 			}
