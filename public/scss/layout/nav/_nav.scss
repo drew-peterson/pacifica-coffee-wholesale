@@ -29,7 +29,9 @@
 }
 
 #nav .title {
-	border: none;  
+	border: none;
+	display: block;
+	width: 60%;  
 	a {
 		display: block;
 		line-height: 60px;
