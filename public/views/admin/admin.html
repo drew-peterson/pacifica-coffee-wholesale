@@ -10,25 +10,25 @@
 	</div>
 
 	<section class="admin-card-wrapper">
-	
-		<!-- <div class="slider-wraper" > -->
-			<!-- Rows of cards inside wrapper -->
-			<!-- addtion order | orderBy:'name' -->
-			<div item-card
+			
+			<!-- addItem =============== -->
+			<div class="addItem" ng-class="{showMenu: triggers.showMenu}">
+				<add-item 
+					triggers="triggers"
+					all-data="items"
+					save-items='saveItems'>
+				</add-item>
+			</div>
+
+			<!-- AdminCard ================ -->
+			<admin-card
 				ng-repeat="item in items | filter:search" 
 				item-data="item"
 				triggers="triggers"
 				save-items='saveItems'
 				all-data="items">
-			</div>
+			<admin-card/>
 
-			<!-- add New items -->
-			<div class="addItem" ng-class="{showMenu: triggers.showMenu}">
-				<div add-item 
-				triggers="triggers"
-				all-data="items"
-				save-items='saveItems'></div>
-			</div>
 
 
 	</section>

@@ -92,7 +92,7 @@ angular.module('AdminCtrl',[])
 	$scope.items; // holds all the items...
 
 	// triggers for hidding and showing
-	$scope.triggers = {
+	$scope.triggers = {  
 		showAdd: false,  
 		showMenu: false
 	}
@@ -110,65 +110,9 @@ angular.module('AdminCtrl',[])
 	}();
 })
 
-.directive('itemCard', function($animate){
-	return {
-		restrict: 'AE', 
-		replace: true, 
-		scope: {
-			'itemData': '=',
-			'triggers': '=', 
-			'saveItems': '=',
-			'allData': '='
-		},
-		controller: function($scope){},
-		link: function(scope, elem, attrs){
-			var openBtn = elem.find('#adminShowMenu');
-			var menu = elem.find('.admin-push-menu');
 
-			// open menu -- close menu is in adminsideMenu.js
-			openBtn.on('click', function(){
-				scope.$apply(function(){
-					$animate.addClass(menu, 'showMenu');
-				})
-			})
-		},
-		templateUrl: "../../views/admin/adminCard.html"
-	}
-})
 
-// add new item
-.directive('addItem', function(){
-	return {
-		restrict: 'AE',
-		replace: true,
-		scope: {
-			triggers: '=',
-			allData: '=',
-			saveItems:'='
-		},
-		controller: function($scope, itemsService){
-			$scope.newItem = {
-				name: 'Name',
-				price: "Price",
-				description: 'description',
-				region: "region",
-				roast: "roast"
-			};
-			// create new item
-			$scope.addItem = function(){	
-				var newItem = JSON.stringify($scope.newItem);
 
-				itemsService.post(newItem).success(function(response){
-					$scope.allData.unshift(response.coffees); // add to top of list;
-				})
-				.error(function(data){
-					console.log(' post error');
-				}) 
-			}
-		},
-		templateUrl: '../../views/admin/addItem.html'
-	}
-})
 
 
 
@@ -333,6 +277,65 @@ angular.module('appRoutes', [])
 
 });
 
+angular.module('AdminCtrl').directive('addItem', function(){
+	return {
+		restrict: 'AE',
+		replace: true,
+		scope: {
+			triggers: '=',
+			allData: '=',
+			saveItems:'='
+		},
+		controller: function($scope, itemsService){
+			$scope.newItem = {
+				name: 'Name',
+				price: "Price",
+				description: 'description',
+				region: "region",
+				roast: "roast"
+			};
+			// create new item
+			$scope.addItem = function(){	
+				var newItem = JSON.stringify($scope.newItem);
+
+				itemsService.post(newItem).success(function(response){
+					$scope.allData.unshift(response.coffees); // add to top of list;
+				})
+				.error(function(data){
+					console.log(' post error');
+				}) 
+			}
+		},
+		templateUrl: 'views/admin/addItem.html'
+	}
+})
+'use strict';
+
+angular.module('AdminCtrl').directive('adminCard', function($animate){
+	return {
+		restrict: 'AE',
+		replace: true, 
+		scope: {
+			'itemData': '=', 
+			'triggers': '=', 
+			'saveItems': '=',
+			'allData': '=' 
+		},
+		controller: function($scope){},
+		link: function(scope, elem, attrs){
+			var openBtn = elem.find('#adminShowMenu');
+			var menu = elem.find('.admin-push-menu');
+
+			// open menu -- close menu is in adminsideMenu.js
+			openBtn.on('click', function(){
+				scope.$apply(function(){
+					$animate.addClass(menu, 'showMenu'); 
+				})
+			})
+		},
+		templateUrl: "views/admin/adminCard.html"
+	}
+})
 angular.module('AdminCtrl') 
 .directive('adminSideMenu', function($animate, itemsService){ 
 	return {

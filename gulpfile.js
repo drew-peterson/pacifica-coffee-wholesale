@@ -29,10 +29,11 @@ gulp.task("concatScripts",function(){
   // grab all src methods
   return gulp.src([ // important add to first line of all
     "app/js/modules/*.js",
-    "app/js/controllers/*.js",
-    "app/js/routes/*.js",
-    "app/js/services/*.js",
-    "app/js/components/*.js",
+    "app/js/controllers/**/*.js",
+    "app/js/routes/**/*.js",
+    "app/js/services/**/*.js",
+    "app/js/components/**/*.js",
+    "app/js/directives/**/*.js",
     ]) 
   .pipe(maps.init()) // create a map file for javascript
   .pipe(concat("application.js")) // pipe in the information into contact which does the magic and give it a file name
