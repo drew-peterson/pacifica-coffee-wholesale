@@ -3,7 +3,7 @@ angular.module('AdminCtrl').directive('addItem', function(){
 		restrict: 'AE',
 		replace: true,
 		scope: {
-			triggers: '=',
+			triggers: '=', 
 			allData: '=',
 			saveItems:'='
 		},

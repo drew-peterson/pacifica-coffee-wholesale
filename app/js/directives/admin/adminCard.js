@@ -5,7 +5,7 @@ angular.module('AdminCtrl').directive('adminCard', function($animate){
 		restrict: 'AE',
 		replace: true, 
 		scope: {
-			'itemData': '=', 
+			'itemData': '=',  
 			'triggers': '=', 
 			'saveItems': '=',
 			'allData': '=' 

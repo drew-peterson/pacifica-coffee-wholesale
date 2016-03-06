@@ -15,8 +15,6 @@ var gulp   = require('gulp'),
     const imagemin = require('gulp-imagemin');
     const pngquant = require('imagemin-pngquant');
 
-
-
 // minify HTML ==================================
 gulp.task('minifyHtml', function() {
   return gulp.src('public/views/**')
@@ -25,16 +23,11 @@ gulp.task('minifyHtml', function() {
 });
 // ==============================================
 
+// Contact Scripts ===============================
+
 gulp.task("concatScripts",function(){
   // grab all src methods
-  return gulp.src([ // important add to first line of all
-    "app/js/modules/*.js",
-    "app/js/controllers/**/*.js",
-    "app/js/routes/**/*.js",
-    "app/js/services/**/*.js",
-    "app/js/components/**/*.js",
-    "app/js/directives/**/*.js",
-    ]) 
+  return gulp.src("app/js/**/*.js")  
   .pipe(maps.init()) // create a map file for javascript
   .pipe(concat("application.js")) // pipe in the information into contact which does the magic and give it a file name
   .pipe(maps.write('./'))
@@ -42,13 +35,15 @@ gulp.task("concatScripts",function(){
   .pipe(livereload());
 });
 
-gulp.task('minifyScripts', ['concatScripts'],function(){ // adding [] says run this after what ever is in []] the return is important, because its a promise so it know to run after its complete
-  return gulp.src('public/scripts/application.js') // use the app.js which was concated, we will run these in order later...
-  .pipe(uglify()) // minify the information
-  .pipe(rename('application.min.js')) // use rename module to rename the app so you have 2 files 1 min 1 standard
-  .pipe(gulp.dest('public/scripts')); // write back to js file
-});
+// Minify Scripts ==================================
+// gulp.task('minifyScripts', ['concatScripts'],function(){ // adding [] says run this after what ever is in []] the return is important, because its a promise so it know to run after its complete
+//   return gulp.src('public/scripts/application.js') // use the app.js which was concated, we will run these in order later...
+//   .pipe(uglify()) // minify the information
+//   .pipe(rename('application.min.js')) // use rename module to rename the app so you have 2 files 1 min 1 standard
+//   .pipe(gulp.dest('public/scripts')); // write back to js file
+// });
 
+// Compile Sass ======================================
 gulp.task('compileSass',function(){
   return gulp.src('public/scss/application.scss') // only 1 file because that file is imported the import file from each scss folder
   .pipe(maps.init()) //create the map

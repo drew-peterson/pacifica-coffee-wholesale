@@ -1,11 +1,11 @@
 angular.module('AdminCtrl',[])
 
-.controller('AdminCtrl', function(itemsService, $scope){  
+.controller('AdminCtrl', function(itemsService, $scope){    
 	
-	$scope.items; // holds all the items...
+	$scope.items; // holds all the items...  
 
 	// triggers for hidding and showing
-	$scope.triggers = {  
+	$scope.triggers = {    
 		showAdd: false,  
 		showMenu: false
 	}

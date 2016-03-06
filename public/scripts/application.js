@@ -1,12 +1,11 @@
 angular.module('pacificaApp',
   [
   'ngAnimate',
-  // 'MainCtrl',
-  'ui.router',
-  'appRoutes', 
+  'ui.router', 
+  'appRoutes',  
   'NavCtrl',
   'ngTouch',  
-  'HomeCtrl',
+  'HomeCtrl', 
   'AdminCtrl'
   ]) 
 
@@ -87,12 +86,12 @@ angular.module('pacificaApp',
 
 angular.module('AdminCtrl',[])
 
-.controller('AdminCtrl', function(itemsService, $scope){  
+.controller('AdminCtrl', function(itemsService, $scope){    
 	
-	$scope.items; // holds all the items...
+	$scope.items; // holds all the items...  
 
 	// triggers for hidding and showing
-	$scope.triggers = {  
+	$scope.triggers = {    
 		showAdd: false,  
 		showMenu: false
 	}
@@ -182,7 +181,7 @@ angular.module('AdminCtrl').directive('addItem', function(){
 		restrict: 'AE',
 		replace: true,
 		scope: {
-			triggers: '=',
+			triggers: '=', 
 			allData: '=',
 			saveItems:'='
 		},
@@ -216,7 +215,7 @@ angular.module('AdminCtrl').directive('adminCard', function($animate){
 		restrict: 'AE',
 		replace: true, 
 		scope: {
-			'itemData': '=', 
+			'itemData': '=',  
 			'triggers': '=', 
 			'saveItems': '=',
 			'allData': '=' 
