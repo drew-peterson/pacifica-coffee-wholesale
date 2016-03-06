@@ -18,6 +18,11 @@ require('./config/database.js');
 require('./config/mock/seed.js');
 // =======================================
 
+//Video ==================================
+// express.mime.type['mp4'] = 'video/mp4';
+// express.mime.type['ogv'] = 'video/ogg';
+// express.mime.type['webm'] = 'video/webm';
+// =======================================
 app.use('/', express.static('public')); // add /dist/ for production
 require('./config/api/routes')(app); // configure our routes
 
