@@ -216,10 +216,10 @@ angular.module('HomeCtrl', [])
 			var chrome = navigator.appVersion.indexOf('Chrome');
 			// if Chrome Else
 			if(chrome != 0){
-				setTimeout(function(){
-					console.log('play')
+				// setTimeout(function(){
+				// 	console.log('play')
 					video.play();
-				},3000)
+				// },3000)
 			}else{
 				video.oncanplaythrough = function() {
     				video.play(); 
