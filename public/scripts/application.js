@@ -87,15 +87,18 @@ angular.module('appRoutes', [])
     .state('home',{
       url: '/',
       templateUrl: '../views/home/home.html', 
-      controller: 'HomeCtrl'
+      controller: 'HomeCtrl',
+      controllerAs: 'home'
     })
    .state('coffee',{
       url: '/coffee',
-      templateUrl: '../views/coffee/coffee.html'  
+      templateUrl: '../views/coffee/coffee.html',
+      controllerAs: 'coffee'  
     })
     .state('bag',{
       url: '/bag',
-      templateUrl: '../views/bag/bag.html' 
+      templateUrl: '../views/bag/bag.html',
+      controllerAs: 'bag' 
     })
     .state('admin',{
       url: '/admin',
