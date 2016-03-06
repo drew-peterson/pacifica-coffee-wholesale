@@ -354,6 +354,7 @@ angular.module('NavCtrl').directive('toggleClass', function(){
 		restrict: 'A',
 		link: function(scope, element, attrs) {
 	
+			// clicking ham menu in mobile mode only
 			element.bind('click', function(){
 				var isMobile = event.sourceCapabilities.firesTouchEvents;
 				if(isMobile){
@@ -366,14 +367,11 @@ angular.module('NavCtrl').directive('toggleClass', function(){
 						$('#sideNav').removeClass('active');
 
 						// remove listner
-						$(this).off()						
-						
-					})
-				}
-				
-				
+						$(this).off()								
+					});
+				};
 			});
-		}
+		} // end of link
 	}
 });
 //# sourceMappingURL=application.js.map
