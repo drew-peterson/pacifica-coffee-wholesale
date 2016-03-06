@@ -2,10 +2,9 @@
 	<ul class="wrapper">
 	    <!-- Hamburger Btn -->
 	    <li class="nav-li nav-open"
-	    	ng-mouseenter="!active ? hover = !hover : nothing" 
-	    	ng-mouseleave="!active && hover ? hover = false  : nothing"
 			toggle-class
-	    	ng-click="checkNav($event)">
+	    	ng-mouseenter="!active ? hover = !hover : nothing" 
+	    	ng-mouseleave="!active && hover ? hover = false  : nothing">
 	      <button id="hamBtn" ng-class="{'active': navActive};">
 	        <span>close</span>
 	      </button>

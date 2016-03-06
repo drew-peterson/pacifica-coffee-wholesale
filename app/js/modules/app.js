@@ -1,9 +1,9 @@
 angular.module('pacificaApp',
   [
   'ngAnimate',
-  'MainCtrl',
+  // 'MainCtrl',
   'ui.router',
-  'appRoutes',
+  'appRoutes', 
   'NavCtrl',
   'ngTouch',  
   'HomeCtrl',

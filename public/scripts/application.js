@@ -1,9 +1,9 @@
 angular.module('pacificaApp',
   [
   'ngAnimate',
-  'MainCtrl',
+  // 'MainCtrl',
   'ui.router',
-  'appRoutes',
+  'appRoutes', 
   'NavCtrl',
   'ngTouch',  
   'HomeCtrl',
@@ -125,90 +125,16 @@ angular.module('CoffeeCtrl', [])
 
 	// Get all Items
 	itemsService.get().success(function(response){
-		$scope.items = response;
+		$scope.items = response; 
 	});
-}) // end of ctrl
-
-
-// coffee card ========================== 
-.directive('coffeeCard', function(){
-	return {
-		replace: true,
-		restrict: 'A',
-		scope: {
-			test: '@'
-		},
-		controller: function($scope){
-			// $scope.test = "reed peterson"
-		},
-		templateUrl: '../../views/coffee/coffee-card.html'
-	}
-})
-angular.module('HomeCtrl', []) 
-
-.controller('HomeCtrl', function($scope){}) // end of controller
-
-.directive('videoHero', function(){ 
-	return {
-		restrict: 'A',
-		replace: true,
-		scope: {},
-		link: function(scope, elem, attr){ 
-
-			// play video when it buffers
-			var video = document.getElementById('bgvid');
-			var chrome = navigator.appVersion.indexOf('Chrome');
-			// if Chrome Else
-			if(chrome != 0){
-				// setTimeout(function(){
-				// 	console.log('play')
-					video.play();
-				// },3000)
-			}else{
-				video.oncanplaythrough = function() {
-    				video.play(); 
-				};
-				
-			}
-		},
-		templateUrl: "../../views/home/youtube.html" 
-	}
-}) 
-
-.directive('homeCard', function(){
-	return { 
-		restrict: 'A',
-		scope: {
-			'title': '@',
-			'color': '@',
-			'button': '@', 
-			'content': '@',
-			'image': '@',
-			'textColor': '@', 
-			'url': '@', 
-		},
-		replace: true,
-		link: function(scope, elem, attr){
-			// var editor = elem.find('#idHere')
-			// editor.bind('keyup keydown, function({}))
-
-		},
-		controller: function($scope){
-
-		},
-		templateUrl: "../../views/home/homeCard.html"
-	}
-})
-
-angular.module('MainCtrl', [])
-
-.controller('MainCtrl',function(
-  $scope,
-  $window
-  ){
-
-
 });
+
+
+angular.module('HomeCtrl', [])
+.controller('HomeCtrl',function(){}); 
+
+
+
 angular.module('NavCtrl',[])
 
 .controller('NavCtrl', function($scope){
@@ -216,33 +142,7 @@ angular.module('NavCtrl',[])
 	$scope.hover; 
 })
 
-.directive('toggleClass', function(){
-	return {
-		restrict: 'A',
-		link: function(scope, element, attrs) {
-	
-			element.bind('click', function(){
-				var isMobile = event.sourceCapabilities.firesTouchEvents;
-				if(isMobile){
-					
-					$('#sideNav').removeClass('hover');
-					$('#sideNav').toggleClass('active');	
 
-					$('#main').on('click', function(){
-						$('#sideNav').removeClass('hover');
-						$('#sideNav').removeClass('active');
-
-						// remove listner
-						$(this).off()						
-						
-					})
-				}
-				
-				
-			});
-		}
-	}
-});
 angular.module('appRoutes', [])
 
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -336,8 +236,7 @@ angular.module('AdminCtrl').directive('adminCard', function($animate){
 		templateUrl: "views/admin/adminCard.html"
 	}
 })
-angular.module('AdminCtrl') 
-.directive('adminSideMenu', function($animate, itemsService){ 
+angular.module('AdminCtrl').directive('adminSideMenu', function($animate, itemsService){ 
 	return {
 		restrict: 'AE', 
 		scope: { 
@@ -346,7 +245,7 @@ angular.module('AdminCtrl')
 			triggers: '=',
 			allData: '='   
 		}, 
-		templateUrl: "../../views/admin/adminSideMenu.html", 
+		templateUrl: "views/admin/adminSideMenu.html", 
 		controller: function($scope){
 			// var item = JSON.stringify($scope.itemData);
 			var item = $scope.itemData;
@@ -399,4 +298,82 @@ angular.module('AdminCtrl')
 
 	} // end of return
 })
+angular.module('CoffeeCtrl').directive('coffeeCard', function(){
+	return {
+		replace: true,
+		restrict: 'A',
+		scope: {
+			test: '@'
+		},
+		controller: function($scope){
+			// $scope.test = "reed peterson"
+		},
+		templateUrl: '../../views/coffee/coffee-card.html'
+	}
+});
+angular.module('HomeCtrl').directive('homeCard', function(){
+	return { 
+		restrict: 'AE', 
+		replace: true,
+		scope: {
+			'title': '@',
+			'color': '@',
+			'button': '@', 
+			'content': '@',
+			'image': '@',
+			'textColor': '@', 
+			'url': '@',  
+		},
+		templateUrl: "views/home/homeCard.html" 
+	}
+})
+angular.module('HomeCtrl').directive('videoHero', function(){ 
+	return {
+		restrict: 'AE', 
+		replace: true,
+		link: function(scope, elem, attr){ 
+
+			// play video when it buffers
+			var video = document.getElementById('bgvid');
+			var chrome = navigator.appVersion.indexOf('Chrome');
+			// if Chrome Else
+			if(chrome != 0){	
+				video.play(); 
+			}else{
+				video.oncanplaythrough = function() {
+    				video.play(); 
+				};
+				
+			}
+		},
+		templateUrl: "views/home/youtube.html" 
+	}
+}); 
+angular.module('NavCtrl').directive('toggleClass', function(){
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs) {
+	
+			element.bind('click', function(){
+				var isMobile = event.sourceCapabilities.firesTouchEvents;
+				if(isMobile){
+					
+					$('#sideNav').removeClass('hover');
+					$('#sideNav').toggleClass('active');	
+
+					$('#main').on('click', function(){
+						$('#sideNav').removeClass('hover');
+						$('#sideNav').removeClass('active');
+
+						// remove listner
+						$(this).off()						
+						
+					})
+				}
+				
+				
+			});
+		}
+	}
+});
 //# sourceMappingURL=application.js.map
