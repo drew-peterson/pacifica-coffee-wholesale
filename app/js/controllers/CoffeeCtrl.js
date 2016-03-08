@@ -4,7 +4,7 @@ angular.module('CoffeeCtrl', [])
 	var CC = this;
 	CC.items; // all items
 	CC.bag = []; // bag
-	CC.drew = "Drew peterosn"  
+	CC.drew = "Drew petersion"
 
 	// GET ALL ITEMS ===========================================
 	itemsService.get().success(function(data){
@@ -18,10 +18,10 @@ angular.module('CoffeeCtrl', [])
 	// Add To bag ============================================
 	CC.addTobag = function(item){
 		var idx = checkIndex(item);
-		if(idx != 0){
+		if(idx == -1){
 			CC.bag.push(item);
-			console.log('added ' + item.name );
-		};
+			console.log('added ' + item.name + " qty: " + item.qty );
+		}
 	};
 
 	// Remove From bag ============================================

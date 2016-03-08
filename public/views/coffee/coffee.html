@@ -6,9 +6,10 @@
 		
 		<coffee-bag
 			ng-repeat="item in CC.bag"
+			ng-init="item.qty='1'" 
 			item="item"
 			remove-from-bag="CC.removeFrombag(item)"
-		></coffee-bag>
+		></coffee-bag> 
 
 	</div>
 	

@@ -57,7 +57,7 @@ angular.module('CoffeeCtrl', [])
 	var CC = this;
 	CC.items; // all items
 	CC.bag = []; // bag
-	CC.drew = "Drew peterosn"  
+	CC.drew = "Drew petersion"
 
 	// GET ALL ITEMS ===========================================
 	itemsService.get().success(function(data){
@@ -71,10 +71,10 @@ angular.module('CoffeeCtrl', [])
 	// Add To bag ============================================
 	CC.addTobag = function(item){
 		var idx = checkIndex(item);
-		if(idx != 0){
+		if(idx == -1){
 			CC.bag.push(item);
-			console.log('added ' + item.name );
-		};
+			console.log('added ' + item.name + " qty: " + item.qty );
+		}
 	};
 
 	// Remove From bag ============================================
@@ -164,6 +164,127 @@ angular.module('pacificaApp')
     }
   }
 })
+angular.module('AdminCtrl').directive('addItem', function(){
+	return {
+		restrict: 'AE',
+		replace: true,
+		scope: {
+			triggers: '=', 
+			allData: '=',
+			saveItems:'='
+		},
+		controller: function($scope, itemsService){
+			$scope.newItem = {
+				name: 'Name',
+				price: "Price",
+				description: 'description',
+				region: "region",
+				roast: "roast"
+			};
+			// create new item
+			$scope.addItem = function(){	
+				var newItem = JSON.stringify($scope.newItem);
+
+				itemsService.post(newItem).success(function(response){
+					$scope.allData.unshift(response.coffees); // add to top of list;
+				})
+				.error(function(data){
+					console.log(' post error');
+				}) 
+			}
+		},
+		templateUrl: 'views/admin/addItem.html'
+	}
+})
+'use strict';
+
+angular.module('AdminCtrl').directive('adminCard', function($animate){
+	return {
+		restrict: 'AE',
+		replace: true, 
+		scope: {
+			'itemData': '=',  
+			'triggers': '=', 
+			'saveItems': '=',
+			'allData': '=' 
+		},
+		controller: function($scope){},
+		link: function(scope, elem, attrs){
+			var openBtn = elem.find('#adminShowMenu');
+			var menu = elem.find('.admin-push-menu');
+
+			// open menu -- close menu is in adminsideMenu.js
+			openBtn.on('click', function(){
+				scope.$apply(function(){
+					$animate.addClass(menu, 'showMenu'); 
+				})
+			})
+		},
+		templateUrl: "views/admin/adminCard.html"
+	}
+})
+angular.module('AdminCtrl').directive('adminSideMenu', function($animate, itemsService){ 
+	return {
+		restrict: 'AE', 
+		scope: { 
+			itemData: '=', 
+			saveItems: '=',
+			triggers: '=',
+			allData: '='   
+		}, 
+		templateUrl: "views/admin/adminSideMenu.html", 
+		controller: function($scope){
+			// var item = JSON.stringify($scope.itemData);
+			var item = $scope.itemData;
+			var itemId = $scope.itemData._id; 
+			$scope.changed;
+
+			//update Item =============================
+			$scope.updateItem = function(){	
+				if($scope.changed){ 
+					itemsService.put(item, itemId).success(function(response){
+						// scope has already need changed to reflect new item
+					}).error(function(response){
+						console.log('update fail');
+					});
+				};
+			};
+
+			// Delete Item ============================
+			$scope.deleteItem = function(){
+				var id = $scope.allData.indexOf(item);
+				// remove from arrary;	
+				$scope.allData.splice(id, 1);
+				
+				itemsService.delete(itemId).success(function(response){
+					console.log('delete successful')
+				}).error(function(response){
+					console.log('delete fail')
+				});
+			};
+		},
+		link: function(scope, elem, attrs){
+			var close = elem.find('.close');
+			var remove = elem.find('.delete');
+			var adminUpdate = elem.find('.adminUpdate')
+			var menu = elem.parent();
+			var overlay = $('.mask');
+
+			// hide menu on close and overlay
+			close.on('click', function(){ hideMenu(); })
+			remove.on('click', function(){ hideMenu(); })
+			overlay.on('click', function(){ hideMenu() })
+			adminUpdate.on('click', function(){ hideMenu() })
+
+			function hideMenu(){
+				scope.$apply(function(){
+					$animate.removeClass(menu, 'showMenu');
+				})
+			}
+		},
+
+	} // end of return
+})
 
 angular.module('CoffeeCtrl')
 
@@ -179,7 +300,7 @@ angular.module('CoffeeCtrl')
 			removeFromBag: '&'
 		},
 		link: function(){},
-		template: "<span ng-click='ctrl.removeFromBag(ctrl.item)'>{{ctrl.item.name}}</span>"
+		template: "<span ng-click='ctrl.removeFromBag(ctrl.item)'>{{ctrl.item.name}} | {{ctrl.item.qty}}</span>"
 	}
 });
 
@@ -307,125 +428,4 @@ angular.module('NavCtrl').directive('toggleClass', function(){
 		} // end of link
 	}
 });
-angular.module('AdminCtrl').directive('addItem', function(){
-	return {
-		restrict: 'AE',
-		replace: true,
-		scope: {
-			triggers: '=', 
-			allData: '=',
-			saveItems:'='
-		},
-		controller: function($scope, itemsService){
-			$scope.newItem = {
-				name: 'Name',
-				price: "Price",
-				description: 'description',
-				region: "region",
-				roast: "roast"
-			};
-			// create new item
-			$scope.addItem = function(){	
-				var newItem = JSON.stringify($scope.newItem);
-
-				itemsService.post(newItem).success(function(response){
-					$scope.allData.unshift(response.coffees); // add to top of list;
-				})
-				.error(function(data){
-					console.log(' post error');
-				}) 
-			}
-		},
-		templateUrl: 'views/admin/addItem.html'
-	}
-})
-'use strict';
-
-angular.module('AdminCtrl').directive('adminCard', function($animate){
-	return {
-		restrict: 'AE',
-		replace: true, 
-		scope: {
-			'itemData': '=',  
-			'triggers': '=', 
-			'saveItems': '=',
-			'allData': '=' 
-		},
-		controller: function($scope){},
-		link: function(scope, elem, attrs){
-			var openBtn = elem.find('#adminShowMenu');
-			var menu = elem.find('.admin-push-menu');
-
-			// open menu -- close menu is in adminsideMenu.js
-			openBtn.on('click', function(){
-				scope.$apply(function(){
-					$animate.addClass(menu, 'showMenu'); 
-				})
-			})
-		},
-		templateUrl: "views/admin/adminCard.html"
-	}
-})
-angular.module('AdminCtrl').directive('adminSideMenu', function($animate, itemsService){ 
-	return {
-		restrict: 'AE', 
-		scope: { 
-			itemData: '=', 
-			saveItems: '=',
-			triggers: '=',
-			allData: '='   
-		}, 
-		templateUrl: "views/admin/adminSideMenu.html", 
-		controller: function($scope){
-			// var item = JSON.stringify($scope.itemData);
-			var item = $scope.itemData;
-			var itemId = $scope.itemData._id; 
-			$scope.changed;
-
-			//update Item =============================
-			$scope.updateItem = function(){	
-				if($scope.changed){ 
-					itemsService.put(item, itemId).success(function(response){
-						// scope has already need changed to reflect new item
-					}).error(function(response){
-						console.log('update fail');
-					});
-				};
-			};
-
-			// Delete Item ============================
-			$scope.deleteItem = function(){
-				var id = $scope.allData.indexOf(item);
-				// remove from arrary;	
-				$scope.allData.splice(id, 1);
-				
-				itemsService.delete(itemId).success(function(response){
-					console.log('delete successful')
-				}).error(function(response){
-					console.log('delete fail')
-				});
-			};
-		},
-		link: function(scope, elem, attrs){
-			var close = elem.find('.close');
-			var remove = elem.find('.delete');
-			var adminUpdate = elem.find('.adminUpdate')
-			var menu = elem.parent();
-			var overlay = $('.mask');
-
-			// hide menu on close and overlay
-			close.on('click', function(){ hideMenu(); })
-			remove.on('click', function(){ hideMenu(); })
-			overlay.on('click', function(){ hideMenu() })
-			adminUpdate.on('click', function(){ hideMenu() })
-
-			function hideMenu(){
-				scope.$apply(function(){
-					$animate.removeClass(menu, 'showMenu');
-				})
-			}
-		},
-
-	} // end of return
-})
 //# sourceMappingURL=application.js.map
