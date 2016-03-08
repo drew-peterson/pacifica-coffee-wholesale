@@ -9,22 +9,23 @@ angular.module('CoffeeCtrl')
 			var idx = btn.indexOf('left');
 
 			elem.on('click',function(){
-
 				var first = $('.bagItem')[0]; // first item
-				var margin = $(first).css('margin-left');
-				var width = $(first).width();
+				var margin= $(first).css('marginLeft').replace('px','');
+				console.log('css margin: ' + margin);
 
-				console.log(margin);
 				if(idx >= 0){
-					marginLeft= '-33.333%';
-					$(first).css('margin-left', marginLeft);
+					marginLeft= (Number(margin) - 120);
+					$(first).css('margin-left', marginLeft +'px');
+
+					console.log("left: " + marginLeft);
 				}else{
-					marginLeft= '0%';
-					$(first).css('margin-left', marginLeft);
+					marginLeft= (Number(margin) + 120);
+					$(first).css('margin-left', marginLeft +'px');
+
+					console.log("right: " + marginLeft);
 				}
-
-
-			})
+				console.log('margin: ' + marginLeft);
+			}) // end of click
 		}
 	}
 }) 
