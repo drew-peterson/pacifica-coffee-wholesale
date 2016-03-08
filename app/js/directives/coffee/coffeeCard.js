@@ -5,12 +5,14 @@ angular.module('CoffeeCtrl')
 		replace: true,
 		restrict: 'AE',
 		scope: true,
-		controller: 'CoffeeCtrl',
-		controllerAs: 'CC',
+		controller: function(){
+			this.test = "drew peterson"
+		},
+		controllerAs: 'ctrl',
 		bindToController: {
 			item: '=',
-			removeFromCart: '&',
-			addToCart: '&' 
+			removeFromBag: '&',
+			addToBag: '&' 
 		},
 		templateUrl: 'views/coffee/coffee-card.html'
 	}

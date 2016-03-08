@@ -1,17 +1,14 @@
 <section id="coffee">
 	<h1> Hello from coffee </h1>
 	
-	<p>cart {{CC.cart}}</p>
-	<p>scope.cart {{cart}}</p>
+	<p>bag {{CC.bag}}</p>
 	
-	<button ng-click="CC.add()">add</button>
-	<button ng-click="CC.remove()">remove</button>
 	<!-- nested view for drop menu... -->
 	<coffee-card
 		ng-repeat="item in CC.items"
 		item="item"
-		remove-from-cart="CC.removeFromCart(item)"
-		add-to-cart = "CC.addToCart(item)"
+		remove-from-bag="CC.removeFrombag(item)"
+		add-to-bag = "CC.addTobag(item)"
 	></coffee-card> 
 	
 	
