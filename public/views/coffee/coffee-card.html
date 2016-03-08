@@ -1,5 +1,8 @@
 <section id="coffee-card">
-	
-	<p>This is a coffee card</p> 
-	<p>test: {{test}}</p>
-</section> 
+	<hr>
+	<p>{{CC.item.name}}</p>
+
+	<button ng-click="CC.addToCart(CC.item)">add</button>
+	<button ng-click="CC.removeFromCart(CC.item)">remove</button>
+	<hr>
+</section>  

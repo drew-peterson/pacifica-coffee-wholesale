@@ -1,13 +1,17 @@
-angular.module('CoffeeCtrl').directive('coffeeCard', function(){
+angular.module('CoffeeCtrl')
+
+.directive('coffeeCard', function(){
 	return {
 		replace: true,
-		restrict: 'A',
-		scope: {
-			test: '@'
+		restrict: 'AE',
+		scope: true,
+		controller: 'CoffeeCtrl',
+		controllerAs: 'CC',
+		bindToController: {
+			item: '=',
+			removeFromCart: '&',
+			addToCart: '&' 
 		},
-		controller: function($scope){
-			// $scope.test = "reed peterson"
-		},
-		templateUrl: '../../views/coffee/coffee-card.html'
+		templateUrl: 'views/coffee/coffee-card.html'
 	}
 });

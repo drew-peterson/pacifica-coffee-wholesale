@@ -14,7 +14,8 @@ angular.module('appRoutes', [])
    .state('coffee',{
       url: '/coffee',
       templateUrl: '../views/coffee/coffee.html',
-      controllerAs: 'coffee'  
+      controllerAs: 'CC',
+      controller: 'CoffeeCtrl'  
     })
     .state('bag',{
       url: '/bag',

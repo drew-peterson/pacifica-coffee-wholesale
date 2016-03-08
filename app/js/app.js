@@ -6,7 +6,8 @@ angular.module('pacificaApp',
   'NavCtrl',
   'ngTouch',  
   'HomeCtrl', 
-  'AdminCtrl'
+  'AdminCtrl',
+  'CoffeeCtrl'
   ])
 
 // Capitialize =========================

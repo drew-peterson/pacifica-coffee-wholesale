@@ -11,16 +11,14 @@ angular.module('AdminCtrl',[])
 	}
 
 	// GET ALL ITEMS ===========================================
-  
-	var getItems = function(){ 
-		itemsService.get().success(function(data){
-			console.log("get success");
-			$scope.items = data.coffees;  
-		})
-		.error(function(data){
-			console.log(' get error');  
-		})
-	}();
+	itemsService.get().success(function(data){
+		console.log("get success");
+		$scope.items = data.coffees;  
+	})
+	.error(function(data){
+		console.log(' get error');  
+	})
+	
 })
 
 
