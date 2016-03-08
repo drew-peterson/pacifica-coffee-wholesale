@@ -300,7 +300,7 @@ angular.module('CoffeeCtrl')
 			removeFromBag: '&'
 		},
 		link: function(){},
-		template: "<span ng-click='ctrl.removeFromBag(ctrl.item)'>{{ctrl.item.name}} | {{ctrl.item.qty}}</span>"
+		templateUrl: "views/coffee/coffeeBag.html"
 	}
 });
 

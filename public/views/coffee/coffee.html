@@ -1,9 +1,8 @@
 <section id="coffee">
 	<h1> Hello from coffee </h1>
 	
-	<div class="bag-wrapper">
-		<p>bag: {{CC.bag.length}}</p>
-		
+	<!-- Coffee BAG -fixed -->
+	<div id="coffeeBag" ng-if="CC.bag.length > 0">		
 		<coffee-bag
 			ng-repeat="item in CC.bag"
 			ng-init="item.qty='1'" 

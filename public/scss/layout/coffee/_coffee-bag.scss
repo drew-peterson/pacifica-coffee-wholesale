@@ -1,0 +1,38 @@
+
+#coffeeBag {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: $primary-color;
+	padding: $msm;
+
+	// scroller
+	overflow-x: scroll;
+    overflow-y: hidden;
+    height: 80px;
+    white-space:nowrap
+}
+
+#coffeeBag .bagItem {
+	margin-right: 10px;
+	background-color: $white;
+	min-width: 60px;
+	display: inline-block;
+}
+
+// Animations =========================================
+#coffeeBag.ng-enter{
+	transition: 0.35s all ease;
+	transform: translateY(100%);
+}
+#coffeeBag.ng-enter-active {
+	transform: translateY(0);
+}
+#coffeeBag.ng-leave{
+	transition: 0.35s all ease;
+	transform: translateY(0);
+}
+#coffeeBag.ng-leave-active {
+	transform: translateY(100%);
+}
