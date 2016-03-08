@@ -78,6 +78,7 @@
 
 // Animations =========================================
 
+// BAG Container ====
 #coffeeBag.ng-enter{
 	transition: 0.35s all ease;
 	transform: translateY(100%);
@@ -89,6 +90,34 @@
 	transition: 0.35s all ease;
 	transform: translateY(0);
 }
+
+// Item ========
+#coffeeBag .bagItem.ng-enter {
+	transition: 0.35s all ease;
+	opacity: 0; 
+	transform: translateY(-100%);
+}
+#coffeeBag .bagItem.ng-enter-active {
+	opacity: 1; 
+	transform: translateY(0);
+}
+#coffeeBag .bagItem.ng-leave {
+	transition: 0.35s all ease;
+	transform: translateY(0);
+	opacity: 1; 
+}
+#coffeeBag .bagItem.ng-leave-active {
+	opacity: 0; 
+	transform: translateY(100%);
+}
+
+
+
+
+
+
+
+
 #coffeeBag.ng-leave-active {
 	transform: translateY(100%);
 }
