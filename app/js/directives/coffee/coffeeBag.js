@@ -12,7 +12,7 @@ angular.module('CoffeeCtrl')
 			item: '=',
 			removeFromBag: '&'
 		},
-		link: function(){},
+		link: function(scope, el, attrs){},
 		templateUrl: "views/coffee/coffeeBag.html"
 	}
 });

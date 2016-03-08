@@ -4,7 +4,7 @@
 	<!-- Coffee BAG -fixed -->
 	<div id="coffeeBag" ng-if="CC.bag.length > 0">
 		<!-- controller the margin percentages. -->
-		<span class="spacer left">L</span>
+		<span scroll-item class="spacer left">L</span>
 
 		<div class="bagItems">
 			
@@ -13,11 +13,11 @@
 				ng-init="item.qty='1'" 
 				item="item"
 				remove-from-bag="CC.removeFrombag(item)"
-			></coffee-bag> 
-			
+			></coffee-bag>  
+
 		</div>
 
-		<span class="spacer right">R</span>
+		<span scroll-item class="spacer right">R</span>
 	</div>
 	
 	<!-- coffee Cards -->
