@@ -20,6 +20,94 @@ angular.module('pacificaApp',
   });
 // ========================================
 
+angular.module('AdminCtrl',[])
+
+.controller('AdminCtrl', function(itemsService, $scope){    
+	
+	$scope.items; // holds all the items...  
+
+	// triggers for hidding and showing
+	$scope.triggers = {    
+		showAdd: false,  
+		showMenu: false
+	}
+
+	// GET ALL ITEMS ===========================================
+	itemsService.get().success(function(data){
+		console.log("get success");
+		$scope.items = data.coffees;  
+	})
+	.error(function(data){
+		console.log(' get error');  
+	})
+	
+})
+
+
+
+
+
+
+
+
+
+angular.module('CoffeeCtrl', [])
+
+.controller('CoffeeCtrl', function(itemsService, $scope){
+	var CC = this;
+	CC.items; // all items
+	CC.bag = []; // bag
+	CC.drew = "Drew peterosn"  
+
+	// GET ALL ITEMS ===========================================
+	itemsService.get().success(function(data){
+		console.log("get success");
+		CC.items = data.coffees;  
+	})
+	.error(function(data){
+		console.log(' get error');   
+	});
+
+	// Add To bag ============================================
+	CC.addTobag = function(item){
+		var idx = checkIndex(item);
+		if(idx != 0){
+			CC.bag.push(item);
+			console.log('added ' + item.name );
+		};
+	};
+
+	// Remove From bag ============================================
+	CC.removeFrombag = function(item){
+		var idx = checkIndex(item);
+		if(idx >= 0){
+			CC.bag.splice(idx, 1);
+			console.log('removed ' + item.name);
+		};
+	};
+
+
+	var checkIndex = function(item){
+		var idx = CC.bag.indexOf(item);
+		return idx
+	};
+
+}); // end of ctrl
+
+
+angular.module('HomeCtrl', [])
+.controller('HomeCtrl',function(){}); 
+
+
+
+angular.module('NavCtrl',[])
+
+.controller('NavCtrl', function($scope){
+	$scope.actve;
+	$scope.hover; 
+})
+
+
 angular.module('appRoutes', [])
 
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -76,88 +164,149 @@ angular.module('pacificaApp')
     }
   }
 })
-angular.module('AdminCtrl',[])
 
-.controller('AdminCtrl', function(itemsService, $scope){    
-	
-	$scope.items; // holds all the items...  
+angular.module('CoffeeCtrl')
 
-	// triggers for hidding and showing
-	$scope.triggers = {    
-		showAdd: false,  
-		showMenu: false
+.directive('coffeeBag', function(){
+	return {
+		scope:true,
+		replace: true,
+		restrict: 'AE',
+		controller: function(){},
+		controllerAs: 'ctrl',
+		bindToController: {
+			item: '=',
+			removeFromBag: '&'
+		},
+		link: function(){},
+		template: "<span ng-click='ctrl.removeFromBag(ctrl.item)'>{{ctrl.item.name}}</span>"
 	}
-
-	// GET ALL ITEMS ===========================================
-	itemsService.get().success(function(data){
-		console.log("get success");
-		$scope.items = data.coffees;  
-	})
-	.error(function(data){
-		console.log(' get error');  
-	})
-	
-})
-
-
-
-
-
-
-
-
-
-angular.module('CoffeeCtrl', [])
-
-.controller('CoffeeCtrl', function(itemsService, $scope){
-	var CC = this;
-	CC.items; // all items
-	CC.bag = 0; 
-
-	// GET ALL ITEMS ===========================================
-	itemsService.get().success(function(data){
-		console.log("get success");
-		CC.items = data.coffees;  
-	})
-	.error(function(data){
-		console.log(' get error');   
-	});
-
-	// Add To bag ============================================
-	CC.addTobag = function(item){
-		console.log('add')
-		CC.bag += 1;
-		$scope.bag += 1;
-	};
-
-	// Remove From bag ============================================
-	CC.removeFrombag = function(item){
-		console.log('removed from bag...');
-		$scope.bag -= 1;
-		CC.bag -= 1;
-		// var idx = CC.bag.indexOf(item);
-		// if(idx >= 0){
-		// 	CC.items.splice(idx, 1);
-		// 	console.log(item.name + ' removed...')
-		// };
-	};
-
 });
 
+angular.module('CoffeeCtrl')
 
-angular.module('HomeCtrl', [])
-.controller('HomeCtrl',function(){}); 
+.directive('coffeeCard', function(){
+	return {
+		replace: true,
+		restrict: 'AE',
+		scope: true,
+		controller: function(){
+			this.test = "drew peterson" 
+		},
+		controllerAs: 'ctrl',
+		bindToController: {
+			item: '=',
+			removeFromBag: '&',
+			addToBag: '&' 
+		},
+		templateUrl: 'views/coffee/coffee-card.html'
+	}
+});
+
+// Lazy Load ======================================
+// lazy-load attr on image or background, must have parent...
+angular.module('pacificaApp')
+  .directive('lazyLoad', function($document, $window){ 
+    return {
+      restrict: 'AE', 
+      link: function(scope, elem, attrs){
+        var parent = $(elem).parent(); // image is hiden so we need container
+        var elPos = $(parent).offset().top; // position of parent
+        var windowHeight = $($window).height();
+
+        var barPos;
+        var position; 
+
+        var loaded; // load image only once
+      
+        var offset = 100; // so the element is visible on page by 100px
 
 
+        // scroll event
+        $document.bind('scroll', function(){ 
+          var barPos = $($document).scrollTop(); // scrollbar pos
+          var position = elPos - barPos; // elment pos from bottom of window
+          
+          if( ((position + offset) <= windowHeight) ){
+            if(!loaded){
+              loadImage();
+            }
+          }
+        });
+        // load Images =================
+        var loadImage = function(){
+            $(elem).fadeIn();
+            console.log('loading image');
+            loaded = true;
+        }
 
-angular.module('NavCtrl',[])
-
-.controller('NavCtrl', function($scope){
-	$scope.actve;
-	$scope.hover; 
+      } // end of link
+    } // end of return
+}) // end of directive
+// ===============================================
+angular.module('HomeCtrl').directive('homeCard', function(){
+	return { 
+		restrict: 'AE', 
+		replace: true,
+		scope: {
+			'title': '@',
+			'color': '@',
+			'button': '@', 
+			'content': '@',
+			'image': '@',
+			'textColor': '@', 
+			'url': '@',  
+		},
+		templateUrl: "views/home/homeCard.html" 
+	}
 })
+angular.module('HomeCtrl').directive('videoHero', function(){ 
+	return {
+		restrict: 'AE', 
+		replace: true,
+		link: function(scope, elem, attr){ 
 
+			// play video when it buffers
+			var video = document.getElementById('bgvid');
+			var chrome = navigator.appVersion.indexOf('Chrome');
+			// if Chrome Else
+			if(chrome != 0){	
+				video.play(); 
+			}else{
+				video.oncanplaythrough = function() {
+    				video.play(); 
+				};
+				
+			}
+		},
+		templateUrl: "views/home/youtube.html" 
+	}
+}); 
+angular.module('NavCtrl').directive('toggleClass', function(){
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs) {
+	
+			// clicking ham menu in mobile mode only
+			element.bind('click', function(){
+				var isMobile = event.sourceCapabilities.firesTouchEvents;
+				if(isMobile){
+					
+					$('#sideNav').removeClass('hover');
+					$('#sideNav').toggleClass('active');	
 
+					$('#main').on('click', function(){
+						$('#sideNav').removeClass('hover');
+						$('#sideNav').removeClass('active');
+
+						// remove listner
+						$(this).off()								
+					});
+				};
+			});
+		} // end of link
+	}
+});
 angular.module('AdminCtrl').directive('addItem', function(){
 	return {
 		restrict: 'AE',
@@ -279,128 +428,4 @@ angular.module('AdminCtrl').directive('adminSideMenu', function($animate, itemsS
 
 	} // end of return
 })
-angular.module('CoffeeCtrl')
-
-.directive('coffeeCard', function(){
-	return {
-		replace: true,
-		restrict: 'AE',
-		scope: true,
-		controller: function(){
-			this.test = "drew peterson"
-		},
-		controllerAs: 'ctrl',
-		bindToController: {
-			item: '=',
-			removeFromBag: '&',
-			addToBag: '&' 
-		},
-		templateUrl: 'views/coffee/coffee-card.html'
-	}
-});
-
-// Lazy Load ======================================
-// lazy-load attr on image or background, must have parent...
-angular.module('pacificaApp')
-  .directive('lazyLoad', function($document, $window){ 
-    return {
-      restrict: 'AE', 
-      link: function(scope, elem, attrs){
-        var parent = $(elem).parent(); // image is hiden so we need container
-        var elPos = $(parent).offset().top; // position of parent
-        var windowHeight = $($window).height();
-
-        var barPos;
-        var position; 
-
-        var loaded; // load image only once
-      
-        var offset = 100; // so the element is visible on page by 100px
-
-
-        // scroll event
-        $document.bind('scroll', function(){ 
-          var barPos = $($document).scrollTop(); // scrollbar pos
-          var position = elPos - barPos; // elment pos from bottom of window
-          
-          if( ((position + offset) <= windowHeight) ){
-            if(!loaded){
-              loadImage();
-            }
-          }
-        });
-        // load Images =================
-        var loadImage = function(){
-            $(elem).fadeIn();
-            console.log('loading image');
-            loaded = true;
-        }
-
-      } // end of link
-    } // end of return
-}) // end of directive
-// ===============================================
-angular.module('HomeCtrl').directive('homeCard', function(){
-	return { 
-		restrict: 'AE', 
-		replace: true,
-		scope: {
-			'title': '@',
-			'color': '@',
-			'button': '@', 
-			'content': '@',
-			'image': '@',
-			'textColor': '@', 
-			'url': '@',  
-		},
-		templateUrl: "views/home/homeCard.html" 
-	}
-})
-angular.module('HomeCtrl').directive('videoHero', function(){ 
-	return {
-		restrict: 'AE', 
-		replace: true,
-		link: function(scope, elem, attr){ 
-
-			// play video when it buffers
-			var video = document.getElementById('bgvid');
-			var chrome = navigator.appVersion.indexOf('Chrome');
-			// if Chrome Else
-			if(chrome != 0){	
-				video.play(); 
-			}else{
-				video.oncanplaythrough = function() {
-    				video.play(); 
-				};
-				
-			}
-		},
-		templateUrl: "views/home/youtube.html" 
-	}
-}); 
-angular.module('NavCtrl').directive('toggleClass', function(){
-	return {
-		restrict: 'A',
-		link: function(scope, element, attrs) {
-	
-			// clicking ham menu in mobile mode only
-			element.bind('click', function(){
-				var isMobile = event.sourceCapabilities.firesTouchEvents;
-				if(isMobile){
-					
-					$('#sideNav').removeClass('hover');
-					$('#sideNav').toggleClass('active');	
-
-					$('#main').on('click', function(){
-						$('#sideNav').removeClass('hover');
-						$('#sideNav').removeClass('active');
-
-						// remove listner
-						$(this).off()								
-					});
-				};
-			});
-		} // end of link
-	}
-});
 //# sourceMappingURL=application.js.map

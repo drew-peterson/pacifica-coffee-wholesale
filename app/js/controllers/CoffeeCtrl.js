@@ -3,7 +3,8 @@ angular.module('CoffeeCtrl', [])
 .controller('CoffeeCtrl', function(itemsService, $scope){
 	var CC = this;
 	CC.items; // all items
-	CC.bag = 0; 
+	CC.bag = []; // bag
+	CC.drew = "Drew peterosn"  
 
 	// GET ALL ITEMS ===========================================
 	itemsService.get().success(function(data){
@@ -16,22 +17,27 @@ angular.module('CoffeeCtrl', [])
 
 	// Add To bag ============================================
 	CC.addTobag = function(item){
-		console.log('add')
-		CC.bag += 1;
-		$scope.bag += 1;
+		var idx = checkIndex(item);
+		if(idx != 0){
+			CC.bag.push(item);
+			console.log('added ' + item.name );
+		};
 	};
 
 	// Remove From bag ============================================
 	CC.removeFrombag = function(item){
-		console.log('removed from bag...');
-		$scope.bag -= 1;
-		CC.bag -= 1;
-		// var idx = CC.bag.indexOf(item);
-		// if(idx >= 0){
-		// 	CC.items.splice(idx, 1);
-		// 	console.log(item.name + ' removed...')
-		// };
+		var idx = checkIndex(item);
+		if(idx >= 0){
+			CC.bag.splice(idx, 1);
+			console.log('removed ' + item.name);
+		};
 	};
 
-});
+
+	var checkIndex = function(item){
+		var idx = CC.bag.indexOf(item);
+		return idx
+	};
+
+}); // end of ctrl
 

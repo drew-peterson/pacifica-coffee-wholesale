@@ -1,11 +1,8 @@
 <section id="coffee-card">
 	<hr>
 	<p>{{ctrl.item.name}}</p>
-	<p>{{ctrl.test}}</p>
-
-	<p>cart: {{CC.bag}}</p>
+	<p>{{ctrl.item.price | currency}}</p>
 
 	<button ng-click="ctrl.addToBag(ctrl.item)">add</button>
-	<button ng-click="ctrl.removeFromBag(ctrl.item)">remove</button>
 	<hr>
 </section>  
