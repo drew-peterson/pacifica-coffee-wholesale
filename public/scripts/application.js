@@ -108,6 +108,24 @@ angular.module('NavCtrl',[])
 })
 
 
+angular.module('pacificaApp')
+
+.service('itemsService', function($http){ 
+  return {
+    get: function(){
+      return $http.get('/api/coffees'); 
+    },
+    post: function(data){  
+      return $http.post('api/coffees', data);
+    },
+    put: function(data, id){
+      return $http.put('api/coffees/' + id, data);
+    },
+    delete: function(id){  
+      return $http.delete('api/coffees/' + id);
+    }
+  }
+})
 angular.module('appRoutes', [])
 
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -146,24 +164,6 @@ angular.module('appRoutes', [])
 
 });
 
-angular.module('pacificaApp')
-
-.service('itemsService', function($http){ 
-  return {
-    get: function(){
-      return $http.get('/api/coffees'); 
-    },
-    post: function(data){  
-      return $http.post('api/coffees', data);
-    },
-    put: function(data, id){
-      return $http.put('api/coffees/' + id, data);
-    },
-    delete: function(id){  
-      return $http.delete('api/coffees/' + id);
-    }
-  }
-})
 angular.module('AdminCtrl').directive('addItem', function(){
 	return {
 		restrict: 'AE',
@@ -345,12 +345,13 @@ angular.module('CoffeeCtrl')
 
 					console.log("left: " + marginLeft);
 				}else{
-					marginLeft= (Number(margin) + 120);
-					$(first).css('margin-left', marginLeft +'px');
+					if(margin != '0'){
+						marginLeft= (Number(margin) + 120);
+						$(first).css('margin-left', marginLeft +'px');
 
-					console.log("right: " + marginLeft);
+						console.log("right: " + marginLeft);
+					}
 				}
-				console.log('margin: ' + marginLeft);
 			}) // end of click
 		}
 	}

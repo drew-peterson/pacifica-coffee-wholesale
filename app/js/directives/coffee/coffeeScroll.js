@@ -19,12 +19,13 @@ angular.module('CoffeeCtrl')
 
 					console.log("left: " + marginLeft);
 				}else{
-					marginLeft= (Number(margin) + 120);
-					$(first).css('margin-left', marginLeft +'px');
+					if(margin != '0'){
+						marginLeft= (Number(margin) + 120);
+						$(first).css('margin-left', marginLeft +'px');
 
-					console.log("right: " + marginLeft);
+						console.log("right: " + marginLeft);
+					}
 				}
-				console.log('margin: ' + marginLeft);
 			}) // end of click
 		}
 	}
