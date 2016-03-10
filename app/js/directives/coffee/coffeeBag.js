@@ -5,11 +5,7 @@ angular.module('CoffeeCtrl')
 		scope:true,
 		replace: true,
 		restrict: 'AE', 
-		controller: function(){
-			this.click = function(){
-				console.log('click');
-			}
-		}, 
+		controller: function(){}, 
 		controllerAs: 'ctrl',
 		bindToController: {
 			item: '=',

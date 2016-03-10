@@ -65,7 +65,6 @@ angular.module('CoffeeCtrl', [])
 	var CC = this;
 	CC.items; // all items
 	CC.bag = []; // bag
-	CC.drew = "Drew petersion"
 
 	// GET ALL ITEMS ===========================================
 	itemsService.get().success(function(data){
@@ -300,11 +299,7 @@ angular.module('CoffeeCtrl')
 		scope:true,
 		replace: true,
 		restrict: 'AE', 
-		controller: function(){
-			this.click = function(){
-				console.log('click');
-			}
-		}, 
+		controller: function(){}, 
 		controllerAs: 'ctrl',
 		bindToController: {
 			item: '=',

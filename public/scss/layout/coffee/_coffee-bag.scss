@@ -43,23 +43,34 @@
 
 #coffeeBag .arrow {
 	display: none;
-	position: absolute;
-	z-index: 100;
-	height: 100%;
-	width: 15px;
-	top: 0;
-	cursor: pointer;
+
+	// show in desktop mode only
 	@include desktop {
 		display: inline-block;
+		position: absolute;
+		z-index: 100;
+		height: 35px;
+		width: 35px;
+		top: 0;
+		cursor: pointer;
+		top: 50%;
+		transform: translateY(-50%);
+		border-radius: 50%;
+		background-color: $primary-color;
+	}
+
+	& .material-icons {
+		width: 100%;
+		text-align: center;
+		line-height: 35px;
+		color: $white;
 	}
 }
 #coffeeBag .arrow.left {
-	border: 1px solid red;
-	left: 0;
+	left: 10px;
 }
 #coffeeBag .arrow.right {
-	border: 1px solid red;
-	right: 0;
+	right: 10px;
 }
 
 // ========================================
@@ -79,6 +90,7 @@
 	overflow-x: auto;
 
 	@include desktop {
+	overflow-x: hidden;
 	overflow: hidden;
 	}
 }
