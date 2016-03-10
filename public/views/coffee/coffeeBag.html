@@ -10,7 +10,7 @@
 		<div class="bagItems">
 			
 			<coffee-bag-item
-				ng-repeat="item in CC.bag"
+				ng-repeat="item in CC.bag | reverse"
 				ng-init="item.qty='1'" 
 				item="item"
 				remove-from-bag="CC.removeFrombag(item)"

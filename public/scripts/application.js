@@ -17,8 +17,16 @@ angular.module('pacificaApp',
       var reg = (all) ? /([^\W_]+[^\s-]*) */g : /([^\W_]+[^\s-]*)/;
       return (!!input) ? input.replace(reg, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) : '';
     };
-  });
+  })
 // ========================================
+
+// angular reverse row...
+.filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+});
+
 
 angular.module('AdminCtrl',[])
 
@@ -108,24 +116,6 @@ angular.module('NavCtrl',[])
 })
 
 
-angular.module('pacificaApp')
-
-.service('itemsService', function($http){ 
-  return {
-    get: function(){
-      return $http.get('/api/coffees'); 
-    },
-    post: function(data){  
-      return $http.post('api/coffees', data);
-    },
-    put: function(data, id){
-      return $http.put('api/coffees/' + id, data);
-    },
-    delete: function(id){  
-      return $http.delete('api/coffees/' + id);
-    }
-  }
-})
 angular.module('appRoutes', [])
 
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -164,6 +154,24 @@ angular.module('appRoutes', [])
 
 });
 
+angular.module('pacificaApp')
+
+.service('itemsService', function($http){ 
+  return {
+    get: function(){
+      return $http.get('/api/coffees'); 
+    },
+    post: function(data){  
+      return $http.post('api/coffees', data);
+    },
+    put: function(data, id){
+      return $http.put('api/coffees/' + id, data);
+    },
+    delete: function(id){  
+      return $http.delete('api/coffees/' + id);
+    }
+  }
+})
 angular.module('AdminCtrl').directive('addItem', function(){
 	return {
 		restrict: 'AE',
@@ -345,6 +353,23 @@ angular.module('CoffeeCtrl')
 			item: '=',
 			removeFromBag: '&',
 			addToBag: '&' 
+		},
+		link: function(scope, elem, attrs){
+			var btn = elem.find('button');
+
+			btn.on('click',function(){
+				var bag = $('#coffeeBag');
+				var toggle = bag.hasClass('toggle');
+
+				if(toggle){
+					bag.addClass('bounce');
+
+					setTimeout(function(){
+						bag.removeClass('bounce');
+					},600)
+				}
+
+			})
 		},
 		templateUrl: 'views/coffee/coffee-card.html'
 	}

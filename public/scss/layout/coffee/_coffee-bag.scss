@@ -109,6 +109,12 @@
 
 // Animations =========================================
 
+// bounce =========
+#coffeeBag.bounce {
+	transform: translateY(95px);
+}
+
+
 // BAG Container ====
 #coffeeBag.ng-enter{
 	transition: 0.35s all ease;

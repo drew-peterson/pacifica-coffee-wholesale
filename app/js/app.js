@@ -17,5 +17,13 @@ angular.module('pacificaApp',
       var reg = (all) ? /([^\W_]+[^\s-]*) */g : /([^\W_]+[^\s-]*)/;
       return (!!input) ? input.replace(reg, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) : '';
     };
-  });
+  })
 // ========================================
+
+// angular reverse row...
+.filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+});
+
