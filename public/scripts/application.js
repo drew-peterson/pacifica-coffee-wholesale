@@ -285,24 +285,50 @@ angular.module('AdminCtrl').directive('adminSideMenu', function($animate, itemsS
 
 	} // end of return
 })
-
 angular.module('CoffeeCtrl')
 
 .directive('coffeeBag', function(){
 	return {
 		scope:true,
 		replace: true,
+		restrict: 'AE', 
+		controller: function(){
+			this.click = function(){
+				console.log('click');
+			}
+		}, 
+		controllerAs: 'ctrl',
+		bindToController: {
+			item: '=',
+			removeFromBag: '&'
+		}, 
+		link: function(scope, el, attrs){},
+		templateUrl: "views/coffee/coffeeBag.html"
+	} 
+});
+
+angular.module('CoffeeCtrl')
+
+.directive('coffeeBagItem', function(){
+	return {
+		scope:true,
+		replace: true,
 		restrict: 'AE',
-		controller: function(){},
+		controller: function(){}, 
 		controllerAs: 'ctrl',
 		bindToController: {
 			item: '=',
 			removeFromBag: '&'
 		},
 		link: function(scope, el, attrs){},
-		templateUrl: "views/coffee/coffeeBag.html"
-	}
+		templateUrl: "views/coffee/coffeeBagItem.html" 
+	} 
 });
+
+
+// hide show menu.....
+
+
 
 angular.module('CoffeeCtrl')
 

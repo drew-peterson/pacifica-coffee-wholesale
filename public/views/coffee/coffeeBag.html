@@ -1,11 +1,22 @@
+	<div id="coffeeBag" ng-if="CC.bag.length > 0" ng-class="{toggle: active}">
+		<!-- draggable menu... -->
+		<span class="bagDrag" 
+			ng-click="active= !active"
+		>&#xE25D;</span>
 
+		<!-- controller the margin percentages. -->
+		<span scroll-item class="arrow left">L</span>
 
-<div class="bagItem"> 
+		<div class="bagItems">
+			
+			<coffee-bag-item
+				ng-repeat="item in CC.bag"
+				ng-init="item.qty='1'" 
+				item="item"
+				remove-from-bag="CC.removeFrombag(item)"
+			></coffee-bag-item>  
 
-	<div class="content">
-		<span >{{ctrl.item.name}} | {{ctrl.item.qty}}</span><br>
-		<button ng-click='ctrl.removeFromBag(ctrl.item)'>remove</button>	
+		</div>
+
+		<span scroll-item class="arrow right">R</span>
 	</div>
-</div>
-
-

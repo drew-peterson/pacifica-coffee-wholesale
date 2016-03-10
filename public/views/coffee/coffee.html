@@ -1,29 +1,6 @@
 <section id="coffee">
 	<h1> Hello from coffee </h1>
-	
-	<!-- Coffee BAG -fixed -->
-	<div id="coffeeBag" ng-if="CC.bag.length > 0">
-	
-		<!-- draggable menu... -->
-		<span class="bagDrag">&#xE25D;</span>
-
-		<!-- controller the margin percentages. -->
-		<span scroll-item class="arrow left">L</span>
-
-		<div class="bagItems">
-			
-			<coffee-bag
-				ng-repeat="item in CC.bag"
-				ng-init="item.qty='1'" 
-				item="item"
-				remove-from-bag="CC.removeFrombag(item)"
-			></coffee-bag>  
-
-		</div>
-
-		<span scroll-item class="arrow right">R</span>
-	</div>
-	
+		
 	<!-- coffee Cards -->
 	<div class="card-wrapper">
 
@@ -34,6 +11,12 @@
 		></coffee-card> 
 		
 	</div>
+
+	<!-- bag -->
+	<coffee-bag
+		item="item"
+		remove-from-bag="CC.removeFrombag(item)"
+	></coffee-bag>
 
 	
 	

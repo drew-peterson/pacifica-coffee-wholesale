@@ -5,6 +5,12 @@
 	left: 0;
 	width: 100%;
 	background-color: $google-gray;
+	transition: 0.35s all ease;
+
+	// hide show when click on menu
+	&.toggle {
+		transform: translateY(150px);
+	}
 }
 
 // draggable menu ==========================
@@ -18,10 +24,11 @@
 	position: absolute;
 
 	background-color: $google-gray;
+	cursor: pointer;
 
 	top: -20px;
 	left: 50%;
-		transform: translateX(-50%);
+	transform: translateX(-50%);
 	height: 20px;
 	width: 70px;
 }
