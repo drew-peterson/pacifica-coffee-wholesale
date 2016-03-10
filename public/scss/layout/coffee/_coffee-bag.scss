@@ -57,6 +57,12 @@
 		transform: translateY(-50%);
 		border-radius: 50%;
 		background-color: $primary-color;
+		transition: 0.35s opacity ease;
+		opacity: 0.3;
+
+		&:hover {
+			opacity: 1;
+		}
 	}
 
 	& .material-icons {
@@ -67,10 +73,10 @@
 	}
 }
 #coffeeBag .arrow.left {
-	left: 10px;
+	left: 1.5%;
 }
 #coffeeBag .arrow.right {
-	right: 10px;
+	right: 1.5%;
 }
 
 // ========================================
@@ -85,13 +91,17 @@
 	width: 100%;
 	height: 150px;
 	white-space: nowrap;
-	padding: $med;
 	overflow: hidden;
 	overflow-x: auto;
+	padding: $med;
 
 	@include desktop {
-	overflow-x: hidden;
-	overflow: hidden;
+		overflow-x: hidden;
+		overflow: hidden;
+		padding: $med 0;
+		width: 90%;
+		margin: 0 auto;
+		height: 250px;
 	}
 }
 
@@ -108,6 +118,11 @@
 	height: 100%;
 	overflow: hidden;
 	padding: $msm;
+
+	@include desktop {
+		width: 200px;
+		margin-left: $med;
+	}
 }
 // ===================================================
 
