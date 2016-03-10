@@ -5,26 +5,28 @@
 	left: 0;
 	width: 100%;
 	background-color: $google-gray;
-	
-	// draggable menu ====================
-	&::before {
-		content: "\E25D";
-		font-family: 'Material Icons';
-		font-size: 30px;;
-		line-height: 20px;
-		text-align: center;
-		display: inline-block;
-		position: absolute;
-
-		background-color: $google-gray;
-
-		top: -20px;
-		left: 50%;
-  		transform: translateX(-50%);
-		height: 20px;
-		width: 70px;
-	}
 }
+
+// draggable menu ==========================
+
+#coffeeBag .bagDrag{
+	font-family: 'Material Icons';
+	font-size: 30px;
+	line-height: 20px;
+	text-align: center; 
+	display: inline-block;
+	position: absolute;
+
+	background-color: $google-gray;
+
+	top: -20px;
+	left: 50%;
+		transform: translateX(-50%);
+	height: 20px;
+	width: 70px;
+}
+
+
 
 // arrow ===========================
 
