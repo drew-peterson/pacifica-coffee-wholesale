@@ -65,6 +65,10 @@ angular.module('CoffeeCtrl', [])
 	var CC = this;
 	CC.items; // all items
 	CC.bag = []; // bag
+	CC.total = {
+		amount: 0,
+		total: 0
+	}
 
 	// GET ALL ITEMS ===========================================
 	itemsService.get().success(function(data){
