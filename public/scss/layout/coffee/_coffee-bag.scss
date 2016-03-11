@@ -9,7 +9,31 @@
 
 	// hide show when click on menu
 	&.toggle {
-		transform: translateY(150px);
+		transform: translateY(100%);
+	}
+}
+
+// SCROLLER ================================
+
+#coffeeBag .bagItems {
+	position: relative;
+	width: 100%;
+	height: 150px;
+	white-space: nowrap;
+	overflow: hidden;
+	overflow-x: auto;
+	padding: $med;
+
+	@include tablet {
+		height: 250px;
+	}
+
+	@include desktop {
+		overflow-x: hidden;
+		overflow: hidden;
+		padding: $med 0; 
+		width: 90%;
+		margin: 0 auto;
 	}
 }
 
@@ -84,65 +108,13 @@
 
 // margin-left + width: 100+% works...
 
-// SCROLLER ================================
-
-#coffeeBag .bagItems {
-	position: relative;
-	width: 100%;
-	height: 150px;
-	white-space: nowrap;
-	overflow: hidden;
-	overflow-x: auto;
-	padding: $med;
-
-	@include desktop {
-		overflow-x: hidden;
-		overflow: hidden;
-		padding: $med 0;
-		width: 90%;
-		margin: 0 auto;
-		height: 250px;
-	}
-}
-
-// ===================================================
-
-
-// Individual Item =====================================
-
-#coffeeBag .bagItem {
-	display: inline-block;
-	background-color: darken($google-gray, 5%);
-	margin-left: 10px;
-	width: 120px;
-	height: 100%;
-	overflow: hidden;
-	padding: $msm;
-
-	@include desktop {
-		width: 200px;
-		margin-left: $med;
-	}
-}
-// ===================================================
-
-#coffeeBag .bagItem:nth-of-type(1) {
-	margin-left: 0;
-}
-
-
-
-
-
-
-
 
 
 // Animations =========================================
 
 // bounce =========
 #coffeeBag.bounce {
-	transform: translateY(95px);
+	transform: translateY(70%);
 }
 
 // BAG Container ====
@@ -156,6 +128,9 @@
 #coffeeBag.ng-leave{
 	transition: 0.35s all ease;
 	transform: translateY(0);
+}
+#coffeeBag.ng-leave-active {
+	transform: translateY(100%);
 }
 
 // Item ========
@@ -185,6 +160,3 @@
 
 
 
-#coffeeBag.ng-leave-active {
-	transform: translateY(100%);
-}

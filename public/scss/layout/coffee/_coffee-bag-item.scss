@@ -1,0 +1,51 @@
+
+// Individual Item =====================================
+
+#coffeeBag .bagItem {
+	display: inline-block;
+	background-color: darken($google-gray, 5%);
+	margin-left: 10px;
+	width: 120px;
+	height: 100%;
+	overflow: hidden;
+	padding: $msm;
+	text-align: center;
+	text-overflow: ellipsis;
+
+	@include tablet {
+		width: 200px;
+		margin-left: $med;
+		padding: $med;
+		
+	}
+}
+// ===================================================
+
+#coffeeBag .bagItem .content {
+	display: flex; 
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+
+	button {
+		height: 25px;
+		cursor: pointer;
+		font-size: 0.85rem;
+		opacity: 0.3;
+		transition: 0.3s opacity ease;
+		&:hover {
+			opacity: 1;
+		}
+	}
+}
+
+#coffeeBag .bagItem:nth-of-type(1) {
+	margin-left: 0;
+}
+
+
+
+
+
+
+
