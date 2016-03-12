@@ -6,7 +6,11 @@ angular.module('CoffeeCtrl')
 		restrict: 'AE',
 		scope: true,
 		controller: function(){
-			this.test = "drew peterson" 
+			var ctrl = this;
+
+			ctrl.add = function(coffee){
+				ctrl.addToBag({coffee:coffee});
+			} 
 		},
 		controllerAs: 'ctrl',
 		bindToController: {

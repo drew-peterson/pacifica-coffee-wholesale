@@ -3,7 +3,7 @@
 	<p>{{item.name}}</p>
 	<p>{{item.price | currency}}</p>
 
-	<button ng-click="ctrl.addToBag(item); select = true">add</button>
+	<button ng-click="ctrl.add(item); select = true">add</button>
 	<select ng-model="item.qty">
 		<option ng-selected="true" value="1" >1</option> 
 		<option value="2" >2</option>

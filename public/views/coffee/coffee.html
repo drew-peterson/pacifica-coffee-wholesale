@@ -11,7 +11,8 @@
 		<coffee-card
 			ng-repeat="item in CC.items" 
 			add-to-bag = "CC.addTobag(coffee)"
-		></coffee-card> 
+			ng-init="item.qty=1"
+		></coffee-card>  
 		
 	</div>
 
