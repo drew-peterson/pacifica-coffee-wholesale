@@ -1,9 +1,12 @@
  
 // Side Menu =====================================
+.admin-push-menu {
+	z-index: 1000;
+}
+
 
  .admin-push-menu, 
  .addItem {
- 	z-index: 300; 
 	position: fixed; 
 	background-color: $google-gray;
 	height: 100%;
