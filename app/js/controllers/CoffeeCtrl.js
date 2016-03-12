@@ -27,7 +27,8 @@ angular.module('CoffeeCtrl', [])
 	};
 
 	// Remove From bag ============================================
-	CC.removeFrombag = function(item){
+	CC.removeFromBag = function(item){
+		console.log('remove from bag ' + item)
 		var idx = checkIndex(item);
 		if(idx >= 0){
 			CC.bag.splice(idx, 1);

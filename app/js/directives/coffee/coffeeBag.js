@@ -7,10 +7,7 @@ angular.module('CoffeeCtrl')
 		restrict: 'AE', 
 		controller: function(){}, 
 		controllerAs: 'ctrl',
-		bindToController: {
-			item: '=',
-			removeFromBag: '&'
-		}, 
+		bindToController: {}, 
 		link: function(scope, el, attrs){},
 		templateUrl: "views/coffee/coffeeBag.html"
 	} 

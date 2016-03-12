@@ -3,7 +3,7 @@
 	<div class="total" ng-if="CC.total.amount > 0">
 		<span> {{CC.total.amount}} @ {{CC.total.total | currency}}</span>
 		<p>**Tax not included</p>
-	</div>
+	</div> 
 		
 	<!-- coffee Cards -->
 	<div class="card-wrapper">
@@ -17,10 +17,7 @@
 	</div>
 
 	<!-- bag -->
-	<coffee-bag
-		item="item"
-		remove-from-bag="CC.removeFrombag(item)"
-	></coffee-bag>
+	<coffee-bag></coffee-bag>
 
 	
 	

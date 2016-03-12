@@ -88,7 +88,8 @@ angular.module('CoffeeCtrl', [])
 	};
 
 	// Remove From bag ============================================
-	CC.removeFrombag = function(item){
+	CC.removeFromBag = function(item){
+		console.log('remove from bag ' + item)
 		var idx = checkIndex(item);
 		if(idx >= 0){
 			CC.bag.splice(idx, 1);
@@ -295,47 +296,6 @@ angular.module('AdminCtrl').directive('adminSideMenu', function($animate, itemsS
 
 	} // end of return
 })
-// Lazy Load ======================================
-// lazy-load attr on image or background, must have parent...
-angular.module('pacificaApp')
-  .directive('lazyLoad', function($document, $window){ 
-    return {
-      restrict: 'AE', 
-      link: function(scope, elem, attrs){
-        var parent = $(elem).parent(); // image is hiden so we need container
-        var elPos = $(parent).offset().top; // position of parent
-        var windowHeight = $($window).height();
-
-        var barPos;
-        var position; 
-
-        var loaded; // load image only once
-      
-        var offset = 100; // so the element is visible on page by 100px
-
-
-        // scroll event
-        $document.bind('scroll', function(){ 
-          var barPos = $($document).scrollTop(); // scrollbar pos
-          var position = elPos - barPos; // elment pos from bottom of window
-          
-          if( ((position + offset) <= windowHeight) ){
-            if(!loaded){
-              loadImage();
-            }
-          }
-        });
-        // load Images =================
-        var loadImage = function(){
-            $(elem).fadeIn();
-            console.log('loading image');
-            loaded = true;
-        }
-
-      } // end of link
-    } // end of return
-}) // end of directive
-// ===============================================
 angular.module('CoffeeCtrl')
 
 .directive('coffeeBag', function(){
@@ -345,10 +305,7 @@ angular.module('CoffeeCtrl')
 		restrict: 'AE', 
 		controller: function(){}, 
 		controllerAs: 'ctrl',
-		bindToController: {
-			item: '=',
-			removeFromBag: '&'
-		}, 
+		bindToController: {}, 
 		link: function(scope, el, attrs){},
 		templateUrl: "views/coffee/coffeeBag.html"
 	} 
@@ -357,11 +314,17 @@ angular.module('CoffeeCtrl')
 angular.module('CoffeeCtrl')
 
 .directive('coffeeBagItem', function(){
-	return {
+	return { 
 		scope:true,
 		replace: true,
 		restrict: 'AE',
-		controller: function(){}, 
+		controller: function(){
+			var ctrl = this;
+
+			ctrl.remove = function(coffee){
+				ctrl.removeFromBag({coffee:coffee}); // has to be object...
+			}
+		}, 
 		controllerAs: 'ctrl',
 		bindToController: {
 			item: '=',
@@ -448,6 +411,47 @@ angular.module('CoffeeCtrl')
 		}
 	}
 }) 
+// Lazy Load ======================================
+// lazy-load attr on image or background, must have parent...
+angular.module('pacificaApp')
+  .directive('lazyLoad', function($document, $window){ 
+    return {
+      restrict: 'AE', 
+      link: function(scope, elem, attrs){
+        var parent = $(elem).parent(); // image is hiden so we need container
+        var elPos = $(parent).offset().top; // position of parent
+        var windowHeight = $($window).height();
+
+        var barPos;
+        var position; 
+
+        var loaded; // load image only once
+      
+        var offset = 100; // so the element is visible on page by 100px
+
+
+        // scroll event
+        $document.bind('scroll', function(){ 
+          var barPos = $($document).scrollTop(); // scrollbar pos
+          var position = elPos - barPos; // elment pos from bottom of window
+          
+          if( ((position + offset) <= windowHeight) ){
+            if(!loaded){
+              loadImage();
+            }
+          }
+        });
+        // load Images =================
+        var loadImage = function(){
+            $(elem).fadeIn();
+            console.log('loading image');
+            loaded = true;
+        }
+
+      } // end of link
+    } // end of return
+}) // end of directive
+// ===============================================
 angular.module('HomeCtrl').directive('homeCard', function(){
 	return { 
 		restrict: 'AE', 
