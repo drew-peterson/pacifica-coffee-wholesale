@@ -89,7 +89,7 @@ $transition: all 0.35 ease;
 
 // Full opacity container ============
 
-@mixin full-opacity($opacity: 0.4){
+@mixin full-opacity($opacity: 0.8){
   &::after {
     content: '';
     display: block;
