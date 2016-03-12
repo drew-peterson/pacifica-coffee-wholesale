@@ -33,6 +33,11 @@ angular.module('CoffeeCtrl', [])
 		updateTotal();
 	};
 
+	// UPDATE BAG ==================================================
+	CC.updateBag = function(item){
+		updateTotal();
+	}
+
 
 	var checkIndex = function(item){
 		var idx = CC.bag.indexOf(item);
