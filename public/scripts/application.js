@@ -65,10 +65,6 @@ angular.module('CoffeeCtrl', [])
 	var CC = this;
 	CC.items; // all items
 	CC.bag = []; // bag
-	CC.total = {
-		amount: 0,
-		total: 0
-	}
 
 	// GET ALL ITEMS ===========================================
 	itemsService.get().success(function(data){
@@ -81,20 +77,21 @@ angular.module('CoffeeCtrl', [])
 	// Add To bag ============================================
 	CC.addTobag = function(item){
 		var idx = checkIndex(item);
-		if(idx == -1){
+		if(idx == -1){ // item does not exist
 			CC.bag.push(item);
-			console.log('added ' + item.name + " qty: " + item.qty );
 		}
+		updateTotal();
 	};
 
 	// Remove From bag ============================================
 	CC.removeFromBag = function(item){
 		console.log('remove from bag ' + item)
 		var idx = checkIndex(item);
-		if(idx >= 0){
+		if(idx >= 0){	
 			CC.bag.splice(idx, 1);
-			console.log('removed ' + item.name);
 		};
+		console.log('bag', CC.bag)
+		updateTotal();
 	};
 
 
@@ -102,6 +99,15 @@ angular.module('CoffeeCtrl', [])
 		var idx = CC.bag.indexOf(item);
 		return idx
 	};
+
+	var updateTotal = function(){
+		CC.total = {amount: 0,total: 0} // total
+		CC.bag.forEach(function(item){
+			var total = item.price * item.qty;
+			CC.total.amount += Number(item.qty);
+			CC.total.total += total;
+		});
+	}
 
 }); // end of ctrl
 
@@ -411,6 +417,44 @@ angular.module('CoffeeCtrl')
 		}
 	}
 }) 
+angular.module('HomeCtrl').directive('homeCard', function(){
+	return { 
+		restrict: 'AE', 
+		replace: true,
+		scope: {
+			'title': '@',
+			'color': '@',
+			'button': '@', 
+			'content': '@',
+			'image': '@',
+			'textColor': '@', 
+			'url': '@',  
+		},
+		templateUrl: "views/home/homeCard.html" 
+	}
+})
+angular.module('HomeCtrl').directive('videoHero', function(){ 
+	return {
+		restrict: 'AE', 
+		replace: true,
+		link: function(scope, elem, attr){ 
+
+			// play video when it buffers
+			var video = document.getElementById('bgvid');
+			var chrome = navigator.appVersion.indexOf('Chrome');
+			// if Chrome Else
+			if(chrome != 0){	
+				video.play(); 
+			}else{
+				video.oncanplaythrough = function() {
+    				video.play(); 
+				};
+				
+			}
+		},
+		templateUrl: "views/home/youtube.html" 
+	}
+}); 
 // Lazy Load ======================================
 // lazy-load attr on image or background, must have parent...
 angular.module('pacificaApp')
@@ -452,44 +496,6 @@ angular.module('pacificaApp')
     } // end of return
 }) // end of directive
 // ===============================================
-angular.module('HomeCtrl').directive('homeCard', function(){
-	return { 
-		restrict: 'AE', 
-		replace: true,
-		scope: {
-			'title': '@',
-			'color': '@',
-			'button': '@', 
-			'content': '@',
-			'image': '@',
-			'textColor': '@', 
-			'url': '@',  
-		},
-		templateUrl: "views/home/homeCard.html" 
-	}
-})
-angular.module('HomeCtrl').directive('videoHero', function(){ 
-	return {
-		restrict: 'AE', 
-		replace: true,
-		link: function(scope, elem, attr){ 
-
-			// play video when it buffers
-			var video = document.getElementById('bgvid');
-			var chrome = navigator.appVersion.indexOf('Chrome');
-			// if Chrome Else
-			if(chrome != 0){	
-				video.play(); 
-			}else{
-				video.oncanplaythrough = function() {
-    				video.play(); 
-				};
-				
-			}
-		},
-		templateUrl: "views/home/youtube.html" 
-	}
-}); 
 angular.module('NavCtrl').directive('toggleClass', function(){
 	return {
 		restrict: 'A',

@@ -4,10 +4,6 @@ angular.module('CoffeeCtrl', [])
 	var CC = this;
 	CC.items; // all items
 	CC.bag = []; // bag
-	CC.total = {
-		amount: 0,
-		total: 0
-	}
 
 	// GET ALL ITEMS ===========================================
 	itemsService.get().success(function(data){
@@ -20,20 +16,21 @@ angular.module('CoffeeCtrl', [])
 	// Add To bag ============================================
 	CC.addTobag = function(item){
 		var idx = checkIndex(item);
-		if(idx == -1){
+		if(idx == -1){ // item does not exist
 			CC.bag.push(item);
-			console.log('added ' + item.name + " qty: " + item.qty );
 		}
+		updateTotal();
 	};
 
 	// Remove From bag ============================================
 	CC.removeFromBag = function(item){
 		console.log('remove from bag ' + item)
 		var idx = checkIndex(item);
-		if(idx >= 0){
+		if(idx >= 0){	
 			CC.bag.splice(idx, 1);
-			console.log('removed ' + item.name);
 		};
+		console.log('bag', CC.bag)
+		updateTotal();
 	};
 
 
@@ -41,6 +38,15 @@ angular.module('CoffeeCtrl', [])
 		var idx = CC.bag.indexOf(item);
 		return idx
 	};
+
+	var updateTotal = function(){
+		CC.total = {amount: 0,total: 0} // total
+		CC.bag.forEach(function(item){
+			var total = item.price * item.qty;
+			CC.total.amount += Number(item.qty);
+			CC.total.total += total;
+		});
+	}
 
 }); // end of ctrl
 
