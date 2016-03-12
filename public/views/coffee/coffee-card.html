@@ -3,7 +3,11 @@
 	<p>{{item.name}}</p>
 	<p>{{item.price | currency}}</p>
 
-	<button ng-click="ctrl.add(item); select = true; maskActive=true;">add</button>
+	<button 
+		ng-click="ctrl.add(item);  
+		select = true; 
+		maskActive=true;"
+		>add</button>
 	<select ng-model="item.qty">
 		<option ng-selected="true" value="1" >1</option> 
 		<option value="2" >2</option>
@@ -21,6 +25,6 @@
 		<option value="14">14</option>
 		<option value="15">15</option>
 	</select>
-	<div class="mask" ng-if="maskActive"><span>Added To Bag</span></div>
 	<!-- MASK -->
+	<div class="mask" ng-if="maskActive"><span>Added To Bag</span></div>
 </section>  
