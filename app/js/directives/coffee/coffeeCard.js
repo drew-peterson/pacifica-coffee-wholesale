@@ -10,9 +10,7 @@ angular.module('CoffeeCtrl')
 		},
 		controllerAs: 'ctrl',
 		bindToController: {
-			item: '=',
-			removeFromBag: '&',
-			addToBag: '&' 
+			addToBag: '&'  
 		},
 		link: function(scope, elem, attrs){
 			var btn = elem.find('button');

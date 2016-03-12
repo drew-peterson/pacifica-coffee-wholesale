@@ -72,7 +72,6 @@ angular.module('CoffeeCtrl', [])
 
 	// GET ALL ITEMS ===========================================
 	itemsService.get().success(function(data){
-		console.log("get success");
 		CC.items = data.coffees;  
 	})
 	.error(function(data){
@@ -81,6 +80,7 @@ angular.module('CoffeeCtrl', [])
 
 	// Add To bag ============================================
 	CC.addTobag = function(item){
+		console.log('add to bag')
 		var idx = checkIndex(item);
 		if(idx == -1){
 			CC.bag.push(item);
@@ -349,9 +349,7 @@ angular.module('CoffeeCtrl')
 		},
 		controllerAs: 'ctrl',
 		bindToController: {
-			item: '=',
-			removeFromBag: '&',
-			addToBag: '&' 
+			addToBag: '&'  
 		},
 		link: function(scope, elem, attrs){
 			var btn = elem.find('button');

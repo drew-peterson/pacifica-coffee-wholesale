@@ -1,10 +1,10 @@
 <section id="coffee-card"> 
 	<hr>
-	<p>{{ctrl.item.name}}</p>
-	<p>{{ctrl.item.price | currency}}</p>
+	<p>{{item.name}}</p>
+	<p>{{item.price | currency}}</p>
 
-	<button ng-click="ctrl.addToBag(ctrl.item); select = true">add</button>
-	<select ng-model="ctrl.item.qty">
+	<button ng-click="ctrl.addToBag(item); select = true">add</button>
+	<select ng-model="item.qty">
 		<option ng-selected="true" value="1" >1</option> 
 		<option value="2" >2</option>
 		<option value="3">3</option>
