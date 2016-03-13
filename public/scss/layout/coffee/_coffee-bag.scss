@@ -34,7 +34,7 @@
 		overflow: hidden;
 		padding: $med 0; 
 		width: 90%;
-		margin: 0 auto;
+		margin: 0 auto; 
 	}
 }
 
@@ -42,20 +42,19 @@
 
 #coffeeBag .bagDrag{
 	font-family: 'Material Icons';
-	font-size: 30px;
-	line-height: 20px;
+	font-size: 50px;
+	line-height: 30px;
 	text-align: center; 
 	display: inline-block;
 	position: absolute;
-
 	background-color: $google-gray;
 	cursor: pointer;
 
-	top: -20px;
 	left: 50%;
 	transform: translateX(-50%);
-	height: 20px;
-	width: 70px;
+	top: -30px;
+	height: 30px;
+	width: 45%;
 
 	&:hover {
 		color: gray;
