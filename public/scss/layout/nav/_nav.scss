@@ -39,7 +39,7 @@ nav {
 	width: 60%;  
 	a {
 		display: block;
-		line-height: 60px;
+		line-height: 60px; 
 		height: 60px;
 		padding: 0 5%;
 		cursor: pointer;
@@ -55,19 +55,6 @@ nav {
 			background-color: $primary-color-dark;
 			color: $white;
 		}
-	}
-}
-
-#nav .admin {
-	padding: 0 3%;
-	margin-left: auto;
-	border-left: 1px solid $divider-color;
-	
-	a { color: $black;}
-	&:hover {
-		background-color: $accent-color;
-
-		a{ color: $white; }
 	}
 }
 
