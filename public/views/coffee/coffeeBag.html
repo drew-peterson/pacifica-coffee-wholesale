@@ -12,6 +12,13 @@
 
 		<div class="bagItems">
 			
+			<!-- TOTAL CARD -->
+			<div class=" bagItem total">
+				<div class="qty">{{CC.total.amount}}</div>
+				<div class="total">{{CC.total.total | currency}}</div>
+			</div> 
+
+			
 			<coffee-bag-item
 				ng-repeat="item in CC.bag | reverse" 
 				remove-from-bag="CC.removeFromBag(coffee)"
