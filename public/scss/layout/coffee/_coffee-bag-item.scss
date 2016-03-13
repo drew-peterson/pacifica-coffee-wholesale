@@ -1,4 +1,34 @@
 
+// BAG TOTAL =====================================
+
+#coffeeBag .bagItem.totalCard {
+	color: $black;
+	padding: 0;
+	height: 100%;
+	.qty, .total {
+		width: 100%;
+		height: 50%;
+		line-height: 52px;
+		font-size: $mlg;
+		color: $white;
+	}
+	.qty {
+		background-color: darken($primary-color-light, 10%);
+
+	}
+
+	.total {
+		background-color: darken($primary-color-light, 20%);
+	}
+}
+
+
+
+
+
+
+
+
 // Individual Item =====================================
 
 #coffeeBag .bagItem { 
