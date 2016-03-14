@@ -21,11 +21,30 @@
 }
 // ==============================================
 
+// Hover Content {
+	.coffee-card .hover-content {
+		display: none;
+		position: absolute;
+		background-color: rgba(0,0,0,0.7);
+		top: 0;
+		left: 0;
+		width: 100%; 
+		height: 100%;
+		padding-top: $msm;
+	}
+
+	.coffee-card:hover > .hover-content {
+		display: block;
+	}
+// ==============================================
+
+
 // ITEM IMAGE ===================================
 .coffee-card .price {
 	font-size: $mlg;
 	text-align: center;
 	margin-top: $med;
+	color: $white;
 }
 // ==============================================
 
@@ -39,20 +58,19 @@
 	button, select {
 		width: 45%;
 		height: 45px;
-		font-size: $med;
-		color: $black;
-		background-color: $white;
-		border: 1px solid $black;
+		font-size: $mlg;
+		color: $white;
+		background: none;
+		border: 1px solid $white;
 		transition: 0.35s all ease;
 		&:hover {
-			color: white;
-			background-color: $primary-color;
+			color: $black;
+			background-color: $white;
 		}
 	}
 
 	button {
 		border-radius: 5px;
-
 	}
 
 	select {
