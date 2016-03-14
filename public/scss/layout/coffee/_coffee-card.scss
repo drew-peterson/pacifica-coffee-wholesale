@@ -6,10 +6,38 @@
  	// mobile
  	width: 90%;
  	padding: $med;
+ 	padding-top: 45px; // clear details banner
  	margin: 0 auto;
 	margin-bottom: $med;
  }
 
+.coffee-card .details {
+	position: absolute;
+	display: flex;
+	justify-content: space-between;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: $primary-color-light;
+	text-align: center;
+
+	.roast, .region {
+		padding: 5px;
+		display: inline-block;
+		color: $white;
+		height: 100%;
+		width: 50%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.roast {
+		background-color: darken($primary-color-light, 5%);
+	}
+
+
+}
 
 // ITEM IMAGE ===================================
 .coffee-card .item-image {
