@@ -1,9 +1,74 @@
- #coffee-card {
+ .coffee-card {
+	@include box-shadow;
  	position: relative;
+ 	background-color: $white;
+
+ 	// mobile
+ 	width: 90%;
+ 	padding: $med;
+ 	margin: 0 auto;
+	margin-bottom: $med;
  }
 
+
+// ITEM IMAGE ===================================
+.coffee-card .item-image {
+	min-height: 120px;
+	width: 100%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: 50% 50%; 
+}
+// ==============================================
+
+// ITEM IMAGE ===================================
+.coffee-card .price {
+	font-size: $mlg;
+	text-align: center;
+	margin-top: $med;
+}
+// ==============================================
+
+// Add to cart ===================================
+.coffee-card .add-wrap {
+	height: 45px;
+	display: flex;
+	justify-content: space-around;
+
+
+	button, select {
+		width: 45%;
+		height: 45px;
+		font-size: $med;
+		color: $black;
+		background-color: $white;
+		border: 1px solid $black;
+		transition: 0.35s all ease;
+		&:hover {
+			color: white;
+			background-color: $primary-color;
+		}
+	}
+
+	button {
+		border-radius: 5px;
+
+	}
+
+	select {
+		display: block;
+		outline: none;
+		line-height: 45px;
+		width: 25%; 
+	}
+}
+// ===============================================
+
+
+
+
  // MASK
- #coffee-card .mask {
+ .coffee-card .mask {
 	position: absolute;
 	z-index: 10;
 	top: 0;

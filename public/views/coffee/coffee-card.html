@@ -1,30 +1,38 @@
-<section id="coffee-card"> 
-	<hr>
-	<p>{{item.name}}</p>
-	<p>{{item.price | currency}}</p>
+<section class="coffee-card">
+	
+	<!-- IMAGE -->
+	<div class="item-image" 
+		ng-style="{'background-image': 'url({{item.image}})'}">
+	</div> 
 
-	<button 
-		ng-click="ctrl.add(item);  
-		select = true; 
-		maskActive=true;"
+	<p class="price">{{item.price | currency}}</p>
+
+	<!-- button and selection -->
+	<div class="add-wrap">
+		<button 
+			ng-click="ctrl.add(item);  
+			select = true; 
+			maskActive=true;"
 		>add</button>
-	<select ng-model="item.qty">
-		<option ng-selected="true" value="1" >1</option> 
-		<option value="2" >2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-		<option value="5">5</option>
-		<option value="6">6</option>
-		<option value="7">7</option>
-		<option value="8">8</option>
-		<option value="9">9</option>
-		<option value="10">10</option>
-		<option value="11">11</option>
-		<option value="12">12</option>
-		<option value="13">13</option>
-		<option value="14">14</option>
-		<option value="15">15</option>
-	</select>
+		<select ng-model="item.qty">
+			<option ng-selected="true" value="1" >1</option> 
+			<option value="2" >2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="13">13</option>
+			<option value="14">14</option>
+			<option value="15">15</option>
+		</select>
+	</div>
+
 	<!-- MASK -->
 	<div class="mask" ng-if="maskActive"><span>Added To Bag</span></div>
 </section>  
