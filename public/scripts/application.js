@@ -186,85 +186,6 @@ angular.module('pacificaApp')
     }
   }
 })
-// Lazy Load ======================================
-// lazy-load attr on image or background, must have parent...
-angular.module('pacificaApp')
-  .directive('lazyLoad', function($document, $window){ 
-    return {
-      restrict: 'AE', 
-      link: function(scope, elem, attrs){
-        var parent = $(elem).parent(); // image is hiden so we need container
-        var elPos = $(parent).offset().top; // position of parent
-        var windowHeight = $($window).height();
-
-        var barPos;
-        var position; 
-
-        var loaded; // load image only once
-      
-        var offset = 100; // so the element is visible on page by 100px
-
-
-        // scroll event
-        $document.bind('scroll', function(){ 
-          var barPos = $($document).scrollTop(); // scrollbar pos
-          var position = elPos - barPos; // elment pos from bottom of window
-          
-          if( ((position + offset) <= windowHeight) ){
-            if(!loaded){
-              loadImage();
-            }
-          }
-        });
-        // load Images =================
-        var loadImage = function(){
-            $(elem).fadeIn();
-            console.log('loading image');
-            loaded = true;
-        }
-
-      } // end of link
-    } // end of return
-}) // end of directive
-// ===============================================
-angular.module('HomeCtrl').directive('homeCard', function(){
-	return { 
-		restrict: 'AE', 
-		replace: true,
-		scope: {
-			'title': '@',
-			'color': '@',
-			'button': '@', 
-			'content': '@',
-			'image': '@',
-			'textColor': '@', 
-			'url': '@',  
-		},
-		templateUrl: "views/home/homeCard.html" 
-	}
-})
-angular.module('HomeCtrl').directive('videoHero', function(){ 
-	return {
-		restrict: 'AE', 
-		replace: true,
-		link: function(scope, elem, attr){ 
-
-			// play video when it buffers
-			var video = document.getElementById('bgvid');
-			var chrome = navigator.appVersion.indexOf('Chrome');
-			// if Chrome Else
-			if(chrome != 0){	
-				video.play(); 
-			}else{
-				video.oncanplaythrough = function() {
-    				video.play(); 
-				};
-				
-			}
-		},
-		templateUrl: "views/home/youtube.html" 
-	}
-}); 
 angular.module('AdminCtrl').directive('addItem', function(){
 	return {
 		restrict: 'AE',
@@ -453,23 +374,7 @@ angular.module('CoffeeCtrl')
 		bindToController: {
 			addToBag: '&'  
 		},
-		link: function(scope, elem, attrs){
-			var btn = elem.find('button');
-
-			btn.on('click',function(){
-				var bag = $('#coffeeBag');
-				var toggle = bag.hasClass('toggle');
-
-				if(toggle){
-					bag.addClass('bounce');
-
-					setTimeout(function(){
-						bag.removeClass('bounce');
-					},600)
-				}
-
-			})
-		},
+		link: function(scope, elem, attrs){},
 		templateUrl: 'views/coffee/coffee-card.html'
 	}
 });
@@ -506,6 +411,85 @@ angular.module('CoffeeCtrl')
 		}
 	}
 }) 
+// Lazy Load ======================================
+// lazy-load attr on image or background, must have parent...
+angular.module('pacificaApp')
+  .directive('lazyLoad', function($document, $window){ 
+    return {
+      restrict: 'AE', 
+      link: function(scope, elem, attrs){
+        var parent = $(elem).parent(); // image is hiden so we need container
+        var elPos = $(parent).offset().top; // position of parent
+        var windowHeight = $($window).height();
+
+        var barPos;
+        var position; 
+
+        var loaded; // load image only once
+      
+        var offset = 100; // so the element is visible on page by 100px
+
+
+        // scroll event
+        $document.bind('scroll', function(){ 
+          var barPos = $($document).scrollTop(); // scrollbar pos
+          var position = elPos - barPos; // elment pos from bottom of window
+          
+          if( ((position + offset) <= windowHeight) ){
+            if(!loaded){
+              loadImage();
+            }
+          }
+        });
+        // load Images =================
+        var loadImage = function(){
+            $(elem).fadeIn();
+            console.log('loading image');
+            loaded = true;
+        }
+
+      } // end of link
+    } // end of return
+}) // end of directive
+// ===============================================
+angular.module('HomeCtrl').directive('homeCard', function(){
+	return { 
+		restrict: 'AE', 
+		replace: true,
+		scope: {
+			'title': '@',
+			'color': '@',
+			'button': '@', 
+			'content': '@',
+			'image': '@',
+			'textColor': '@', 
+			'url': '@',  
+		},
+		templateUrl: "views/home/homeCard.html" 
+	}
+})
+angular.module('HomeCtrl').directive('videoHero', function(){ 
+	return {
+		restrict: 'AE', 
+		replace: true,
+		link: function(scope, elem, attr){ 
+
+			// play video when it buffers
+			var video = document.getElementById('bgvid');
+			var chrome = navigator.appVersion.indexOf('Chrome');
+			// if Chrome Else
+			if(chrome != 0){	
+				video.play(); 
+			}else{
+				video.oncanplaythrough = function() {
+    				video.play(); 
+				};
+				
+			}
+		},
+		templateUrl: "views/home/youtube.html" 
+	}
+}); 
 angular.module('NavCtrl').directive('toggleClass', function(){
 	return {
 		restrict: 'A',

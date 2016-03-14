@@ -6,7 +6,6 @@
  	// mobile
  	width: 90%;
  	padding: $med;
- 	padding-top: 45px; // clear details banner
  	padding-bottom: 45px; // clear details banner
  	margin: 0 auto;
 	margin-bottom: $med;
@@ -22,36 +21,19 @@
 	// background-color: darken($google-gray, 2%);
 }
 
-.coffee-card .details.bottom {
+.coffee-card .details {
 	bottom: 0;
-	.price {
-		text-align: center;
-		width: 100%;
-		color: $gray;
-		padding: 5px;
-		// background-color: $google-gray;
-		border-top: 1px solid $light-gray;
-	}
-}
-
-.coffee-card .details.top {
-	top: 0;
-	.roast, .region {
-		padding: 5px;
-		text-align: center;
-		display: inline-block;
-		color: $gray;
-		height: 100%;
+	border-top: 1px solid $light-gray;
+	.price, .add {
 		width: 50%;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		border-bottom: 1px solid $light-gray; 
+		text-align: center;
+		padding: 5px;
+		color: $gray;
 	}
-
-	.roast {
-		border-right: 1px solid $light-gray;
-		// background-color: darken($primary-color-light, 5%);
+	.price {
+	}
+	.add {
+		display: inline-block;
 	}
 }
 // ==============================================
@@ -61,62 +43,11 @@
 	min-height: 120px;
 	width: 100%;
 	background-size: contain;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat; 
 	background-position: 50% 50%; 
 }
 // ==============================================
 
-// Hover Content {
-	.coffee-card .hover-content {
-		display: none;
-		position: absolute;
-		background-color: rgba(0,0,0,0.5);
-		top: 0; 
-		left: 0;
-		width: 100%; 
-		height: 100%;
-		padding-top: $msm;
-	}
-
-	.coffee-card:hover > .hover-content {
-		display: block;
-	}
-// ==============================================
-
-
-// Add to cart ===================================
-.coffee-card .add-wrap {
-	@include center-v;
-	height: 45px;
-	display: flex;
-	justify-content: space-around;
-
-
-	button, select {
-		width: 45%;
-		height: 45px;
-		font-size: $mlg;
-		color: $white;
-		background: none;
-		border: 1px solid $white;
-		transition: 0.35s all ease;
-		&:hover {
-			color: $black;
-			background-color: $white;
-		}
-	}
-
-	button {
-		border-radius: 5px;
-	}
-
-	select {
-		display: block;
-		outline: none;
-		line-height: 45px;
-		width: 25%; 
-	}
-}
 // ===============================================
 
 

@@ -16,23 +16,7 @@ angular.module('CoffeeCtrl')
 		bindToController: {
 			addToBag: '&'  
 		},
-		link: function(scope, elem, attrs){
-			var btn = elem.find('button');
-
-			btn.on('click',function(){
-				var bag = $('#coffeeBag');
-				var toggle = bag.hasClass('toggle');
-
-				if(toggle){
-					bag.addClass('bounce');
-
-					setTimeout(function(){
-						bag.removeClass('bounce');
-					},600)
-				}
-
-			})
-		},
+		link: function(scope, elem, attrs){},
 		templateUrl: 'views/coffee/coffee-card.html'
 	}
 });
