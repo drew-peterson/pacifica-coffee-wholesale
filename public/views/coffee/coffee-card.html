@@ -1,6 +1,6 @@
 <section class="coffee-card">
 	
-	<div class="details">
+	<div class="details top">
 		<span class="roast">{{item.roast}}</span>
 		<span class="region">{{item.region}}</span>
 	</div>
@@ -10,10 +10,12 @@
 		ng-style="{'background-image': 'url({{item.image}})'}">
 	</div>
 
+	<div class="details bottom">
+		<span class="price">{{item.price | currency}}</span>
+	</div>
 
 	<!-- HOVER CONTENT -->
 	<div class="hover-content">
-		<p class="price">{{item.price | currency}}</p>
 
 		<!-- button and selection -->
 		<div class="add-wrap">
@@ -21,7 +23,7 @@
 				ng-disabled="!selectedValue" 
 				ng-click="ctrl.add(item);  
 				select = true; 
-				maskActive=true;"
+				maskActive=true;" 
 			>add</button>
 			<select ng-model="item.qty" 
 				ng-change="selectedValue=true">
@@ -45,5 +47,5 @@
 	</div>
 
 	<!-- MASK -->
-	<div class="mask" ng-if="maskActive"><span>Added To Bag</span></div>
+	<div class="mask" ng-if="maskActive"><span>{{item.name}}<br>Added To Bag</span></div>
 </section>  

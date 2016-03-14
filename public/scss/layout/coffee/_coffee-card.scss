@@ -7,22 +7,39 @@
  	width: 90%;
  	padding: $med;
  	padding-top: 45px; // clear details banner
+ 	padding-bottom: 45px; // clear details banner
  	margin: 0 auto;
 	margin-bottom: $med;
  }
 
+// DETAILS BANNER ===================================
 .coffee-card .details {
 	position: absolute;
 	display: flex;
 	justify-content: space-between;
-	top: 0;
 	left: 0;
 	width: 100%;
 	background-color: $primary-color-light;
-	text-align: center;
 
+	@include box-shadow;
+}
+
+.coffee-card .details.bottom {
+	bottom: 0;
+	.price {
+		text-align: center;
+		width: 100%;
+		color: $white;
+		padding: 5px;
+		background-color: darken($primary-color-light, 15%);
+	}
+}
+
+.coffee-card .details.top {
+	top: 0;
 	.roast, .region {
 		padding: 5px;
+		text-align: center;
 		display: inline-block;
 		color: $white;
 		height: 100%;
@@ -35,9 +52,8 @@
 	.roast {
 		background-color: darken($primary-color-light, 5%);
 	}
-
-
 }
+// ==============================================
 
 // ITEM IMAGE ===================================
 .coffee-card .item-image {
@@ -53,8 +69,8 @@
 	.coffee-card .hover-content {
 		display: none;
 		position: absolute;
-		background-color: rgba(0,0,0,0.7);
-		top: 0;
+		background-color: rgba(0,0,0,0.5);
+		top: 0; 
 		left: 0;
 		width: 100%; 
 		height: 100%;
@@ -67,17 +83,9 @@
 // ==============================================
 
 
-// ITEM IMAGE ===================================
-.coffee-card .price {
-	font-size: $lg;
-	text-align: center; 
-	margin-top: $med;
-	color: $white;
-}
-// ==============================================
-
 // Add to cart ===================================
 .coffee-card .add-wrap {
+	@include center-v;
 	height: 45px;
 	display: flex;
 	justify-content: space-around;
@@ -121,7 +129,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(255,0,0,0.6);
+	background-color: rgba(10,60,150,0.95); 
 
 	 span {
 	 	@include center-v;
