@@ -19,9 +19,7 @@
 	justify-content: space-between;
 	left: 0;
 	width: 100%;
-	background-color: $primary-color-light;
-
-	@include box-shadow;
+	// background-color: darken($google-gray, 2%);
 }
 
 .coffee-card .details.bottom {
@@ -29,9 +27,10 @@
 	.price {
 		text-align: center;
 		width: 100%;
-		color: $white;
+		color: $gray;
 		padding: 5px;
-		background-color: darken($primary-color-light, 15%);
+		// background-color: $google-gray;
+		border-top: 1px solid $light-gray;
 	}
 }
 
@@ -41,16 +40,18 @@
 		padding: 5px;
 		text-align: center;
 		display: inline-block;
-		color: $white;
+		color: $gray;
 		height: 100%;
 		width: 50%;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		border-bottom: 1px solid $light-gray; 
 	}
 
 	.roast {
-		background-color: darken($primary-color-light, 5%);
+		border-right: 1px solid $light-gray;
+		// background-color: darken($primary-color-light, 5%);
 	}
 }
 // ==============================================
