@@ -4,146 +4,167 @@
         "price": "6",
         "description": "description here",
         "region": "Blends",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "image": "img/items/river_mud.png"
     },
     {
         "name": "French Roast",
         "price": "6",
         "description": "description here",
         "region": "Blends",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "image": "img/items/french_roast.png"
     },
     {
         "name": "Sicilian",
         "price": "6",
         "description": "description here",
         "region": "Blends",
-        "roast": "City Roast"
+        "roast": "City Roast",
+        "image": "img/items/sicilian.png"
     },
     {
         "name": "Black Rocks Mountain Clouds",
         "price": "6",
         "description": "description here",
         "region": "Blends",
-        "roast": "French Roast"
+        "roast": "French Roast",
+        "image": "img/items/black_rocks.png"
     },
     {
         "name": "Espresso",
         "price": "6",
         "description": "description here",
         "region": "Blends",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "image": "img/items/espresso.png"
     },
     {
         "name": "Labor of Love",
         "price": "6",
         "description": "description here",
         "region": "Blends",
-        "roast": "French"
+        "roast": "French",
+        "image": "img/items/labor_of_love.png"
     },
     {
         "name": "Sumatra",
         "price": "6",
         "description": "description here",
         "region": "Indonesia",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "image": "img/items/sumatra.png"
     },
     {
         "name": "Komodo",
         "price": "6",
         "description": "description here",
         "region": "Indonesia",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "image": "img/items/komodo.png"
     },
     {
         "name": "Bali Blue Moon",
         "price": "6",
         "description": "description here",
         "region": "Indonesia",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "image": "img/items/bali_blue_moon.png"
     },
     {
         "name": "New Guinea",
         "price": "6",
         "description": "description here",
         "region": "Indonesia",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "image": "img/items/new_guinea.png"
     },
     {
         "name": "Timor",
         "price": "6",
         "description": "description here",
         "region": "Indonesia",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "image": "img/items/timor.png"
     },
     {
         "name": "Bolivia",
         "price": "6",
         "description": "description here",
         "region": "Central/South America",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "image": "img/items/bolivia.png"
     },
       {
         "name": "Guatemala",
         "price": "6",
         "description": "description here",
         "region": "Central/South America",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "image": "img/items/guatemala.png"
     },
       {
         "name": "Colombia",
         "price": "6",
         "description": "description here",
         "region": "Central/South America",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "image": "img/items/colombia.png"
     },
       {
         "name": "Mexican",
         "price": "6",
         "description": "description here",
         "region": "Central/South America",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "image": "img/items/mexican.png"
     },
       {
         "name": "Costa Rica",
         "price": "6",
         "description": "description here",
         "region": "Central/South America",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "image": "img/items/costa_rica.png"
     },
       {
         "name": "Peru",
         "price": "6",
         "description": "description here",
         "region": "Central/South America",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "image": "img/items/peru.png"
     },
       {
         "name": "Ethopia",
         "price": "6",
         "description": "description here",
         "region": "Africa",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "image": "img/items/ethopia.png"
     },
     {
         "name": "Uganda",
         "price": "6",
         "description": "description here",
         "region": "Africa",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "image": "img/items/uganda.png"
     },
     {
         "name": "Tanzania",
         "price": "6",
         "description": "description here",
         "region": "Africa",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "image": "img/items/tanzania.png"
     },
     {
         "name": "Decaf Harmony",
         "price": "6",
         "description": "description here",
         "region": "Africa",
-        "roast": "Full City Roast"
+        "roast": "Full City Roast",
+        "image": "img/items/decaf.png"
     }
 ]

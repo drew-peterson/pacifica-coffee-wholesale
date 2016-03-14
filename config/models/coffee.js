@@ -7,7 +7,8 @@ var coffeeSchema = mongoose.Schema({
     price: Number,
     description: String,
     region: String,
-    roast: String
+    roast: String,
+    image: String
 });
 
 var model = mongoose.model('Coffee', coffeeSchema);

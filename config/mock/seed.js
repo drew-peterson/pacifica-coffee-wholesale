@@ -3,7 +3,7 @@
 
 var Coffee = require('../models/coffee.js');
 
-var coffees = require('./test.json'); // test data
+var coffees = require('./coffees.json'); // test data
 
 // open mongo shell with mongo + db has to be running
 
@@ -17,6 +17,7 @@ coffees.forEach(function(coffee){
 				description: coffee.description,
 				region: coffee.region,
 				roast: coffee.roast,
+				image: coffee.image
 			});
 		}
 	});
