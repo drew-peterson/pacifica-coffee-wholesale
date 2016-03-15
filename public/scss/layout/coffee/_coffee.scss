@@ -12,8 +12,13 @@
 	width: 100%;
 	background-color: $primary-color;
 	z-index: 50;
+	height: 50px;
 
 	span {
+		display: inline-block;
 		color: $white;
+		height: 100%;
+		line-height: 50px;
+		width: 32%;
 	}
 }

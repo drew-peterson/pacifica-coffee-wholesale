@@ -18,10 +18,16 @@
 
 	<!--Notification bar  -->
 	<div class="coffee-details">
-		<span class="qty">10</span>
+		<span class="qty">toggle:{{toggleBag}}</span>
 		<span class="total">$600.00</span>
-		<span class="viewBag">View Bag</span>
+		<span class="viewBag" 
+			ng-click="toggleBag= !toggleBag;" 
+		>View Bag</span>
 	</div>
+
+	<!-- mask overlay -->
+	<div class="mask coffeeMask"></div> 
+
 
 	
 	

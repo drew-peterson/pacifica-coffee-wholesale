@@ -1,16 +1,18 @@
 
 #coffeeBag {
-	z-index: 50;
+	// display: none; // hiden by default
+	z-index: 300; // clear details
 	position: fixed;
-	bottom: 0;
+	bottom: 0; // clear details bar
 	left: 0;
 	width: 100%;
 	background-color: $google-gray;
+	transform: translateY(100%); 
 	transition: 0.35s all ease;
 
 	// hide show when click on menu
 	&.toggle {
-		transform: translateY(100%);
+		transform: translateY(0); 
 	}
 }
 
@@ -19,7 +21,7 @@
 #coffeeBag .bagItems { 
 	position: relative;
 	width: 100%;
-	height: 250px;
+	height: 55vh;
 	white-space: nowrap; // for the container
 	overflow: hidden;
 	overflow-x: auto;
@@ -88,10 +90,6 @@
 
 // Animations =========================================
 
-// bounce =========
-#coffeeBag.bounce {
-	transform: translateY(70%);
-}
 
 // BAG Container ====
 #coffeeBag.ng-enter{
