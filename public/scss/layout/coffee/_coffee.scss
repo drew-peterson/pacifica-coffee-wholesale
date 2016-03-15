@@ -13,12 +13,41 @@
 	background-color: $primary-color;
 	z-index: 50;
 	height: 50px;
+	padding: 0 $med;
 
 	span {
 		display: inline-block;
 		color: $white;
 		height: 100%;
 		line-height: 50px;
-		width: 32%;
+	}
+
+	.qty {
+		line-height: 35px;
+		text-align: center;
+		height: 35px;
+		width: 35px;
+		background-color: $primary-color-dark;
+		border-radius: 50%;
+	}
+
+	.total {
+		margin-left: $mlg;
+	}
+
+	.viewBag {
+		float: right;
 	}
 }
+
+// animations
+
+#coffee .coffee-details.ng-enter {
+	transform: translateY(100%);
+	transition: 0.35s all ease;
+}
+#coffee .coffee-details.ng-enter-active {
+	transform: translateY(0);
+}
+
+

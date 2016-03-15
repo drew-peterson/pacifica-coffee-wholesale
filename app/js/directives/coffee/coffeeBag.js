@@ -14,7 +14,8 @@ angular.module('CoffeeCtrl')
 			var bag = $('#coffeeBag');
 			var mask = $('.coffeeMask');
 
-			open.on('click',function(){
+			open.on('click', function(){
+				console.log('open')
 				bag.addClass('toggle');
 				mask.addClass('mask-overlay');
 			})

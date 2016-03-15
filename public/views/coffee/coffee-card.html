@@ -9,11 +9,7 @@
 	<div class="details">
 		<span class="price">{{item.price | currency}}</span>
 		<span class="add"
-			ng-click="ctrl.add(item);  
-			maskActive=true;" 
+			ng-click="ctrl.add(item);"
 		>add</span>
 	</div>
-
-	<!-- MASK -->
-	<div class="mask" ng-if="maskActive"><span>{{item.name}}<br>Added To Bag</span></div>
 </section>  

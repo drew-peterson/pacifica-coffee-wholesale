@@ -18,11 +18,15 @@
 
 	<!--Notification bar  -->
 	<div class="coffee-details">
-		<span class="qty">toggle:{{toggleBag}}</span>
-		<span class="total">$600.00</span>
-		<span class="viewBag" 
-			ng-click="toggleBag= !toggleBag;" 
-		>View Bag</span>
+		<span ng-if="CC.total.amount" class="qty">{{CC.total.amount}}</span>
+		<span ng-if="CC.total.total" class="total">{{CC.total.total | currency}}</span>
+
+		<!-- placeholders when empty...-->
+		<span ng-if="!CC.total.amount" class="qty">0</span>
+		<span ng-if="!CC.total.total" class="total">$0.00</span>
+
+		<!-- open bag btn... -->
+		<span class="viewBag">OPEN BAG</span>
 	</div>
 
 	<!-- mask overlay -->
