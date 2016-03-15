@@ -1,53 +1,22 @@
 
-// BAG TOTAL =====================================
-
-#coffeeBag .bagItem.totalCard {
-	color: $black;
-	padding: 0;
-	height: 100%;
-	.qty, .total {
-		width: 100%;
-		height: 50%;
-		line-height: 52px;
-		font-size: $mlg;
-		color: $white;
-	}
-	.qty {
-		background-color: darken($primary-color-light, 10%);
-
-	}
-
-	.total {
-		background-color: darken($primary-color-light, 20%);
-	}
-}
-
-
 // Individual Item =====================================
 
 #coffeeBag .bagItem { 
-	display: inline-block;
-	background-color: darken($google-gray, 5%);
-	margin-left: 10px;
-	width: 120px;
-	height: 100%;
-	overflow: hidden;
+	@include box-shadow;
+	display: block;
+	width: 100%;
+	background-color: $white;
 	padding: $msm;
 	text-align: center;
+	margin-bottom: $msm;
 
 	@include tablet {
-		width: 200px;
-		margin-left: $med;
-		padding: $med;
 		
 	}
 }
 // ===================================================
 
 #coffeeBag .bagItem .content {
-	display: flex; 
-	flex-direction: column;
-	justify-content: space-between;
 	height: 100%;
 
 	.name {
@@ -97,10 +66,6 @@
 	}
 }
 
-
-#coffeeBag .bagItem:nth-of-type(1) {
-	margin-left: 0;
-}
 
 
 

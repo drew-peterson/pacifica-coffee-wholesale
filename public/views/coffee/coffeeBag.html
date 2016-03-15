@@ -4,19 +4,9 @@
 			<i class="material-icons">close</i>
 		</div>
 
-		<span scroll-item class=" arrow left">
-			<i class="material-icons">keyboard_arrow_left</i>
-		</span>
-
 		<!-- BAG CONTAINER -->
 		<div class="bagItems">
-			
-			<!-- TOTAL CARD -->
-			<div class=" bagItem totalCard">
-				<div class="qty">{{CC.total.amount}} items</div>
-				<div class="total">{{CC.total.total | currency}}</div>
-			</div> 
-
+		
 			<!-- individual item -->
 			<coffee-bag-item
 				ng-repeat="item in CC.bag | reverse" 
@@ -25,8 +15,4 @@
 			></coffee-bag-item>  
 
 		</div>
-
-		<span scroll-item class="arrow right">
-			<i class="material-icons">keyboard_arrow_right</i>
-		</span>
 	</div>
