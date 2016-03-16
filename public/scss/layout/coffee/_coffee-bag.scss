@@ -8,7 +8,6 @@
 	background-color: darken($google-gray, 5%);
 	transform: translateY(100%); 
 	transition: 0.35s all ease;
-	overflow-y: scroll;
 
 	// hide show when click on menu
 	&.toggle {
@@ -27,7 +26,7 @@
 		font-size: 2.5rem;
 
 		&:hover {
-			color: $black;
+			color: $black; 
 		}
 	}
 }
@@ -42,6 +41,7 @@
 	align-items: center;
 	padding: 0 $msm;
 	height: 55vh;
+	overflow-y: scroll;
 
 }
 
