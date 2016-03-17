@@ -1,8 +1,14 @@
 <section id="coffee">
+
+	<div class="filterSelector">
+		Filter:
+		<span ng-click="regionActive = !regionActive" class="region active">region</span>
+		<span ng-click="roastActive = !roastActive" class="roast">roast</span>
+	</div>
 	
 	<!-- coffee Cards -->
+	<!-- Region -->
 	<div class="card-wrapper" ng-repeat="region in CC.filterBy.regions">
-
 		<h3 ng-click="filterActive = !filterActive">{{region.name}}</h3>
 		
 		<!-- add ng-hide to class to avoid flicker -->
@@ -12,9 +18,9 @@
 			add-to-bag = "CC.addTobag(coffee)"
 			ng-init="item.qty=1"
 		></coffee-card>  
-			
-			
 	</div>
+
+	<!-- Roast -->
 
 	<!-- bag -->
 	<!-- 1. Coffee Bag total -->
