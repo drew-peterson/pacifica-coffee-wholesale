@@ -8,8 +8,15 @@
 			add-to-bag = "CC.addTobag(coffee)"
 			ng-init="item.qty=1"
 		></coffee-card>   -->
-	
-	{{CC.filterBy.regions}}
+	<ul ng-repeat="region in CC.filterBy.regions">
+		<h2>{{region.name}}</h2>
+		<ul>
+			<li ng-repeat="coffee in region.region">
+				{{coffee.name}}
+			</li>
+		</ul>
+		<hr>
+	</ul>
 		
 	</div>
 
