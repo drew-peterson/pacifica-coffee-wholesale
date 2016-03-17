@@ -481,12 +481,36 @@ angular.module('CoffeeCtrl')
 		scope: true,
 		restrict: 'A',
 		link: function(scope, elem, attrs){
-			var btn = elem.find('h3');
+			var region = elem.find('.region');
+			var roast = elem.find('.roast');
+			var btns = elem.find('.filterBtn');
 
-			// btn.on('click',function(){
-			// 	var card = elem.find('.coffee-card');
-			// 	card.toggleClass('filter');
-			// })
+			region.on('click',function(event){
+				var wrapper = $('.card-wrapper');
+				var hasClass = $(this).hasClass('active')
+
+				if(!hasClass){
+					btns.removeClass('active');
+					$(this).addClass('active'); 
+
+					wrapper.fadeOut();
+					$('.regionCards').fadeIn();
+				}
+			})
+
+			roast.on('click',function(event){
+				var wrapper = $('.card-wrapper');
+				var hasClass = $(this).hasClass('active')
+				if(!hasClass){
+					btns.removeClass('active');
+					$(this).addClass('active');
+
+					wrapper.fadeOut();
+					$('.roastCards').fadeIn();
+				}
+			})
+
+
 		}
 	}
 })

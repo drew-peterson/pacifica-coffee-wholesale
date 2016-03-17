@@ -2,8 +2,8 @@
 #coffee .filterSelector {
 	background-color: $google-gray;
 	padding: $msm 0;
-	width: 100%;
-	font-size: 1.2rem;
+	width: 100%; 
+	font-size: 1.3rem;
 
 	span {
 		font-size: $med;
@@ -14,14 +14,18 @@
 		border: 2px solid $primary-color;
 		color: $primary-color;
 		margin-left: $msm;
-		border-radius: 10px;
+		border-radius: 10px; 
+		cursor: pointer;
 
 		&:hover, &.active {
 			background-color: $primary-color;
 			color: $white;
-			
 		}
 	}
+}
+
+#coffee .roastCards {
+	display: none;
 }
 
 
