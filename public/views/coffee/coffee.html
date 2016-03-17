@@ -1,10 +1,11 @@
 <section id="coffee">
 	
 	<!-- coffee Cards -->
-	<div show-filter class="card-wrapper" ng-repeat="region in CC.filterBy.regions">
+	<div class="card-wrapper" ng-repeat="region in CC.filterBy.regions">
 
 		<h3 ng-click="filterActive = !filterActive">{{region.name}}</h3>
-			
+		
+		<!-- add ng-hide to class to avoid flicker -->
 		<coffee-card
 			ng-hide="!filterActive"
 			ng-repeat="item in region.region" 
