@@ -44,10 +44,51 @@
 
 #coffee .coffee-details.ng-enter {
 	transform: translateY(100%);
-	transition: 0.35s all ease;
+	transition: 0.35s all ease; 
 }
 #coffee .coffee-details.ng-enter-active {
 	transform: translateY(0);
 }
+
+// Hide show Filters =================
+
+// normal ng-if doesnt not work if toggled... 
+// place ng-hide in class and then toggle on ng-click
+
+#coffee .coffee-card{
+	transition: 0.4s all ease;
+} 
+
+// enter
+#coffee .coffee-card.ng-hide-remove {
+	opacity: 0;
+	transform: translateX(100%);
+}
+#coffee .coffee-card.ng-hide-remove-stagger {
+	transition-delay: 0.1s; 
+	transition-duration: 0s;
+}
+#coffee .coffee-card.ng-hide-remove-active {
+	opacity: 1;
+	transform: translateX(0);
+}
+// leave
+#coffee .coffee-card.ng-hide-add{
+	opacity: 1;
+}
+#coffee .coffee-card.ng-hide-add-active{
+	opacity: 0;
+	transform: translateX(-100%);
+
+}
+
+
+
+
+
+
+
+
+
 
 

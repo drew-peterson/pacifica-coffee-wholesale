@@ -173,24 +173,6 @@ angular.module('NavCtrl',[])
 })
 
 
-angular.module('pacificaApp')
-
-.service('itemsService', function($http){ 
-  return {
-    get: function(){
-      return $http.get('/api/coffees'); 
-    },
-    post: function(data){  
-      return $http.post('api/coffees', data);
-    },
-    put: function(data, id){
-      return $http.put('api/coffees/' + id, data);
-    },
-    delete: function(id){  
-      return $http.delete('api/coffees/' + id);
-    }
-  }
-})
 angular.module('appRoutes', [])
 
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -229,6 +211,24 @@ angular.module('appRoutes', [])
 
 });
 
+angular.module('pacificaApp')
+
+.service('itemsService', function($http){ 
+  return {
+    get: function(){
+      return $http.get('/api/coffees'); 
+    },
+    post: function(data){  
+      return $http.post('api/coffees', data);
+    },
+    put: function(data, id){
+      return $http.put('api/coffees/' + id, data);
+    },
+    delete: function(id){  
+      return $http.delete('api/coffees/' + id);
+    }
+  }
+})
 angular.module('AdminCtrl').directive('addItem', function(){
 	return {
 		restrict: 'AE',
@@ -475,6 +475,21 @@ angular.module('CoffeeCtrl')
 		}
 	}
 }) 
+angular.module('CoffeeCtrl')
+.directive('showFilter',function(){
+	return {
+		scope: true,
+		restrict: 'A',
+		link: function(scope, elem, attrs){
+			var btn = elem.find('h3');
+
+			// btn.on('click',function(){
+			// 	var card = elem.find('.coffee-card');
+			// 	card.toggleClass('filter');
+			// })
+		}
+	}
+})
 // Lazy Load ======================================
 // lazy-load attr on image or background, must have parent...
 angular.module('pacificaApp')
