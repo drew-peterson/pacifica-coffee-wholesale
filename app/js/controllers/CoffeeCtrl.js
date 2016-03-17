@@ -12,16 +12,7 @@ angular.module('CoffeeCtrl', [])
 	// GET ALL ITEMS ===========================================
 	itemsService.get().success(function(data){
 		CC.items = data.coffees;
-
-
-		CC.items.map(function(coffee){
-			var region = coffee.region.toLowerCase(); // region
-			var roast = coffee.roast.toLowerCase(); // roast
-			
-			regionFilter(region, coffee);
-			roastFilter(roast, coffee);
-
-		}); // map end
+		createFilter();
 	})
 	.error(function(data){
 		console.log(' get error');   
@@ -44,7 +35,7 @@ angular.module('CoffeeCtrl', [])
 		if(idx >= 0){	
 			CC.bag.splice(idx, 1);
 		};
-		console.log('bag', CC.bag)
+		console.log('bag', CC.bag) 
 		updateTotal();
 	};
 
@@ -68,35 +59,81 @@ angular.module('CoffeeCtrl', [])
 		});
 	}
 
+	// Filter ===============
+	var createFilter = function(){
+		CC.items.forEach(function(coffee){
+			var region = coffee.region.toLowerCase(); // region
+			var roast = coffee.roast.toLowerCase(); // roast
+			
+			regionFilter(region, coffee);
+			roastFilter(roast, coffee);
+
+		}); // map end
+	};
+
 	// Coffee Regionfilter push ==================
 
-	var regionFilter = function(region,coffee){
+	// CC.filterBy = {
+	// 	regions: [
+	// 		{ blends: [coffee, coffee] },
+	// 		{ indosia: [coffee, coffee] },
+	// 	]
+	// }
+
+	var regionFilter = function(region, coffee){
 		var regions = CC.filterBy.regions;
-		// if it exists
-		if(regions[region]){
-			regions[region].push(coffee);
-		// if it does not
-		}else{
-			// create new region array
-			regions[region] = [];
-			regions[region].push(coffee);
-		};
+		var item = {};
+
+		// first time around...
+		console.log('length: ' + regions.length);
+
+		if(regions.length === 0){
+			console.log('first')
+			item[region] = [];
+			item[region].push(coffee);
+			regions.push(item);
+		}else{	
+			for(var i = 0; i < regions.length; i ++){
+				console.log('region: ' + region)
+		
+				if(regions[i].hasOwnProperty(region)){
+					console.log('exists');
+					regions[i][region].push(coffee);
+				}else{
+					console.log('not')
+					item[region] = [];
+					item[region].push(coffee);
+					regions.push(item);
+				}	
+			}
+		}
+
+
+		// if(true){
+		// 	console.log('does not exists')
+		// 	item[region] = [];
+		// 	item[region].push(coffee);
+		// 	regions.push(item);
+
+		// }else{
+
+		// }
 	};
 
 	// Coffee roastFilter push ==================
 
 	var roastFilter = function(roast,coffee){
 		var roasts = CC.filterBy.roasts;
-		// if it exists
-		if(roasts[roast]){
-			roasts[roast].push(coffee);
-		// if it does not
-		}else{
-			// create new roast array
-			roasts[roast] = [];
-			roasts[roast].push(coffee);
-		};
+
+		roasts.forEach(function(roast){
+			// if roast exists
+			if(roasts[roast]){
+				roasts[roast].push(coffee);
+			}else{
+				roasts[roast] = [];
+				roasts[roast].push(coffee);
+			}
+		})
 	};
 
 }); // end of ctrl
-
