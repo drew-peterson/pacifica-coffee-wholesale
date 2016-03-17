@@ -493,7 +493,7 @@ angular.module('CoffeeCtrl')
 					btns.removeClass('active');
 					$(this).addClass('active'); 
 
-					wrapper.fadeOut();
+					wrapper.hide();
 					$('.regionCards').fadeIn();
 				}
 			})
@@ -505,7 +505,7 @@ angular.module('CoffeeCtrl')
 					btns.removeClass('active');
 					$(this).addClass('active');
 
-					wrapper.fadeOut();
+					wrapper.hide();
 					$('.roastCards').fadeIn();
 				}
 			})
