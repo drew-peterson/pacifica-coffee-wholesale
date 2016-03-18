@@ -1,7 +1,12 @@
 
+#coffee {
+}
+
+// Filter ===================
+
 #coffee .filterSelector {
 	background-color: $google-gray;
-	padding: $msm 0;
+	padding: $msm 5%;
 	width: 100%; 
 	font-size: 1.3rem;
 
@@ -24,18 +29,22 @@
 	}
 }
 
-#coffee .roastCards {
-	display: none;
-}
-
-
+// Card wrapper ==================
 
 #coffee .card-wrapper {
 	background-color: $google-gray;
 	width: 100%;
 	height: 100%;
+	padding: 0 5%;
 	padding-top: $med; // mobile first item margin
 }
+
+// Roast hidden by default...
+#coffee .roastCards {
+	display: none;
+}
+
+// Bottom Details Bars ==================
 
 #coffee .coffee-details {
 	position: fixed;
@@ -94,7 +103,7 @@
 // enter
 #coffee .coffee-card.ng-hide-remove {
 	opacity: 0;
-	transform: translateX(100%);
+	transform: translateY(100%);
 }
 #coffee .coffee-card.ng-hide-remove-stagger {
 	transition-delay: 0.1s; 
@@ -102,7 +111,7 @@
 }
 #coffee .coffee-card.ng-hide-remove-active {
 	opacity: 1;
-	transform: translateX(0);
+	transform: translateY(0);
 }
 // leave
 #coffee .coffee-card.ng-hide-add{
@@ -110,7 +119,7 @@
 }
 #coffee .coffee-card.ng-hide-add-active{
 	opacity: 0;
-	transform: translateX(-100%);
+	transform: translateY(100%);
 
 }
 
