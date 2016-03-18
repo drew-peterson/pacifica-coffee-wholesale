@@ -21,6 +21,10 @@
 	background-color: $primary-color;
 	margin-bottom: $msm;
 
+	@include tablet {
+		margin-bottom: 0;
+	}
+
 	.material-icons {
 		color: $white;
 		font-size: 2.5rem;
@@ -39,11 +43,16 @@
 	display: flex;
 	flex-direction: column; 
 	position: relative;
-	align-items: center;
 	padding: 0 $msm;
-	height: 55vh;
+	height: 55vh; 
 	overflow-y: scroll;
 
+	@include tablet {
+		padding: $med; 
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-content: flex-start; // prevent spreading....
+	}
 }
 
 #coffeeBag .bagItems h3 {
