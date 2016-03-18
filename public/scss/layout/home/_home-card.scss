@@ -29,14 +29,14 @@
 
 // width of each container
 .home-container .home-item {
-	width: 90%; 
+	width: 90%;
+	height: 100%; 
+	background-color: $google-gray;
+	padding-top: $med;
 }
 
 
 .home-container .picture-wrap {
-	// height: 100%;
-	background-color: $google-gray;
-
 	@include tablet { 
 		@include flex-center; 
 	}
@@ -49,6 +49,8 @@
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
+	width: 80%;
+	margin: 0 auto;
 
 	@include tablet {
 		height: 70%;
