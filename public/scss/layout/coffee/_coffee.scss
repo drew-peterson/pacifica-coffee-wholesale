@@ -48,12 +48,6 @@
 	cursor: pointer;
 	transition: 0.35s all ease;
 
-	&:hover {
-		@include desktop {
-			padding-bottom: 20px;
-		}
-	}
-
 	&:hover ~ .downArrow {
 		color: $black;
 		animation: arrowBounce 1s infinite;
