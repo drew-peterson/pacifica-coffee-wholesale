@@ -58,6 +58,11 @@
 #coffeeBag .bagItems h3 {
 	position: relative;
 	top: 25%;
+	@include center-h;
+
+	@include tablet {
+		font-size: 3rem; 
+	}
 }
 
 
