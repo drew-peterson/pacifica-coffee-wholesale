@@ -15,12 +15,15 @@
 		<i class="material-icons downArrow">&#xE5C5;</i>
 		
 		<!-- add ng-hide to class to avoid flicker -->
-		<coffee-card
-			ng-hide="!filterActive"
-			ng-repeat="item in region.region" 
-			add-to-bag = "CC.addTobag(coffee)"
-			ng-init="item.qty=1"
-		></coffee-card>  
+
+		<div class="coffee-card-wrap">
+			<coffee-card
+				ng-hide="!filterActive"
+				ng-repeat="item in region.region" 
+				add-to-bag = "CC.addTobag(coffee)"
+				ng-init="item.qty=1"
+			></coffee-card>  
+		</div>
 	</div>
 
 	<!-- Roast -->
@@ -31,13 +34,15 @@
 		<!-- dropdown icon -->
 		<i class="material-icons downArrow">&#xE5C5;</i>
 		
-		<!-- add ng-hide to class to avoid flicker -->
-		<coffee-card
-			ng-hide="!filterActive"
-			ng-repeat="item in roast.roast" 
-			add-to-bag = "CC.addTobag(coffee)"
-			ng-init="item.qty=1"
-		></coffee-card> 
+		<div class="coffee-card-wrap">
+			<!-- add ng-hide to class to avoid flicker -->
+			<coffee-card
+				ng-hide="!filterActive"
+				ng-repeat="item in roast.roast" 
+				add-to-bag = "CC.addTobag(coffee)"
+				ng-init="item.qty=1"
+			></coffee-card>
+		</div> 
 	
 	</div>
 

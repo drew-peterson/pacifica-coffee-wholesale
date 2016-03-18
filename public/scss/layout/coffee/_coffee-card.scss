@@ -8,6 +8,18 @@
  	padding: $med;
  	padding-bottom: 45px; // clear details banner
  	margin: $med auto;
+
+ 	@include tablet {
+ 		width: 32%;
+ 		margin: 0;
+ 		margin-left: $med;
+ 		margin-top: $med;
+
+
+ 		&:nth-of-type(3n+1){
+ 			margin-left: 0;
+ 		}
+ 	}
  }
 
 // DETAILS BANNER ===================================

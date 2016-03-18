@@ -40,7 +40,13 @@
 	height: 100%;
 	padding: 0 5%;
 	padding-top: $med; // mobile first item margin
-	// @include debug;
+}
+
+#coffee .coffee-card-wrap {
+	@include tablet {
+		display: flex;
+		flex-wrap: wrap;
+	}
 }
 
 #coffee .card-wrapper .filterTitle {
