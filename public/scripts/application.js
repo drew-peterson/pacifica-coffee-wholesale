@@ -67,7 +67,7 @@ angular.module('CoffeeCtrl', [])
 	CC.bag = []; // bag
 	CC.filterBy = {
 		regions: [ {name: 'Blends', region: []},{name: 'Indonesia', region: []},{name:'Central/South America', region:[]}, {name:'Africa', region:[]}],
-		roasts: []
+		roasts: [ {name: 'Full City Roast', roast:[]},{name:"City Roast", roast: []}, {name:"French Roast", roast:[]}]
 	}; // Coffee Filter
 
 	// GET ALL ITEMS ===========================================

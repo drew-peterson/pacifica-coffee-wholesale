@@ -22,8 +22,19 @@
 	</div>
 
 	<!-- Roast -->
-	<div class="card-wrapper roastCards">
-		<h3>Roast</h3>
+	<div class="card-wrapper roastCards"
+		ng-repeat="roast in CC.filterBy.roasts">
+
+		<h3 ng-click="filterActive = !filterActive">{{roast.name}}</h3>
+		
+		<!-- add ng-hide to class to avoid flicker -->
+		<coffee-card
+			ng-hide="!filterActive"
+			ng-repeat="item in roast.roast" 
+			add-to-bag = "CC.addTobag(coffee)"
+			ng-init="item.qty=1"
+		></coffee-card> 
+	
 	</div>
 
 	<!-- bag -->
