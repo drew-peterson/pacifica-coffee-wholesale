@@ -20,7 +20,7 @@
 .youtube-wrap video {
 	display: none;
 
-	@include tablet {
+	@include desktop {
 		display: block;
 	    position: fixed;
 	    top: 50%;

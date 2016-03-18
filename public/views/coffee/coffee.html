@@ -51,7 +51,7 @@
 	<!-- 2. Coffe Bag item -->
 	<coffee-bag></coffee-bag>
 
-	<!--Notification bar  -->
+	<!--details bar  -->
 	<div class="coffee-details">
 		<span ng-if="CC.total.amount" class="qty">{{CC.total.amount}}</span>
 		<span ng-if="CC.total.total" class="total">{{CC.total.total | currency}}</span>
@@ -63,6 +63,11 @@
 		<!-- open bag btn... -->
 		<span class="viewBag">OPEN BAG</span>
 	</div>
+
+	
+	<!-- notification bar -->
+	<notification-bar></notification-bar>
+
 
 	<!-- mask overlay -->
 	<div class="mask coffeeMask"></div> 
