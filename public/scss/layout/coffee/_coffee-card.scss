@@ -7,17 +7,26 @@
  	width: 100%;
  	padding: $med;
  	padding-bottom: 45px; // clear details banner
- 	margin: $med auto;
+ 	margin: 0;
+ 	margin-bottom: $xs; // edge goes away without....
+ 	margin-top: $med;
 
  	@include tablet {
  		width: 32%;
- 		margin: 0;
- 		margin-left: $med;
- 		margin-top: $med;
-
-
+ 		margin-left: 2%;
  		&:nth-of-type(3n+1){
  			margin-left: 0;
+ 		}
+ 	} // tablet
+
+ 	@include desktop__large {
+ 		width: 24.2%;
+ 		margin-left: 1%;
+ 		&:nth-of-type(3n+1){
+ 			margin-left: 1%;
+ 		} 
+ 		&:nth-of-type(4n+1){
+ 			margin-left: 0; 
  		}
  	}
  }
