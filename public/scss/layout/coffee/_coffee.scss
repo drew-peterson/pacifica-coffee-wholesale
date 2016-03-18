@@ -1,14 +1,16 @@
 
 #coffee {
+	min-height: 100vh;
+	background-color: $google-gray;
 }
 
 // Filter ===================
 
 #coffee .filterSelector {
-	background-color: $google-gray;
 	padding: $msm 5%;
 	width: 100%; 
 	font-size: 1.3rem;
+	border-bottom: 1px solid $black;
 
 	span {
 		font-size: $med;
@@ -32,11 +34,49 @@
 // Card wrapper ==================
 
 #coffee .card-wrapper {
+	position: relative;
 	background-color: $google-gray;
 	width: 100%;
 	height: 100%;
 	padding: 0 5%;
 	padding-top: $med; // mobile first item margin
+	// @include debug;
+}
+
+#coffee .card-wrapper .filterTitle {
+	border-bottom: 1px solid black;
+	cursor: pointer;
+	transition: 0.35s all ease;
+
+	&:hover {
+		@include desktop {
+			padding-bottom: 20px;
+		}
+	}
+
+	&:hover ~ .downArrow {
+		color: $black;
+		animation: arrowBounce 1s infinite;
+	}
+}
+
+// animation for downarrow ==============
+@keyframes arrowBounce {
+	0%{bottom:0px;}
+	25%{bottom: -2.5px;}
+	50%{bottom:0px;}
+	75%{bottom:2.5px;}
+	100%{bottom:0px;}
+}
+
+// dropdown arrow	
+#coffee .card-wrapper .downArrow {
+	font-size: 2.3rem;
+	position: absolute;
+	right: 5%;
+	bottom: 0;
+	transition: 0.35s all ease;
+	color: $gray;
 }
 
 // Roast hidden by default...
