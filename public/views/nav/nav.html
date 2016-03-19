@@ -1,31 +1,18 @@
-<div id="nav" ng-controller="NavCtrl">
+<div id="nav">
 
 	<ul class="wrapper">
 	    <!-- Hamburger Btn -->
-	    <li class="nav-li nav-open"
-			toggle-class
-	    	ng-mouseenter="!active ? hover = !hover : nothing"
-	    	ng-mouseleave="!active && hover ? hover = false  : nothing">
+	    <li class="nav-li nav-open">
 	      <button id="hamBtn" ng-class="{'active': navActive};">
-	        <span>close</span>
+	        <span>close</span>  
 	      </button>
 	    </li>	
-
-		<!-- ===============================  -->
-		<!-- ng-hide="!active"  -->
-		<!-- side Navigation -->
-		<nav 
-			id="sideNav"  
-			ng-class="{'active': active, 'hover': hover}"
-			ng-mouseenter="active = true"  
-			ng-mouseleave="active = false"  
-			ng-include src="'views/nav/sideNav.html'">
-		</nav>
-		<!-- ===============================  -->
 
 	    <li class="nav-li title">
 	    	<a alt="home" ui-sref="home">Pacifica Coffee</a>
 	    </li>
 	</ul>
+	<!-- side navigtation -->
+	<side-nav></side-nav>
 
 </div>
