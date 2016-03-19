@@ -28,24 +28,6 @@ angular.module('pacificaApp',
 });
 
 
-angular.module('pacificaApp')
-
-.service('itemsService', function($http){ 
-  return {
-    get: function(){
-      return $http.get('/api/coffees'); 
-    },
-    post: function(data){  
-      return $http.post('api/coffees', data);
-    },
-    put: function(data, id){
-      return $http.put('api/coffees/' + id, data);
-    },
-    delete: function(id){  
-      return $http.delete('api/coffees/' + id);
-    }
-  }
-})
 angular.module('AdminCtrl',[])
 
 .controller('AdminCtrl', function(itemsService, $scope){    
@@ -200,8 +182,6 @@ angular.module('NavCtrl',[])
 
 				sideNav.toggleClass('showSideNavM');
 				iconText.toggleClass('showIconText'); 
-
-				console.log('click')
 			})
 		},
 		templateUrl: 'views/nav/nav.html'
@@ -214,7 +194,15 @@ angular.module('NavCtrl',[])
 		replace: true,
 		controller: function(){},
 		link: function(scope, elem, attrs){
+			var link = elem.find('.link a');
+			var sideNav = $('#sideNav');
+			var iconText = $('#sideNav .iconText'); 
 
+			// Hide side nav when link is pressed...
+			link.on('click',function(){
+				sideNav.toggleClass('showSideNavM');
+				iconText.toggleClass('showIconText'); 
+			})
 
 		},
 		templateUrl: 'views/nav/sideNav.html'
@@ -260,6 +248,24 @@ angular.module('appRoutes', [])
 
 });
 
+angular.module('pacificaApp')
+
+.service('itemsService', function($http){ 
+  return {
+    get: function(){
+      return $http.get('/api/coffees'); 
+    },
+    post: function(data){  
+      return $http.post('api/coffees', data);
+    },
+    put: function(data, id){
+      return $http.put('api/coffees/' + id, data);
+    },
+    delete: function(id){  
+      return $http.delete('api/coffees/' + id);
+    }
+  }
+})
 angular.module('AdminCtrl').directive('addItem', function(){
 	return {
 		restrict: 'AE',
