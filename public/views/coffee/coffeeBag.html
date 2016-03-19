@@ -19,15 +19,17 @@
 					<span>Place order</span><br>
 					<span>425-765-1111</span>
 				</div>
-				<p>estimate only</p>
+				<p class="est">estimate only</p>
 			</div>
 		
 			<!-- individual item -->		
-			<coffee-bag-item
-				ng-repeat="item in CC.bag | reverse" 
-				remove-from-bag="CC.removeFromBag(coffee)"
-				update-bag="CC.updateBag(coffee)"
-			></coffee-bag-item>  
+			<div class="bag-item-wrap">
+				<coffee-bag-item
+					ng-repeat="item in CC.bag | reverse" 
+					remove-from-bag="CC.removeFromBag(coffee)"
+					update-bag="CC.updateBag(coffee)"
+				></coffee-bag-item>  
+			</div>
 		
 
 		</div>
