@@ -1,5 +1,6 @@
 
 #coffeeBag {
+	height: 75vh; 
 	z-index: 300; // clear details
 	position: fixed;
 	bottom: 0; // clear details bar
@@ -15,6 +16,7 @@
 	}
 }
 
+// Close ============
 .bag-close-wrap {
 	height: 2.5rem;
 	text-align: right;
@@ -36,15 +38,44 @@
 	}
 }
 
+// Bag Details 
+.bagItems .bag-details {
+	@include box-shadow;
+	background-color: $white;
+	padding: $med;
+	margin-bottom: $msm;
+	min-height: 100px;
+
+	.details {
+		display: flex;
+	}
+
+	.total, .amount {
+		color: $white;
+		width: 50%;
+		text-align: center;
+		background-color: $primary-color;
+		padding: $sm;
+	}
+	.total {
+		background-color: darken($primary-color, 5%);
+	}
+	.call-me{
+		margin-top: $msm;
+		font-size: 1.2rem;
+		text-align: center;
+	}
+}
 
 //  BAG Content Container ================================
 
 #coffeeBag .bagItems {
-	display: flex;
+	display: flex; 
 	flex-direction: column; 
 	position: relative;
 	padding: 0 $msm;
-	height: 55vh; 
+	// height: 55vh; 
+	height: 100%;
 	overflow-y: scroll;
 
 	@include tablet {
