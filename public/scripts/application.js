@@ -28,6 +28,24 @@ angular.module('pacificaApp',
 });
 
 
+angular.module('pacificaApp')
+
+.service('itemsService', function($http){ 
+  return {
+    get: function(){
+      return $http.get('/api/coffees'); 
+    },
+    post: function(data){  
+      return $http.post('api/coffees', data);
+    },
+    put: function(data, id){
+      return $http.put('api/coffees/' + id, data);
+    },
+    delete: function(id){  
+      return $http.delete('api/coffees/' + id);
+    }
+  }
+})
 angular.module('AdminCtrl',[])
 
 .controller('AdminCtrl', function(itemsService, $scope){    
@@ -168,11 +186,24 @@ angular.module('HomeCtrl', [])
 angular.module('NavCtrl',[])
 
 .directive('navigation',function(){
-	return {
+	return { 
 		scope: true,
 		replace: true,
 		controller: function(){},
-		link: function(scope, elem, attrs){},
+		link: function(scope, elem, attrs){
+			var navBtn = elem.find('.nav-li');
+			
+			// Mobile Menu
+			navBtn.on('click',function(){
+				var sideNav = elem.find('#sideNav');
+				var iconText = elem.find('#sideNav .iconText'); 
+
+				sideNav.toggleClass('showSideNavM');
+				iconText.toggleClass('showIconText'); 
+
+				console.log('click')
+			})
+		},
 		templateUrl: 'views/nav/nav.html'
 	} 
 })
@@ -182,7 +213,10 @@ angular.module('NavCtrl',[])
 		scope: true,
 		replace: true,
 		controller: function(){},
-		link: function(scope, elem, attrs){},
+		link: function(scope, elem, attrs){
+
+
+		},
 		templateUrl: 'views/nav/sideNav.html'
 	} 
 })
@@ -226,24 +260,6 @@ angular.module('appRoutes', [])
 
 });
 
-angular.module('pacificaApp')
-
-.service('itemsService', function($http){ 
-  return {
-    get: function(){
-      return $http.get('/api/coffees'); 
-    },
-    post: function(data){  
-      return $http.post('api/coffees', data);
-    },
-    put: function(data, id){
-      return $http.put('api/coffees/' + id, data);
-    },
-    delete: function(id){  
-      return $http.delete('api/coffees/' + id);
-    }
-  }
-})
 angular.module('AdminCtrl').directive('addItem', function(){
 	return {
 		restrict: 'AE',
