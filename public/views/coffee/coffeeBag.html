@@ -10,15 +10,16 @@
 			<h3 ng-if="CC.bag.length == 0">Your Bag Is Empty</h3>
 
 			<!-- Bag Details -->
-			<div class="bag-details">
+			<div class="bag-details" ng-if="CC.bag.length > 0">
 				<div class="details">
 					<span class="amount">{{CC.total.amount}}</span>
 					<span class="total">{{CC.total.total | currency}}</span>
 				</div>
 				<div class="call-me">
-					<span>Place order:</span>
+					<span>Place order</span><br>
 					<span>425-765-1111</span>
 				</div>
+				<p>estimate only</p>
 			</div>
 		
 			<!-- individual item -->		
