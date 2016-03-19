@@ -56,6 +56,9 @@
 	min-height: calc(100vh);
 	width: 100%;
 	z-index: -100;
+	@include desktop {
+		display: none;
+	}
 }
 
 // title =============
