@@ -168,7 +168,7 @@ angular.module('HomeCtrl', [])
 angular.module('NavCtrl',[])
 
 .directive('navigation',function(){
-	return { 
+	return {  
 		scope: true,
 		replace: true,
 		controller: function(){},
@@ -660,6 +660,44 @@ angular.module('CoffeeCtrl')
 		}
 	}
 })
+angular.module('HomeCtrl').directive('homeCard', function(){
+	return { 
+		restrict: 'AE', 
+		replace: true,
+		scope: {
+			'title': '@',
+			'color': '@',
+			'button': '@', 
+			'content': '@',
+			'image': '@',
+			'textColor': '@', 
+			'url': '@',  
+		},
+		templateUrl: "views/home/homeCard.html" 
+	}
+})
+angular.module('HomeCtrl').directive('videoHero', function(){ 
+	return {
+		restrict: 'AE', 
+		replace: true,
+		link: function(scope, elem, attr){ 
+
+			// play video when it buffers
+			var video = document.getElementById('bgvid');
+			var chrome = navigator.appVersion.indexOf('Chrome');
+			// if Chrome Else
+			if(chrome != 0){	
+				video.play(); 
+			}else{
+				video.oncanplaythrough = function() {
+    				video.play(); 
+				};
+				
+			}
+		},
+		templateUrl: "views/home/youtube.html" 
+	}
+}); 
 // Lazy Load ======================================
 // lazy-load attr on image or background, must have parent...
 angular.module('pacificaApp')
@@ -701,44 +739,6 @@ angular.module('pacificaApp')
     } // end of return
 }) // end of directive
 // ===============================================
-angular.module('HomeCtrl').directive('homeCard', function(){
-	return { 
-		restrict: 'AE', 
-		replace: true,
-		scope: {
-			'title': '@',
-			'color': '@',
-			'button': '@', 
-			'content': '@',
-			'image': '@',
-			'textColor': '@', 
-			'url': '@',  
-		},
-		templateUrl: "views/home/homeCard.html" 
-	}
-})
-angular.module('HomeCtrl').directive('videoHero', function(){ 
-	return {
-		restrict: 'AE', 
-		replace: true,
-		link: function(scope, elem, attr){ 
-
-			// play video when it buffers
-			var video = document.getElementById('bgvid');
-			var chrome = navigator.appVersion.indexOf('Chrome');
-			// if Chrome Else
-			if(chrome != 0){	
-				video.play(); 
-			}else{
-				video.oncanplaythrough = function() {
-    				video.play(); 
-				};
-				
-			}
-		},
-		templateUrl: "views/home/youtube.html" 
-	}
-}); 
 angular.module('NavCtrl').directive('toggleClass', function(){
 	return {
 		restrict: 'A',

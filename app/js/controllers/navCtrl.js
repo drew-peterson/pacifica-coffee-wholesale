@@ -1,7 +1,7 @@
 angular.module('NavCtrl',[])
 
 .directive('navigation',function(){
-	return { 
+	return {  
 		scope: true,
 		replace: true,
 		controller: function(){},
