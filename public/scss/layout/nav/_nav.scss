@@ -1,16 +1,19 @@
 	
 #nav { 
+	position: fixed;
 	background-color: $white; 
 	width: 100%; 
 	height: 60px;
 	border-bottom: 1px solid $divider-color;
-	position: fixed;
 	top: 0;
 	left: 0;  
-	z-index: 200;
+	z-index: 250;
 }
 
 #nav .wrapper {
+	position: relative;
+	z-index: 250; // not sure why this has to be set as well...
+	background-color: $white;
 	width: 100%;
 	margin: 0 auto;
 	height: 100%;
@@ -58,4 +61,13 @@
 	cursor: pointer;
 	height: 60px;
 	width: 60px;
+}
+
+#nav .mask-overlay.hide{
+	display: none;
+}
+#nav .mask-overlay.show{
+	display: block !important;
+	z-index: 200 ; 
+	background-color: rgba(0,0,0,0.6); 
 }
