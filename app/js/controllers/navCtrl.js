@@ -12,20 +12,28 @@ angular.module('NavCtrl',[])
 			
 			// Mobile Menu
 			navBtn.on('click',function(){
-				console.log('click')
+				console.log('click', active)
 				var sideNav = elem.find('#sideNav');
+				var link = sideNav.find('.link');
 				var iconText = elem.find('#sideNav .iconText'); 
 
 				if(!active){
 					sideNav.addClass('showSideNavM');
 					iconText.addClass('showIconText'); 
 					active = true;
+					console.log('if', active);
 				}else{
 					sideNav.removeClass('showSideNavM');
 					sideNav.removeClass('showSideNavD');
 					iconText.removeClass('showIconText'); 
 					active = false;
+					console.log('else', active);
 				}
+
+				// set active to false on link click;
+				link.on('click', function(){
+					active = false;
+				})
 			})
 
 			navBtn.on('mouseenter',function(){
