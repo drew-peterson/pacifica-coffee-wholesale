@@ -176,10 +176,10 @@ angular.module('NavCtrl',[])
 
 			var active;
 			var navBtn = elem.find('.nav-open');
+			var home = navBtn.parent().find('.title');
 			
 			// Mobile Menu
 			navBtn.on('click',function(){
-				console.log('click', active)
 				var sideNav = elem.find('#sideNav');
 				var link = sideNav.find('.link');
 				var iconText = elem.find('#sideNav .iconText'); 
@@ -188,15 +188,19 @@ angular.module('NavCtrl',[])
 					sideNav.addClass('showSideNavM');
 					iconText.addClass('showIconText'); 
 					active = true;
-					console.log('if', active);
 				}else{
 					sideNav.removeClass('showSideNavM');
 					sideNav.removeClass('showSideNavD');
 					iconText.removeClass('showIconText'); 
 					active = false;
-					console.log('else', active);
 				}
-
+				// on home btn click remove everything
+				home.on('click',function(){
+					sideNav.removeClass('showSideNavM');
+					sideNav.removeClass('showSideNavD');
+					iconText.removeClass('showIconText'); 
+					active = false;
+				})
 				// set active to false on link click;
 				link.on('click', function(){
 					active = false;
@@ -224,7 +228,6 @@ angular.module('NavCtrl',[])
 			})
 
 			navBtn.on('mouseleave',function(){
-				console.log('mouse out')
 				var sideNav = elem.find('#sideNav');
 				sideNav.removeClass('showSideNavD');
 			})
