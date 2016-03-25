@@ -181,6 +181,7 @@ angular.module('NavCtrl',[])
 			
 			// Mobile Menu
 			navBtn.on('click',function(){
+
 				var sideNav = elem.find('#sideNav');
 				var link = sideNav.find('.link');
 				var iconText = elem.find('#sideNav .iconText');
@@ -190,6 +191,7 @@ angular.module('NavCtrl',[])
 					iconText.addClass('showIconText');
 					mask.addClass('show');
 					active = true;
+					console.log('if', active);
 				}else{
 					sideNav.removeClass('showSideNavM');
 					sideNav.removeClass('showSideNavD');
@@ -198,6 +200,7 @@ angular.module('NavCtrl',[])
 					active = false;
 					// removeAll(sideNav, iconText, mask);
 				}
+
 				// on home btn click remove everything
 				home.on('click',function(){
 					sideNav.removeClass('showSideNavM');
@@ -207,6 +210,7 @@ angular.module('NavCtrl',[])
 					active = false;
 					// removeAll(sideNav, iconText, mask);
 				})
+
 				// set active to false on link click;
 				link.on('click', function(){
 					mask.removeClass('show');
@@ -278,7 +282,7 @@ angular.module('NavCtrl',[])
 				sideNav.removeClass('showSideNavM');
 				sideNav.removeClass('showSideNavD');
 				iconText.removeClass('showIconText'); 
-			})
+			})  
 
 		},
 		templateUrl: 'views/nav/sideNav.html'
@@ -465,7 +469,7 @@ angular.module('AdminCtrl').directive('adminSideMenu', function($animate, itemsS
 })
 angular.module('CoffeeCtrl')
 
-.directive('coffeeBag', function(){
+.directive('coffeeBag', function($document, $window){
 	return {
 		scope:true,
 		replace: true,
@@ -494,6 +498,30 @@ angular.module('CoffeeCtrl')
 				bag.removeClass('toggle');
 				mask.removeClass('mask-overlay');
 			})
+
+
+			// remove BagBar when at bottom ==========
+			
+			var footer = $('#footer');
+			var bar = $('#coffee .coffee-details');
+				
+			$document.on('scroll',function(){
+				var footerHeight = footer.offset().top
+				var windowHeight = $(window).height();
+				var scroll = $document.scrollTop();
+				var pos = footerHeight - scroll;
+				var nBar = $('#notificationBar');
+
+				if((pos + 100) <= windowHeight){
+					bar.fadeOut();
+					nBar.fadeOut()
+				}else{
+					bar.fadeIn();
+					nBar.fadeIn()
+				}
+			})
+
+
 		},
 		templateUrl: "views/coffee/coffeeBag.html"
 	} 
@@ -660,44 +688,6 @@ angular.module('CoffeeCtrl')
 		}
 	}
 })
-angular.module('HomeCtrl').directive('homeCard', function(){
-	return { 
-		restrict: 'AE', 
-		replace: true,
-		scope: {
-			'title': '@',
-			'color': '@',
-			'button': '@', 
-			'content': '@',
-			'image': '@',
-			'textColor': '@', 
-			'url': '@',  
-		},
-		templateUrl: "views/home/homeCard.html" 
-	}
-})
-angular.module('HomeCtrl').directive('videoHero', function(){ 
-	return {
-		restrict: 'AE', 
-		replace: true,
-		link: function(scope, elem, attr){ 
-
-			// play video when it buffers
-			var video = document.getElementById('bgvid');
-			var chrome = navigator.appVersion.indexOf('Chrome');
-			// if Chrome Else
-			if(chrome != 0){	
-				video.play(); 
-			}else{
-				video.oncanplaythrough = function() {
-    				video.play(); 
-				};
-				
-			}
-		},
-		templateUrl: "views/home/youtube.html" 
-	}
-}); 
 // Lazy Load ======================================
 // lazy-load attr on image or background, must have parent...
 angular.module('pacificaApp')
@@ -739,6 +729,44 @@ angular.module('pacificaApp')
     } // end of return
 }) // end of directive
 // ===============================================
+angular.module('HomeCtrl').directive('homeCard', function(){
+	return { 
+		restrict: 'AE', 
+		replace: true,
+		scope: {
+			'title': '@',
+			'color': '@',
+			'button': '@', 
+			'content': '@',
+			'image': '@',
+			'textColor': '@', 
+			'url': '@',  
+		},
+		templateUrl: "views/home/homeCard.html" 
+	}
+})
+angular.module('HomeCtrl').directive('videoHero', function(){ 
+	return {
+		restrict: 'AE', 
+		replace: true,
+		link: function(scope, elem, attr){ 
+
+			// play video when it buffers
+			var video = document.getElementById('bgvid');
+			var chrome = navigator.appVersion.indexOf('Chrome');
+			// if Chrome Else
+			if(chrome != 0){	
+				video.play(); 
+			}else{
+				video.oncanplaythrough = function() {
+    				video.play(); 
+				};
+				
+			}
+		},
+		templateUrl: "views/home/youtube.html" 
+	}
+}); 
 angular.module('NavCtrl').directive('toggleClass', function(){
 	return {
 		restrict: 'A',

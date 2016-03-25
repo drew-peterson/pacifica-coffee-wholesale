@@ -1,6 +1,6 @@
 angular.module('CoffeeCtrl')
 
-.directive('coffeeBag', function(){
+.directive('coffeeBag', function($document, $window){
 	return {
 		scope:true,
 		replace: true,
@@ -29,6 +29,30 @@ angular.module('CoffeeCtrl')
 				bag.removeClass('toggle');
 				mask.removeClass('mask-overlay');
 			})
+
+
+			// remove BagBar when at bottom ==========
+			
+			var footer = $('#footer');
+			var bar = $('#coffee .coffee-details');
+				
+			$document.on('scroll',function(){
+				var footerHeight = footer.offset().top
+				var windowHeight = $(window).height();
+				var scroll = $document.scrollTop();
+				var pos = footerHeight - scroll;
+				var nBar = $('#notificationBar');
+
+				if((pos + 100) <= windowHeight){
+					bar.fadeOut();
+					nBar.fadeOut()
+				}else{
+					bar.fadeIn();
+					nBar.fadeIn()
+				}
+			})
+
+
 		},
 		templateUrl: "views/coffee/coffeeBag.html"
 	} 
