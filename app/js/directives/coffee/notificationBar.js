@@ -20,12 +20,38 @@ angular.module('CoffeeCtrl')
 			// $watch('nService.notifcations') way does not work....
 			$scope.$watch(function(){
 				return nService.notifications;
-			},function(newVal){
-				console.log(newVal)
+			},function(newVal, oldVal){
+				ctrl.existing = oldVal;
 				ctrl.notification = newVal;
+
+				console.log('=========')
+				console.log('existing ' + ctrl.existing)
+				console.log('notification ' + ctrl.notification)
 			}, true); // true is important
 		},
 		link: function(scope,elem,attrs){},
 		templateUrl: 'views/coffee/notificationBar.html'
 	}
 })
+
+// Hide show bar when variable changes....
+.directive('animateOnChange', function($animate,$timeout) {
+	return function(scope, elem, attr) {
+		scope.$watch(attr.animateOnChange, function(nv,ov) {
+			var c = 'show';
+			$animate.addClass(elem,c).then(function() {
+				$timeout(function() {$animate.removeClass(elem,c)});
+			});
+		});
+	}	
+})
+
+
+
+
+
+
+
+
+
+
