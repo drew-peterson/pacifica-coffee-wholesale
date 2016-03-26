@@ -24,7 +24,6 @@ angular.module('NavCtrl',[])
 					iconText.addClass('showIconText');
 					mask.addClass('show');
 					active = true;
-					console.log('if', active);
 				}else{
 					sideNav.removeClass('showSideNavM');
 					sideNav.removeClass('showSideNavD');
@@ -90,7 +89,6 @@ angular.module('NavCtrl',[])
 				}
 
 			var removeAll = function(sideNav, iconText, mask){
-				console.log('removeAll')
 				sideNav.removeClass('showSideNavM');
 				sideNav.removeClass('showSideNavD');
 				iconText.removeClass('showIconText');
