@@ -29,8 +29,9 @@
 
 // width of each container
 .home-container .home-item {
+	display: block;
 	width: 90%;
-	height: 100%; 
+	height: auto; 
 	background-color: $google-gray;
 	padding: $med 0; 
 }
@@ -70,6 +71,7 @@
 
 .home-container .content {
 	height: 100%;
+	min-height: 200px;
 	padding: $mlg;
 	p {
 		padding: $med 0;
