@@ -1,7 +1,7 @@
 
 angular.module('CoffeeCtrl')
 
-.directive('coffeeBagItem', function(){
+.directive('coffeeBagItem', function(nService){
 	return { 
 		scope:true,
 		replace: true,
@@ -11,10 +11,13 @@ angular.module('CoffeeCtrl')
 
 			ctrl.remove = function(coffee){
 				ctrl.removeFromBag({coffee:coffee}); // has to be object...
+
+				nService.addItem( coffee.name + ' removed');
 			}
 
 			ctrl.update = function(coffee){
 				ctrl.updateBag({coffee:coffee})
+				nService.addItem( coffee.name + ' updated');
 			}
 		}, 
 		controllerAs: 'ctrl',

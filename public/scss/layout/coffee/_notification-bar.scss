@@ -17,20 +17,14 @@
  }
 
 #notificationBar.show-add, #notificationBar.show-remove {
-  transition: all 0.3s;
-}
-#notificationBar.show-add {
-	bottom: 0;
+	transition: all 0.3s;
+	bottom: 0; 
 }
 #notificationBar.show {
 	bottom: 50px;
 }
-#notificationBar.show-add.show-add-active {
-  	bottom: 50px;
-}
 #notificationBar.show-remove {
 	transition-delay: 1s;
-    bottom: 50px;
 }
 #notificationBar.show-remove.show-remove-active {
 	bottom: 0;
