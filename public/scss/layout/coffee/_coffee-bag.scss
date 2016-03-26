@@ -75,6 +75,20 @@
 			font-size: $mlg;
 			margin: 0 auto;
 		}
+
+		&.show-add, &.show-remove{
+			background-color: $primary-color;
+			transition: 1s all ease;
+		}
+		&.show{
+			background-color: olive;
+		}
+		&.show-remove {
+			background-color: olive;
+		}
+		&.show-remove-active{
+			background-color: $primary-color;
+		}
 	}
 	.total {
 		background-color: darken($primary-color, 5%);
