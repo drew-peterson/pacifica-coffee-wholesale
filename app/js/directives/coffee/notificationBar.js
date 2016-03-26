@@ -1,10 +1,9 @@
 angular.module('CoffeeCtrl')
 .service('nService',function(){
 	return {
-		notifications: [],
+		notifications: undefined,
 		addItem: function(notice){
-			this.notifications.length = 0; // delete array contents
-			this.notifications.push(notice)
+			this.notifications = notice;
 		}
 	}
 })
@@ -23,7 +22,7 @@ angular.module('CoffeeCtrl')
 				return nService.notifications;
 			},function(newVal){
 				console.log(newVal)
-				ctrl.notification = newVal[0];
+				ctrl.notification = newVal;
 			}, true); // true is important
 		},
 		link: function(scope,elem,attrs){},
