@@ -1,33 +1,32 @@
 angular.module('CoffeeCtrl')
-.directive('notificationBar',function($timeout){
+.service('nService',function(){
+	return {
+		notifications: [],
+		addItem: function(notice){
+			this.notifications.length = 0; // delete array contents
+			this.notifications.push(notice)
+		}
+	}
+})
+.directive('notificationBar',function($timeout, nService){
 	return{
-		scope:true,
+		scope: true,
 		replace: true,
-		link: function(scope,elem,attrs){
+		controllerAs: 'ctrl',
+		controller: function($scope){
+			ctrl = this;
+			ctrl.notification; // hold the updated notificatiton
 
-			// item updated ========
-			$('#coffeeBag').on('change', 'select', function(){
-				elem.addClass('showNotification');
-				elem.find('.update').show();
-				$timeout(function() {
-					elem.removeClass('showNotification');
-					elem.find('.update').hide();
-				}, 2000);
-			})
-
-
-
-			// how show adde item =================
-			$('.card-wrapper').on('click','.coffee-card .add', function(){
-
-				elem.addClass('showNotification');
-				elem.find('.add').show();
-				$timeout(function() {
-					elem.removeClass('showNotification');
-					elem.find('.add').hide();
-				}, 2000);
-			});
+			// pass vars between directives use service!!! this will watch for changes
+			// $watch('nService.notifcations') way does not work....
+			$scope.$watch(function(){
+				return nService.notifications;
+			},function(newVal){
+				console.log(newVal)
+				ctrl.notification = newVal[0];
+			}, true); // true is important
 		},
+		link: function(scope,elem,attrs){},
 		templateUrl: 'views/coffee/notificationBar.html'
 	}
 })

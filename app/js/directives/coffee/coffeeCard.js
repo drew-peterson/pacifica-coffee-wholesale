@@ -1,6 +1,6 @@
 angular.module('CoffeeCtrl')
 
-.directive('coffeeCard', function(){
+.directive('coffeeCard', function(nService){
 	return {
 		replace: true,
 		restrict: 'AE',
@@ -10,6 +10,9 @@ angular.module('CoffeeCtrl')
 
 			ctrl.add = function(coffee){
 				ctrl.addToBag({coffee:coffee});
+
+				// notifcation
+				nService.addItem( coffee.name + ' Added');
 			} 
 		},
 		controllerAs: 'ctrl',
