@@ -226,33 +226,35 @@ angular.module('NavCtrl',[])
 				})
 			})
 
-			navBtn.on('mouseenter',function(){
-				var sideNav = elem.find('#sideNav');
-				var iconText = $('#sideNav .iconText');
-				var mask = $('.mask-overlay');
-				
-				sideNav.addClass('showSideNavD');
-				mask.addClass('show');
+				// disable mouseenter event on touch devices prevents apple....
+				if($(window).width() >= 768){
 
-				sideNav.on('mouseenter',function(){
-					iconText.addClass('showIconText');
-					sideNav.addClass('showSideNavM');
-				})
+					navBtn.on('mouseenter',function(){
+						var sideNav = elem.find('#sideNav');
+						var iconText = $('#sideNav .iconText');
+						var mask = $('.mask-overlay');
+						
+						sideNav.addClass('showSideNavD');
+						mask.addClass('show');
 
-				sideNav.on('mouseleave',function(){
-					mask.removeClass('show');
-					sideNav.removeClass('showSideNavD');
-					sideNav.removeClass('showSideNavM');
-					iconText.removeClass('showIconText');
-					
-				})
+						sideNav.on('mouseenter',function(){
+							iconText.addClass('showIconText');
+							sideNav.addClass('showSideNavM');
+						});
 
-			})
+						sideNav.on('mouseleave',function(){
+							mask.removeClass('show');
+							sideNav.removeClass('showSideNavD');
+							sideNav.removeClass('showSideNavM');
+							iconText.removeClass('showIconText');
+						});
+					});
 
-			navBtn.on('mouseleave',function(){
-				var sideNav = elem.find('#sideNav');
-				sideNav.removeClass('showSideNavD');
-			})
+					navBtn.on('mouseleave',function(){
+						var sideNav = elem.find('#sideNav');
+						sideNav.removeClass('showSideNavD');
+					});
+				}
 
 			var removeAll = function(sideNav, iconText, mask){
 				console.log('removeAll')
