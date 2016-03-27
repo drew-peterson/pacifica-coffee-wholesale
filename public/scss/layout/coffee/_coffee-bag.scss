@@ -49,12 +49,11 @@
 	height: calc(75vh - 40px); // height of coffee - close
 	// 100% doesnt work needs a varible height...
 	overflow-y: scroll;
-	@include debug;
 
 	// align bag details and items side by side...
 	@include tablet {
-		// overflow-y: hidden;
-		// padding: $med; 
+		overflow-y: hidden;
+		padding: $med; 
 		flex-direction: row;
 		align-content: flex-start; // prevent spreading....
 	}
