@@ -5,9 +5,21 @@
 	
 	<h2>New Coffee</h2>
 	<!-- background-image --> 
-	<div class="background upload-photo"
-		ng-style="{'background-image': 'url({{itemData.image}})'}"
-	>Upload Picture</div>
+	<section class="upload-photo">
+
+		<div class="upload-card" ng-class="{'flipped': active}" ng-click="active = !active">
+			<!-- font -->
+			<div class="background front card"
+				ng-style="{'background-image': 'url({{itemData.image}})'}">
+				<span>Upload Picture</span>
+			</div> 
+			<!-- back -->
+			<div class="back card">
+				<input type="file" name="image" class="" ng-model="newItem.image">
+			</div>
+		</div>
+		
+	</section>
 
 	<li class="admin-push-content">
 		<input type="text" ng-model="newItem.name">
