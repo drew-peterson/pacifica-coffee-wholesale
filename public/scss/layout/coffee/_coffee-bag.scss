@@ -21,7 +21,6 @@
 	height: 2.5rem;
 	text-align: right;
 	background-color: $primary-color;
-	margin-bottom: $msm;
 
 	@include tablet {
 		margin-bottom: 0;
@@ -38,7 +37,42 @@
 	}
 }
 
-// Bag Details 
+
+//  BAG Content Container ================================
+
+#coffeeBag .bagItems {
+	display: flex; 
+	flex-direction: column; 
+	position: relative;
+	padding: 0 $msm;
+	padding-top: $msm;
+	height: calc(75vh - 40px); // height of coffee - close
+	// 100% doesnt work needs a varible height...
+	overflow-y: scroll;
+	@include debug;
+
+	// align bag details and items side by side...
+	@include tablet {
+		// overflow-y: hidden;
+		// padding: $med; 
+		flex-direction: row;
+		align-content: flex-start; // prevent spreading....
+	}
+}
+
+#coffeeBag .bagItems h3 {
+	position: relative;
+	top: 25%;
+	text-align: center;
+	@include center-h;
+
+	@include tablet {
+		font-size: 3rem; 
+	}
+}
+
+// Bag Details =================
+
 .bagItems .bag-details {
 	@include box-shadow;
 	background-color: $white;
@@ -121,35 +155,7 @@
 	}
 }
 
-//  BAG Content Container ================================
-
-#coffeeBag .bagItems {
-	display: flex; 
-	flex-direction: column; 
-	position: relative;
-	padding: 0 $msm;
-	height: 100%;
-	overflow-y: scroll; 
-
-	@include tablet {
-		overflow-y: hidden;
-		padding: $med; 
-		flex-direction: row;
-		align-content: flex-start; // prevent spreading....
-	}
-}
-
-#coffeeBag .bagItems h3 {
-	position: relative;
-	top: 25%;
-	text-align: center;
-	@include center-h;
-
-	@include tablet {
-		font-size: 3rem; 
-	}
-}
-
+// wtf???
 #coffeeBag .bagItems .bag-item-wrap {
 	@include tablet {
 		width: 60%;
@@ -157,6 +163,7 @@
 		overflow-y: scroll; 
 	}
 }
+
 
 
 
