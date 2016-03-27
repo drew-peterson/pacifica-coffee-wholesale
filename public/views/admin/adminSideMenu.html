@@ -13,13 +13,27 @@
 		<input type="text" ng-model="itemData.price" ng-change="changed=true">
 	</li>
 	<li class="admin-push-content">
-		<input type="text" ng-model="itemData.description" ng-change="changed=true"> 
+		<!-- <input type="text" ng-model="itemData.region" ng-change="changed=true"> -->
+		<label for="region">Region</label>
+
+		<select name="region" ng-model="itemData.region" 
+			ng-change="changed=true">
+			<option value="Blends">Blends</option>
+			<option value="Indonesia">Indonesia</option>
+			<option value="Central/South America">Central/South America</option>
+			<option value="Africa">Africa</option>
+		</select> 
 	</li>
 	<li class="admin-push-content">
-		<input type="text" ng-model="itemData.region" ng-change="changed=true">
-	</li>
-	<li class="admin-push-content">
-		<input type="text" ng-model="itemData.roast" ng-change="changed=true">
+		<!-- <input type="text" ng-model="itemData.roast" ng-change="changed=true"> -->
+		<label for="roast">roast</label>
+		
+		<select name="roast" ng-model="itemData.roast"
+			ng-change="changed=true">
+			<option value="Full City Roast">Full City Roast</option>
+			<option value="City Roast">City Roast</option>
+			<option value="French Roast">French Roast</option>
+		</select>
 	</li>
 
 
