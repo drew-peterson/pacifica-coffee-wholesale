@@ -3,9 +3,11 @@
 	<!-- close icon -->
 	<span class="close" ng-click="triggers.overlay = false; triggers.showMenu=false;"><i class="material-icons">close</i></span> 
 	
-	<h2>Create New item</h2>
+	<h2>New Coffee</h2>
 	<!-- background-image --> 
-	<div class="background">background-pic</div>
+	<div class="background upload-photo"
+		ng-style="{'background-image': 'url({{itemData.image}})'}"
+	>Upload Picture</div>
 
 	<li class="admin-push-content">
 		<input type="text" ng-model="newItem.name">

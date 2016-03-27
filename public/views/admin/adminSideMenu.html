@@ -4,7 +4,9 @@
 	<span class="close" ng-click="triggers.overlay = false;"><i class="material-icons">close</i></span> 
 
 	<!-- background-image -->
-	<div class="background">background-pic</div>
+	<div class="background"
+		ng-style="{'background-image': 'url({{itemData.image}})'}"
+	></div>
 
 	<li class="admin-push-content">
 		<input type="text" ng-model="itemData.name" ng-change="changed=true">
