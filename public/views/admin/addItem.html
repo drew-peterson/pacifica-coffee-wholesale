@@ -14,10 +14,28 @@
 		<input type="text" ng-model="newItem.price">
 	</li>
 	<li class="admin-push-content">
-		<input type="text" ng-model="newItem.region">
+		
+		<label for="region">Region</label>
+
+		<select name="region" ng-model="newItem.region">
+			<option value="Blends">Blends</option>
+			<option value="Indonesia">Indonesia</option>
+			<option value="Central/South America">Central/South America</option>
+			<option value="Africa">Africa</option>
+		</select> 
+
+		<!-- <input type="text" ng-model="newItem.region"> -->
 	</li>
 	<li class="admin-push-content">
-		<input type="text" ng-model="newItem.roast">
+
+		<label for="roast">roast</label>
+		
+		<select name="roast" ng-model="newItem.roast">
+			<option value="Full City Roast">Full City Roast</option>
+			<option value="City Roast">City Roast</option>
+			<option value="French Roast">French Roast</option>
+		</select>
+		<!-- <input type="text" ng-model="newItem.roast"> -->
 	</li>
 
 	<li class="admin-push-content">
