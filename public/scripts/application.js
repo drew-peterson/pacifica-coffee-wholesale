@@ -42,7 +42,6 @@ angular.module('AdminCtrl',[])
 
 	// GET ALL ITEMS ===========================================
 	itemsService.get().success(function(data){
-		console.log("get success");
 		$scope.items = data.coffees;  
 	})
 	.error(function(data){
@@ -361,10 +360,12 @@ angular.module('AdminCtrl').directive('addItem', function(){
 				price: "Price",
 				description: 'description',
 				region: "region",
-				roast: "roast"
+				roast: "roast",
+				image: "image"
 			};
 			// create new item
 			$scope.addItem = function(){	
+				console.log($scope.newItem);
 				var newItem = JSON.stringify($scope.newItem);
 
 				itemsService.post(newItem).success(function(response){
@@ -423,7 +424,7 @@ angular.module('AdminCtrl').directive('adminSideMenu', function($animate, itemsS
 
 			//update Item =============================
 			$scope.updateItem = function(){	
-				if($scope.changed){ 
+				if($scope.changed){
 					itemsService.put(item, itemId).success(function(response){
 						// scope has already need changed to reflect new item
 					}).error(function(response){
@@ -439,7 +440,6 @@ angular.module('AdminCtrl').directive('adminSideMenu', function($animate, itemsS
 				$scope.allData.splice(id, 1);
 				
 				itemsService.delete(itemId).success(function(response){
-					console.log('delete successful')
 				}).error(function(response){
 					console.log('delete fail')
 				});

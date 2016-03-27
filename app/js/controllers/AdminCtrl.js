@@ -12,7 +12,6 @@ angular.module('AdminCtrl',[])
 
 	// GET ALL ITEMS ===========================================
 	itemsService.get().success(function(data){
-		console.log("get success");
 		$scope.items = data.coffees;  
 	})
 	.error(function(data){
