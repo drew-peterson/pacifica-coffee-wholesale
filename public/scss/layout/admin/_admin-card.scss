@@ -7,6 +7,8 @@
 
  .admin-push-menu, 
  .addItem {
+ 	position: relative;
+ 	z-index: 300;
 	position: fixed; 
 	background-color: $google-gray;
 	height: 100%;
