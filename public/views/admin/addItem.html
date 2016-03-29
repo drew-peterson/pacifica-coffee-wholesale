@@ -9,13 +9,12 @@
 
 		<div class="upload-card" ng-class="{'flipped': active}" ng-click="active = !active">
 			<!-- font -->
-			<div class="background front card"
-				ng-style="{'background-image': 'url({{itemData.image}})'}">
+			<div id="uploadPreview" class="background front card">
 				<span>Upload Picture</span>
 			</div> 
 			<!-- back -->
 			<div class="back card">
-				<input type="file" name="image" class="" ng-model="newItem.image">
+				<input type="file" name="image" id="photoUpload" ng-model="newItem.image">
 			</div>
 		</div>
 		

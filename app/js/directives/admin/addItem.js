@@ -27,7 +27,43 @@ angular.module('AdminCtrl').directive('addItem', function(){
 				.error(function(data){
 					console.log(' post error');
 				}) 
+			} 
+
+// 			var inputElement = document.getElementById("input");
+// inputElement.addEventListener("change", handleFiles, false);
+// function handleFiles() {
+//   var fileList = this.files; /* now you can work with the file list */
+// }
+		},
+		link: function(scope, elem, attrs){
+
+			// var inputElement = $('#photoUpload');
+			
+			// inputElement.on('change', function(){
+			// 	var file = this.files[0]
+			// 	var preview = $(".background.front");
+
+			// 	var imageUrl = window.URL.createObjectURL(file);
+			// 	debugger
+			// 	preview.css("background-image", "url(imageUrl)")
+
+ 
+			// });
+			document.getElementById('photoUpload').addEventListener('change', readUrl, true);
+
+			function readUrl(){
+				var file = document.getElementById('photoUpload').files[0];
+				var reader = new FileReader();
+ 				reader.onloadend = function(){
+				document.getElementById('uploadPreview').style.backgroundImage = "url(" + reader.result + ")";        
+		   }
+		   if(file){
+		      reader.readAsDataURL(file);
+		    }else{
+					console.log('else')
+				}
 			}
+
 		},
 		templateUrl: 'views/admin/addItem.html'
 	}
