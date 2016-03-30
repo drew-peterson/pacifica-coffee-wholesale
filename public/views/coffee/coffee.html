@@ -31,10 +31,17 @@
 		ng-repeat="roast in CC.filterBy.roasts">
 
 		<h3 class="filterTitle" ng-click="filterActive = !filterActive">{{roast.name}}</h3>
-		<!-- dropdown icon -->
+
+		<!-- dropdown icon --> 
 		<i class="material-icons downArrow">&#xE5C5;</i>
-		
+
 		<div class="coffee-card-wrap">
+
+			<!-- learn more modal -->
+			<learn-more
+				ng-hide="!filterActive"
+			></learn-more>
+
 			<!-- add ng-hide to class to avoid flicker -->
 			<coffee-card
 				ng-hide="!filterActive"
@@ -43,6 +50,9 @@
 				ng-init="item.qty=1"
 			></coffee-card>
 		</div> 
+
+
+
 	
 	</div>
 

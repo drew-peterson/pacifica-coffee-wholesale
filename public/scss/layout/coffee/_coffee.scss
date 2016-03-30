@@ -59,7 +59,6 @@
 		animation: arrowBounce 1s infinite;
 	}
 }
-
 // animation for downarrow ==============
 @keyframes arrowBounce {
 	0%   {top: 20px;}
@@ -69,14 +68,20 @@
 	100% {top: 20px;}
 }
 
+// filter icons
+#coffee .card-wrapper {
+	.downArrow, .learnIcon {
+		font-size: 2.3rem; 
+		position: absolute;
+		top: 20px;
+		transition: 0.35s all ease;
+		color: $gray;
+	}
+}
+
 // dropdown arrow	
 #coffee .card-wrapper .downArrow {
-	font-size: 2.3rem; 
-	position: absolute;
 	right: 5%;
-	top: 20px;
-	transition: 0.35s all ease;
-	color: $gray;
 }
 
 // Roast hidden by default...

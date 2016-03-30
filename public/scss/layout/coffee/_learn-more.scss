@@ -1,0 +1,111 @@
+.learnMore{
+ 	position: relative;
+}
+
+// Mobile Only button show Modal
+.learnMore .lmBtn{
+	@include box-shadow;
+ 	position: relative;
+ 	background-color: $white;
+
+ 	// mobile
+ 	width: 100%;
+ 	padding: $msm;
+ 	// padding-bottom: 45px; // clear details banner
+ 	margin: 0;
+ 	margin-bottom: $xs; // edge goes away without....
+ 	margin-top: $med;
+
+ 	@include tablet {
+ 		display: none;
+ 	}
+
+	h4 {
+		width: 100%;
+		font-size: 1rem;
+		text-align: center;
+		color: $primary-color-dark;
+	}
+} 
+
+
+// MODAL ========================================
+
+// ROAST ====================
+
+.learnMoreModal {
+	position: fixed;
+	top: 0;
+	left: 0; 
+
+	background-color: $white;
+	height: 100%;
+	z-index: 300;
+	padding:  $med 5%;
+}
+
+.learnMoreModal .closeIcon {
+	position: relative;
+	width: 100%;
+	text-align: right;
+	height: 2rem;
+	margin-bottom: $med;
+
+	.close {
+		cursor: pointer;
+		color: $gray;
+		font-size: 2rem;
+
+		&:hover {
+			color: $black;
+		}
+	}
+}
+
+.learnMoreModal .imageInfoWrap {
+	height: auto;
+
+	.image {
+		width: 100%;
+		height: 150px;
+		background-color: $gray;
+		margin: 0 auto;
+		background-image: url('http://previews.123rf.com/images/amenic181/amenic1811410/amenic181141000110/32283962-Variety-of-cups-of-coffee-and-coffee-beans-on-old-wooden-table-Stock-Photo.jpg');
+		background-size: cover;
+		background-position:L 50% 50%;
+	}
+
+	.info {
+		padding: $med 0;
+
+		h3 {
+			padding-bottom: $msm;
+		}
+	}
+}
+
+.learnMoreModal .bulletsWrap {
+	margin-top: $med;
+	.bullets li {
+		display: inline-block;
+		background-color: $primary-color-dark;
+		color: $white;
+		padding: $xs;
+		border-radius: 5px;
+		min-width: 75px;
+		text-align: center;
+		margin-bottom: $msm;
+		margin-left: $sm;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

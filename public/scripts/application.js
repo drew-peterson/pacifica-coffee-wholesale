@@ -28,62 +28,6 @@ angular.module('pacificaApp',
 });
 
 
-angular.module('appRoutes', [])
-
-.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-
-  $urlRouterProvider.otherwise('/');
-
-  $stateProvider
-    .state('home',{
-      url: '/',
-      templateUrl: '../views/home/home.html', 
-      controller: 'HomeCtrl',
-      controllerAs: 'home'
-    })
-   .state('coffee',{
-      url: '/coffee',
-      templateUrl: '../views/coffee/coffee.html',
-      controllerAs: 'CC',
-      controller: 'CoffeeCtrl'  
-    })
-    .state('bag',{
-      url: '/bag',
-      templateUrl: '../views/bag/bag.html',
-      controllerAs: 'bag' 
-    })
-    .state('admin',{
-      url: '/admin',
-      templateUrl: '../views/admin/admin.html',
-      controller: 'AdminCtrl',
-      controllerAs: 'admin'
-    })
-   
-
-    // GoogleBot SEO
-    $locationProvider.html5Mode(true);
-    $locationProvider.hashPrefix('!');
-
-});
-
-angular.module('pacificaApp')
-
-.service('itemsService', function($http){ 
-  return {
-    get: function(){
-      return $http.get('/api/coffees'); 
-    },
-    post: function(data){  
-      return $http.post('api/coffees', data);
-    },
-    put: function(data, id){
-      return $http.put('api/coffees/' + id, data);
-    },
-    delete: function(id){  
-      return $http.delete('api/coffees/' + id);
-    }
-  }
-})
 angular.module('AdminCtrl',[])
 
 .controller('AdminCtrl', function(itemsService, $scope){    
@@ -345,6 +289,62 @@ angular.module('NavCtrl',[])
 })
 
 
+angular.module('appRoutes', [])
+
+.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+
+  $urlRouterProvider.otherwise('/');
+
+  $stateProvider
+    .state('home',{
+      url: '/',
+      templateUrl: '../views/home/home.html', 
+      controller: 'HomeCtrl',
+      controllerAs: 'home'
+    })
+   .state('coffee',{
+      url: '/coffee',
+      templateUrl: '../views/coffee/coffee.html',
+      controllerAs: 'CC',
+      controller: 'CoffeeCtrl'  
+    })
+    .state('bag',{
+      url: '/bag',
+      templateUrl: '../views/bag/bag.html',
+      controllerAs: 'bag' 
+    })
+    .state('admin',{
+      url: '/admin',
+      templateUrl: '../views/admin/admin.html',
+      controller: 'AdminCtrl',
+      controllerAs: 'admin'
+    })
+   
+
+    // GoogleBot SEO
+    $locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix('!');
+
+});
+
+angular.module('pacificaApp')
+
+.service('itemsService', function($http){ 
+  return {
+    get: function(){
+      return $http.get('/api/coffees'); 
+    },
+    post: function(data){  
+      return $http.post('api/coffees', data);
+    },
+    put: function(data, id){
+      return $http.put('api/coffees/' + id, data);
+    },
+    delete: function(id){  
+      return $http.delete('api/coffees/' + id);
+    }
+  }
+})
 angular.module('AdminCtrl').directive('addItem', function(){
 	return {
 		restrict: 'AE',
@@ -641,6 +641,41 @@ angular.module('CoffeeCtrl')
 	}
 }) 
 angular.module('CoffeeCtrl')
+
+// learn More Parent Directive
+.directive('learnMore',function(){
+	return {
+		scope: true,
+		bindToController: {},
+		controllerAs: 'ctrl',
+		controller: function(){}, 
+		link: function(scope,elem, attrs){},
+		templateUrl: 'views/coffee/learnMore.html' 
+	}
+})
+
+// Full City Roast
+.directive('learnMoreFCR',function(){
+	return {
+		templateUrl: "views/coffee/learnMore/fullCityRoast.html"
+	}
+})
+
+// City Roast
+.directive('learnMoreCR',function(){
+	return {
+		templateUrl: "views/coffee/learnMore/cityRoast.html" 
+	}
+})
+
+// French Roast
+.directive('learnMoreFR',function(){
+	return {
+		templateUrl: "views/coffee/learnMore/frenchRoast.html"
+	}
+})
+
+angular.module('CoffeeCtrl')
 .service('nService',function(){
 	return {
 		notifications: undefined,
@@ -778,31 +813,6 @@ angular.module('pacificaApp')
     } // end of return
 }) // end of directive
 // ===============================================
-angular.module('NavCtrl').directive('toggleClass', function(){
-	return {
-		restrict: 'A',
-		link: function(scope, element, attrs) {
-	
-			// clicking ham menu in mobile mode only
-			element.bind('click', function(){
-				var isMobile = event.sourceCapabilities.firesTouchEvents;
-				if(isMobile){
-					
-					$('#sideNav').removeClass('hover');
-					$('#sideNav').toggleClass('active');	
-
-					$('#main').on('click', function(){
-						$('#sideNav').removeClass('hover');
-						$('#sideNav').removeClass('active');
-
-						// remove listner
-						$(this).off()								
-					});
-				};
-			});
-		} // end of link
-	}
-});
 angular.module('HomeCtrl').directive('homeCard', function(){
 	return { 
 		restrict: 'AE', 
@@ -841,4 +851,29 @@ angular.module('HomeCtrl').directive('videoHero', function(){
 		templateUrl: "views/home/youtube.html" 
 	}
 }); 
+angular.module('NavCtrl').directive('toggleClass', function(){
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs) {
+	
+			// clicking ham menu in mobile mode only
+			element.bind('click', function(){
+				var isMobile = event.sourceCapabilities.firesTouchEvents;
+				if(isMobile){
+					
+					$('#sideNav').removeClass('hover');
+					$('#sideNav').toggleClass('active');	
+
+					$('#main').on('click', function(){
+						$('#sideNav').removeClass('hover');
+						$('#sideNav').removeClass('active');
+
+						// remove listner
+						$(this).off()								
+					});
+				};
+			});
+		} // end of link
+	}
+});
 //# sourceMappingURL=application.js.map
