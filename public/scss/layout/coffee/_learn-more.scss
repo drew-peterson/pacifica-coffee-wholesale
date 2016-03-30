@@ -41,20 +41,21 @@
 	background-color: $white;
 	height: 100%;
 	z-index: 300;
-	padding:  $med 5%;
+	// padding:  $med 5%;
 }
 
 .learnMoreModal .closeIcon {
-	position: relative;
+	position: absolute;
+	left: 0;
 	width: 100%;
 	text-align: right;
-	height: 2rem;
-	margin-bottom: $med;
+	height: 2.2rem;
+	padding: $med;
 
 	.close {
 		cursor: pointer;
-		color: $gray;
-		font-size: 2rem;
+		color: $white;
+		font-size: 2.2rem;
 
 		&:hover {
 			color: $black;
@@ -76,16 +77,20 @@
 	}
 
 	.info {
-		padding: $med 0;
-
+		padding: 0 5%;
+		margin-top: $med;
 		h3 {
 			padding-bottom: $msm;
+		}
+		p {
+			margin: 0; 
 		}
 	}
 }
 
 .learnMoreModal .bulletsWrap {
 	margin-top: $med;
+	padding: 0 5%;
 	.bullets li {
 		display: inline-block;
 		background-color: $primary-color-dark;
