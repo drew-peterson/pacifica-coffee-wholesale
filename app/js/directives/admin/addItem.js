@@ -14,7 +14,7 @@ angular.module('AdminCtrl').directive('addItem', function(){
 				description: 'description',
 				region: "region",
 				roast: "roast",
-				image: "image"
+				image: "image" 
 			};
 			// create new item
 			$scope.addItem = function(){	
@@ -38,6 +38,7 @@ angular.module('AdminCtrl').directive('addItem', function(){
  				reader.onloadend = function(){ 
 				document.getElementById('uploadPreview').style.backgroundImage = "url(" + reader.result + ")";        
 		    	scope.newItem.image = reader.result;
+		    	// scope.newItem.image = 'img/items/river_mud.png'
 		   }
 		    
 		   if(file){

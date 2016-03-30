@@ -27,7 +27,8 @@ module.exports = function(app){
       price: coffee.price, 
       description: coffee.description,
       region: coffee.region,
-      roast: coffee.roast 
+      roast: coffee.roast,
+      image: coffee.image, 
     }, function(err,coffees){
       if(err){
         res.status(500).json({message: err.message});
