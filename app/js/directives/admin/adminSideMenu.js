@@ -1,4 +1,6 @@
-angular.module('AdminCtrl').directive('adminSideMenu', function($animate, itemsService){ 
+angular.module('AdminCtrl')
+
+.directive('adminSideMenu', function($animate, itemsService){ 
 	return {
 		restrict: 'AE', 
 		scope: { 
