@@ -649,7 +649,12 @@ angular.module('CoffeeCtrl')
 		bindToController: {},
 		controllerAs: 'ctrl',
 		controller: function(){}, 
-		link: function(scope,elem, attrs){},
+		link: function(scope,elem, attrs){
+
+
+			// remove scrollablility....
+			// $('body').css('overflow','hidden');
+		},
 		templateUrl: 'views/coffee/learnMore.html' 
 	}
 })
