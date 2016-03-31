@@ -79,6 +79,14 @@
 	}
 }
 
+#coffee .card-wrapper .learnMoreInfo {
+	cursor: pointer;
+
+	&:hover{
+		color: red;
+	}
+}
+
 // dropdown arrow	
 #coffee .card-wrapper .downArrow {
 	right: 5%;

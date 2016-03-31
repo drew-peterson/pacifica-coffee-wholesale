@@ -646,6 +646,7 @@ angular.module('CoffeeCtrl')
 .directive('learnMore',function(){
 	return {
 		// scope: true,
+		replace: true,
 		bindToController: {
 			roast: '&',
 		},
@@ -654,17 +655,11 @@ angular.module('CoffeeCtrl')
 		link: function(scope,elem, attrs){
 			var mask = $('.coffeeMask')
 
+			// learn more btn show modal 
 			$('.lmBtn').on('click', 'h4', function(){
 				// finds the closest filter Title when contains the roast
 				var filterTitle = $(this).closest('.card-wrapper').find('.filterTitle').text()
-				// search for a modal that contains the data attribute of the filterTitle
-				var modal = $("[data-roast='" + filterTitle +"']");
-				// becomes avaiblef from ng-if and now we show it.
-				modal.addClass('showModal');
-				// prevent body scroll
-				mask.addClass('mask-overlay');
-
-				$('body').css('overflow','hidden');
+				openModal(filterTitle);
 			})
 
 			// close click....
@@ -676,6 +671,18 @@ angular.module('CoffeeCtrl')
 			mask.on('click', function(){
 				closeModal();
 			})
+
+
+			function openModal(filterTitle){
+				// search for a modal that contains the data attribute of the filterTitle
+				var modal = $("[data-roast='" + filterTitle +"']");
+				// becomes avaiblef from ng-if and now we show it.
+				modal.addClass('showModal');
+				// prevent body scroll
+				mask.addClass('mask-overlay');
+
+				$('body').css('overflow','hidden');
+			}
 
 			function closeModal(){
 				$('.learnMoreModal').removeClass('showModal');

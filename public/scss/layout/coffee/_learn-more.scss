@@ -1,5 +1,10 @@
 .learnMore{
  	position: relative;
+
+ 	@include tablet {
+ 		width: 100%;
+ 		
+ 	}
 }
 
 // Mobile Only button show Modal
@@ -18,7 +23,16 @@
  	margin-top: $med;
 
  	@include tablet {
- 		display: none;
+ 		width: 20%;
+ 		transition: 0.3s all ease;
+
+ 		&:hover {
+ 			background-color: $primary-color-dark;
+ 			
+ 			h4 {
+ 				color: $white;
+ 			}
+ 		}
  	}
 
 	h4 {
