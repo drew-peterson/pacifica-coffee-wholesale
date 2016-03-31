@@ -652,9 +652,9 @@ angular.module('CoffeeCtrl')
 		controllerAs: 'ctrl',
 		controller: function(){}, 
 		link: function(scope,elem, attrs){
+			var mask = $('.coffeeMask')
 
 			$('.lmBtn').on('click', 'h4', function(){
-			
 				// finds the closest filter Title when contains the roast
 				var filterTitle = $(this).closest('.card-wrapper').find('.filterTitle').text()
 				// search for a modal that contains the data attribute of the filterTitle
@@ -662,15 +662,26 @@ angular.module('CoffeeCtrl')
 				// becomes avaiblef from ng-if and now we show it.
 				modal.addClass('showModal');
 				// prevent body scroll
+				mask.addClass('mask-overlay');
+
 				$('body').css('overflow','hidden');
 			})
 
 			// close click....
 			$('.learnMoreModalWrap').on('click', '.close', function(){
-				$('.learnMoreModal').removeClass('showModal');
-
-				$('body').css('overflow','initial');
+				closeModal();
 			})
+
+			// close on mask click
+			mask.on('click', function(){
+				closeModal();
+			})
+
+			function closeModal(){
+				$('.learnMoreModal').removeClass('showModal');
+				mask.removeClass('mask-overlay');
+				$('body').css('overflow','initial');
+			}
 
 		},
 		templateUrl: 'views/coffee/learnMore.html' 
