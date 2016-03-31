@@ -647,17 +647,24 @@ angular.module('CoffeeCtrl')
 	return {
 		scope: true,
 		bindToController: {
-			roast: '&'
+			roast: '&',
 		},
 		controllerAs: 'ctrl',
 		controller: function(){}, 
 		link: function(scope,elem, attrs){
 
-			var btn = $('.lmBtn');
-			btn.on('click', 'h4', function(){
-				$('.learnMoreModal').css('visibility', 'visible')
-
+			$('.lmBtn').on('click', 'h4', function(){
+				
+				// finds the closest filter Title when contains the roast
+				var filterTitle = $(this).closest('.card-wrapper').find('.filterTitle').text()
+				// search for a modal that contains the data attribute of the filterTitle
+				var modal = $("[data-roast='" + filterTitle +"']");
+				// becomes avaiblef from ng-if and now we show it.
+				modal.css('visibility', 'visible')
+				// prevent body scroll
 				$('body').css('overflow','hidden');
+				
+
 			})
 
 
@@ -676,6 +683,7 @@ angular.module('CoffeeCtrl')
 // Full City Roast
 .directive('learnMoreFCR',function(){
 	return {
+		replace: true,
 		templateUrl: "views/coffee/learnMore/fullCityRoast.html"
 	}
 })
@@ -683,6 +691,7 @@ angular.module('CoffeeCtrl')
 // City Roast
 .directive('learnMoreCR',function(){
 	return {
+		replace: true,
 		templateUrl: "views/coffee/learnMore/cityRoast.html" 
 	}
 })
@@ -690,6 +699,7 @@ angular.module('CoffeeCtrl')
 // French Roast
 .directive('learnMoreFR',function(){
 	return {
+		replace: true,
 		templateUrl: "views/coffee/learnMore/frenchRoast.html"
 	}
 })
@@ -832,6 +842,31 @@ angular.module('pacificaApp')
     } // end of return
 }) // end of directive
 // ===============================================
+angular.module('NavCtrl').directive('toggleClass', function(){
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs) {
+	
+			// clicking ham menu in mobile mode only
+			element.bind('click', function(){
+				var isMobile = event.sourceCapabilities.firesTouchEvents;
+				if(isMobile){
+					
+					$('#sideNav').removeClass('hover');
+					$('#sideNav').toggleClass('active');	
+
+					$('#main').on('click', function(){
+						$('#sideNav').removeClass('hover');
+						$('#sideNav').removeClass('active');
+
+						// remove listner
+						$(this).off()								
+					});
+				};
+			});
+		} // end of link
+	}
+});
 angular.module('HomeCtrl').directive('homeCard', function(){
 	return { 
 		restrict: 'AE', 
@@ -870,29 +905,4 @@ angular.module('HomeCtrl').directive('videoHero', function(){
 		templateUrl: "views/home/youtube.html" 
 	}
 }); 
-angular.module('NavCtrl').directive('toggleClass', function(){
-	return {
-		restrict: 'A',
-		link: function(scope, element, attrs) {
-	
-			// clicking ham menu in mobile mode only
-			element.bind('click', function(){
-				var isMobile = event.sourceCapabilities.firesTouchEvents;
-				if(isMobile){
-					
-					$('#sideNav').removeClass('hover');
-					$('#sideNav').toggleClass('active');	
-
-					$('#main').on('click', function(){
-						$('#sideNav').removeClass('hover');
-						$('#sideNav').removeClass('active');
-
-						// remove listner
-						$(this).off()								
-					});
-				};
-			});
-		} // end of link
-	}
-});
 //# sourceMappingURL=application.js.map
