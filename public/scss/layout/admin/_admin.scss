@@ -44,9 +44,11 @@ $slider-width: 320px;
 		border: 1px solid $light-gray;
 		color: $light-gray;
 
-		&:hover {
-			border: 1px solid $black;
-			color: $black;
+		@include desktop {
+			&:hover {
+				border: 1px solid $black;
+				color: $black;
+			}
 		}
 	}
 }

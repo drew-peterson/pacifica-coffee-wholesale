@@ -16,8 +16,10 @@
 	.material-icons {
 		font-size: 45px;
 
-		&:hover {
-			color: $primary-color;
+		@include desktop {
+			&:hover {
+				color: $primary-color;
+			}
 		}
 	}
 }
@@ -115,16 +117,20 @@
 	background-color: lighten($accent-color, 5%);
 	color: $white;
 
-	&:hover {
-		background-color: $accent-color;
+	@include desktop {
+		&:hover {
+			background-color: $accent-color;
+		}
 	}
 
 	&.delete {
 		background-color: lighten(red, 20%);
 		cursor: pointer;
-
-		&:hover {
-			background-color: red;
+	
+		@include desktop {
+			&:hover {
+				background-color: red;
+			}
 		}
 	}
 }

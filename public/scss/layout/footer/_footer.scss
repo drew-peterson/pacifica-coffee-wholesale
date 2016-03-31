@@ -48,8 +48,10 @@
 		}
 		a { 
 			color: white;
-			&:hover {
-				color: blue;
+			@include desktop {
+				&:hover {
+					color: blue;
+				}
 			}
 		}
 		a + a {

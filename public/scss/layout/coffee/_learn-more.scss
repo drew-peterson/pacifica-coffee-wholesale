@@ -26,13 +26,15 @@
  		width: 20%;
  		transition: 0.3s all ease;
 
- 		&:hover {
- 			background-color: $primary-color-dark;
- 			
- 			h4 {
- 				color: $white;
- 			}
- 		}
+		@include desktop {
+	 		&:hover {
+	 			background-color: $primary-color-dark;
+	 			
+	 			h4 {
+	 				color: $white;
+	 			}
+	 		}
+		}
  	}
 
 	h4 {
@@ -89,9 +91,11 @@
 		cursor: pointer;
 		color: $white;
 		font-size: 2.2rem;
-
-		&:hover {
-			transform: scale(1.2);
+		
+		@include desktop {
+			&:hover {
+				transform: scale(1.2);
+			}
 		}
 	}
 }

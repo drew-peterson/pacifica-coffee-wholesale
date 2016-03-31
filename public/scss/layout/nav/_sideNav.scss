@@ -48,14 +48,16 @@
 	letter-spacing: 1px;
 	font-size: 17px;
 
-	&:hover {
-		background-color: $primary-color-dark;
-		.iconText {
-			color: $white;
+	@include desktop {
+		&:hover {
+			background-color: $primary-color-dark;
+			.iconText {
+				color: $white;
+			}
+			.icon:before {
+				background-color: $white;
+			} 
 		}
-		.icon:before {
-			background-color: $white;
-		} 
 	}
 }
 

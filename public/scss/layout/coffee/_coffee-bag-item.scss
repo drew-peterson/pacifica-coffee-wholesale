@@ -101,8 +101,11 @@
 			opacity: 0.3;
 			transition: 0.3s opacity ease;
 			background: none;
-			&:hover {
-				opacity: 1;
+
+			@include desktop {
+				&:hover {
+					opacity: 1;
+				}
 			}
 		}
 	}

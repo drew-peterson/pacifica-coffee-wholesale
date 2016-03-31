@@ -122,10 +122,12 @@
 			padding: $med $mlg;
 		}
 
-		&:hover {
-			background-color: $white;
-			color: $black;
-		}	
+		@include desktop {
+			&:hover {
+				background-color: $white;
+				color: $black;
+			}	
+		}
 	}
 }
 

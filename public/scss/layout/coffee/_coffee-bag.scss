@@ -31,8 +31,10 @@
 		font-size: 2.5rem;
 		cursor: pointer;
 
-		&:hover {
-			color: $black; 
+		@include desktop {
+			&:hover {
+				color: $black; 
+			}
 		}
 	}
 }

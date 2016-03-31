@@ -24,9 +24,16 @@
 		border-radius: 10px; 
 		cursor: pointer;
 
-		&:hover, &.active {
+		
+		&.active {
 			background-color: $primary-color;
 			color: $white;
+		}
+		@include desktop {
+			&:hover {
+				background-color: $primary-color;
+				color: $white;		
+			}
 		}
 	}
 }
@@ -54,9 +61,11 @@
 	cursor: pointer;
 	transition: 0.35s all ease;
 
-	&:hover ~ .downArrow {
-		color: $black;
-		animation: arrowBounce 1s infinite;
+	@include desktop {
+		&:hover ~ .downArrow {
+			color: $black;
+			animation: arrowBounce 1s infinite;
+		}
 	}
 }
 // animation for downarrow ==============
@@ -82,8 +91,10 @@
 #coffee .card-wrapper .learnMoreInfo {
 	cursor: pointer;
 
-	&:hover{
-		color: red;
+	@include desktop {
+		&:hover{
+			color: red;
+		}
 	}
 }
 

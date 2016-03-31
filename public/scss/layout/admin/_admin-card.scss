@@ -70,9 +70,11 @@
 		color: gray;
 		transition: 0.5s all ease;
 
-		&:hover {
-			color: $black;
-			transform: rotate(180deg);
+		@include desktop {
+			&:hover {
+				color: $black;
+				transform: rotate(180deg);
+			}
 		}
 	}
 }

@@ -86,9 +86,11 @@
 
 		transition: 0.3s all ease;
 
-		&:hover {
-			color: black;
-			background-color: $white;
+		@include desktop {
+			&:hover {
+				color: black;
+				background-color: $white;
+			}
 		}
 	}
 }
