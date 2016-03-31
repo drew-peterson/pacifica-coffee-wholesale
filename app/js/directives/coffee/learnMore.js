@@ -3,7 +3,7 @@ angular.module('CoffeeCtrl')
 // learn More Parent Directive
 .directive('learnMore',function(){
 	return {
-		scope: true,
+		// scope: true,
 		bindToController: {
 			roast: '&',
 		},
@@ -12,7 +12,7 @@ angular.module('CoffeeCtrl')
 		link: function(scope,elem, attrs){
 
 			$('.lmBtn').on('click', 'h4', function(){
-				
+			
 				// finds the closest filter Title when contains the roast
 				var filterTitle = $(this).closest('.card-wrapper').find('.filterTitle').text()
 				// search for a modal that contains the data attribute of the filterTitle
@@ -21,10 +21,7 @@ angular.module('CoffeeCtrl')
 				modal.css('visibility', 'visible')
 				// prevent body scroll
 				$('body').css('overflow','hidden');
-				
-
 			})
-
 
 			// close click....
 			$('.learnMoreModalWrap').on('click', '.close', function(){

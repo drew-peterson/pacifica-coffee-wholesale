@@ -645,7 +645,7 @@ angular.module('CoffeeCtrl')
 // learn More Parent Directive
 .directive('learnMore',function(){
 	return {
-		scope: true,
+		// scope: true,
 		bindToController: {
 			roast: '&',
 		},
@@ -654,7 +654,7 @@ angular.module('CoffeeCtrl')
 		link: function(scope,elem, attrs){
 
 			$('.lmBtn').on('click', 'h4', function(){
-				
+			
 				// finds the closest filter Title when contains the roast
 				var filterTitle = $(this).closest('.card-wrapper').find('.filterTitle').text()
 				// search for a modal that contains the data attribute of the filterTitle
@@ -663,10 +663,7 @@ angular.module('CoffeeCtrl')
 				modal.css('visibility', 'visible')
 				// prevent body scroll
 				$('body').css('overflow','hidden');
-				
-
 			})
-
 
 			// close click....
 			$('.learnMoreModalWrap').on('click', '.close', function(){
@@ -842,31 +839,6 @@ angular.module('pacificaApp')
     } // end of return
 }) // end of directive
 // ===============================================
-angular.module('NavCtrl').directive('toggleClass', function(){
-	return {
-		restrict: 'A',
-		link: function(scope, element, attrs) {
-	
-			// clicking ham menu in mobile mode only
-			element.bind('click', function(){
-				var isMobile = event.sourceCapabilities.firesTouchEvents;
-				if(isMobile){
-					
-					$('#sideNav').removeClass('hover');
-					$('#sideNav').toggleClass('active');	
-
-					$('#main').on('click', function(){
-						$('#sideNav').removeClass('hover');
-						$('#sideNav').removeClass('active');
-
-						// remove listner
-						$(this).off()								
-					});
-				};
-			});
-		} // end of link
-	}
-});
 angular.module('HomeCtrl').directive('homeCard', function(){
 	return { 
 		restrict: 'AE', 
@@ -905,4 +877,29 @@ angular.module('HomeCtrl').directive('videoHero', function(){
 		templateUrl: "views/home/youtube.html" 
 	}
 }); 
+angular.module('NavCtrl').directive('toggleClass', function(){
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs) {
+	
+			// clicking ham menu in mobile mode only
+			element.bind('click', function(){
+				var isMobile = event.sourceCapabilities.firesTouchEvents;
+				if(isMobile){
+					
+					$('#sideNav').removeClass('hover');
+					$('#sideNav').toggleClass('active');	
+
+					$('#main').on('click', function(){
+						$('#sideNav').removeClass('hover');
+						$('#sideNav').removeClass('active');
+
+						// remove listner
+						$(this).off()								
+					});
+				};
+			});
+		} // end of link
+	}
+});
 //# sourceMappingURL=application.js.map
