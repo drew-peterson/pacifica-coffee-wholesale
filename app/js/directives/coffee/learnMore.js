@@ -11,18 +11,21 @@ angular.module('CoffeeCtrl')
 		controller: function(){}, 
 		link: function(scope,elem, attrs){
 
-			$('.lmBtn').on('click', 'h4', function(){
+			var btn = $('.lmBtn');
+			btn.on('click', 'h4', function(){
 				$('.learnMoreModal').css('visibility', 'visible')
+
+				$('body').css('overflow','hidden');
 			})
 
 
 			// close click....
 			$('.learnMoreModalWrap').on('click', '.close', function(){
 				$('.learnMoreModal').css('visibility', 'hidden')
+
+				$('body').css('overflow','initial');
 			})
 
-			// remove scrollablility....
-			// $('body').css('overflow','hidden');
 		},
 		templateUrl: 'views/coffee/learnMore.html' 
 	}
