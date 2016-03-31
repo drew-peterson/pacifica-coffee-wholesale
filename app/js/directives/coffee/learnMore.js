@@ -4,11 +4,22 @@ angular.module('CoffeeCtrl')
 .directive('learnMore',function(){
 	return {
 		scope: true,
-		bindToController: {},
+		bindToController: {
+			roast: '&'
+		},
 		controllerAs: 'ctrl',
 		controller: function(){}, 
 		link: function(scope,elem, attrs){
 
+			$('.lmBtn').on('click', 'h4', function(){
+				$('.learnMoreModal').css('visibility', 'visible')
+			})
+
+
+			// close click....
+			$('.learnMoreModalWrap').on('click', '.close', function(){
+				$('.learnMoreModal').css('visibility', 'hidden')
+			})
 
 			// remove scrollablility....
 			// $('body').css('overflow','hidden');
