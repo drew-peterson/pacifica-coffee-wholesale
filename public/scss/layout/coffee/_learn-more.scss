@@ -37,7 +37,7 @@
 .learnMoreModal {
 	position: fixed;
 	visibility: hidden; // hide initially
-	top: 0;
+	top: -100%;
 	left: 50%; 
 	transform: translateX(-50%);
 	height: 100%;
@@ -45,11 +45,22 @@
 	width: 320px; // mobile view....
 	z-index: 300;
 	padding-bottom: $med;
-	@include tablet {
-		top: 8%;
-		height: auto;
 
+	// animations ==============
+	transition: 0.35s all ease;
+
+	&.showModal {
+		visibility: visible;
+		top: 0;
+
+		@include tablet {
+			top: 8%;
+			height: auto;
+		}
 	}
+
+
+
 }
 
 .learnMoreModal .closeIcon {

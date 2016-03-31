@@ -660,14 +660,14 @@ angular.module('CoffeeCtrl')
 				// search for a modal that contains the data attribute of the filterTitle
 				var modal = $("[data-roast='" + filterTitle +"']");
 				// becomes avaiblef from ng-if and now we show it.
-				modal.css('visibility', 'visible')
+				modal.addClass('showModal');
 				// prevent body scroll
 				$('body').css('overflow','hidden');
 			})
 
 			// close click....
 			$('.learnMoreModalWrap').on('click', '.close', function(){
-				$('.learnMoreModal').css('visibility', 'hidden')
+				$('.learnMoreModal').removeClass('showModal');
 
 				$('body').css('overflow','initial');
 			})
