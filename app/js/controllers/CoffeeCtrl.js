@@ -1,6 +1,6 @@
 angular.module('CoffeeCtrl', [])
 
-.controller('CoffeeCtrl', function(itemsService, $scope){
+.controller('CoffeeCtrl', function(itemsService, $scope, localStorageService){
 	var CC = this;
 	CC.items; // all items
 	CC.bag = []; // bag
@@ -26,23 +26,38 @@ angular.module('CoffeeCtrl', [])
 			CC.bag.push(item);
 		}
 		updateTotal();
+		setLocalStorage(item);
+
 	};
 
 	// Remove From bag ============================================
 	CC.removeFromBag = function(item){
-		console.log('remove from bag ' + item)
 		var idx = checkIndex(item);
 		if(idx >= 0){	
 			CC.bag.splice(idx, 1);
 		};
-		console.log('bag', CC.bag) 
 		updateTotal();
 	};
 
 	// UPDATE BAG ==================================================
 	CC.updateBag = function(item){
 		updateTotal();
+
 	}
+
+
+	// LocalStorage ===========================================
+	var getLocalStorage = function(){
+		localStorageService.get().success(function(data){
+			console.log(data);
+		})
+	}
+
+		var setLocalStorage = function(item){
+			var coffeeItems = localStorageService.set(item);
+			console.log(coffeeItems);
+	}
+
 
 	// get item index for bag ==================================
 	var checkIndex = function(item){

@@ -23,10 +23,6 @@ angular.module('CoffeeCtrl')
 			},function(newVal, oldVal){
 				ctrl.existing = oldVal;
 				ctrl.notification = newVal;
-
-				console.log('=========')
-				console.log('existing ' + ctrl.existing)
-				console.log('notification ' + ctrl.notification)
 			}, true); // true is important
 		},
 		link: function(scope,elem,attrs){},
