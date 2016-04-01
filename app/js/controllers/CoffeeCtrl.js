@@ -39,11 +39,13 @@ angular.module('CoffeeCtrl', [])
 			CC.bag.splice(idx, 1);
 		};
 		updateTotal();
+		localStorageService.delete(item);
 	};
 
 	// UPDATE BAG ==================================================
 	CC.updateBag = function(item){
 		updateTotal();
+		localStorageService.update(item);
 	}
 
 
