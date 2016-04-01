@@ -3,7 +3,9 @@ angular.module('CoffeeCtrl', [])
 .controller('CoffeeCtrl', function(itemsService, $scope, localStorageService){
 	var CC = this;
 	CC.items; // all items
+
 	CC.bag = []; // bag
+
 	CC.filterBy = {
 		regions: [ {name: 'Blends', region: []},{name: 'Indonesia', region: []},{name:'Central/South America', region:[]}, {name:'Africa', region:[]}],
 		roasts: [ {name: 'Full City Roast', roast:[]},{name:"City Roast", roast: []}, {name:"French Roast", roast:[]}]
@@ -42,21 +44,9 @@ angular.module('CoffeeCtrl', [])
 	// UPDATE BAG ==================================================
 	CC.updateBag = function(item){
 		updateTotal();
-
 	}
 
 
-	// LocalStorage ===========================================
-	var getLocalStorage = function(){
-		localStorageService.get().success(function(data){
-			console.log(data);
-		})
-	}
-
-		var setLocalStorage = function(item){
-			var coffeeItems = localStorageService.set(item);
-			console.log(coffeeItems);
-	}
 
 
 	// get item index for bag ==================================
@@ -73,6 +63,21 @@ angular.module('CoffeeCtrl', [])
 			CC.total.total += total;
 		});
 	}
+
+	// LocalStorage ===========================================
+
+	var setLocalStorage = function(item){
+		var coffeeItems = localStorageService.set(item);
+	}
+
+	// saves bag on refresh and page leave...
+	checkLocalStorage = function(){
+		var ls = localStorageService.get()
+		if(ls){
+			CC.bag = ls
+			updateTotal();
+		};
+	}()
 
 	// Filter ===============
 	var createFilter = function(){

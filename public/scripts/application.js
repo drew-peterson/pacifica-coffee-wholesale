@@ -63,7 +63,9 @@ angular.module('CoffeeCtrl', [])
 .controller('CoffeeCtrl', function(itemsService, $scope, localStorageService){
 	var CC = this;
 	CC.items; // all items
+
 	CC.bag = []; // bag
+
 	CC.filterBy = {
 		regions: [ {name: 'Blends', region: []},{name: 'Indonesia', region: []},{name:'Central/South America', region:[]}, {name:'Africa', region:[]}],
 		roasts: [ {name: 'Full City Roast', roast:[]},{name:"City Roast", roast: []}, {name:"French Roast", roast:[]}]
@@ -102,21 +104,9 @@ angular.module('CoffeeCtrl', [])
 	// UPDATE BAG ==================================================
 	CC.updateBag = function(item){
 		updateTotal();
-
 	}
 
 
-	// LocalStorage ===========================================
-	var getLocalStorage = function(){
-		localStorageService.get().success(function(data){
-			console.log(data);
-		})
-	}
-
-		var setLocalStorage = function(item){
-			var coffeeItems = localStorageService.set(item);
-			console.log(coffeeItems);
-	}
 
 
 	// get item index for bag ==================================
@@ -133,6 +123,21 @@ angular.module('CoffeeCtrl', [])
 			CC.total.total += total;
 		});
 	}
+
+	// LocalStorage ===========================================
+
+	var setLocalStorage = function(item){
+		var coffeeItems = localStorageService.set(item);
+	}
+
+	// saves bag on refresh and page leave...
+	checkLocalStorage = function(){
+		var ls = localStorageService.get()
+		if(ls){
+			CC.bag = ls
+			updateTotal();
+		};
+	}()
 
 	// Filter ===============
 	var createFilter = function(){
@@ -304,6 +309,62 @@ angular.module('NavCtrl',[])
 })
 
 
+angular.module('pacificaApp')
+
+.service('itemsService', function($http){ 
+  return {
+    get: function(){
+      return $http.get('/api/coffees'); 
+    },
+    post: function(data){  
+      return $http.post('api/coffees', data);
+    },
+    put: function(data, id){
+      return $http.put('api/coffees/' + id, data);
+    },
+    delete: function(id){  
+      return $http.delete('api/coffees/' + id);
+    }
+  }
+})
+angular.module('pacificaApp')
+
+.service('localStorageService', function(){ 
+  return {
+    get: function(){
+      var ls = JSON.parse(localStorage.getItem('pacificaWholesaleBag'));
+      return ls
+    },
+    set: function(data){
+      // get localStorage
+      var coffeeItems =this.get();
+
+      // if there are more then 1 item in bag
+      if(coffeeItems && coffeeItems.length >= 1){
+        
+        // data vs localObject does not equal...
+        var coffeeNames = []
+        coffeeItems.forEach(function(item){
+          coffeeNames.push(item.name)
+        })
+
+        var idx = coffeeNames.indexOf(data.name);
+             
+        if(idx == -1){ // item does not exist
+          coffeeItems.push(data);
+        }         
+    
+    // NEW BAG
+      }else{
+        coffeeItems = [];
+        coffeeItems.push(data);
+      }
+      // set the localStorage
+      localStorage.setItem('pacificaWholesaleBag', JSON.stringify(coffeeItems));
+      return coffeeItems;
+    } // set
+  }
+})
 angular.module('appRoutes', [])
 
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -342,61 +403,6 @@ angular.module('appRoutes', [])
 
 });
 
-angular.module('pacificaApp')
-
-.service('itemsService', function($http){ 
-  return {
-    get: function(){
-      return $http.get('/api/coffees'); 
-    },
-    post: function(data){  
-      return $http.post('api/coffees', data);
-    },
-    put: function(data, id){
-      return $http.put('api/coffees/' + id, data);
-    },
-    delete: function(id){  
-      return $http.delete('api/coffees/' + id);
-    }
-  }
-})
-angular.module('pacificaApp')
-
-.service('localStorageService', function(){ 
-  return {
-    get: function(){
-      return localStorage.getItem('pacificaWholesaleBag');
-    },
-    set: function(data){
-      // get localStorage
-      var coffeeItems = JSON.parse(this.get());
-
-      // if there are more then 1 item in bag
-      if(coffeeItems && coffeeItems.length >= 1){
-        
-        // data vs localObject does not equal...
-        var coffeeNames = []
-        coffeeItems.forEach(function(item){
-          coffeeNames.push(item.name)
-        })
-
-        var idx = coffeeNames.indexOf(data.name);
-             
-        if(idx == -1){ // item does not exist
-          coffeeItems.push(data);
-        }         
-    
-    // NEW BAG
-      }else{
-        coffeeItems = [];
-        coffeeItems.push(data);
-      }
-      // set the localStorage
-      localStorage.setItem('pacificaWholesaleBag', JSON.stringify(coffeeItems));
-      return coffeeItems;
-    } // set
-  }
-})
 angular.module('AdminCtrl').directive('addItem', function(){
 	return {
 		restrict: 'AE',

@@ -3,11 +3,12 @@ angular.module('pacificaApp')
 .service('localStorageService', function(){ 
   return {
     get: function(){
-      return localStorage.getItem('pacificaWholesaleBag');
+      var ls = JSON.parse(localStorage.getItem('pacificaWholesaleBag'));
+      return ls
     },
     set: function(data){
       // get localStorage
-      var coffeeItems = JSON.parse(this.get());
+      var coffeeItems =this.get();
 
       // if there are more then 1 item in bag
       if(coffeeItems && coffeeItems.length >= 1){
