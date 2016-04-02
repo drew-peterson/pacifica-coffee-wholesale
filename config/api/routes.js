@@ -28,11 +28,11 @@ module.exports = function(app){
       description: coffee.description,
       region: coffee.region,
       roast: coffee.roast,
-      image: coffee.image, 
+      image: coffee.image
     }, function(err,coffees){
       if(err){
         res.status(500).json({message: err.message});
-      }else { 
+      }else {
         res.json({coffees: coffees, message: "Coffee Added"});
       };
     });

@@ -10,26 +10,14 @@
 
 		<div class="update">
 			<span class="qty">Qty:</span>
-			<select ng-init="item.qty='1'" ng-model="item.qty" ng-change="ctrl.update(item)">
-				<option selected value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-				<option value="6">6</option>
-				<option value="7">7</option>
-				<option value="8">8</option>
-				<option value="9">9</option>
-				<option value="10">10</option>
-				<option value="15">15</option>
-				<option value="20">20</option>
+			<select ng-model="item.qty" 
+				ng-change="ctrl.update(item)"
+				ng-options="option.value as option.name for option in ctrl.options">
 			</select>
 			<!-- focus line -->
 			<!-- <span class="line"></span> -->
 		</div>
-		
 		<button ng-click='ctrl.remove(item)'>remove</button>
-
 	</div>
 	
 </div>

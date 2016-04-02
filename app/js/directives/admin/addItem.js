@@ -14,7 +14,7 @@ angular.module('AdminCtrl').directive('addItem', function(){
 				description: 'description',
 				region: "region",
 				roast: "roast",
-				image: "image" 
+				image: "image"
 			};
 			// create new item
 			$scope.addItem = function(){	

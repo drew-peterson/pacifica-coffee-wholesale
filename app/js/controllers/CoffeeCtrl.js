@@ -27,8 +27,8 @@ angular.module('CoffeeCtrl', [])
 		if(idx == -1){ // item does not exist
 			CC.bag.push(item);
 		}
-		updateTotal();
 		setLocalStorage(item);
+		updateTotal();
 
 	};
 
@@ -38,18 +38,15 @@ angular.module('CoffeeCtrl', [])
 		if(idx >= 0){	
 			CC.bag.splice(idx, 1);
 		};
-		updateTotal();
 		localStorageService.delete(item);
+		updateTotal();
 	};
 
 	// UPDATE BAG ==================================================
 	CC.updateBag = function(item){
-		updateTotal();
 		localStorageService.update(item);
+		updateTotal();
 	}
-
-
-
 
 	// get item index for bag ==================================
 	var checkIndex = function(item){

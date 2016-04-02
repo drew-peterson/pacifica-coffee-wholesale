@@ -35,11 +35,11 @@ angular.module('pacificaApp')
       return coffeeItems;
     }, // set
     update: function(item){
+      console.log('updating?', item)
       var coffeeItems = this.get();
       var idx = this.idx(item);
 
       coffeeItems[idx] = item;
-
       localStorage.setItem('pacificaWholesaleBag', JSON.stringify(coffeeItems));
     },
     delete: function(item){

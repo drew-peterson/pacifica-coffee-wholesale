@@ -87,8 +87,8 @@ angular.module('CoffeeCtrl', [])
 		if(idx == -1){ // item does not exist
 			CC.bag.push(item);
 		}
-		updateTotal();
 		setLocalStorage(item);
+		updateTotal();
 
 	};
 
@@ -98,18 +98,15 @@ angular.module('CoffeeCtrl', [])
 		if(idx >= 0){	
 			CC.bag.splice(idx, 1);
 		};
-		updateTotal();
 		localStorageService.delete(item);
+		updateTotal();
 	};
 
 	// UPDATE BAG ==================================================
 	CC.updateBag = function(item){
-		updateTotal();
 		localStorageService.update(item);
+		updateTotal();
 	}
-
-
-
 
 	// get item index for bag ==================================
 	var checkIndex = function(item){
@@ -404,11 +401,11 @@ angular.module('pacificaApp')
       return coffeeItems;
     }, // set
     update: function(item){
+      console.log('updating?', item)
       var coffeeItems = this.get();
       var idx = this.idx(item);
 
       coffeeItems[idx] = item;
-
       localStorage.setItem('pacificaWholesaleBag', JSON.stringify(coffeeItems));
     },
     delete: function(item){
@@ -437,7 +434,7 @@ angular.module('AdminCtrl').directive('addItem', function(){
 				description: 'description',
 				region: "region",
 				roast: "roast",
-				image: "image" 
+				image: "image"
 			};
 			// create new item
 			$scope.addItem = function(){	
@@ -633,6 +630,10 @@ angular.module('CoffeeCtrl')
 		restrict: 'AE',
 		controller: function(){
 			var ctrl = this;
+
+			ctrl.options = [
+				{name: 1,value: 1},{name: 2,value: 2},{name: 3,value: 3},{name: 4,value: 4},{name: 5,value: 5},{name: 6,value: 6},{name: 7,value: 7},{name: 8,value: 8},{name: 9,value: 9},{name: 10,value: 10},{name: 15,value: 15},{name: 20,value: 20},
+			]
 
 			ctrl.remove = function(coffee){
 				ctrl.removeFromBag({coffee:coffee}); // has to be object...
