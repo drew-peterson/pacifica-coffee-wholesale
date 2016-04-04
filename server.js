@@ -4,12 +4,20 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var methodOverride = require('method-override');
 var compression = require('compression');
+var session = require('express-session');
 
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(compression()); //gzip compression
 app.use(require('prerender-node').set('prerenderToken', 'EDCiXmecUrcmqYK7hZ5M')); // prerender.io
+// sessions
+app.use(session({
+  secret: 'oregon beavers',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
 
 var port = process.env.PORT || 3000; 
 

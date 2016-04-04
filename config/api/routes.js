@@ -78,7 +78,6 @@ app.delete('/api/coffees/:id', function(req, res){
 
     var newAdmin = req.body;
 
-
     Admin.findOne({username: newAdmin.username},function(err, user){
       if(!user){
         bcrypt.genSalt(saltRounds, function(err, salt) {
@@ -116,8 +115,13 @@ app.delete('/api/coffees/:id', function(req, res){
         if(hashAdmin){
           bcrypt.compare(admin.password, hashAdmin.password, function(err, response) {
 
+            // correct password
             if(response){
-              res.json({status: response});
+              // create session
+              var sess = req.session;
+              sess.userId = hashAdmin._id;
+
+              res.json({status: response, session: sess, test: 'test hello'});
             } else {
               res.json({status: response, message: 'password incorrect'});
             }
@@ -137,5 +141,23 @@ app.delete('/api/coffees/:id', function(req, res){
     // 'dist/public' -- for productions
   });
 
-}
+
+
+
+
+} // end of all
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
