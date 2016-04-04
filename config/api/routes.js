@@ -121,7 +121,7 @@ app.delete('/api/coffees/:id', function(req, res){
               var sess = req.session;
               sess.userId = hashAdmin._id;
 
-              res.json({status: response, session: sess, test: 'test hello'});
+              res.json({status: response, session: sess});
             } else {
               res.json({status: response, message: 'password incorrect'});
             }
