@@ -98,21 +98,29 @@ app.delete('/api/coffees/:id', function(req, res){
   
 //  ADMIN LOGIN =============================================================
 
-  app.get('admin/login', function(req, res){
+  app.post('/admin/login', function(req, res){
     var admin = req.body;
 
-    Admin.findOne({'username': admin.username}.then(function(err, adminPassword){
+    Admin.findOne({'username': admin.username}, function(err, hashAdmin){
       if (err) {
         res.status(500).json({message: err.message});
       } else {
-        // Load hash from your password DB.
 
-        res.json({adminPassword: adminPassword});
-        // bcrypt.compare(adminPassword, hash, function(err, res) {
-        //     // res == true
-        // });
+        if(hashAdmin){
+          bcrypt.compare(admin.password, hashAdmin.password, function(err, response) {
+
+            if(response){
+              res.json({status: response});
+            } else {
+              res.json({status: response, message: 'password incorrect'});
+            }
+          });
+        } else {
+          res.json({status: false, message: 'user not found' })
+        }
+
       }
-    })); // end of findOne
+    }); // end of findOne
   });
 
 
