@@ -1,5 +1,6 @@
 <main id="admin">
 	
+	<div ng-if="loggedIn">
 	<div class="newItemBtn">
 		<h2>Admin</h2> 
 
@@ -32,6 +33,11 @@
 
 
 	</section>
+	</div>
+
+	<!-- Admin Lgin -->
+	<admin-login ng-if="!loggedIn"></admin-login>
+
 
 	<!-- mask overlay -->
 	<div class="mask" 

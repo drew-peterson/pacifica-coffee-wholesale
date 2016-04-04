@@ -424,8 +424,10 @@ angular.module('pacificaApp')
 .service('sessionService', function($http){ 
   return {
     loggedIn: false,
-    login: function(data){  
-      return $http.post('admin/login', data);
+    userId: '',
+    login: function(data){
+    	var sData = JSON.stringify(data);
+    	return $http.post('admin/login', sData);
     },
     delete: function(data, id){
       return $http.put('admin/logout/' + id, data);
@@ -517,20 +519,29 @@ angular.module('AdminCtrl')
 	return {
 		scope: true,
 		replace: true,
-		controller: function(){
+		controller: function($scope){
 			loginCtrl = this;
+			loginCtrl.test = "Drew Peterson"
 
 			loginCtrl.admin = {
-				username: 'username',
-				password: 'password'
+				username: '',
+				password: '',
+				loggedIn: sessionService.loggedIn
 			};
 
 			loginCtrl.login = function(){
-				sessionService.login().success(function(response){
-					debugger
+				console.log('click')
+				sessionService.login(loginCtrl.admin).success(function(response){
+
+				sessionService.loggedIn = response.status;
+				sessionService.userId = response.userId;
+
+				}).error(function(error){
+					console.log(error);
 				})
 			};
 		},
+		controllerAs: 'loginCtrl',
 		bindToControler: {},
 		templateUrl: 'views/admin/login.html'
 	}
@@ -926,44 +937,6 @@ angular.module('CoffeeCtrl')
 		}
 	}
 })
-angular.module('HomeCtrl').directive('homeCard', function(){
-	return { 
-		restrict: 'AE', 
-		replace: true,
-		scope: {
-			'title': '@',
-			'color': '@',
-			'button': '@', 
-			'content': '@',
-			'image': '@',
-			'textColor': '@', 
-			'url': '@',  
-		},
-		templateUrl: "views/home/homeCard.html" 
-	}
-})
-angular.module('HomeCtrl').directive('videoHero', function(){ 
-	return {
-		restrict: 'AE', 
-		replace: true,
-		link: function(scope, elem, attr){ 
-
-			// play video when it buffers
-			var video = document.getElementById('bgvid');
-			var chrome = navigator.appVersion.indexOf('Chrome');
-			// if Chrome Else
-			if(chrome != 0){	
-				video.play(); 
-			}else{
-				video.oncanplaythrough = function() {
-    				video.play(); 
-				};
-				
-			}
-		},
-		templateUrl: "views/home/youtube.html" 
-	}
-}); 
 // Lazy Load ======================================
 // lazy-load attr on image or background, must have parent...
 angular.module('pacificaApp')
@@ -1005,6 +978,44 @@ angular.module('pacificaApp')
     } // end of return
 }) // end of directive
 // ===============================================
+angular.module('HomeCtrl').directive('homeCard', function(){
+	return { 
+		restrict: 'AE', 
+		replace: true,
+		scope: {
+			'title': '@',
+			'color': '@',
+			'button': '@', 
+			'content': '@',
+			'image': '@',
+			'textColor': '@', 
+			'url': '@',  
+		},
+		templateUrl: "views/home/homeCard.html" 
+	}
+})
+angular.module('HomeCtrl').directive('videoHero', function(){ 
+	return {
+		restrict: 'AE', 
+		replace: true,
+		link: function(scope, elem, attr){ 
+
+			// play video when it buffers
+			var video = document.getElementById('bgvid');
+			var chrome = navigator.appVersion.indexOf('Chrome');
+			// if Chrome Else
+			if(chrome != 0){	
+				video.play(); 
+			}else{
+				video.oncanplaythrough = function() {
+    				video.play(); 
+				};
+				
+			}
+		},
+		templateUrl: "views/home/youtube.html" 
+	}
+}); 
 angular.module('NavCtrl').directive('toggleClass', function(){
 	return {
 		restrict: 'A',

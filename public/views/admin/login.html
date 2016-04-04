@@ -1,13 +1,16 @@
 
+<div id="login">
 
-<h2>Login</h2>
+	<h2>Login</h2>
 
-<span>username</span>
-<input type="text" ng-model="loginCtrl.user.username">
+	<span>username</span>
+	<input type="text" ng-model="loginCtrl.admin.username">
 
-<span>password</span>
-<input type="text" ng-model="loginCtrl.user.password">
+	<span>password</span>
+	<input type="text" ng-model="loginCtrl.admin.password">
 
-<button ng-click="loginCtrl.login()">LOGIN</button>
+	<button ng-click="loginCtrl.login()">LOGIN</button>
 
-{{loginCtrl.admin}}
+	<p>test: {{loginCtrl.admin.loggedIn}}</p>
+	
+</div>

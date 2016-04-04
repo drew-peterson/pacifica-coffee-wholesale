@@ -3,20 +3,29 @@ angular.module('AdminCtrl')
 	return {
 		scope: true,
 		replace: true,
-		controller: function(){
+		controller: function($scope){
 			loginCtrl = this;
+			loginCtrl.test = "Drew Peterson"
 
 			loginCtrl.admin = {
-				username: 'username',
-				password: 'password'
+				username: '',
+				password: '',
+				loggedIn: sessionService.loggedIn
 			};
 
 			loginCtrl.login = function(){
-				sessionService.login().success(function(response){
-					debugger
+				console.log('click')
+				sessionService.login(loginCtrl.admin).success(function(response){
+
+				sessionService.loggedIn = response.status;
+				sessionService.userId = response.userId;
+
+				}).error(function(error){
+					console.log(error);
 				})
 			};
 		},
+		controllerAs: 'loginCtrl',
 		bindToControler: {},
 		templateUrl: 'views/admin/login.html'
 	}
