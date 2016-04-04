@@ -75,6 +75,7 @@ app.delete('/api/coffees/:id', function(req, res){
 
 // ADMIN Create =========================================================
   app.post('/admin/create', function(req, res){
+
     var newAdmin = req.body;
 
     bcrypt.genSalt(saltRounds, function(err, salt) {
@@ -105,9 +106,11 @@ app.delete('/api/coffees/:id', function(req, res){
         res.status(500).json({message: err.message});
       } else {
         // Load hash from your password DB.
-        bcrypt.compare(adminPassword, hash, function(err, res) {
-            // res == true
-        });
+
+        res.json({adminPassword: adminPassword});
+        // bcrypt.compare(adminPassword, hash, function(err, res) {
+        //     // res == true
+        // });
       }
     })); // end of findOne
   });
