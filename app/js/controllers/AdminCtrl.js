@@ -19,6 +19,14 @@ angular.module('AdminCtrl',[])
 	.error(function(data){
 		console.log(' get error');  
 	})
+
+
+	// WATCH for logged in success for sessionService
+	$scope.$watch(function(){
+		return sessionService.loggedIn;
+	},function(newVal, oldVal){
+		$scope.loggedIn = newVal;
+	}, true); // true is important
 	
 })
 
