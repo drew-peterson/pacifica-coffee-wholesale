@@ -6,10 +6,9 @@ var app = express();
 var Coffee = require('../models/coffee.js');
 
 // AUTH
+var Admin = require('../models/adminUser.js');
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
-const myPlaintextPassword = 's0/\/\P4$$w0rD';
-const someOtherPlaintextPassword = 'oregon_beavers';
 
 module.exports = function(app){
 
@@ -74,37 +73,47 @@ app.delete('/api/coffees/:id', function(req, res){
     });
   });
 
-// ADMIN =========================================================
-
-
-
-
-
- app.post('/admin/create', function(req, res){
+// ADMIN Create =========================================================
+  app.post('/admin/create', function(req, res){
     var newAdmin = req.body;
 
-
     bcrypt.genSalt(saltRounds, function(err, salt) {
-      bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
-     // Store hash in your password DB.
+      bcrypt.hash(newAdmin.password, salt, function(err, hash) {
+
+      // Store hash in your password DB.
+        Admin.create({
+          username: newAdmin.username,
+          password: hash
+          },function(err, admin){
+          if(err){
+            res.status(500).json({message: err.message});
+          }else{
+            res.json({message: "Admin Created", admin: admin})
+          }
+        });
       });
-    });
-
-    Admin.create({
-      username: newAdmin.username,
-      password: newAdmin.password
-    }, function(err,coffees){
-      if(err){
-        res.status(500).json({message: err.message});
-      }else {
-        res.json({coffees: coffees, message: "Coffee Added"});
-      };
-    });
-  });
+    }); // end of bcrypt
+  }); // end of create
   
+//  ADMIN LOGIN =============================================================
+
+  app.get('admin/login', function(req, res){
+    var admin = req.body;
+
+    Admin.findOne({'username': admin.username}.then(function(err, adminPassword){
+      if (err) {
+        res.status(500).json({message: err.message});
+      } else {
+        // Load hash from your password DB.
+        bcrypt.compare(adminPassword, hash, function(err, res) {
+            // res == true
+        });
+      }
+    })); // end of findOne
+  });
 
 
-
+// CATCH ALL
   app.get('*', function(req, res) {
     res.sendFile('index.html', {root: 'public'}); // load our public/index.html file
     // 'dist/public' -- for productions

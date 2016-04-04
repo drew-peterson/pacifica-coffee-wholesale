@@ -15,7 +15,7 @@ var port = process.env.PORT || 3000;
 
 // MongoDB ===============================
 require('./config/database.js');
-require('./config/mock/seed.js');
+require('./config/mock/seed.js'); // runs the seed ...
 // =======================================
 
 //Video ==================================
