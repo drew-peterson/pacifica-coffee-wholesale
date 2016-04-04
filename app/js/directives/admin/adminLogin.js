@@ -1,17 +1,23 @@
 angular.module('AdminCtrl')
-.directive('adminLogin',function(){
+.directive('adminLogin',function(sessionService){
 	return {
 		scope: true,
 		replace: true,
 		controller: function(){
-			login = this;
+			loginCtrl = this;
 
-			login.admin = {
+			loginCtrl.admin = {
 				username: 'username',
 				password: 'password'
-			}
+			};
+
+			loginCtrl.login = function(){
+				sessionService.login().success(function(response){
+					debugger
+				})
+			};
 		},
 		bindToControler: {},
 		templateUrl: 'views/admin/login.html'
 	}
-})
+});

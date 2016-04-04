@@ -30,7 +30,7 @@ angular.module('pacificaApp',
 
 angular.module('AdminCtrl',[])
 
-.controller('AdminCtrl', function(itemsService, $scope){    
+.controller('AdminCtrl', function(itemsService, $scope, sessionService){    
 	
 	$scope.items; // holds all the items...  
 
@@ -42,7 +42,9 @@ angular.module('AdminCtrl',[])
 
 	// GET ALL ITEMS ===========================================
 	itemsService.get().success(function(data){
-		$scope.items = data.coffees;  
+		$scope.items = data.coffees;
+
+		$scope.loggedIn = sessionService.loggedIn;  
 	})
 	.error(function(data){
 		console.log(' get error');  
@@ -418,6 +420,18 @@ angular.module('pacificaApp')
     }
   }
 })
+angular.module('pacificaApp')
+.service('sessionService', function($http){ 
+  return {
+    loggedIn: false,
+    login: function(data){  
+      return $http.post('admin/login', data);
+    },
+    delete: function(data, id){
+      return $http.put('admin/logout/' + id, data);
+    }
+  }
+});
 angular.module('AdminCtrl').directive('addItem', function(){
 	return {
 		restrict: 'AE',
@@ -499,22 +513,28 @@ angular.module('AdminCtrl').directive('adminCard', function($animate){
 	}
 })
 angular.module('AdminCtrl')
-.directive('adminLogin',function(){
+.directive('adminLogin',function(sessionService){
 	return {
 		scope: true,
 		replace: true,
 		controller: function(){
-			login = this;
+			loginCtrl = this;
 
-			login.admin = {
+			loginCtrl.admin = {
 				username: 'username',
 				password: 'password'
-			}
+			};
+
+			loginCtrl.login = function(){
+				sessionService.login().success(function(response){
+					debugger
+				})
+			};
 		},
 		bindToControler: {},
 		templateUrl: 'views/admin/login.html'
 	}
-})
+});
 angular.module('AdminCtrl')
 
 .directive('adminSideMenu', function($animate, itemsService){ 
@@ -906,6 +926,44 @@ angular.module('CoffeeCtrl')
 		}
 	}
 })
+angular.module('HomeCtrl').directive('homeCard', function(){
+	return { 
+		restrict: 'AE', 
+		replace: true,
+		scope: {
+			'title': '@',
+			'color': '@',
+			'button': '@', 
+			'content': '@',
+			'image': '@',
+			'textColor': '@', 
+			'url': '@',  
+		},
+		templateUrl: "views/home/homeCard.html" 
+	}
+})
+angular.module('HomeCtrl').directive('videoHero', function(){ 
+	return {
+		restrict: 'AE', 
+		replace: true,
+		link: function(scope, elem, attr){ 
+
+			// play video when it buffers
+			var video = document.getElementById('bgvid');
+			var chrome = navigator.appVersion.indexOf('Chrome');
+			// if Chrome Else
+			if(chrome != 0){	
+				video.play(); 
+			}else{
+				video.oncanplaythrough = function() {
+    				video.play(); 
+				};
+				
+			}
+		},
+		templateUrl: "views/home/youtube.html" 
+	}
+}); 
 // Lazy Load ======================================
 // lazy-load attr on image or background, must have parent...
 angular.module('pacificaApp')
@@ -947,44 +1005,6 @@ angular.module('pacificaApp')
     } // end of return
 }) // end of directive
 // ===============================================
-angular.module('HomeCtrl').directive('homeCard', function(){
-	return { 
-		restrict: 'AE', 
-		replace: true,
-		scope: {
-			'title': '@',
-			'color': '@',
-			'button': '@', 
-			'content': '@',
-			'image': '@',
-			'textColor': '@', 
-			'url': '@',  
-		},
-		templateUrl: "views/home/homeCard.html" 
-	}
-})
-angular.module('HomeCtrl').directive('videoHero', function(){ 
-	return {
-		restrict: 'AE', 
-		replace: true,
-		link: function(scope, elem, attr){ 
-
-			// play video when it buffers
-			var video = document.getElementById('bgvid');
-			var chrome = navigator.appVersion.indexOf('Chrome');
-			// if Chrome Else
-			if(chrome != 0){	
-				video.play(); 
-			}else{
-				video.oncanplaythrough = function() {
-    				video.play(); 
-				};
-				
-			}
-		},
-		templateUrl: "views/home/youtube.html" 
-	}
-}); 
 angular.module('NavCtrl').directive('toggleClass', function(){
 	return {
 		restrict: 'A',

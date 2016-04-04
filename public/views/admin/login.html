@@ -3,7 +3,11 @@
 <h2>Login</h2>
 
 <span>username</span>
-<input type="text" ng-model="login.user.username">
+<input type="text" ng-model="loginCtrl.user.username">
 
 <span>password</span>
-<input type="text" ng-model="login.user.password">
+<input type="text" ng-model="loginCtrl.user.password">
+
+<button ng-click="loginCtrl.login()">LOGIN</button>
+
+{{loginCtrl.admin}}

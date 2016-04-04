@@ -1,6 +1,6 @@
 angular.module('AdminCtrl',[])
 
-.controller('AdminCtrl', function(itemsService, $scope){    
+.controller('AdminCtrl', function(itemsService, $scope, sessionService){    
 	
 	$scope.items; // holds all the items...  
 
@@ -12,7 +12,9 @@ angular.module('AdminCtrl',[])
 
 	// GET ALL ITEMS ===========================================
 	itemsService.get().success(function(data){
-		$scope.items = data.coffees;  
+		$scope.items = data.coffees;
+
+		$scope.loggedIn = sessionService.loggedIn;  
 	})
 	.error(function(data){
 		console.log(' get error');  
