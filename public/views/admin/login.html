@@ -3,6 +3,8 @@
 
 	<h2>Login</h2>
 
+	<p class="message">{{loginCtrl.message}}</p>
+
 	<span>username</span>
 	<input type="text" ng-model="loginCtrl.admin.username">
 
@@ -10,7 +12,5 @@
 	<input type="text" ng-model="loginCtrl.admin.password">
 
 	<button ng-click="loginCtrl.login()">LOGIN</button>
-
-	<p>test: {{loginCtrl.admin.loggedIn}}</p>
 	
 </div>

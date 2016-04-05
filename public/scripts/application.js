@@ -529,20 +529,20 @@ angular.module('AdminCtrl')
 		replace: true,
 		controller: function($scope){
 			loginCtrl = this;
-			loginCtrl.test = "Drew Peterson"
 
 			loginCtrl.admin = {
 				username: '',
 				password: '',
-				loggedIn: sessionService.loggedIn
 			};
 
 			loginCtrl.login = function(){
 				console.log('click')
 				sessionService.login(loginCtrl.admin).success(function(response){
+					console.log(response)
+					sessionService.loggedIn = response.status;
+					sessionService.userId = response.userId;
 
-				sessionService.loggedIn = response.status;
-				sessionService.userId = response.userId;
+					loginCtrl.message = response.message;
 
 				}).error(function(error){
 					console.log(error);
@@ -550,7 +550,6 @@ angular.module('AdminCtrl')
 			};
 		},
 		controllerAs: 'loginCtrl',
-		bindToControler: {},
 		templateUrl: 'views/admin/login.html'
 	}
 });

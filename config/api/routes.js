@@ -122,13 +122,13 @@ app.delete('/api/coffees/:id', function(req, res){
               var sess = req.session;
               sess.userId = hashAdmin._id;
 
-              res.json({status: response, session: sess});
+              res.json({status: response, session: sess, message: 'Login Success'});
             } else {
-              res.json({status: response, message: 'password incorrect'});
+              res.json({status: response, message: 'password and/or username incorrect'});
             }
           });
         } else {
-          res.json({status: false, message: 'user not found' })
+          res.json({status: false, message: 'password and/or username incorrect' })
         }
 
       }
