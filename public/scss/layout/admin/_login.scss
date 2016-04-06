@@ -44,7 +44,8 @@
 	margin: $lg 0;
 }
 
-#login .admin-details input[type="text"] {
+#login .admin-details input[type="text"],
+#login .admin-details input[type="password"] { 
 	font-size: 1.3rem;
 	padding: $msm 0;
 	width: 85%;
