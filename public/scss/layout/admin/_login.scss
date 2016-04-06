@@ -21,6 +21,14 @@
 	background-color: $white;
 	padding-bottom: $med;
 	border-radius: 5px;
+
+	@include tablet {
+		width: 60%;
+	} 
+
+	@include desktop__large {
+		width: 40%;
+	}
 }
 
 #login .admin-details {
@@ -80,7 +88,7 @@
 	color: $white;
 	width: 85%;
 	
-	transition: 3s na ease, 0.5s opacity ease;
+	transition: 3s width ease, 0.5s opacity ease;
 	opacity: 0;
 
 	&.activeMessage-add-active {
@@ -103,10 +111,12 @@
 	background-color: $gray;
 	font-size: 1.3rem;
 	color: white;
+	cursor: pointer;
 
 	@include tablet {
+		transition: 0.35s background-color ease;
 		&:hover {
-			background-color: darken($green, 10%);
+			background-color: darken($gray, 10%);
 		}
 	}
 }
