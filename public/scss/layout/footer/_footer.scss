@@ -5,7 +5,6 @@
 	min-height: 200px;
 	background-color: $primary-color-dark;
 	border-top: 1px solid $divider-color;
-
 	.callMe {
 		position: relative;
 		border-bottom: 1px solid $divider-color;
@@ -40,6 +39,26 @@
 			padding: 2%;
 		} 
 	}
+	// Admin ==============
+	.gotoAdmin {
+		display: block;
+		cursor: pointer;
+		color: $white;
+		width: 100%;
+		padding-top: $med;
+		padding-left: 5%;
+
+
+		@include tablet {
+			padding-left: 2%;
+			&:hover {
+				color: blue;
+			}
+		}
+	}
+
+
+	// Drew info ==============
 
 	.info {
 		p {

@@ -999,12 +999,13 @@ angular.module('pacificaApp')
     } // end of return
 }) // end of directive
 // ===============================================
-angular.module('HomeCtrl').directive('homeCard', function(){
+angular.module('HomeCtrl')
+.directive('homeCard', function(){
 	return { 
 		restrict: 'AE', 
 		replace: true,
-		scope: {
-			'title': '@',
+		scope: { 
+			'title': '@', 
 			'color': '@',
 			'button': '@', 
 			'content': '@',
@@ -1037,6 +1038,15 @@ angular.module('HomeCtrl').directive('videoHero', function(){
 		templateUrl: "views/home/youtube.html" 
 	}
 }); 
+angular.module('pacificaApp')
+.directive('mainFooter',function(){
+	return {
+		replace: true,
+		restrict: 'AE',
+		templateUrl: 'views/footer/footer.html',
+	}
+})
+
 angular.module('NavCtrl').directive('toggleClass', function(){
 	return {
 		restrict: 'A',

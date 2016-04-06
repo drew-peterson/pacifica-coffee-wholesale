@@ -1,9 +1,10 @@
-angular.module('HomeCtrl').directive('homeCard', function(){
+angular.module('HomeCtrl')
+.directive('homeCard', function(){
 	return { 
 		restrict: 'AE', 
 		replace: true,
-		scope: {
-			'title': '@',
+		scope: { 
+			'title': '@', 
 			'color': '@',
 			'button': '@', 
 			'content': '@',
