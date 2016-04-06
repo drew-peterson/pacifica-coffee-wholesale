@@ -28,130 +28,6 @@ angular.module('pacificaApp',
 });
 
 
-angular.module('appRoutes', [])
-
-.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-
-  $urlRouterProvider.otherwise('/');
-
-  $stateProvider
-    .state('home',{
-      url: '/',
-      templateUrl: '../views/home/home.html', 
-      controller: 'HomeCtrl',
-      controllerAs: 'home'
-    })
-   .state('coffee',{
-      url: '/coffee',
-      templateUrl: '../views/coffee/coffee.html',
-      controllerAs: 'CC',
-      controller: 'CoffeeCtrl'  
-    })
-    .state('bag',{
-      url: '/bag',
-      templateUrl: '../views/bag/bag.html',
-      controllerAs: 'bag' 
-    })
-    .state('admin',{
-      url: '/admin',
-      templateUrl: '../views/admin/admin.html',
-      controller: 'AdminCtrl',
-      controllerAs: 'admin'
-    })
-   
-
-    // GoogleBot SEO
-    $locationProvider.html5Mode(true);
-    $locationProvider.hashPrefix('!');
-
-});
-
-angular.module('pacificaApp')
-
-.service('itemsService', function($http){ 
-  return {
-    get: function(){
-      return $http.get('/api/coffees'); 
-    },
-    post: function(data){  
-      return $http.post('api/coffees', data);
-    },
-    put: function(data, id){
-      return $http.put('api/coffees/' + id, data);
-    },
-    delete: function(id){  
-      return $http.delete('api/coffees/' + id);
-    }
-  }
-})
-angular.module('pacificaApp')
-
-.service('localStorageService', function(){ 
-  
-  return {
-    idx: function(item){
-      var ls = this.get();
-      var coffeeNames = [];
-
-      ls.forEach(function(item){
-        coffeeNames.push(item.name)
-      })
-      return coffeeNames.indexOf(item.name);
-    },
-    get: function(){
-      var ls = JSON.parse(localStorage.getItem('pacificaWholesaleBag'));
-      return ls
-    },
-    set: function(data){
-      // get localStorage
-      var coffeeItems = this.get();
-
-      // if there are more then 1 item in bag
-      if(coffeeItems && coffeeItems.length >= 1){
-        if(this.idx(data)){ // item does not exist
-          coffeeItems.push(data);
-        }         
-    // NEW BAG
-      }else{
-        coffeeItems = [];
-        coffeeItems.push(data);
-      }
-      // set the localStorage
-      localStorage.setItem('pacificaWholesaleBag', JSON.stringify(coffeeItems));
-      return coffeeItems;
-    }, // set
-    update: function(item){
-      console.log('updating?', item)
-      var coffeeItems = this.get();
-      var idx = this.idx(item);
-
-      coffeeItems[idx] = item;
-      localStorage.setItem('pacificaWholesaleBag', JSON.stringify(coffeeItems));
-    },
-    delete: function(item){
-      var coffeeItems = this.get();
-      var idx = this.idx(item);
-
-      coffeeItems.splice(idx, 1);
-
-      localStorage.setItem('pacificaWholesaleBag', JSON.stringify(coffeeItems));
-    }
-  }
-})
-angular.module('pacificaApp')
-.service('sessionService', function($http){ 
-  return {
-    loggedIn: false,
-    userId: '',
-    login: function(data){
-    	var sData = JSON.stringify(data);
-    	return $http.post('admin/login', sData);
-    },
-    delete: function(data, id){
-      return $http.put('admin/logout/' + id, data);
-    }
-  }
-});
 angular.module('AdminCtrl',[])
 
 .controller('AdminCtrl', function(itemsService, $scope, sessionService){    
@@ -442,6 +318,304 @@ angular.module('NavCtrl',[])
 })
 
 
+angular.module('appRoutes', [])
+
+.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+
+  $urlRouterProvider.otherwise('/');
+
+  $stateProvider
+    .state('home',{
+      url: '/',
+      templateUrl: '../views/home/home.html', 
+      controller: 'HomeCtrl',
+      controllerAs: 'home'
+    })
+   .state('coffee',{
+      url: '/coffee',
+      templateUrl: '../views/coffee/coffee.html',
+      controllerAs: 'CC',
+      controller: 'CoffeeCtrl'  
+    })
+    .state('bag',{
+      url: '/bag',
+      templateUrl: '../views/bag/bag.html',
+      controllerAs: 'bag' 
+    })
+    .state('admin',{
+      url: '/admin',
+      templateUrl: '../views/admin/admin.html',
+      controller: 'AdminCtrl',
+      controllerAs: 'admin'
+    })
+   
+
+    // GoogleBot SEO
+    $locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix('!');
+
+});
+
+angular.module('pacificaApp')
+
+.service('itemsService', function($http){ 
+  return {
+    get: function(){
+      return $http.get('/api/coffees'); 
+    },
+    post: function(data){  
+      return $http.post('api/coffees', data);
+    },
+    put: function(data, id){
+      return $http.put('api/coffees/' + id, data);
+    },
+    delete: function(id){  
+      return $http.delete('api/coffees/' + id);
+    }
+  }
+})
+angular.module('pacificaApp')
+
+.service('localStorageService', function(){ 
+  
+  return {
+    idx: function(item){
+      var ls = this.get();
+      var coffeeNames = [];
+
+      ls.forEach(function(item){
+        coffeeNames.push(item.name)
+      })
+      return coffeeNames.indexOf(item.name);
+    },
+    get: function(){
+      var ls = JSON.parse(localStorage.getItem('pacificaWholesaleBag'));
+      return ls
+    },
+    set: function(data){
+      // get localStorage
+      var coffeeItems = this.get();
+
+      // if there are more then 1 item in bag
+      if(coffeeItems && coffeeItems.length >= 1){
+        if(this.idx(data)){ // item does not exist
+          coffeeItems.push(data);
+        }         
+    // NEW BAG
+      }else{
+        coffeeItems = [];
+        coffeeItems.push(data);
+      }
+      // set the localStorage
+      localStorage.setItem('pacificaWholesaleBag', JSON.stringify(coffeeItems));
+      return coffeeItems;
+    }, // set
+    update: function(item){
+      console.log('updating?', item)
+      var coffeeItems = this.get();
+      var idx = this.idx(item);
+
+      coffeeItems[idx] = item;
+      localStorage.setItem('pacificaWholesaleBag', JSON.stringify(coffeeItems));
+    },
+    delete: function(item){
+      var coffeeItems = this.get();
+      var idx = this.idx(item);
+
+      coffeeItems.splice(idx, 1);
+
+      localStorage.setItem('pacificaWholesaleBag', JSON.stringify(coffeeItems));
+    }
+  }
+})
+angular.module('pacificaApp')
+.service('sessionService', function($http){ 
+  return {
+    loggedIn: false,
+    userId: '',
+    login: function(data){
+    	var sData = JSON.stringify(data);
+    	return $http.post('admin/login', sData);
+    },
+    delete: function(data, id){
+      return $http.put('admin/logout/' + id, data);
+    }
+  }
+});
+angular.module('AdminCtrl').directive('addItem', function(){
+	return {
+		restrict: 'AE',
+		replace: true,
+		scope: {
+			triggers: '=', 
+			allData: '=',
+			saveItems:'='
+		},
+		controller: function($scope, itemsService){
+			$scope.newItem = {
+				name: 'Name',
+				price: "Price",
+				description: 'description',
+				region: "region",
+				roast: "roast",
+				image: "image"
+			};
+			// create new item
+			$scope.addItem = function(){	
+				console.log($scope.newItem);
+				var newItem = JSON.stringify($scope.newItem);
+
+				itemsService.post(newItem).success(function(response){
+					$scope.allData.unshift(response.coffees); // add to top of list;
+				})
+				.error(function(data){
+					console.log(' post error');
+				}) 
+			} 
+		},
+		link: function(scope, elem, attrs){
+			document.getElementById('photoUpload').addEventListener('change', readUrl, true);
+
+			function readUrl(){
+				var file = document.getElementById('photoUpload').files[0];
+				var reader = new FileReader();
+ 				reader.onloadend = function(){ 
+				document.getElementById('uploadPreview').style.backgroundImage = "url(" + reader.result + ")";        
+		    	scope.newItem.image = reader.result;
+		   }
+		    
+		   if(file){
+		      reader.readAsDataURL(file);
+		    }else{
+					console.log('else')
+				}
+			}
+
+		},
+		templateUrl: 'views/admin/addItem.html'
+	}
+})
+'use strict';
+
+angular.module('AdminCtrl').directive('adminCard', function($animate){
+	return {
+		restrict: 'AE',
+		replace: true, 
+		scope: {
+			'itemData': '=',  
+			'triggers': '=', 
+			'saveItems': '=',
+			'allData': '=' 
+		},
+		controller: function($scope){},
+		link: function(scope, elem, attrs){
+			var openBtn = elem.find('#adminShowMenu');
+			var menu = elem.find('.admin-push-menu');
+
+			// open menu -- close menu is in adminsideMenu.js
+			openBtn.on('click', function(){
+				scope.$apply(function(){
+					$animate.addClass(menu, 'showMenu'); 
+				})
+			})
+		},
+		templateUrl: "views/admin/adminCard.html"
+	}
+})
+angular.module('AdminCtrl')
+.directive('adminLogin',function(sessionService){
+	return {
+		scope: true,
+		replace: true,
+		controller: function($scope){
+			loginCtrl = this;
+
+			loginCtrl.admin = {
+				username: '',
+				password: '',
+			};
+
+			loginCtrl.login = function(){
+				console.log('click')
+				sessionService.login(loginCtrl.admin).success(function(response){
+					console.log(response)
+					sessionService.loggedIn = response.status;
+					sessionService.userId = response.userId;
+
+					loginCtrl.message = response.message;
+
+				}).error(function(error){
+					console.log(error);
+				})
+			};
+		},
+		controllerAs: 'loginCtrl',
+		templateUrl: 'views/admin/login.html'
+	}
+});
+angular.module('AdminCtrl')
+
+.directive('adminSideMenu', function($animate, itemsService){ 
+	return {
+		restrict: 'AE', 
+		scope: { 
+			itemData: '=', 
+			saveItems: '=',
+			triggers: '=',
+			allData: '='   
+		}, 
+		templateUrl: "views/admin/adminSideMenu.html", 
+		controller: function($scope){
+			// var item = JSON.stringify($scope.itemData);
+			var item = $scope.itemData;
+			var itemId = $scope.itemData._id; 
+			$scope.changed;
+
+			//update Item =============================
+			$scope.updateItem = function(){	
+				if($scope.changed){
+					itemsService.put(item, itemId).success(function(response){
+						// scope has already need changed to reflect new item
+					}).error(function(response){
+						console.log('update fail');
+					});
+				};
+			};
+
+			// Delete Item ============================
+			$scope.deleteItem = function(){
+				var id = $scope.allData.indexOf(item);
+				// remove from arrary;	
+				$scope.allData.splice(id, 1);
+				
+				itemsService.delete(itemId).success(function(response){
+				}).error(function(response){
+					console.log('delete fail')
+				});
+			};
+		},
+		link: function(scope, elem, attrs){
+			var close = elem.find('.close');
+			var remove = elem.find('.delete');
+			var adminUpdate = elem.find('.adminUpdate')
+			var menu = elem.parent();
+			var overlay = $('.mask');
+
+			// hide menu on close and overlay
+			close.on('click', function(){ hideMenu(); })
+			remove.on('click', function(){ hideMenu(); })
+			overlay.on('click', function(){ hideMenu() })
+			adminUpdate.on('click', function(){ hideMenu() })
+
+			function hideMenu(){
+				scope.$apply(function(){
+					$animate.removeClass(menu, 'showMenu');
+				})
+			}
+		},
+
+	} // end of return
+})
 angular.module('CoffeeCtrl')
 
 .directive('coffeeBag', function($document, $window){
@@ -769,180 +943,6 @@ angular.module('CoffeeCtrl')
 
 		}
 	}
-})
-angular.module('AdminCtrl').directive('addItem', function(){
-	return {
-		restrict: 'AE',
-		replace: true,
-		scope: {
-			triggers: '=', 
-			allData: '=',
-			saveItems:'='
-		},
-		controller: function($scope, itemsService){
-			$scope.newItem = {
-				name: 'Name',
-				price: "Price",
-				description: 'description',
-				region: "region",
-				roast: "roast",
-				image: "image"
-			};
-			// create new item
-			$scope.addItem = function(){	
-				console.log($scope.newItem);
-				var newItem = JSON.stringify($scope.newItem);
-
-				itemsService.post(newItem).success(function(response){
-					$scope.allData.unshift(response.coffees); // add to top of list;
-				})
-				.error(function(data){
-					console.log(' post error');
-				}) 
-			} 
-		},
-		link: function(scope, elem, attrs){
-			document.getElementById('photoUpload').addEventListener('change', readUrl, true);
-
-			function readUrl(){
-				var file = document.getElementById('photoUpload').files[0];
-				var reader = new FileReader();
- 				reader.onloadend = function(){ 
-				document.getElementById('uploadPreview').style.backgroundImage = "url(" + reader.result + ")";        
-		    	scope.newItem.image = reader.result;
-		   }
-		    
-		   if(file){
-		      reader.readAsDataURL(file);
-		    }else{
-					console.log('else')
-				}
-			}
-
-		},
-		templateUrl: 'views/admin/addItem.html'
-	}
-})
-'use strict';
-
-angular.module('AdminCtrl').directive('adminCard', function($animate){
-	return {
-		restrict: 'AE',
-		replace: true, 
-		scope: {
-			'itemData': '=',  
-			'triggers': '=', 
-			'saveItems': '=',
-			'allData': '=' 
-		},
-		controller: function($scope){},
-		link: function(scope, elem, attrs){
-			var openBtn = elem.find('#adminShowMenu');
-			var menu = elem.find('.admin-push-menu');
-
-			// open menu -- close menu is in adminsideMenu.js
-			openBtn.on('click', function(){
-				scope.$apply(function(){
-					$animate.addClass(menu, 'showMenu'); 
-				})
-			})
-		},
-		templateUrl: "views/admin/adminCard.html"
-	}
-})
-angular.module('AdminCtrl')
-.directive('adminLogin',function(sessionService){
-	return {
-		scope: true,
-		replace: true,
-		controller: function($scope){
-			loginCtrl = this;
-
-			loginCtrl.admin = {
-				username: 'USERNAME',
-				password: 'PASSWORD',
-			};
-
-			loginCtrl.login = function(){
-				console.log('click')
-				sessionService.login(loginCtrl.admin).success(function(response){
-					console.log(response)
-					sessionService.loggedIn = response.status;
-					sessionService.userId = response.userId;
-
-					loginCtrl.message = response.message;
-
-				}).error(function(error){
-					console.log(error);
-				})
-			};
-		},
-		controllerAs: 'loginCtrl',
-		templateUrl: 'views/admin/login.html'
-	}
-});
-angular.module('AdminCtrl')
-
-.directive('adminSideMenu', function($animate, itemsService){ 
-	return {
-		restrict: 'AE', 
-		scope: { 
-			itemData: '=', 
-			saveItems: '=',
-			triggers: '=',
-			allData: '='   
-		}, 
-		templateUrl: "views/admin/adminSideMenu.html", 
-		controller: function($scope){
-			// var item = JSON.stringify($scope.itemData);
-			var item = $scope.itemData;
-			var itemId = $scope.itemData._id; 
-			$scope.changed;
-
-			//update Item =============================
-			$scope.updateItem = function(){	
-				if($scope.changed){
-					itemsService.put(item, itemId).success(function(response){
-						// scope has already need changed to reflect new item
-					}).error(function(response){
-						console.log('update fail');
-					});
-				};
-			};
-
-			// Delete Item ============================
-			$scope.deleteItem = function(){
-				var id = $scope.allData.indexOf(item);
-				// remove from arrary;	
-				$scope.allData.splice(id, 1);
-				
-				itemsService.delete(itemId).success(function(response){
-				}).error(function(response){
-					console.log('delete fail')
-				});
-			};
-		},
-		link: function(scope, elem, attrs){
-			var close = elem.find('.close');
-			var remove = elem.find('.delete');
-			var adminUpdate = elem.find('.adminUpdate')
-			var menu = elem.parent();
-			var overlay = $('.mask');
-
-			// hide menu on close and overlay
-			close.on('click', function(){ hideMenu(); })
-			remove.on('click', function(){ hideMenu(); })
-			overlay.on('click', function(){ hideMenu() })
-			adminUpdate.on('click', function(){ hideMenu() })
-
-			function hideMenu(){
-				scope.$apply(function(){
-					$animate.removeClass(menu, 'showMenu');
-				})
-			}
-		},
-
-	} // end of return
 })
 // Lazy Load ======================================
 // lazy-load attr on image or background, must have parent...

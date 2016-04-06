@@ -1,6 +1,15 @@
 #login {
 	height: 100vh;
-	background-color: $white;
+	background-color: $primary-color;
+}
+
+#login h2 {
+	font-size: 1.3rem;
+	background-color: $primary-color-dark;
+	color: $white;
+	padding: $med 0;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 }
 
 #login .login-container {
@@ -9,56 +18,82 @@
 	margin: 0 auto;
 	width: 90%;
 	text-align: center;
-	background-color: $google-gray;
+	background-color: $white;
+	padding-bottom: $lg;
+	border-radius: 5px;
 }
 
 #login .admin-details {
 	position: relative;
+	margin-bottom: $mlg;
 }
 
 #login .admin-username  {
-	margin-bottom: $med;
+	margin: $lg 0;
 }
 
 #login .admin-details input[type="text"] {
-	font-size: 1.5rem;
+	font-size: 1.3rem;
 	padding: $msm 0;
-	background-color: $google-gray;
-	color: $gray;
+	width: 85%;
+	text-indent: 10px;
 
 	border: none;
-	border-bottom: 2px solid $black;
+	border-bottom: 2px solid $gray;
 
 	&:focus {
-		border: none;
+		border-bottom: 2px solid $google-gray;
 	}
 	&:focus ~ .loginLine {
-		width: 90%;
-		background-color: blue;
+		width: 85%;
 	}
 }
 
 #login .loginLine {
 	display: block;
-	position: absolute;
 	z-index: 10;
+	position: absolute;
 	bottom: 0;
 	left: 50%;
 	transform: translateX(-50%);
 	height: 2px;
 	width: 0%;
-	background-color: blue;
+	background-color: DodgerBlue;
 	transition: 0.35s all ease;
 }
 
 
+// BTN and Notice
+
+.btn-and-notice {
+	position: relative;
+	padding-top: $xl;
+}
+
+.btn-and-notice .message {
+	position: absolute;
+	top: 0;
+	left: 7.5%;
+	padding: $sm 0;
+	background-color: LightCoral;
+	color: $white;
+	width: 85%;
+
+	transition: 5s all ease;
+}
+
 .admin-login-btn {
 	display: block;
-	width: 90%;
+	width: 85%;
 	margin: 0 auto;
-	margin-top: $med;
 	padding: $med 0;
 	background-color: $green;
 	font-size: 1.3rem;
 	color: white;
+
+	@include tablet {
+		&:hover {
+			background-color: darken($green, 10%);
+		}
+	}
 }

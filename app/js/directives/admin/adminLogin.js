@@ -7,8 +7,8 @@ angular.module('AdminCtrl')
 			loginCtrl = this;
 
 			loginCtrl.admin = {
-				username: 'USERNAME',
-				password: 'PASSWORD',
+				username: '',
+				password: '',
 			};
 
 			loginCtrl.login = function(){

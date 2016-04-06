@@ -3,21 +3,25 @@
 
 	<section class="login-container">
 
-		<h2>Login</h2>
+		<h2>Admin Login</h2>
 
-		<p class="message">{{loginCtrl.message}}</p>
 
 		<div class="admin-username admin-details">
-			<input type="text" ng-model="loginCtrl.admin.username">
+			<input type="text" ng-model="loginCtrl.admin.username" placeholder="USERNAME">
 			<span class="loginLine"></span>
 		</div>
 
 		<div class="admin-password admin-details">
-			<input type="text" ng-model="loginCtrl.admin.password">
+			<input type="text" ng-model="loginCtrl.admin.password" placeholder="PASSWORD">
 			<span class="loginLine"></span>
 		</div>
 
-		<button class="admin-login-btn" ng-click="loginCtrl.login()">Login</button>
+		<section class="btn-and-notice">
+			<p class="message">{{loginCtrl.message}}</p>
+
+			<button class="admin-login-btn" ng-click="loginCtrl.login()">Login</button>
+		</section>
+		
 
 	</section>
 	
