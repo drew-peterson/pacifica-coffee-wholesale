@@ -33,5 +33,18 @@ angular.module('appRoutes', [])
     // GoogleBot SEO
     $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('!');
+})
 
-});
+// Scroll to top on state change ==================================
+
+.directive('scrollTopOnStateChange', function($rootScope){
+  return {
+    restict: 'A',
+    link: function(scope, elem, attrs){
+      // Scroll to top
+      $rootScope.$on('$stateChangeSuccess', function() {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+      })
+    }
+  }
+})

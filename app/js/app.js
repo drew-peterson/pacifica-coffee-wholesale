@@ -25,5 +25,6 @@ angular.module('pacificaApp',
   return function(items) {
     return items.slice().reverse();
   };
-});
+})
+
 

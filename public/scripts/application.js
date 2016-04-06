@@ -25,7 +25,8 @@ angular.module('pacificaApp',
   return function(items) {
     return items.slice().reverse();
   };
-});
+})
+
 
 
 angular.module('AdminCtrl',[])
@@ -353,8 +354,21 @@ angular.module('appRoutes', [])
     // GoogleBot SEO
     $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('!');
+})
 
-});
+// Scroll to top on state change ==================================
+
+.directive('scrollTopOnStateChange', function($rootScope){
+  return {
+    restict: 'A',
+    link: function(scope, elem, attrs){
+      // Scroll to top
+      $rootScope.$on('$stateChangeSuccess', function() {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+      })
+    }
+  }
+})
 
 angular.module('pacificaApp')
 
@@ -999,6 +1013,15 @@ angular.module('pacificaApp')
     } // end of return
 }) // end of directive
 // ===============================================
+angular.module('pacificaApp')
+.directive('mainFooter',function(){
+	return {
+		replace: true,
+		restrict: 'AE',
+		templateUrl: 'views/footer/footer.html',
+	}
+})
+
 angular.module('HomeCtrl')
 .directive('homeCard', function(){
 	return { 
@@ -1038,15 +1061,6 @@ angular.module('HomeCtrl').directive('videoHero', function(){
 		templateUrl: "views/home/youtube.html" 
 	}
 }); 
-angular.module('pacificaApp')
-.directive('mainFooter',function(){
-	return {
-		replace: true,
-		restrict: 'AE',
-		templateUrl: 'views/footer/footer.html',
-	}
-})
-
 angular.module('NavCtrl').directive('toggleClass', function(){
 	return {
 		restrict: 'A',
