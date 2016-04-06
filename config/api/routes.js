@@ -73,33 +73,34 @@ app.delete('/api/coffees/:id', function(req, res){
     });
   });
 
-ADMIN Create =========================================================
+// ADMIN Create =========================================================
+    // not really needed doing in seed
   app.post('/admin/create', function(req, res){
 
     var newAdmin = req.body;
 
-    Admin.findOne({username: newAdmin.username},function(err, user){
-      if(!user){
-        bcrypt.genSalt(saltRounds, function(err, salt) {
-          bcrypt.hash(newAdmin.password, salt, function(err, hash) {
+    // Admin.findOne({username: newAdmin.username},function(err, user){
+    //   if(!user){
+    //     bcrypt.genSalt(saltRounds, function(err, salt) {
+    //       bcrypt.hash(newAdmin.password, salt, function(err, hash) {
 
-          // Store hash in your password DB.
-            Admin.create({
-              username: newAdmin.username,
-              password: hash
-              },function(err, admin){
-              if(err){
-                res.status(500).json({message: err.message});
-              }else{
-                res.json({message: "Admin Created", admin: admin})
-              }
-            });
-          });
-        }); // end of bcrypt
-      } else {
-        res.json({message: "user already exists"})
-      }
-    })
+    //       // Store hash in your password DB.
+    //         Admin.create({
+    //           username: newAdmin.username,
+    //           password: hash
+    //           },function(err, admin){
+    //           if(err){
+    //             res.status(500).json({message: err.message});
+    //           }else{
+    //             res.json({message: "Admin Created", admin: admin})
+    //           }
+    //         });
+    //       });
+    //     }); // end of bcrypt
+    //   } else {
+    //     res.json({message: "user already exists"})
+    //   }
+    // })
   }); // end of create
   
 //  ADMIN LOGIN =============================================================

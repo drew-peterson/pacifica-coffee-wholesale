@@ -22,3 +22,66 @@ coffees.forEach(function(coffee){
 		}
 	});
 })
+
+// CREATE ADMINS
+var Admin = require('../models/adminUser.js');
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+var admins = [
+	{
+		'username': 'drewP',
+		'password': 'peteand07'
+	},
+	{
+		'username': 'gregG',
+		'password': 'goBeavers'
+	}
+]
+
+admins.forEach(function(newAdmin){
+
+	Admin.findOne({username: newAdmin.username},function(err, user){
+      if(!user){
+        bcrypt.genSalt(saltRounds, function(err, salt) {
+          bcrypt.hash(newAdmin.password, salt, function(err, hash) {
+          // Store hash in your password DB.
+            Admin.create({
+              username: newAdmin.username,
+              password: hash
+              },function(err, admin){
+              if(err){
+                console.log(error, err);
+              }
+            });
+          });
+        }); // end of bcrypt
+      } else {
+       // user already exists
+      }
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
