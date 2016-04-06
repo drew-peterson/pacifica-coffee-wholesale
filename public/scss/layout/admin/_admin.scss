@@ -2,7 +2,7 @@
 $slider-width: 320px;
 
 #adminWrap {
-	transition: 0.35s opacity ease;
+  transition: 0.5s opacity ease;
 
 	&.ng-enter {
 		opacity: 0; 
@@ -10,7 +10,7 @@ $slider-width: 320px;
 	&.ng-enter.ng-enter-actve {
 		opacity: 1;
 	}
-}
+} 
 
 // Add Item Button ==================================
 

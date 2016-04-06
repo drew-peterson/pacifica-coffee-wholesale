@@ -25,7 +25,9 @@
 	@include tablet {
 		width: 60%;
 	} 
-
+	@include desktop {
+		width: 50%;
+	}
 	@include desktop__large {
 		width: 40%;
 	}
