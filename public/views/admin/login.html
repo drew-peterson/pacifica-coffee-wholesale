@@ -1,16 +1,24 @@
 
 <div id="login">
 
-	<h2>Login</h2>
+	<section class="login-container">
 
-	<p class="message">{{loginCtrl.message}}</p>
+		<h2>Login</h2>
 
-	<span>username</span>
-	<input type="text" ng-model="loginCtrl.admin.username">
+		<p class="message">{{loginCtrl.message}}</p>
 
-	<span>password</span>
-	<input type="text" ng-model="loginCtrl.admin.password">
+		<div class="admin-username admin-details">
+			<input type="text" ng-model="loginCtrl.admin.username">
+			<span class="loginLine"></span>
+		</div>
 
-	<button ng-click="loginCtrl.login()">LOGIN</button>
+		<div class="admin-password admin-details">
+			<input type="text" ng-model="loginCtrl.admin.password">
+			<span class="loginLine"></span>
+		</div>
+
+		<button class="admin-login-btn" ng-click="loginCtrl.login()">Login</button>
+
+	</section>
 	
 </div>
