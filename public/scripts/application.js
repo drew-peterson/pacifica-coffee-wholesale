@@ -759,10 +759,6 @@ angular.module('CoffeeCtrl')
 			addToBag: '&'   
 		},
 		link: function(scope, elem, attrs){
-	        $('#nav .title').on('click',function(){
-	        	console.log('off')
-	          $document.off();
-	        })
 		},
 		templateUrl: 'views/coffee/coffee-card.html'
 	}
