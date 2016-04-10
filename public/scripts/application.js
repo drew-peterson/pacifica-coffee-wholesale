@@ -97,8 +97,10 @@ angular.module('CoffeeCtrl', [])
 		var idx = checkIndex(item);
 		if(idx == -1){ // item does not exist
 			CC.bag.push(item);
+			setLocalStorage(item);
+		} else {
+			console.log('exists')
 		}
-		setLocalStorage(item);
 		updateTotal();
 
 	};
@@ -121,7 +123,12 @@ angular.module('CoffeeCtrl', [])
 
 	// get item index for bag ==================================
 	var checkIndex = function(item){
-		var idx = CC.bag.indexOf(item);
+		var names = [];
+		// hash keys change from some reason, would be better to use id instead of name though
+		CC.bag.forEach(function(item){
+			names.push(item.name);
+		})
+		var idx = names.indexOf(item.name);
 		return idx
 	};
 
