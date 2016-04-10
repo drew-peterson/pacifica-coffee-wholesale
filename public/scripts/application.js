@@ -739,7 +739,7 @@ angular.module('CoffeeCtrl')
 
 angular.module('CoffeeCtrl')
 
-.directive('coffeeCard', function(nService){
+.directive('coffeeCard', function(nService, $document){
 	return {
 		replace: true,
 		restrict: 'AE',
@@ -756,9 +756,14 @@ angular.module('CoffeeCtrl')
 		},
 		controllerAs: 'ctrl',
 		bindToController: {
-			addToBag: '&'  
+			addToBag: '&'   
 		},
-		link: function(scope, elem, attrs){},
+		link: function(scope, elem, attrs){
+	        $('#nav .title').on('click',function(){
+	        	console.log('off')
+	          $document.off();
+	        })
+		},
 		templateUrl: 'views/coffee/coffee-card.html'
 	}
 });
@@ -985,9 +990,8 @@ angular.module('pacificaApp')
       
         var offset = 100; // so the element is visible on page by 100px
 
-
         // scroll event
-        $document.bind('scroll', function(){ 
+        $document.on('scroll', function(){ 
           var barPos = $($document).scrollTop(); // scrollbar pos
           var position = elPos - barPos; // elment pos from bottom of window
           

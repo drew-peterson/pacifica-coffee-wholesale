@@ -1,6 +1,6 @@
 angular.module('CoffeeCtrl')
 
-.directive('coffeeCard', function(nService){
+.directive('coffeeCard', function(nService, $document){
 	return {
 		replace: true,
 		restrict: 'AE',
@@ -17,9 +17,14 @@ angular.module('CoffeeCtrl')
 		},
 		controllerAs: 'ctrl',
 		bindToController: {
-			addToBag: '&'  
+			addToBag: '&'   
 		},
-		link: function(scope, elem, attrs){},
+		link: function(scope, elem, attrs){
+	        $('#nav .title').on('click',function(){
+	        	console.log('off')
+	          $document.off();
+	        })
+		},
 		templateUrl: 'views/coffee/coffee-card.html'
 	}
 });
