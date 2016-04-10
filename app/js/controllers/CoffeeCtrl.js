@@ -27,8 +27,6 @@ angular.module('CoffeeCtrl', [])
 		if(idx == -1){ // item does not exist
 			CC.bag.push(item);
 			setLocalStorage(item);
-		} else {
-			console.log('exists')
 		}
 		updateTotal();
 
