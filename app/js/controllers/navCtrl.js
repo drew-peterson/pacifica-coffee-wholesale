@@ -105,7 +105,7 @@ angular.module('NavCtrl',[])
 				sideNav.removeClass('showSideNavM');
 				sideNav.removeClass('showSideNavD');
 				iconText.removeClass('showIconText');
-				$('body').css('overflow', initial);
+				$('body').css('overflow', "initial");
 			})  
 
 		},
