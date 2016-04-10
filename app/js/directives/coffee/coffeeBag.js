@@ -13,21 +13,25 @@ angular.module('CoffeeCtrl')
 			var close = $('.bag-close-wrap');
 			var bag = $('#coffeeBag');
 			var mask = $('.coffeeMask');
+			var body = $('body');
 
 			open.on('click', function(){
 				console.log('open')
 				bag.addClass('toggle');
 				mask.addClass('mask-overlay');
+				body.css('overflow', 'hidden');
 			})
 
 			close.on('click',function(){
 				bag.removeClass('toggle');
 				mask.removeClass('mask-overlay');
+				body.css('overflow', 'initial');
 			})
 
 			mask.on('click',function(){
 				bag.removeClass('toggle');
 				mask.removeClass('mask-overlay');
+				body.css('overflow', 'initial');
 			})
 
 
