@@ -11,6 +11,7 @@ angular.module('NavCtrl',[])
 			var navBtn = elem.find('.nav-open');
 			var home = navBtn.parent().find('.title');
 			var mask = $('.mask-overlay');
+			var body = $('body'); 
 			
 			// Mobile Menu
 			navBtn.on('click',function(){
@@ -23,24 +24,15 @@ angular.module('NavCtrl',[])
 					sideNav.addClass('showSideNavM');
 					iconText.addClass('showIconText');
 					mask.addClass('show');
+					body.css('overflow', 'hidden');
 					active = true;
 				}else{
-					sideNav.removeClass('showSideNavM');
-					sideNav.removeClass('showSideNavD');
-					iconText.removeClass('showIconText'); 
-					mask.removeClass('show');
-					active = false;
-					// removeAll(sideNav, iconText, mask);
+					removeAll(sideNav, iconText, mask);
 				}
 
 				// on home btn click remove everything
 				home.on('click',function(){
-					sideNav.removeClass('showSideNavM');
-					sideNav.removeClass('showSideNavD');
-					iconText.removeClass('showIconText');
-					mask.removeClass('show'); 
-					active = false;
-					// removeAll(sideNav, iconText, mask);
+					removeAll(sideNav, iconText, mask);
 				})
 
 				// set active to false on link click;
@@ -49,12 +41,7 @@ angular.module('NavCtrl',[])
 					active = false;
 				})
 				mask.on('click',function(){
-					sideNav.removeClass('showSideNavM');
-					sideNav.removeClass('showSideNavD');
-					iconText.removeClass('showIconText');
-					mask.removeClass('show'); 
-					active = false;
-					// removeAll(sideNav, iconText, mask);
+					removeAll(sideNav, iconText, mask);
 				})
 			})
 
@@ -68,23 +55,25 @@ angular.module('NavCtrl',[])
 						
 						sideNav.addClass('showSideNavD');
 						mask.addClass('show');
+						body.css('overflow', 'hidden');
 
 						sideNav.on('mouseenter',function(){
+							mask.addClass('show');
 							iconText.addClass('showIconText');
 							sideNav.addClass('showSideNavM');
+							body.css('overflow', 'hidden');
 						});
 
 						sideNav.on('mouseleave',function(){
-							mask.removeClass('show');
-							sideNav.removeClass('showSideNavD');
-							sideNav.removeClass('showSideNavM');
-							iconText.removeClass('showIconText');
+							removeAll(sideNav, iconText, mask);
 						});
 					});
 
 					navBtn.on('mouseleave',function(){
 						var sideNav = elem.find('#sideNav');
 						sideNav.removeClass('showSideNavD');
+						body.css('overflow', 'initial');
+						mask.removeClass('show');
 					});
 				}
 
@@ -92,7 +81,8 @@ angular.module('NavCtrl',[])
 				sideNav.removeClass('showSideNavM');
 				sideNav.removeClass('showSideNavD');
 				iconText.removeClass('showIconText');
-				mask.removeClass('show'); 
+				mask.removeClass('show');
+				body.css('overflow', 'initial'); 
 				active = false;
 			}
 		},
@@ -114,7 +104,8 @@ angular.module('NavCtrl',[])
 			link.on('click',function(){
 				sideNav.removeClass('showSideNavM');
 				sideNav.removeClass('showSideNavD');
-				iconText.removeClass('showIconText'); 
+				iconText.removeClass('showIconText');
+				$('body').css('overflow', initial);
 			})  
 
 		},
