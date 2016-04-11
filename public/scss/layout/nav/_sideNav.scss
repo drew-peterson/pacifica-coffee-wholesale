@@ -93,6 +93,20 @@
 	border-right: 1px solid $divider-color;
 	border-bottom: 1px solid $divider-color;
 	background-color: $google-gray;
+	cursor: pointer;
+
+	@include desktop {
+		&:hover {
+			background-color: $primary-color-dark;
+			.contact-info .iconText, 
+			.contact-title .iconText{
+				color: $white !important; 
+			}
+			.icon-phone:before {
+				background-color: $white !important;
+			} 
+		}
+	}
 }
 
 .subNav .contact-title {
@@ -141,6 +155,7 @@
 	background-color: $white;
 	margin-top: $msm;
 }
+
 
 
 // Icons ============================= 
