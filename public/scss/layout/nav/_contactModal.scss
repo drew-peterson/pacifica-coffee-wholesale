@@ -1,0 +1,56 @@
+
+
+// banner image
+#contactModal .contact-image {
+	position: relative;
+	width: 100%;
+	height: 200px;
+	
+	&:before {
+		content: '';
+		background-image: url('https://www.imamuseum.org/island2011/wp-content/uploads/2011/08/2x4-bike-delivery-e1314766502404.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		filter: blur(3px);
+	}
+
+	.quote {
+		@include center-v;
+		color: $white;
+		text-shadow: 1px 1px $black;
+		width: 100%;
+		text-align: center;
+		padding: $med;
+		font-size: 1.2rem;
+	} 
+}
+
+// main wrapper
+#contactModal .contact-wrapper {
+	padding: $med;
+
+	ol {
+		margin: $med;
+		padding: 0;
+
+		li {
+			line-height: 1.2;
+		}
+
+		li + li {
+			margin-top: $msm;
+		}
+	}
+
+	h2 {
+		color: $black;
+		text-align: center;
+		padding: $sm 0;
+	}
+}

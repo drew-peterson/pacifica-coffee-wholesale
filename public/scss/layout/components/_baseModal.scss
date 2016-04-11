@@ -1,4 +1,5 @@
 .baseModal {
+	// mask overlay
 	position: fixed;
 	cursor: pointer;
 	z-index: 250; // side nav @ 300
@@ -9,6 +10,7 @@
 	background-color: rgba(0,0,0,0.3);
 }
 
+// modal
 .baseModal .modal-main {
 	@include center-h;
 	background-color: $white;
@@ -22,7 +24,7 @@
 		height: auto;
 	}
 }
-
+// close header
 .baseModal .modalClose {
 	background-color: $primary-color-dark;
 	height: $xl; 
@@ -40,7 +42,6 @@
 		}
 	}
 }
-
+// content wrapper
 .baseModal .main-content {
-	padding: $med;
 }
