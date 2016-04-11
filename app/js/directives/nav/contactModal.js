@@ -3,25 +3,23 @@ angular.module('NavCtrl')
 	return {
 		replace: true,
 		restrict: 'E',
+		require: '^navigation', // bring in navigation directive
 		templateUrl: 'views/nav/contactModal.html',
-		link: function(scope, elem, attrs){
-
+		controller: function($scope){
+		},
+		link: function(scope, elem, attrs, navigation){
 			var mask = $('.mask-overlay');
 
 			$('.subNav.contact').on('click',function(){
 				var modal = $('#nav .baseModal');
-				var nav = $('#sideNav');
-
 
 				scope.$apply(function(){
 					$animate.addClass(modal, 'show');
-					$animate.removeClass(mask, 'show');
-					$animate.removeClass(nav, 'showSideNavM');
+					// $animate.removeClass(mask, 'show');
 				})
 
-
 				$('.baseModal .close').on('click', function(){
-					
+
 					$('body').css('overflow', 'initial');
 					scope.$apply(function(){
 						$animate.removeClass(modal, 'show');

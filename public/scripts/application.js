@@ -205,28 +205,30 @@ angular.module('NavCtrl',[])
 	return {  
 		scope: true,
 		replace: true,
-		controller: function(){},
+		controller: function($scope){
+			$scope.active = false;
+		},
+		controllerAs: 'ctrl',
 		link: function(scope, elem, attrs){
-
-			var active;
+			// var active;
 			var navBtn = elem.find('.nav-open');
 			var home = navBtn.parent().find('.title');
 			var mask = $('.mask-overlay');
-			var body = $('body'); 
+			var body = $('body');
 			
 			// Mobile Menu
 			navBtn.on('click',function(){
-
 				var sideNav = elem.find('#sideNav');
 				var link = sideNav.find('.link');
 				var iconText = elem.find('#sideNav .iconText');
 
-				if(!active){
+				if(!scope.active){
 					sideNav.addClass('showSideNavM');
 					iconText.addClass('showIconText');
 					mask.addClass('show');
 					body.css('overflow', 'hidden');
-					active = true;
+					scope.active = true;
+					
 				}else{
 					removeAll(sideNav, iconText, mask);
 				}
@@ -239,7 +241,7 @@ angular.module('NavCtrl',[])
 				// set active to false on link click;
 				link.on('click', function(){
 					mask.removeClass('show');
-					active = false;
+					scope.active = false;
 				})
 				mask.on('click',function(){
 					removeAll(sideNav, iconText, mask);
@@ -284,7 +286,7 @@ angular.module('NavCtrl',[])
 				iconText.removeClass('showIconText');
 				mask.removeClass('show');
 				body.css('overflow', 'initial'); 
-				active = false;
+				scope.active = false;
 			}
 		},
 		templateUrl: 'views/nav/nav.html'
@@ -293,13 +295,14 @@ angular.module('NavCtrl',[])
 
 .directive('sideNav',function(){
 	return {
-		scope: true,
+		// scope: true,
 		replace: true,
+		require: '^navigation',
 		controller: function(){},
-		link: function(scope, elem, attrs){
+		link: function(scope, elem, attrs, navigation){
 			var link = elem.find('.link a');
 			var sideNav = $('#sideNav');
-			var iconText = $('#sideNav .iconText'); 
+			var iconText = $('#sideNav .iconText');
 
 			// Hide side nav when link is pressed...
 			link.on('click',function(){
@@ -307,8 +310,7 @@ angular.module('NavCtrl',[])
 				sideNav.removeClass('showSideNavD');
 				iconText.removeClass('showIconText');
 				$('body').css('overflow', "initial");
-			})  
-
+			}) 
 		},
 		templateUrl: 'views/nav/sideNav.html'
 	} 
@@ -977,7 +979,7 @@ angular.module('pacificaApp')
   .directive('modal', function(){
     return {
     	replace: true,
-    	transclude: true,
+    	transclude: true, // allows parent child directives...
     	restrict: 'E',
     	templateUrl: 'views/components/baseModal.html'
     };
@@ -1075,25 +1077,23 @@ angular.module('NavCtrl')
 	return {
 		replace: true,
 		restrict: 'E',
+		require: '^navigation', // bring in navigation directive
 		templateUrl: 'views/nav/contactModal.html',
-		link: function(scope, elem, attrs){
-
+		controller: function($scope){
+		},
+		link: function(scope, elem, attrs, navigation){
 			var mask = $('.mask-overlay');
 
 			$('.subNav.contact').on('click',function(){
 				var modal = $('#nav .baseModal');
-				var nav = $('#sideNav');
-
 
 				scope.$apply(function(){
 					$animate.addClass(modal, 'show');
-					$animate.removeClass(mask, 'show');
-					$animate.removeClass(nav, 'showSideNavM');
+					// $animate.removeClass(mask, 'show');
 				})
 
-
 				$('.baseModal .close').on('click', function(){
-					
+
 					$('body').css('overflow', 'initial');
 					scope.$apply(function(){
 						$animate.removeClass(modal, 'show');
