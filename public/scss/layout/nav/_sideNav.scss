@@ -10,7 +10,7 @@
 	// mobile
     width: 200px;
     z-index: 250; 
-	max-height: 300px;
+	height: 120px; // initial height of just icons
 	overflow: hidden;
 	transform: translateX(-100%); // hide off screen
 	transition: 0.6s all ease;
@@ -19,9 +19,10 @@
 	&.showSideNavM {
 		width: 200px !important;
 		transform: translateX(0px); // slide in..
+		height:  230px;
 	}
 
-	// desktop
+	// desktop // just the icons..
 	&.showSideNavD{
 		width: 60px;
 		transform: translateX(0px); 
@@ -66,7 +67,7 @@
 	height: 60px;
 }
 
-#sideNav .link .iconText { 
+#sideNav .iconText { 
 	color: $black;
 	padding-left: 20px;
 	width: 100%;
@@ -84,22 +85,6 @@
 		transform: translateX(0px); 
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Addition menu content ========================
 
