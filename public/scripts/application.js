@@ -973,6 +973,15 @@ angular.module('CoffeeCtrl')
 		}
 	}
 })
+angular.module('pacificaApp')
+  .directive('modal', function(){
+    return {
+    	replace: true,
+    	transclude: true,
+    	restrict: 'E',
+    	templateUrl: 'views/components/baseModal.html'
+    };
+  }); 
 // Lazy Load ======================================
 // lazy-load attr on image or background, must have parent...
 angular.module('pacificaApp')
@@ -1061,6 +1070,20 @@ angular.module('HomeCtrl').directive('videoHero', function(){
 		templateUrl: "views/home/youtube.html" 
 	}
 }); 
+angular.module('NavCtrl')
+.directive('contactModal', function(){
+	return {
+		replace: true,
+		restrict: 'E',
+		templateUrl: 'views/nav/contactModal.html',
+		link: function(scope, elem, attrs){
+
+			$('.subNav.contact').on('click',function(){
+				console.log('click')
+			})
+		}
+	}  
+})
 angular.module('NavCtrl').directive('toggleClass', function(){
 	return {
 		restrict: 'A',
