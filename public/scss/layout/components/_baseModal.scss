@@ -1,6 +1,46 @@
 .baseModal {
-	@include center-h; 
-	top: 30%;
 	position: fixed;
-	background-color: blue;
+	cursor: pointer;
+	z-index: 250; // side nav @ 300
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.3);
+}
+
+.baseModal .modal-main {
+	@include center-h;
+	background-color: $white;
+	top: 0;
+	width: 100%;
+	height: 100%;
+
+	@include tablet {
+		top: 20%;
+		width: 70%;
+		height: auto;
+	}
+}
+
+.baseModal .modalClose {
+	background-color: $primary-color-dark;
+	height: $xl; 
+	text-align: right;
+	padding: $sm;
+	.close {
+		@include center-v;
+		font-size: 2.3rem;
+		color: $white;
+
+		@include desktop {
+			&:hover {
+				background-color: $black;
+			}
+		}
+	}
+}
+
+.baseModal .main-content {
+	padding: $med;
 }

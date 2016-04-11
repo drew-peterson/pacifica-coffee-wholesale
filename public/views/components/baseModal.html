@@ -1,5 +1,15 @@
-<section class="baseModal">
-	<h3>hello i am a base model</h3>
-	<ng-transclude></ng-transclude>
-	<h3>below modal</h3>
+<section class="baseModal modalMask">
+
+	<div class="modal-main">
+		<!-- close Header -->
+		<div class="modalClose">
+			<i class="material-icons close">&#xE5CD;</i>
+		</div>
+
+		<!-- Modal Content -->
+		<div class="main-content">
+			<ng-transclude></ng-transclude>
+		</div>
+
+	</div>
 </section>
