@@ -11,15 +11,31 @@
 
 	// animation
 	transition: all 0.35s ease;
-	transform: scale(0.2);
-	top: 50%;
 	display: none;
+	transform: scale(0.5);
 
 	&.show {
 		display: block;
-		top: 0;
 		transform: scale(1);
 	}
+	&.show-add {
+		display: block;
+		opacity: 0.2;
+	}
+	&.show-add-active {
+		opacity: 1;
+	}
+
+	&.show-remove {
+		display: block;
+		transform: scale(1);
+		opacity: 1;
+	}
+	&.show-remove-active {
+		transform: scale(0.5);
+		opacity: 0;
+	}
+
 }
 
 // modal
@@ -38,14 +54,17 @@
 }
 // close header
 .baseModal .modalClose {
+	position: relative;
 	background-color: $primary-color-dark;
 	height: $xl; 
 	text-align: right;
 	padding: $sm;
+	z-index: 5;
 	.close {
 		@include center-v;
 		font-size: 2.3rem;
 		color: $white;
+		cursor: pointer;
 
 		@include desktop {
 			&:hover {
