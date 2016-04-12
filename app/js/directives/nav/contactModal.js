@@ -8,24 +8,11 @@ angular.module('NavCtrl')
 		controller: function($scope){
 		},
 		link: function(scope, elem, attrs, navigation){
-			var mask = $('.mask-overlay');
-
 			$('.subNav.contact').on('click',function(){
 				var modal = $('#nav .baseModal');
-
 				scope.$apply(function(){
 					$animate.addClass(modal, 'show');
-					// $animate.removeClass(mask, 'show');
-				})
-
-				$('.baseModal .close').on('click', function(){
-
-					$('body').css('overflow', 'initial');
-					scope.$apply(function(){
-						$animate.removeClass(modal, 'show');
-					})
-				})
-				
+				})				
 			});
 		}
 	}  

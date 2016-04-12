@@ -976,11 +976,31 @@ angular.module('CoffeeCtrl')
 	}
 })
 angular.module('pacificaApp')
-  .directive('modal', function(){
+  .directive('modal', function($animate){
     return {
     	replace: true,
     	transclude: true, // allows parent child directives...
     	restrict: 'E',
+    	link: function(scope, elem, attrs){
+    		var modal = $('#nav .baseModal');
+    		// mask
+    		elem.on('click',function(){
+    			closeModal();
+    		});
+
+    		// close btn
+			$('.baseModal .close').on('click', function(){
+				closeModal();
+			
+			})
+
+			function closeModal(){
+				scope.$apply(function(){
+					$animate.removeClass(modal, 'show');
+					$('body').css('overflow', 'initial');
+				})
+			};
+    	},
     	templateUrl: 'views/components/baseModal.html'
     };
   }); 
@@ -1082,24 +1102,11 @@ angular.module('NavCtrl')
 		controller: function($scope){
 		},
 		link: function(scope, elem, attrs, navigation){
-			var mask = $('.mask-overlay');
-
 			$('.subNav.contact').on('click',function(){
 				var modal = $('#nav .baseModal');
-
 				scope.$apply(function(){
 					$animate.addClass(modal, 'show');
-					// $animate.removeClass(mask, 'show');
-				})
-
-				$('.baseModal .close').on('click', function(){
-
-					$('body').css('overflow', 'initial');
-					scope.$apply(function(){
-						$animate.removeClass(modal, 'show');
-					})
-				})
-				
+				})				
 			});
 		}
 	}  
