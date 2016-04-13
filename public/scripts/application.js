@@ -983,8 +983,10 @@ angular.module('pacificaApp')
     	restrict: 'E',
     	link: function(scope, elem, attrs){
     		var modal = $('#nav .baseModal');
+    		var mask = $('.baseModal .modalMask');
+
     		// mask
-    		elem.on('click',function(){
+    		mask.on('click',function(){
     			closeModal();
     		});
 
@@ -1102,7 +1104,8 @@ angular.module('NavCtrl')
 		controller: function($scope){
 		},
 		link: function(scope, elem, attrs, navigation){
-			$('.subNav.contact').on('click',function(){
+			var subNav = $('.subNav.contact');
+			subNav.on('click',function(){
 				var modal = $('#nav .baseModal');
 				scope.$apply(function(){
 					$animate.addClass(modal, 'show');

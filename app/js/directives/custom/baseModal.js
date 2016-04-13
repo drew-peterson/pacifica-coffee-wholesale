@@ -6,8 +6,10 @@ angular.module('pacificaApp')
     	restrict: 'E',
     	link: function(scope, elem, attrs){
     		var modal = $('#nav .baseModal');
+    		var mask = $('.baseModal .modalMask');
+
     		// mask
-    		elem.on('click',function(){
+    		mask.on('click',function(){
     			closeModal();
     		});
 

@@ -8,7 +8,8 @@ angular.module('NavCtrl')
 		controller: function($scope){
 		},
 		link: function(scope, elem, attrs, navigation){
-			$('.subNav.contact').on('click',function(){
+			var subNav = $('.subNav.contact');
+			subNav.on('click',function(){
 				var modal = $('#nav .baseModal');
 				scope.$apply(function(){
 					$animate.addClass(modal, 'show');
