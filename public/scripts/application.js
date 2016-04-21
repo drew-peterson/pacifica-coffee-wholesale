@@ -281,8 +281,7 @@ angular.module('NavCtrl',[])
 				}
 
 			var removeAll = function(sideNav, iconText, mask){
-				sideNav.removeClass('showSideNavM');
-				sideNav.removeClass('showSideNavD');
+				sideNav.removeClass('showSideNavM showSideNavD');
 				iconText.removeClass('showIconText');
 				mask.removeClass('show');
 				body.css('overflow', 'initial'); 
@@ -300,16 +299,19 @@ angular.module('NavCtrl',[])
 		require: '^navigation',
 		controller: function(){},
 		link: function(scope, elem, attrs, navigation){
-			var link = elem.find('.link a');
+			var link = elem.find('.nav-link');
 			var sideNav = $('#sideNav');
 			var iconText = $('#sideNav .iconText');
 
 			// Hide side nav when link is pressed...
 			link.on('click',function(){
-				sideNav.removeClass('showSideNavM');
-				sideNav.removeClass('showSideNavD');
+				sideNav.removeClass('showSideNavM showSideNavD');
 				iconText.removeClass('showIconText');
-				$('body').css('overflow', "initial");
+
+				var coffeeLink = $(this).hasClass('coffee-link');
+				if(coffeeLink){
+					$('body').css('overflow', "initial");
+				};
 			}) 
 		},
 		templateUrl: 'views/nav/sideNav.html'
@@ -976,6 +978,15 @@ angular.module('CoffeeCtrl')
 	}
 })
 angular.module('pacificaApp')
+.directive('mainFooter',function(){
+	return {
+		replace: true,
+		restrict: 'AE',
+		templateUrl: 'views/footer/footer.html',
+	}
+})
+
+angular.module('pacificaApp')
   .directive('modal', function($animate){
     return {
     	replace: true,
@@ -1046,15 +1057,6 @@ angular.module('pacificaApp')
     } // end of return
 }) // end of directive
 // ===============================================
-angular.module('pacificaApp')
-.directive('mainFooter',function(){
-	return {
-		replace: true,
-		restrict: 'AE',
-		templateUrl: 'views/footer/footer.html',
-	}
-})
-
 angular.module('HomeCtrl')
 .directive('homeCard', function(){
 	return { 

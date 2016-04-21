@@ -80,8 +80,7 @@ angular.module('NavCtrl',[])
 				}
 
 			var removeAll = function(sideNav, iconText, mask){
-				sideNav.removeClass('showSideNavM');
-				sideNav.removeClass('showSideNavD');
+				sideNav.removeClass('showSideNavM showSideNavD');
 				iconText.removeClass('showIconText');
 				mask.removeClass('show');
 				body.css('overflow', 'initial'); 
@@ -99,16 +98,19 @@ angular.module('NavCtrl',[])
 		require: '^navigation',
 		controller: function(){},
 		link: function(scope, elem, attrs, navigation){
-			var link = elem.find('.link a');
+			var link = elem.find('.nav-link');
 			var sideNav = $('#sideNav');
 			var iconText = $('#sideNav .iconText');
 
 			// Hide side nav when link is pressed...
 			link.on('click',function(){
-				sideNav.removeClass('showSideNavM');
-				sideNav.removeClass('showSideNavD');
+				sideNav.removeClass('showSideNavM showSideNavD');
 				iconText.removeClass('showIconText');
-				$('body').css('overflow', "initial");
+
+				var coffeeLink = $(this).hasClass('coffee-link');
+				if(coffeeLink){
+					$('body').css('overflow', "initial");
+				};
 			}) 
 		},
 		templateUrl: 'views/nav/sideNav.html'
