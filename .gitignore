@@ -19,9 +19,11 @@ config/mock/admin.json
 Icon?
 ehthumbs.db
 Thumbs.db
-
-node_modules/
 .sass-cache/
+
+#drew add
+node_modules/
 public/css/*.css
 public/scripts/**
 public/libs/**
+public/img/coffeeVideo.mp4
