@@ -14,7 +14,12 @@
 			</div> 
 			<!-- back -->
 			<div class="back card">
-				<input type="file" name="image" id="photoUpload" ng-model="newItem.image">
+				<input type="file" name="image" id="photoUpload" ng-model="newItem.image" style="display: none;">
+
+				<label class="photoUploadBtn" for="photoUpload">
+					<i class="material-icons">&#xE2C6;</i>
+					<span>Upload Image</span>
+				</label>
 			</div>
 		</div>
 		
