@@ -1,0 +1,27 @@
+
+*.sw*
+*~
+
+# Logs and databases #
+######################
+*.log
+
+# Admin
+config/mock/admin.json
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+node_modules/
+.sass-cache/
+public/css/*.css
+public/scripts/**
+public/libs/**

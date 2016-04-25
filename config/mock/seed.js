@@ -21,13 +21,18 @@ coffees.forEach(function(coffee){
 		}
 	});
 })
-
+ 
 // CREATE ADMINS
 var Admin = require('../models/adminUser.js');
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-var admins = require('./admin.json'); // gitignore this file...
+var adminTest = [{
+    "username": "test",
+    "password": "test"
+  }];
+
+var admins = require('./admin.json') || adminTest; // gitignore this file...
 
 admins.forEach(function(newAdmin){
 
