@@ -15,8 +15,8 @@
 			<input type="file" name="image" id="photoUpload" ng-model="newItem.image">
 
 			<label class="photoUploadBtn" 
-				for="photoUpload" 
-				ng-if="!newItem.image">
+				for="photoUpload"
+				ng-class="{'photoAdd': newItem.image}" >
 				<i class="material-icons">&#xE2C6;</i>
 				<span>Upload Image</span>
 			</label>
