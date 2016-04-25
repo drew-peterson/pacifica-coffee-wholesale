@@ -14,7 +14,7 @@ angular.module('AdminCtrl').directive('addItem', function(){
 				description: 'description',
 				region: "region",
 				roast: "roast",
-				image: "image"
+				image: null
 			};
 			// create new item
 			$scope.addItem = function(){	
@@ -35,9 +35,12 @@ angular.module('AdminCtrl').directive('addItem', function(){
 			function readUrl(){
 				var file = document.getElementById('photoUpload').files[0];
 				var reader = new FileReader();
- 				reader.onloadend = function(){ 
-				document.getElementById('uploadPreview').style.backgroundImage = "url(" + reader.result + ")";        
-		    	scope.newItem.image = reader.result;
+ 				reader.onloadend = function(){
+
+ 				scope.$apply(function(){
+					document.getElementById('uploadPreview').style.backgroundImage = "url(" + reader.result + ")";        
+			    	scope.newItem.image = reader.result;
+ 				}) 
 		   }
 		    
 		   if(file){
