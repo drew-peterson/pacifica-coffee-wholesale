@@ -269,22 +269,26 @@ angular.module('NavCtrl',[])
 
 						sideNav.on('mouseleave',function(){
 							removeAll(sideNav, iconText, mask);
+							var modal = $('.baseModal').hasClass('show');
+							if(modal){
+								$('body').css('overflow', 'hidden');
+							}
 						});
 					});
 
 					navBtn.on('mouseleave',function(){
+						body.css('overflow', 'initial');
 						var sideNav = elem.find('#sideNav');
 						sideNav.removeClass('showSideNavD');
-						body.css('overflow', 'initial');
 						mask.removeClass('show');
 					});
 				}
 
 			var removeAll = function(sideNav, iconText, mask){
+				body.css('overflow', 'initial'); 
+				mask.removeClass('show');
 				sideNav.removeClass('showSideNavM showSideNavD');
 				iconText.removeClass('showIconText');
-				mask.removeClass('show');
-				body.css('overflow', 'initial'); 
 				scope.active = false;
 			}
 		},
@@ -305,6 +309,7 @@ angular.module('NavCtrl',[])
 
 			// Hide side nav when link is pressed...
 			link.on('click',function(){
+				$('.mask-overlay').removeClass('show'); // hide the mask
 				sideNav.removeClass('showSideNavM showSideNavD');
 				iconText.removeClass('showIconText');
 
