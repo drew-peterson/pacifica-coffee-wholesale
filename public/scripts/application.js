@@ -309,15 +309,20 @@ angular.module('NavCtrl',[])
 
 			// Hide side nav when link is pressed...
 			link.on('click',function(){
+				closeAll();
+			});
+
+			var closeAll = function(){
+				var coffeeLink = $(this).hasClass('coffee-link');
+				scope.active = false; // reset the active state in navctrl
 				$('.mask-overlay').removeClass('show'); // hide the mask
 				sideNav.removeClass('showSideNavM showSideNavD');
 				iconText.removeClass('showIconText');
-
-				var coffeeLink = $(this).hasClass('coffee-link');
+				
 				if(coffeeLink){
 					$('body').css('overflow', "initial");
 				};
-			}) 
+			};
 		},
 		templateUrl: 'views/nav/sideNav.html'
 	} 
