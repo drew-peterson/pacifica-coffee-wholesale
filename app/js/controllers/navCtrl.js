@@ -5,7 +5,7 @@ angular.module('NavCtrl',[])
 		scope: true,
 		replace: true,
 		controller: function($scope){
-			$scope.active = false;
+			$scope.active = false; 
 		},
 		controllerAs: 'ctrl',
 		link: function(scope, elem, attrs){
