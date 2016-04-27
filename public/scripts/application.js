@@ -313,14 +313,15 @@ angular.module('NavCtrl',[])
 			});
 
 			var closeAll = function(){
-				var coffeeLink = $(this).hasClass('coffee-link');
+				var coffeeLink = $(this).hasClass('contact');
 				scope.active = false; // reset the active state in navctrl
 				$('.mask-overlay').removeClass('show'); // hide the mask
 				sideNav.removeClass('showSideNavM showSideNavD');
 				iconText.removeClass('showIconText');
+				$('body').css('overflow', "initial");
 				
 				if(coffeeLink){
-					$('body').css('overflow', "initial");
+					$('body').css('overflow', 'hidden');
 				};
 			};
 		},
@@ -1069,6 +1070,45 @@ angular.module('pacificaApp')
 	}
 })
 
+angular.module('HomeCtrl')
+.directive('homeCard', function(){
+	return { 
+		restrict: 'AE', 
+		replace: true,
+		scope: { 
+			'title': '@', 
+			'color': '@',
+			'button': '@', 
+			'content': '@',
+			'image': '@',
+			'textColor': '@', 
+			'url': '@',  
+		},
+		templateUrl: "views/home/homeCard.html" 
+	}
+})
+angular.module('HomeCtrl').directive('videoHero', function(){ 
+	return {
+		restrict: 'AE', 
+		replace: true,
+		link: function(scope, elem, attr){ 
+
+			// play video when it buffers
+			var video = document.getElementById('bgvid');
+			var chrome = navigator.appVersion.indexOf('Chrome');
+			// if Chrome Else
+			if(chrome != 0){	
+				video.play(); 
+			}else{
+				video.oncanplaythrough = function() {
+    				video.play(); 
+				};
+				
+			}
+		},
+		templateUrl: "views/home/youtube.html" 
+	}
+}); 
 angular.module('NavCtrl')
 .directive('contactModal', function($animate){
 	return {
@@ -1114,43 +1154,4 @@ angular.module('NavCtrl').directive('toggleClass', function(){
 		} // end of link
 	}
 });
-angular.module('HomeCtrl')
-.directive('homeCard', function(){
-	return { 
-		restrict: 'AE', 
-		replace: true,
-		scope: { 
-			'title': '@', 
-			'color': '@',
-			'button': '@', 
-			'content': '@',
-			'image': '@',
-			'textColor': '@', 
-			'url': '@',  
-		},
-		templateUrl: "views/home/homeCard.html" 
-	}
-})
-angular.module('HomeCtrl').directive('videoHero', function(){ 
-	return {
-		restrict: 'AE', 
-		replace: true,
-		link: function(scope, elem, attr){ 
-
-			// play video when it buffers
-			var video = document.getElementById('bgvid');
-			var chrome = navigator.appVersion.indexOf('Chrome');
-			// if Chrome Else
-			if(chrome != 0){	
-				video.play(); 
-			}else{
-				video.oncanplaythrough = function() {
-    				video.play(); 
-				};
-				
-			}
-		},
-		templateUrl: "views/home/youtube.html" 
-	}
-}); 
 //# sourceMappingURL=application.js.map

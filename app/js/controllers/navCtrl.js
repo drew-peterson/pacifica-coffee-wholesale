@@ -112,14 +112,15 @@ angular.module('NavCtrl',[])
 			});
 
 			var closeAll = function(){
-				var coffeeLink = $(this).hasClass('coffee-link');
+				var coffeeLink = $(this).hasClass('contact');
 				scope.active = false; // reset the active state in navctrl
 				$('.mask-overlay').removeClass('show'); // hide the mask
 				sideNav.removeClass('showSideNavM showSideNavD');
 				iconText.removeClass('showIconText');
+				$('body').css('overflow', "initial");
 				
 				if(coffeeLink){
-					$('body').css('overflow', "initial");
+					$('body').css('overflow', 'hidden');
 				};
 			};
 		},
