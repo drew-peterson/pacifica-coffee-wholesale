@@ -16,8 +16,7 @@ angular.module('pacificaApp')
     		// close btn
 			$('.baseModal .close').on('click', function(){
 				closeModal();
-			
-			})
+			});
 
 			function closeModal(){
 				scope.$apply(function(){
