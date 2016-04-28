@@ -1,23 +1,30 @@
  .coffee-card {
-	@include box-shadow;
+	// @include box-shadow;
  	position: relative;
- 	background-color: $white;
+ 	// background-color: $white;
 
  	// mobile
  	width: 100%;
- 	padding: $med;
- 	padding-bottom: 45px; // clear details banner
+ 	// padding: $med;
+ 	padding-bottom: 55px; // clear details banner
  	margin: 0;
  	margin-bottom: $xs; // edge goes away without....
- 	margin-top: $med;
+ 	margin-top: $mlg; 
 
  	@include tablet {
  		width: 32%;
  		margin-left: 2%;
+ 		padding: $msm;
+ 		padding-bottom: 40px; // clear details banner
+
  		&:nth-of-type(3n+1){
  			margin-left: 0;
  		}
  	} // tablet
+
+	@include desktop {
+		padding-bottom: 55px;
+	}
 
  	@include desktop__large {
  		width: 24.2%;
@@ -36,32 +43,38 @@
 	position: absolute;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	left: 0;
-	width: 100%;
-	// background-color: darken($google-gray, 2%);
-}
-
-.coffee-card .details {
 	bottom: 0;
-	border-top: 1px solid $light-gray;
+	width: 100%;
+	background-color: darken($white, 5%);
+	@include box-shadow;
+
 	.price, .add {
+		font-size: 1.3rem;
 		width: 50%;
 		text-align: center;
-		padding: 5px;
+		padding: $sm 0;
 		color: $gray;
-		cursor: pointer;
 	}
-	.price {
-	}
+
 	.add {
-		display: inline-block;
+		cursor: pointer;
+		font-size: 1.7rem;
+		
+		@include desktop {
+			&:hover {
+				transition: color 0.35s ease;
+				color: black;
+			}
+		}
 	}
 }
 // ==============================================
 
 // ITEM IMAGE ===================================
 .coffee-card .item-image {
-	min-height: 120px;
+	min-height: 135px;
 	width: 100%;
 	background-size: contain;
 	background-repeat: no-repeat; 
