@@ -3,8 +3,11 @@
 <!-- This is being repeated... -->
 
 	<div class="image" 
-		ng-style="{'background-image': 'url({{item.image}})'}"></div>
+		ng-style="{'background-image': 'url({{item.image}})'}">
 
+		<span class="price">{{item.price | currency}} /lb</span>
+	</div>
+		
 	<div class="content"> 
 		<div class="name">{{item.name}}</div>
 
@@ -14,8 +17,6 @@
 				ng-change="ctrl.update(item)"
 				ng-options="option.value as option.name for option in ctrl.options">
 			</select>
-			<!-- focus line -->
-			<!-- <span class="line"></span> -->
 		</div>
 		<button ng-click='ctrl.remove(item)'>remove</button>
 	</div>
