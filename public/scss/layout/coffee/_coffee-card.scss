@@ -16,6 +16,7 @@
  		margin-left: 2%;
  		padding: $msm;
  		padding-bottom: 40px; // clear details banner
+ 		margin-top: 0;
 
  		&:nth-of-type(3n+1){
  			margin-left: 0;
@@ -24,6 +25,7 @@
 
 	@include desktop {
 		padding-bottom: 55px;
+		margin-top: $med;
 	}
 
  	@include desktop__large {
@@ -78,7 +80,11 @@
 	width: 100%;
 	background-size: contain;
 	background-repeat: no-repeat; 
-	background-position: 50% 50%; 
+	background-position: 50% 50%;
+
+	@include desktop {
+		min-height: 150px;
+	}
 }
 // ==============================================
 
