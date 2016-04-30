@@ -1,5 +1,4 @@
  .coffee-card {
- 	@include debug;
  	position: relative;
  	width: 100%;
  	margin: 0;
@@ -10,7 +9,7 @@
  		margin-left: 2%;
  		margin-top: $med;
  		&:nth-of-type(3n+1){
- 			margin-left: 0;
+ 			margin-left: 0; 
  		}
  	} // tablet
 	@include desktop {
