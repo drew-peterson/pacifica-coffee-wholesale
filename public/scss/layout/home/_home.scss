@@ -43,6 +43,9 @@
 		// transform: scale(1.2);
 		// overflow: hidden;
 	}
+	@include tablet__landscape {
+		display: none; 
+	}
 }
 
 // mobile users get static bg;
@@ -56,8 +59,22 @@
 	min-height: calc(100vh);
 	width: 100%;
 	z-index: -100;
+
 	@include desktop {
 		display: none;
+	}
+
+	@include tablet__landscape {
+		@include background-image('../../img/coffeeBG.jpeg');
+		display: block;
+		background-position: 0 50%;
+		position: absolute;
+		top: 60px;
+		left: 0;
+		height: auto; 
+		min-height: calc(100vh);
+		width: 100%;
+		z-index: -100;
 	}
 }
 
