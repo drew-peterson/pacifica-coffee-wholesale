@@ -248,8 +248,8 @@ angular.module('NavCtrl',[])
 				})
 			})
 
-				// disable mouseenter event on touch devices prevents apple....
-				if($(window).width() >= 768){
+				// NOT Touch Device Check 
+				if($(window).width() >= 768 && window.navigator.maxTouchPoints <= 0){
 
 					navBtn.on('mouseenter',function(){
 						var sideNav = elem.find('#sideNav');

@@ -60,6 +60,19 @@
 			} 
 		}
 	}
+
+	// override :hover
+	@include tablet__landscape {
+		&:hover {
+			background-color: initial;
+			.iconText {
+				color: initial;
+			}
+			.icon:before {
+				background-color: initial;
+			} 
+		}
+	}
 }
 
 #sideNav .link .icon {
@@ -104,6 +117,19 @@
 			}
 			.icon-phone:before {
 				background-color: $white !important;
+			} 
+		}
+	}
+
+	@include tablet__landscape {
+		&:hover {
+			background-color: initial;
+			.contact-info .iconText, 
+			.contact-title .iconText{
+				color: initial; 
+			}
+			.icon-phone:before {
+				background-color: initial;
 			} 
 		}
 	}

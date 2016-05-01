@@ -55,6 +55,13 @@
 				color: $white;
 			}
 		}
+
+		@include tablet__landscape {
+			&:hover {
+				background-color: intial;
+				color: intial;
+			}
+		}
 	}
 }
 
