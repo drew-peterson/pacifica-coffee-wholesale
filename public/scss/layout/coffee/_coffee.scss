@@ -50,6 +50,7 @@
 }
 
 #coffee .coffee-card-wrap {
+	padding-bottom: $med;
 	@include tablet {
 		display: flex;
 		flex-wrap: wrap;
