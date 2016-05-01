@@ -4,7 +4,7 @@
 
 
 $tablet-width: 768px;
-$desktop-width: 1024px; 
+$desktop-width: 1024px;
 
 @mixin tablet {
   @media (min-width: $tablet-width)  {
@@ -12,26 +12,26 @@ $desktop-width: 1024px;
   }
 }
 
+@mixin desktop {
+  @media (min-width: $desktop-width)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    @content;
+  }
+}
+
 @mixin tablet__landscape {
   @media (min-device-width: $tablet-width)
-  and (max-device-width: $desktop-width) 
+  and (max-device-width: $desktop-width)
   and (orientation: landscape) {
     @content;
 
   }
 }
 
-// exclude tablet landscape??
-@mixin desktop { 
-  @media (min-width: $desktop-width){ 
-    @content; 
-  } 
-}
-
-
-@mixin desktop__large {
-  @media (min-width: 1600px){
-    @content;
+  @mixin desktop__large {
+    @media (min-width: 1600px){
+      @content;
+    }
   }
-}
+
 
