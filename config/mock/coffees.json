@@ -7,7 +7,7 @@
         "roast": "Full City Roast",
         "image": "img/items/river_mud.png"
     },
-    {
+    { 
         "name": "French Roast",
         "price": "6",
         "description": "description here",
@@ -141,7 +141,7 @@
         "description": "description here",
         "region": "Africa",
         "roast": "Full City Roast",
-        "image": "img/items/ethopia.png"
+        "image": "img/items/ethiopia.png"
     },
     {
         "name": "Uganda",
@@ -165,6 +165,6 @@
         "description": "description here",
         "region": "Africa",
         "roast": "Full City Roast",
-        "image": "img/items/decaf.png"
+        "image": "img/items/decaf_harmony.png"
     }
 ]
