@@ -87,3 +87,27 @@ angular.module('CoffeeCtrl')
 		templateUrl: "views/coffee/learnMore/blends.html"
 	}
 })
+
+// Indonesia
+.directive('learnMoreIndonesia',function(){
+	return {
+		replace: true,
+		templateUrl: "views/coffee/learnMore/indonesia.html"
+	} 
+})
+
+// Centeral/South America
+.directive('learnMoreCSA',function(){
+	return {
+		replace: true,
+		templateUrl: "views/coffee/learnMore/csamerica.html"
+	}
+})
+
+// Africa
+.directive('learnMoreAfrica',function(){
+	return {
+		replace: true,
+		templateUrl: "views/coffee/learnMore/africa.html"
+	}
+})
