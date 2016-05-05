@@ -22,7 +22,7 @@ angular.module('CoffeeCtrl')
 			})
 
 			// close click....
-			$('.learnMoreModalWrap').on('click', '.close', function(){
+			$('.learnMoreModalWrap').on('click', '.close', function(){ 
 				closeModal();
 			})
 
@@ -34,7 +34,7 @@ angular.module('CoffeeCtrl')
 
 			function openModal(filterTitle){
 				// search for a modal that contains the data attribute of the filterTitle
-				var modal = $("[data-roast='" + filterTitle +"']");
+				var modal = $("[data-name='" + filterTitle +"']");
 				// becomes avaiblef from ng-if and now we show it.
 				modal.addClass('showModal');
 				// prevent body scroll
