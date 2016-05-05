@@ -18,6 +18,13 @@
 		<!-- add ng-hide to class to avoid flicker -->
 
 		<div class="coffee-card-wrap">
+
+					<!-- learn more modal -->
+			<learn-more
+				ng-hide="!filterActive"
+				region="region.name"
+			></learn-more>
+
 			<coffee-card
 				ng-hide="!filterActive"
 				ng-repeat="item in region.region" 

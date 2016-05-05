@@ -7,6 +7,7 @@ angular.module('CoffeeCtrl')
 		replace: true,
 		bindToController: {
 			roast: '&',
+			region: '&'
 		},
 		controllerAs: 'ctrl',
 		controller: function(){}, 
@@ -14,8 +15,8 @@ angular.module('CoffeeCtrl')
 			var mask = $('.coffeeMask')
 
 			// learn more btn show modal 
-			$('.lmBtn').on('click', 'h4', function(){
-				// finds the closest filter Title when contains the roast
+			$('.lmBtn').on('click', function(){
+				// finds the closest filter Title which contains the roast or region
 				var filterTitle = $(this).closest('.card-wrapper').find('.filterTitle').text()
 				openModal(filterTitle);
 			})
@@ -74,5 +75,15 @@ angular.module('CoffeeCtrl')
 	return {
 		replace: true,
 		templateUrl: "views/coffee/learnMore/frenchRoast.html"
+	}
+})
+
+// REGION ================ 
+
+// Blends
+.directive('learnMoreBlends',function(){
+	return {
+		replace: true,
+		templateUrl: "views/coffee/learnMore/blends.html"
 	}
 })
