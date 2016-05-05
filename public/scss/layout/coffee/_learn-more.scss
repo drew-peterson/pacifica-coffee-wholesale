@@ -113,6 +113,17 @@
 		background-position:L 50% 50%;
 	}
 
+	.image.africa {
+		background-image: url('https://pixabay.com/static/uploads/photo/2014/03/19/09/37/africa-290434_960_720.jpg');
+	}
+	
+	.image.indonesia {
+		background-image: url('https://pixabay.com/static/uploads/photo/2014/12/16/19/41/indonesia-570647_960_720.jpg');
+	}
+	.image.csamerica {
+		background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/09/Costa_Rica,_Central_America,_Bridge,_Forest.jpg');
+	}
+
 	.info {
 		padding: 0 5%;
 		margin-top: $med;
