@@ -34,12 +34,13 @@ angular.module('CoffeeCtrl')
 .directive('animateOnChange', function($animate,$timeout) {
 	return function(scope, elem, attr) {
 		scope.$watch(attr.animateOnChange, function(nv,ov) {
-			var c = 'show';
-			$animate.addClass(elem,c).then(function() {
-				$timeout(function() {$animate.removeClass(elem,c)});
-			});
+			if(nv != ov){
+				$animate.addClass(elem, 'show').then(function() {
+					$timeout(function() {$animate.removeClass(elem, 'show')});
+				});
+			};
 		});
-	}	
+	};	
 })
 
 
