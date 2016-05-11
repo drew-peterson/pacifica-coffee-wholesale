@@ -1,9 +1,7 @@
 # Pacifica Coffee WholeSale
 ###https://pacificacoffee.herokuapp.com/coffee
 
-### Wholesale Only commerce
-
-#### MEAN Stack:MongoDB, Express, Angular, Node, Sass, Gulp
+#### MEAN Stack: MongoDB, Express, Angular, Node, Sass, Gulp
 
 #### Key Features
 ##### - MEAN Stack
@@ -11,7 +9,7 @@
 ##### - MongoDB with Admin Portal for editing products
 ##### - Solid UX/UI
 
-##### Work in Progress ---- Slow Heroku Servers....
+###### Work in Progress ---- Slow Heroku Servers....
 
 
 
