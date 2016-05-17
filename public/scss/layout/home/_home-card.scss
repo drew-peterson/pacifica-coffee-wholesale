@@ -76,7 +76,16 @@
 	height: 100%;
 	min-height: 200px;
 	padding: $mlg;
+
+	h3 {
+		@include desktop__large {
+			font-size: $lg;
+		}
+	}
 	p {
+		@include desktop__large {
+			font-size: $mlg;
+		}
 		padding: $med 0;
 		line-height: 1.7; 
 	}
@@ -94,6 +103,9 @@
 				color: black;
 				background-color: $white;
 			}
+		}
+		@include desktop__large {
+			font-size: $mlg;
 		}
 	}
 }
