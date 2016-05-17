@@ -13,7 +13,7 @@
 	align-items: center;
 	width: 100%;
 	padding-top: 5%;
-	min-height: 430px;
+	height: 600px;
 	background-color: $white;
 
 	@include tablet {
@@ -31,14 +31,17 @@
 .home-container .home-item {
 	display: block;
 	width: 90%;
-	height: 100%; 
 	background-color: $google-gray;
-	padding: $med 0; 
+	padding: $med 0;
+
+	@include tablet {
+		height: 100%;
+	} 
 }
 
 
 .home-container .picture-wrap {
-	@include tablet { 
+	@include tablet {
 		@include flex-center; 
 	}
 }
