@@ -32,6 +32,7 @@
 		left: 0;
 		z-index: -10;
 		transform: scale(1.2);
+		mix-blend-mode: multiply; 
 	}
 
 	@include tablet__landscape {
