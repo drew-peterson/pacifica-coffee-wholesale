@@ -6,8 +6,10 @@
 	height: 60px;
 	border-bottom: 1px solid $divider-color;
 	top: 0;
-	left: 0;  
 	z-index: 250;  
+	max-width: 1680px;
+	left: 50%;  
+	transform: translateX(-50%);
 }
 
 #nav .wrapper {

@@ -19,6 +19,11 @@ body {
   font-family: sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  position: relative;
+  max-width: 1680px;
+  left: 50%;  
+  transform: translateX(-50%);
+  background-color: gray;
 }
 
 ul, h1, h2, h3, h4, p {

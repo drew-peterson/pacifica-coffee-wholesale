@@ -3,29 +3,26 @@
 // apple style navigation... in mobile view
 
 #sideNav {
-	position: fixed;
+	position: relative;
 	background-color: $white;
-	top: 60px;
+	top: 0;
 	left: 0;
 	// mobile
-    width: 200px;
+    width: 0px;
     z-index: 250; 
 	height: 120px; // initial height of just icons
 	overflow: hidden;
-	transform: translateX(-100%); // hide off screen
 	transition: 0.6s all ease;
 
 	// Mobile + tablet
 	&.showSideNavM {
 		width: 200px !important;
-		transform: translateX(0px); // slide in..
 		height:  230px;
 	}
 
 	// desktop // just the icons..
 	&.showSideNavD{
 		width: 60px;
-		transform: translateX(0px); 
 	}
 }
 
