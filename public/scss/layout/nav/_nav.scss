@@ -79,6 +79,7 @@
 }
 #nav .mask-overlay.show{
 	display: block !important;
-	z-index: 200 ; 
+	z-index: 200;
+	height: 100vh; 
 	background-color: rgba(0,0,0,0.6); 
 }

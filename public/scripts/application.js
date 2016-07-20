@@ -29,92 +29,6 @@ angular.module('pacificaApp',
 
 
 
-angular.module('pacificaApp')
-
-.service('itemsService', function($http){ 
-  return {
-    get: function(){
-      return $http.get('/api/coffees'); 
-    },
-    post: function(data){  
-      return $http.post('api/coffees', data);
-    },
-    put: function(data, id){
-      return $http.put('api/coffees/' + id, data);
-    },
-    delete: function(id){  
-      return $http.delete('api/coffees/' + id);
-    }
-  }
-})
-angular.module('pacificaApp')
-
-.service('localStorageService', function(){ 
-  
-  return {
-    idx: function(item){
-      var ls = this.get();
-      var coffeeNames = [];
-
-      ls.forEach(function(item){
-        coffeeNames.push(item.name)
-      })
-      return coffeeNames.indexOf(item.name);
-    },
-    get: function(){
-      var ls = JSON.parse(localStorage.getItem('pacificaWholesaleBag'));
-      return ls
-    },
-    set: function(data){
-      // get localStorage
-      var coffeeItems = this.get();
-
-      // if there are more then 1 item in bag
-      if(coffeeItems && coffeeItems.length >= 1){
-        if(this.idx(data)){ // item does not exist
-          coffeeItems.push(data);
-        }         
-    // NEW BAG
-      }else{
-        coffeeItems = [];
-        coffeeItems.push(data);
-      }
-      // set the localStorage
-      localStorage.setItem('pacificaWholesaleBag', JSON.stringify(coffeeItems));
-      return coffeeItems;
-    }, // set
-    update: function(item){
-      console.log('updating?', item)
-      var coffeeItems = this.get();
-      var idx = this.idx(item);
-
-      coffeeItems[idx] = item;
-      localStorage.setItem('pacificaWholesaleBag', JSON.stringify(coffeeItems));
-    },
-    delete: function(item){
-      var coffeeItems = this.get();
-      var idx = this.idx(item);
-
-      coffeeItems.splice(idx, 1);
-
-      localStorage.setItem('pacificaWholesaleBag', JSON.stringify(coffeeItems));
-    }
-  }
-})
-angular.module('pacificaApp')
-.service('sessionService', function($http){ 
-  return {
-    loggedIn: false,
-    userId: '',
-    login: function(data){
-    	var sData = JSON.stringify(data);
-    	return $http.post('admin/login', sData);
-    },
-    delete: function(data, id){
-      return $http.put('admin/logout/' + id, data);
-    }
-  }
-});
 angular.module('AdminCtrl',[])
 
 .controller('AdminCtrl', function(itemsService, $scope, sessionService){    
@@ -467,6 +381,92 @@ angular.module('appRoutes', [])
   }
 })
 
+angular.module('pacificaApp')
+
+.service('itemsService', function($http){ 
+  return {
+    get: function(){
+      return $http.get('/api/coffees'); 
+    },
+    post: function(data){  
+      return $http.post('api/coffees', data);
+    },
+    put: function(data, id){
+      return $http.put('api/coffees/' + id, data);
+    },
+    delete: function(id){  
+      return $http.delete('api/coffees/' + id);
+    }
+  }
+})
+angular.module('pacificaApp')
+
+.service('localStorageService', function(){ 
+  
+  return {
+    idx: function(item){
+      var ls = this.get();
+      var coffeeNames = [];
+
+      ls.forEach(function(item){
+        coffeeNames.push(item.name)
+      })
+      return coffeeNames.indexOf(item.name);
+    },
+    get: function(){
+      var ls = JSON.parse(localStorage.getItem('pacificaWholesaleBag'));
+      return ls
+    },
+    set: function(data){
+      // get localStorage
+      var coffeeItems = this.get();
+
+      // if there are more then 1 item in bag
+      if(coffeeItems && coffeeItems.length >= 1){
+        if(this.idx(data)){ // item does not exist
+          coffeeItems.push(data);
+        }         
+    // NEW BAG
+      }else{
+        coffeeItems = [];
+        coffeeItems.push(data);
+      }
+      // set the localStorage
+      localStorage.setItem('pacificaWholesaleBag', JSON.stringify(coffeeItems));
+      return coffeeItems;
+    }, // set
+    update: function(item){
+      console.log('updating?', item)
+      var coffeeItems = this.get();
+      var idx = this.idx(item);
+
+      coffeeItems[idx] = item;
+      localStorage.setItem('pacificaWholesaleBag', JSON.stringify(coffeeItems));
+    },
+    delete: function(item){
+      var coffeeItems = this.get();
+      var idx = this.idx(item);
+
+      coffeeItems.splice(idx, 1);
+
+      localStorage.setItem('pacificaWholesaleBag', JSON.stringify(coffeeItems));
+    }
+  }
+})
+angular.module('pacificaApp')
+.service('sessionService', function($http){ 
+  return {
+    loggedIn: false,
+    userId: '',
+    login: function(data){
+    	var sData = JSON.stringify(data);
+    	return $http.post('admin/login', sData);
+    },
+    delete: function(data, id){
+      return $http.put('admin/logout/' + id, data);
+    }
+  }
+});
 angular.module('AdminCtrl').directive('addItem', function(){
 	return {
 		restrict: 'AE',
@@ -1097,6 +1097,15 @@ angular.module('pacificaApp')
     } // end of return
 }) // end of directive
 // ===============================================
+angular.module('pacificaApp')
+.directive('mainFooter',function(){
+	return {
+		replace: true,
+		restrict: 'AE',
+		templateUrl: 'views/footer/footer.html',
+	}
+})
+
 angular.module('HomeCtrl')
 .directive('homeCard', function(){
 	return { 
@@ -1132,15 +1141,6 @@ angular.module('HomeCtrl').directive('videoHero', function(){
 		templateUrl: "views/home/youtube.html" 
 	}
 }); 
-angular.module('pacificaApp')
-.directive('mainFooter',function(){
-	return {
-		replace: true,
-		restrict: 'AE',
-		templateUrl: 'views/footer/footer.html',
-	}
-})
-
 angular.module('NavCtrl')
 .directive('contactModal', function($animate){
 	return {
