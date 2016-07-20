@@ -4,11 +4,11 @@
 	z-index: 300; // clear details
 	position: fixed;
 	bottom: 0; // clear details bar
-	left: 0;
 	width: 100%;
 	background-color: darken($google-gray, 5%);
 	transform: translateY(100%); 
 	transition: 0.35s all ease;
+	max-width: 1680px;
 
 	// hide show when click on menu
 	&.toggle {

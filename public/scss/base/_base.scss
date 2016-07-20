@@ -8,6 +8,7 @@
     outline: none;
 }
 
+
 body, html {
   margin: 0;
   padding: 0;
@@ -15,15 +16,12 @@ body, html {
   width: 100%;
 }
 
+
 body {
   font-family: sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  position: relative;
-  max-width: 1680px;
-  left: 50%;  
-  transform: translateX(-50%);
-  background-color: gray;
+  background: #D7CCC8;   
 }
 
 ul, h1, h2, h3, h4, p {
