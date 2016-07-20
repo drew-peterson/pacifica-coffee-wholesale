@@ -13,15 +13,19 @@
 	height: 120px; // initial height of just icons
 	overflow: hidden;
 	transition: 0.6s all ease;
+	border: 1px solid $divider-color;
+	visibility: hidden;
 
 	// Mobile + tablet
 	&.showSideNavM {
+		visibility: visible;
 		width: 200px !important;
 		height:  230px;
 	}
 
 	// desktop // just the icons..
 	&.showSideNavD{
+		visibility: visible;
 		width: 60px;
 	}
 }

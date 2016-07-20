@@ -50,11 +50,13 @@
 	padding-top: $msm;
 	height: calc(75vh - 40px); // height of coffee - close
 	// 100% doesnt work needs a varible  pxish height...
-	overflow-y: scroll;
+	// overflow-y: scroll;
+	width: 100%;
+	overflow: hidden;
 
 	// align bag details and items side by side...
 	@include tablet {
-		overflow-y: hidden;
+		overflow: hidden;
 		padding: $med; 
 		flex-direction: row;
 	}
@@ -157,10 +159,11 @@
 
 // scroll for tablet mode only details does not scroll...
 #coffeeBag .bagItems .bag-item-wrap {
+	overflow: auto; 
+
 	@include tablet {
 		width: 60%;
-		padding-left: $med;
-		overflow-y: scroll; 
+		padding: $med;
 	}
 }
 

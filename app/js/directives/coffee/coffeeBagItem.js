@@ -4,7 +4,7 @@ angular.module('CoffeeCtrl')
 .directive('coffeeBagItem', function(){
 	return { 
 		scope:true,
-		replace: true,
+		// replace: true,
 		restrict: 'AE',
 		controller: function(){
 			var ctrl = this;
