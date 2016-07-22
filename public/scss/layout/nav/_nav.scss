@@ -74,12 +74,18 @@
 	width: 60px;
 }
 
+#nav .mask-overlay {
+	transition: 0.55s all ease-in-out;
+	height: 100vh; 
+}
+
 #nav .mask-overlay.hide{
-	display: none;
+	opacity: 0;
+	visibility: hidden;
 }
 #nav .mask-overlay.show{
-	display: block !important;
+	opacity: 1;
+	visibility: visible;
 	z-index: 200;
-	height: 100vh; 
 	background-color: rgba(250,250,250,0.5); 
 }

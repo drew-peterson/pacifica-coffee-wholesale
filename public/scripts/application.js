@@ -255,7 +255,6 @@ angular.module('NavCtrl',[])
 						var sideNav = elem.find('#sideNav');
 						var iconText = $('#sideNav .iconText');
 						var mask = $('.mask-overlay');
-						
 						sideNav.addClass('showSideNavD');
 						mask.addClass('show');
 						body.css('overflow', 'hidden');
@@ -1028,6 +1027,15 @@ angular.module('CoffeeCtrl')
 	}
 })
 angular.module('pacificaApp')
+.directive('mainFooter',function(){
+	return {
+		replace: true,
+		restrict: 'AE',
+		templateUrl: 'views/footer/footer.html',
+	}
+})
+
+angular.module('pacificaApp')
   .directive('modal', function($animate){
     return {
     	replace: true,
@@ -1097,15 +1105,6 @@ angular.module('pacificaApp')
     } // end of return
 }) // end of directive
 // ===============================================
-angular.module('pacificaApp')
-.directive('mainFooter',function(){
-	return {
-		replace: true,
-		restrict: 'AE',
-		templateUrl: 'views/footer/footer.html',
-	}
-})
-
 angular.module('HomeCtrl')
 .directive('homeCard', function(){
 	return { 

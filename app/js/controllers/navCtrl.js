@@ -54,7 +54,6 @@ angular.module('NavCtrl',[])
 						var sideNav = elem.find('#sideNav');
 						var iconText = $('#sideNav .iconText');
 						var mask = $('.mask-overlay');
-						
 						sideNav.addClass('showSideNavD');
 						mask.addClass('show');
 						body.css('overflow', 'hidden');
