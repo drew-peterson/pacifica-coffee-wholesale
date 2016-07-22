@@ -19,7 +19,7 @@ angular.module('NavCtrl',[])
 			// Mobile Menu
 			navBtn.on('click',function(){
 				if(!scope.active){
-					showAll('showSideNavM');				
+					showAll('showSideNavM');
 				}else{
 					removeAll();
 				}
@@ -60,16 +60,19 @@ angular.module('NavCtrl',[])
 				}
 
 				function showAll(sizeClass){
+
+
 					var sideNav = elem.find('#sideNav');
 					var iconText = $('#sideNav .iconText');
 
-					if(!scope.active){
+					if(sizeClass === 'showSideNavD'){
 						mask.addClass('show');
 						sideNav.addClass(sizeClass);
-						scope.active = true;
-					}
-					if(sizeClass !== 'showSideNavD'){
+					}else{
+						mask.addClass('show');
+						sideNav.addClass(sizeClass);
 						iconText.addClass('showIconText');
+						scope.active = true;
 					}
 				};
 
