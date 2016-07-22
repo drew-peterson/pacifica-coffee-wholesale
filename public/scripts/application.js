@@ -213,29 +213,20 @@ angular.module('NavCtrl',[])
 			// var active;
 			var navBtn = elem.find('.nav-open');
 			var home = navBtn.parent().find('.title');
+			var sideNav = elem.find('#sideNav');
+			var link = sideNav.find('.link');
 			var mask = $('.mask-overlay');
-			var body = $('body');
 			
 			// Mobile Menu
 			navBtn.on('click',function(){
-				var sideNav = elem.find('#sideNav');
-				var link = sideNav.find('.link');
-				var iconText = elem.find('#sideNav .iconText');
-
 				if(!scope.active){
-					sideNav.addClass('showSideNavM');
-					iconText.addClass('showIconText');
-					mask.addClass('show');
-					body.css('overflow', 'hidden');
-					scope.active = true;
-					
+					showAll('showSideNavM');				
 				}else{
-					removeAll(sideNav, iconText, mask);
+					removeAll();
 				}
-
 				// on home btn click remove everything
 				home.on('click',function(){
-					removeAll(sideNav, iconText, mask);
+					removeAll();
 				})
 
 				// set active to false on link click;
@@ -244,52 +235,54 @@ angular.module('NavCtrl',[])
 					scope.active = false;
 				})
 				mask.on('click',function(){
-					removeAll(sideNav, iconText, mask);
+					removeAll();
 				})
 			})
 
 				// NOT Touch Device Check 
 				if($(window).width() >= 768 && window.navigator.maxTouchPoints <= 0){
-
 					navBtn.on('mouseenter',function(){
 						var sideNav = elem.find('#sideNav');
-						var iconText = $('#sideNav .iconText');
-						var mask = $('.mask-overlay');
-						sideNav.addClass('showSideNavD');
-						mask.addClass('show');
-						body.css('overflow', 'hidden');
+						showAll('showSideNavD')
+						console.log('showD')
 
 						sideNav.on('mouseenter',function(){
-							mask.addClass('show');
-							iconText.addClass('showIconText');
-							sideNav.addClass('showSideNavM');
-							body.css('overflow', 'hidden');
+							showAll('showSideNavM')
 						});
 
 						sideNav.on('mouseleave',function(){
-							removeAll(sideNav, iconText, mask);
-							var modal = $('.baseModal').hasClass('show');
-							if(modal){
-								$('body').css('overflow', 'hidden');
-							}
+							removeAll();
 						});
 					});
-
 					navBtn.on('mouseleave',function(){
-						body.css('overflow', 'initial');
-						var sideNav = elem.find('#sideNav');
-						sideNav.removeClass('showSideNavD');
-						mask.removeClass('show');
+						removeAll();
 					});
+
 				}
 
-			var removeAll = function(sideNav, iconText, mask){
-				body.css('overflow', 'initial'); 
-				mask.removeClass('show');
-				sideNav.removeClass('showSideNavM showSideNavD');
-				iconText.removeClass('showIconText');
-				scope.active = false;
-			}
+				function showAll(sizeClass){
+					var sideNav = elem.find('#sideNav');
+					var iconText = $('#sideNav .iconText');
+
+					if(!scope.active){
+						mask.addClass('show');
+						sideNav.addClass(sizeClass);
+						scope.active = true;
+					}
+					if(sizeClass !== 'showSideNavD'){
+						iconText.addClass('showIconText');
+					}
+				};
+
+				function removeAll(){
+					var sideNav = elem.find('#sideNav');
+					var iconText = $('#sideNav .iconText');
+
+					mask.removeClass('show');
+					sideNav.removeClass('showSideNavM showSideNavD');
+					iconText.removeClass('showIconText');
+					scope.active = false;
+				};
 		},
 		templateUrl: 'views/nav/nav.html'
 	} 
@@ -317,11 +310,6 @@ angular.module('NavCtrl',[])
 				$('.mask-overlay').removeClass('show'); // hide the mask
 				sideNav.removeClass('showSideNavM showSideNavD');
 				iconText.removeClass('showIconText');
-				$('body').css('overflow', "initial");
-				
-				if(coffeeLink){
-					$('body').css('overflow', 'hidden');
-				};
 			};
 		},
 		templateUrl: 'views/nav/sideNav.html'
@@ -466,197 +454,6 @@ angular.module('pacificaApp')
     }
   }
 });
-angular.module('AdminCtrl').directive('addItem', function(){
-	return {
-		restrict: 'AE',
-		replace: true,
-		scope: {
-			triggers: '=', 
-			allData: '=',
-			saveItems:'='
-		},
-		controller: function($scope, itemsService){
-			$scope.newItem = {
-				name: 'Name',
-				price: "Price",
-				description: 'description',
-				region: "region",
-				roast: "roast",
-				image: null
-			};
-			// create new item
-			$scope.addItem = function(){	
-				console.log($scope.newItem);
-				var newItem = JSON.stringify($scope.newItem);
-
-				itemsService.post(newItem).success(function(response){
-					$scope.allData.unshift(response.coffees); // add to top of list;
-				})
-				.error(function(data){
-					console.log(' post error');
-				}) 
-			} 
-		},
-		link: function(scope, elem, attrs){
-			document.getElementById('photoUpload').addEventListener('change', readUrl, true);
-
-			function readUrl(){
-				var file = document.getElementById('photoUpload').files[0];
-				var reader = new FileReader();
- 				reader.onloadend = function(){
-
- 				scope.$apply(function(){
-					document.getElementById('uploadPreview').style.backgroundImage = "url(" + reader.result + ")";        
-			    	scope.newItem.image = reader.result;
- 				}) 
-		   }
-		    
-		   if(file){
-		      reader.readAsDataURL(file);
-		    }else{
-					console.log('else')
-				}
-			}
-
-		},
-		templateUrl: 'views/admin/addItem.html'
-	}
-})
-'use strict';
-
-angular.module('AdminCtrl').directive('adminCard', function($animate){
-	return {
-		restrict: 'AE',
-		replace: true, 
-		scope: {
-			'itemData': '=',  
-			'triggers': '=', 
-			'saveItems': '=',
-			'allData': '=' 
-		},
-		controller: function($scope){},
-		link: function(scope, elem, attrs){
-			var openBtn = elem.find('#adminShowMenu');
-			var menu = elem.find('.admin-push-menu');
-
-			// open menu -- close menu is in adminsideMenu.js
-			openBtn.on('click', function(){
-				scope.$apply(function(){
-					$animate.addClass(menu, 'showMenu'); 
-				})
-			})
-		},
-		templateUrl: "views/admin/adminCard.html"
-	}
-})
-angular.module('AdminCtrl')
-.directive('adminLogin',function(sessionService, $animate){
-	return {
-		scope: true,
-		replace: true,
-		controller: function($scope){
-			loginCtrl = this;
-
-			loginCtrl.admin = {
-				username: '',
-				password: '',
-			};
-
-			loginCtrl.login = function(){
-				loginCtrl.message = "";
-				sessionService.login(loginCtrl.admin).success(function(response){
-					sessionService.loggedIn = response.status;
-					sessionService.userId = response.userId;
-
-					loginCtrl.message = response.message;
-					
-				}).error(function(error){
-					console.log(error);
-				})
-			};
-		},
-		link: function(scope, elem, attrs){
-
-			var message = elem.find('.message');
-			scope.$watch('loginCtrl.message', function(newVal, oldVal){
-				if(newVal){
-					console.log('changed')
-					$animate.addClass(message, 'activeMessage')
-					.then(function() {
-						$animate.removeClass(message, 'activeMessage hideMessage');
-					});	
-				}; // if
-				
-			}, true); // watch
-
-		},
-		controllerAs: 'loginCtrl',
-		templateUrl: 'views/admin/login.html'
-	}
-});
-angular.module('AdminCtrl')
-
-.directive('adminSideMenu', function($animate, itemsService){ 
-	return {
-		restrict: 'AE', 
-		scope: { 
-			itemData: '=', 
-			saveItems: '=',
-			triggers: '=',
-			allData: '='   
-		}, 
-		templateUrl: "views/admin/adminSideMenu.html", 
-		controller: function($scope){
-			// var item = JSON.stringify($scope.itemData);
-			var item = $scope.itemData;
-			var itemId = $scope.itemData._id; 
-			$scope.changed;
-
-			//update Item =============================
-			$scope.updateItem = function(){	
-				if($scope.changed){
-					itemsService.put(item, itemId).success(function(response){
-						// scope has already need changed to reflect new item
-					}).error(function(response){
-						console.log('update fail');
-					});
-				};
-			};
-
-			// Delete Item ============================
-			$scope.deleteItem = function(){
-				var id = $scope.allData.indexOf(item);
-				// remove from arrary;	
-				$scope.allData.splice(id, 1);
-				
-				itemsService.delete(itemId).success(function(response){
-				}).error(function(response){
-					console.log('delete fail')
-				});
-			};
-		},
-		link: function(scope, elem, attrs){
-			var close = elem.find('.close');
-			var remove = elem.find('.delete');
-			var adminUpdate = elem.find('.adminUpdate')
-			var menu = elem.parent();
-			var overlay = $('.mask');
-
-			// hide menu on close and overlay
-			close.on('click', function(){ hideMenu(); })
-			remove.on('click', function(){ hideMenu(); })
-			overlay.on('click', function(){ hideMenu() })
-			adminUpdate.on('click', function(){ hideMenu() })
-
-			function hideMenu(){
-				scope.$apply(function(){
-					$animate.removeClass(menu, 'showMenu');
-				})
-			}
-		},
-
-	} // end of return
-})
 angular.module('CoffeeCtrl')
 
 .directive('coffeeBag', function($document, $window){
@@ -1026,15 +823,197 @@ angular.module('CoffeeCtrl')
 		}
 	}
 })
-angular.module('pacificaApp')
-.directive('mainFooter',function(){
+angular.module('AdminCtrl').directive('addItem', function(){
 	return {
-		replace: true,
 		restrict: 'AE',
-		templateUrl: 'views/footer/footer.html',
+		replace: true,
+		scope: {
+			triggers: '=', 
+			allData: '=',
+			saveItems:'='
+		},
+		controller: function($scope, itemsService){
+			$scope.newItem = {
+				name: 'Name',
+				price: "Price",
+				description: 'description',
+				region: "region",
+				roast: "roast",
+				image: null
+			};
+			// create new item
+			$scope.addItem = function(){	
+				console.log($scope.newItem);
+				var newItem = JSON.stringify($scope.newItem);
+
+				itemsService.post(newItem).success(function(response){
+					$scope.allData.unshift(response.coffees); // add to top of list;
+				})
+				.error(function(data){
+					console.log(' post error');
+				}) 
+			} 
+		},
+		link: function(scope, elem, attrs){
+			document.getElementById('photoUpload').addEventListener('change', readUrl, true);
+
+			function readUrl(){
+				var file = document.getElementById('photoUpload').files[0];
+				var reader = new FileReader();
+ 				reader.onloadend = function(){
+
+ 				scope.$apply(function(){
+					document.getElementById('uploadPreview').style.backgroundImage = "url(" + reader.result + ")";        
+			    	scope.newItem.image = reader.result;
+ 				}) 
+		   }
+		    
+		   if(file){
+		      reader.readAsDataURL(file);
+		    }else{
+					console.log('else')
+				}
+			}
+
+		},
+		templateUrl: 'views/admin/addItem.html'
 	}
 })
+'use strict';
 
+angular.module('AdminCtrl').directive('adminCard', function($animate){
+	return {
+		restrict: 'AE',
+		replace: true, 
+		scope: {
+			'itemData': '=',  
+			'triggers': '=', 
+			'saveItems': '=',
+			'allData': '=' 
+		},
+		controller: function($scope){},
+		link: function(scope, elem, attrs){
+			var openBtn = elem.find('#adminShowMenu');
+			var menu = elem.find('.admin-push-menu');
+
+			// open menu -- close menu is in adminsideMenu.js
+			openBtn.on('click', function(){
+				scope.$apply(function(){
+					$animate.addClass(menu, 'showMenu'); 
+				})
+			})
+		},
+		templateUrl: "views/admin/adminCard.html"
+	}
+})
+angular.module('AdminCtrl')
+.directive('adminLogin',function(sessionService, $animate){
+	return {
+		scope: true,
+		replace: true,
+		controller: function($scope){
+			loginCtrl = this;
+
+			loginCtrl.admin = {
+				username: '',
+				password: '',
+			};
+
+			loginCtrl.login = function(){
+				loginCtrl.message = "";
+				sessionService.login(loginCtrl.admin).success(function(response){
+					sessionService.loggedIn = response.status;
+					sessionService.userId = response.userId;
+
+					loginCtrl.message = response.message;
+					
+				}).error(function(error){
+					console.log(error);
+				})
+			};
+		},
+		link: function(scope, elem, attrs){
+
+			var message = elem.find('.message');
+			scope.$watch('loginCtrl.message', function(newVal, oldVal){
+				if(newVal){
+					console.log('changed')
+					$animate.addClass(message, 'activeMessage')
+					.then(function() {
+						$animate.removeClass(message, 'activeMessage hideMessage');
+					});	
+				}; // if
+				
+			}, true); // watch
+
+		},
+		controllerAs: 'loginCtrl',
+		templateUrl: 'views/admin/login.html'
+	}
+});
+angular.module('AdminCtrl')
+
+.directive('adminSideMenu', function($animate, itemsService){ 
+	return {
+		restrict: 'AE', 
+		scope: { 
+			itemData: '=', 
+			saveItems: '=',
+			triggers: '=',
+			allData: '='   
+		}, 
+		templateUrl: "views/admin/adminSideMenu.html", 
+		controller: function($scope){
+			// var item = JSON.stringify($scope.itemData);
+			var item = $scope.itemData;
+			var itemId = $scope.itemData._id; 
+			$scope.changed;
+
+			//update Item =============================
+			$scope.updateItem = function(){	
+				if($scope.changed){
+					itemsService.put(item, itemId).success(function(response){
+						// scope has already need changed to reflect new item
+					}).error(function(response){
+						console.log('update fail');
+					});
+				};
+			};
+
+			// Delete Item ============================
+			$scope.deleteItem = function(){
+				var id = $scope.allData.indexOf(item);
+				// remove from arrary;	
+				$scope.allData.splice(id, 1);
+				
+				itemsService.delete(itemId).success(function(response){
+				}).error(function(response){
+					console.log('delete fail')
+				});
+			};
+		},
+		link: function(scope, elem, attrs){
+			var close = elem.find('.close');
+			var remove = elem.find('.delete');
+			var adminUpdate = elem.find('.adminUpdate')
+			var menu = elem.parent();
+			var overlay = $('.mask');
+
+			// hide menu on close and overlay
+			close.on('click', function(){ hideMenu(); })
+			remove.on('click', function(){ hideMenu(); })
+			overlay.on('click', function(){ hideMenu() })
+			adminUpdate.on('click', function(){ hideMenu() })
+
+			function hideMenu(){
+				scope.$apply(function(){
+					$animate.removeClass(menu, 'showMenu');
+				})
+			}
+		},
+
+	} // end of return
+})
 angular.module('pacificaApp')
   .directive('modal', function($animate){
     return {
@@ -1105,6 +1084,15 @@ angular.module('pacificaApp')
     } // end of return
 }) // end of directive
 // ===============================================
+angular.module('pacificaApp')
+.directive('mainFooter',function(){
+	return {
+		replace: true,
+		restrict: 'AE',
+		templateUrl: 'views/footer/footer.html',
+	}
+})
+
 angular.module('HomeCtrl')
 .directive('homeCard', function(){
 	return { 

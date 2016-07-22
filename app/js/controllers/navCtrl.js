@@ -12,29 +12,20 @@ angular.module('NavCtrl',[])
 			// var active;
 			var navBtn = elem.find('.nav-open');
 			var home = navBtn.parent().find('.title');
+			var sideNav = elem.find('#sideNav');
+			var link = sideNav.find('.link');
 			var mask = $('.mask-overlay');
-			var body = $('body');
 			
 			// Mobile Menu
 			navBtn.on('click',function(){
-				var sideNav = elem.find('#sideNav');
-				var link = sideNav.find('.link');
-				var iconText = elem.find('#sideNav .iconText');
-
 				if(!scope.active){
-					sideNav.addClass('showSideNavM');
-					iconText.addClass('showIconText');
-					mask.addClass('show');
-					body.css('overflow', 'hidden');
-					scope.active = true;
-					
+					showAll('showSideNavM');				
 				}else{
-					removeAll(sideNav, iconText, mask);
+					removeAll();
 				}
-
 				// on home btn click remove everything
 				home.on('click',function(){
-					removeAll(sideNav, iconText, mask);
+					removeAll();
 				})
 
 				// set active to false on link click;
@@ -43,52 +34,54 @@ angular.module('NavCtrl',[])
 					scope.active = false;
 				})
 				mask.on('click',function(){
-					removeAll(sideNav, iconText, mask);
+					removeAll();
 				})
 			})
 
 				// NOT Touch Device Check 
 				if($(window).width() >= 768 && window.navigator.maxTouchPoints <= 0){
-
 					navBtn.on('mouseenter',function(){
 						var sideNav = elem.find('#sideNav');
-						var iconText = $('#sideNav .iconText');
-						var mask = $('.mask-overlay');
-						sideNav.addClass('showSideNavD');
-						mask.addClass('show');
-						body.css('overflow', 'hidden');
+						showAll('showSideNavD')
+						console.log('showD')
 
 						sideNav.on('mouseenter',function(){
-							mask.addClass('show');
-							iconText.addClass('showIconText');
-							sideNav.addClass('showSideNavM');
-							body.css('overflow', 'hidden');
+							showAll('showSideNavM')
 						});
 
 						sideNav.on('mouseleave',function(){
-							removeAll(sideNav, iconText, mask);
-							var modal = $('.baseModal').hasClass('show');
-							if(modal){
-								$('body').css('overflow', 'hidden');
-							}
+							removeAll();
 						});
 					});
-
 					navBtn.on('mouseleave',function(){
-						body.css('overflow', 'initial');
-						var sideNav = elem.find('#sideNav');
-						sideNav.removeClass('showSideNavD');
-						mask.removeClass('show');
+						removeAll();
 					});
+
 				}
 
-			var removeAll = function(sideNav, iconText, mask){
-				body.css('overflow', 'initial'); 
-				mask.removeClass('show');
-				sideNav.removeClass('showSideNavM showSideNavD');
-				iconText.removeClass('showIconText');
-				scope.active = false;
-			}
+				function showAll(sizeClass){
+					var sideNav = elem.find('#sideNav');
+					var iconText = $('#sideNav .iconText');
+
+					if(!scope.active){
+						mask.addClass('show');
+						sideNav.addClass(sizeClass);
+						scope.active = true;
+					}
+					if(sizeClass !== 'showSideNavD'){
+						iconText.addClass('showIconText');
+					}
+				};
+
+				function removeAll(){
+					var sideNav = elem.find('#sideNav');
+					var iconText = $('#sideNav .iconText');
+
+					mask.removeClass('show');
+					sideNav.removeClass('showSideNavM showSideNavD');
+					iconText.removeClass('showIconText');
+					scope.active = false;
+				};
 		},
 		templateUrl: 'views/nav/nav.html'
 	} 
@@ -116,11 +109,6 @@ angular.module('NavCtrl',[])
 				$('.mask-overlay').removeClass('show'); // hide the mask
 				sideNav.removeClass('showSideNavM showSideNavD');
 				iconText.removeClass('showIconText');
-				$('body').css('overflow', "initial");
-				
-				if(coffeeLink){
-					$('body').css('overflow', 'hidden');
-				};
 			};
 		},
 		templateUrl: 'views/nav/sideNav.html'
